@@ -5,21 +5,6 @@
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
 	
-	<!-- DB 연결 Pool 객체 생성 -->
-	<bean class="org.springframework.jdbc.datasource.DriverManagerDataSource" id="dataSource">
-		<property name="username" value="user02"></property>
-		<property name="password" value="user02"></property>
-		<property name="url" value="jdbc:oracle:thin:@127.0.0.1:1521:xe"></property>
-		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"></property>
-	</bean>
-	
-	<!-- Connection 객체와 XML 파일의 위치 설정 -->
-	<bean class="org.mybatis.spring.SqlSessionFactoryBean" id="sqlSessionFactoryBean">
-		<property name="dataSource" ref="dataSource"></property>
-		<property name="mapperLocations"  value="classpath:database/mappers/*Mapper.xml"></property>
-		<property name="configLocation" value="classpath:database/config/config.xml"></property>
-	</bean>
-	
 
 		
 </beans>
