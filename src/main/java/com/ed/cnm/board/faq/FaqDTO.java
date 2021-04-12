@@ -1,5 +1,7 @@
 package com.ed.cnm.board.faq;
 
-public class FaqDTO {
+import com.ed.cnm.board.BoardDTO;
+
+public class FaqDTO extends BoardDTO{
 
 }

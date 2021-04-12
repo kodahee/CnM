@@ -1,5 +1,7 @@
 package com.ed.cnm.location.busan;
 
-public class BusanTheaterDTO {
+import com.ed.cnm.location.LocationDTO;
+
+public class BusanTheaterDTO extends LocationDTO{
 
 }

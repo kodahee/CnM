@@ -1,5 +1,7 @@
 package com.ed.cnm.location.incheon;
 
-public class IncheonTheaterDTO {
+import com.ed.cnm.location.LocationDTO;
+
+public class IncheonTheaterDTO extends LocationDTO{
 
 }

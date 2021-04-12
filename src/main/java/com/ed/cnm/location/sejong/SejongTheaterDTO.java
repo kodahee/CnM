@@ -1,5 +1,7 @@
 package com.ed.cnm.location.sejong;
 
-public class SejongTheaterDTO {
+import com.ed.cnm.location.LocationDTO;
+
+public class SejongTheaterDTO extends LocationDTO{
 
 }

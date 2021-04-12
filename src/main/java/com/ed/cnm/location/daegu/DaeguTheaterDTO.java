@@ -1,5 +1,7 @@
 package com.ed.cnm.location.daegu;
 
-public class DaeguTheaterDTO {
+import com.ed.cnm.location.LocationDTO;
+
+public class DaeguTheaterDTO extends LocationDTO{
 
 }

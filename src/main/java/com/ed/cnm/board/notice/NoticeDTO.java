@@ -1,5 +1,7 @@
 package com.ed.cnm.board.notice;
 
-public class NoticeDTO {
+import com.ed.cnm.board.BoardDTO;
+
+public class NoticeDTO extends BoardDTO{
 
 }

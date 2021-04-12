@@ -1,5 +1,7 @@
 package com.ed.cnm.location.ulsan;
 
-public class UlsanTheaterDTO {
+import com.ed.cnm.location.LocationDTO;
+
+public class UlsanTheaterDTO extends LocationDTO{
 
 }

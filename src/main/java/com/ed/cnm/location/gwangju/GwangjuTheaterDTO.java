@@ -1,5 +1,7 @@
 package com.ed.cnm.location.gwangju;
 
-public class GwangjuTheaterDTO {
+import com.ed.cnm.location.LocationDTO;
+
+public class GwangjuTheaterDTO extends LocationDTO{
 
 }
