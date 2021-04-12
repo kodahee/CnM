@@ -7,8 +7,8 @@
 	
 	<!-- DB 연결 Pool 객체 생성 -->
 	<bean class="org.springframework.jdbc.datasource.DriverManagerDataSource" id="dataSource">
-		<property name="username" value="user01"></property>
-		<property name="password" value="user01"></property>
+		<property name="username" value="user02"></property>
+		<property name="password" value="user02"></property>
 		<property name="url" value="jdbc:oracle:thin:@127.0.0.1:1521:xe"></property>
 		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"></property>
 	</bean>
