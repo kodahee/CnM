@@ -1,0 +1,100 @@
+=============멤버용=======================
+MemberDTO
+	private String id;
+	private String nickName;
+	private String pw;
+	private String name;
+	private String phone;
+	private String email;
+	private String couponCheck;
+	private long point;
+	private String grade;
+	private String profilePic;
+
+BenefitDTO
+	private String grade;
+	private String coupon;
+	private double discount;
+
+=============게시판용=======================
+BoardDTO
+	private long num;
+	private String nickName;
+	private String title;
+	private String contents;
+	private Date regDate;
+	private long hit; 
+	private BoardFileDTO boardFileDTO;
+	
+		CommunityDTO
+			private String genre;
+		NoticeDTO
+		FaqDTO
+		QnaDTO
+			private long ref;
+			private long step;
+			private long depth;
+			private String onOff;
+
+BoardFileDTO 
+	private long fileNum;
+	private long num;
+	private String fileName;
+	private String originName;
+
+ReviewDTO
+	private long reviewNum;
+	private String nickName;
+	private double star;
+	private String contents;
+	private Date regDate;
+	private long goodNum;
+	private long badNum;
+	private long warning;
+
+CommentsDTO
+	private long commentsNum;
+	private long num;
+	private String nickName;
+	private String contents;
+	private Date regDate;
+	private long ref;
+	private long step;
+	private long depth;
+
+=============결제용=======================
+Booked DTO
+	private String bookedCode;
+	private String id;
+	private String movieTitle;
+	private String region;
+	private String room;
+	private long adult;
+	private long kid;
+	private String seatName;
+	private long price;
+	private String payment;
+	private String state;
+
+LocationDTO
+	private long theaterNum;
+	private String region;
+	private String address;
+
+LocationTheaterDTO
+	private long num;
+	private long theaterNum;
+	private String room;
+	private String totalSeat;
+	private String movieType;
+	private Date scheduleDate;
+	private Date scheduleTime;
+		SeoulTheaterDTO
+		BusanTheaterDTO
+		GwangjuTheaterDTO
+		IncheonTheaterDTO
+		DaeguTheaterDTO
+		DaejeonTheaterDTO
+		UlsanTheaterDTO
+		SejongTheaterDTO
+	
