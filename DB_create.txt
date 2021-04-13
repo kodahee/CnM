@@ -1,0 +1,346 @@
+-- 사용자
+CREATE TABLE member(
+	id varchar2(20) CONSTRAINT member_id_PK PRIMARY KEY,
+	pw varchar2(20),
+	nickName varchar2(20) CONSTRAINT member_nickName_UNIQUE UNIQUE,
+	name varchar2(20),
+	phone varchar2(50),
+	email varchar2(50),
+	coupon varchar2(50),
+	point NUMBER,
+	grade varchar2(20),
+	profilePic varchar2(400)
+);
+
+INSERT INTO MEMBER values('nick1', 'id1', 'pw1', 'name1', '01000000000', 'id1@naver.com', 'coupon1', 1111, 'grade1', 'pic1');
+INSERT INTO MEMBER values('nick2', 'id2', 'pw2', 'name2', '01000000002', 'id2@naver.com', 'coupon2', 1112, 'grade2', 'pic2');
+INSERT INTO MEMBER values('nick3', 'id3', 'pw3', 'name3', '01000000003', 'id3@naver.com', 'coupon3', 1113, 'grade3', 'pic3');
+
+SELECT * FROM MEMBER;
+
+DROP TABLE MEMBER;
+
+-- 커뮤니티
+ 
+-- 게시물
+CREATE TABLE community(
+	num NUMBER CONSTRAINT community_num_PK PRIMARY KEY,
+	nickName varchar2(20) CONSTRAINT community_nickName_FK references member(nickName) ON DELETE CASCADE,
+	genre varchar2(20),
+	title varchar2(100),
+	contents clob,
+	regDate DATE,
+	hit NUMBER
+);
+
+DROP TABLE COMMUNITY;
+
+CREATE SEQUENCE community_seq;
+DROP SEQUENCE community_seq;
+
+INSERT INTO COMMUNITY values(community_seq.nextval, 'nick1', 'genre1', 'title1', 'contents1', sysdate, 0);
+INSERT INTO COMMUNITY values(community_seq.nextval, 'nick1', 'genre2', 'title2', 'contents2', sysdate, 0);
+INSERT INTO COMMUNITY values(community_seq.nextval, 'nick2', 'genre1', 'title3', 'contents3', sysdate, 0);
+
+SELECT * FROM COMMUNITY;
+
+-- 게시글 파일
+CREATE TABLE communityFiles(
+	fileNum NUMBER CONSTRAINT CF_fileNum_PK PRIMARY KEY,
+	num NUMBER CONSTRAINT CF_num_FK REFERENCES community(num) ON DELETE CASCADE,
+	fileName varchar2(400),
+	originName varchar2(400)
+);
+
+DROP TABLE COMMUNITYFILES;
+
+CREATE SEQUENCE fileNum_seq;
+DROP SEQUENCE fileNum_seq;
+
+INSERT INTO COMMUNITYFILES values(fileNum_seq.nextval, 1, 'fileName1', 'originName1');
+INSERT INTO COMMUNITYFILES values(fileNum_seq.nextval, 2, 'fileName2', 'originName2');
+INSERT INTO COMMUNITYFILES values(fileNum_seq.nextval, 3, 'fileName3', 'originName3');
+
+SELECT * FROM communityFiles;
+
+-- 댓글
+CREATE TABLE comments(
+	commentsNum NUMBER CONSTRAINT comments_CN_PK PRIMARY KEY,
+	num NUMBER CONSTRAINT comments_num_FK REFERENCES community(num) ON DELETE CASCADE,
+	nickName CONSTRAINT comments_nickName_FK REFERENCES member(nickName) ON DELETE CASCADE,
+	contents clob,
+	regDate DATE,
+	REF NUMBER,
+	step NUMBER,
+	DEPTH NUMBER
+);
+
+DROP TABLE COMMENTS;
+
+CREATE SEQUENCE comments_seq;
+DROP SEQUENCE comments_seq;
+
+INSERT INTO comments values(comments_seq.nextval, 1, 'nick1', 'contents1', sysdate, 0, 0, 0);
+
+-- 원본글
+INSERT INTO COMMENTS values(qna_seq.nextval, 1, 'nick1', 'contents1', sysdate, qna_seq.currval, 0, 0);
+INSERT INTO COMMENTS values(qna_seq.nextval, 1, 'nick2', 'contents2', sysdate, qna_seq.currval, 0, 0);
+
+-- 답글
+INSERT INTO COMMENTS values(qna_seq.nextval, 1, 'nick1_1', 'contents1_1', sysdate, 2, 1, 1);
+INSERT INTO COMMENTS values(qna_seq.nextval, 1, 'nick1_2', 'contents1_2', sysdate, 2, 1, 1);
+
+INSERT INTO COMMENTS ts values(qna_seq.nextval, 'qt1_2_1', 'qn1_2_1', 'qc1_2_1', sysdate, 2, 2, 2);
+
+UPDATE COMMENTS SET STEP = STEP + 1 WHERE REF = 2 AND step > 0;
+UPDATE COMMENTS SET STEP = STEP + 1 WHERE REF = 2 AND step > 1;
+
+
+-- 고객센터
+
+-- 공지사항
+CREATE TABLE notice(
+	num NUMBER CONSTRAINT notice_num_PK PRIMARY KEY,
+	nickName varchar2(20) CONSTRAINT notice_nickName_FK REFERENCES MEMBER(nickName),
+	title varchar2(100),
+	contents clob,
+	regDate DATE,
+	hit NUMBER
+);
+
+DROP TABLE notice;
+
+CREATE SEQUENCE notice_seq;
+DROP SEQUENCE notice_seq;
+
+INSERT INTO notice values(notice_seq.nextval, 'nick1', 't1', 'c1', sysdate);
+INSERT INTO notice values(notice_seq.nextval, 'nick2', 't2', 'c2', sysdate);
+INSERT INTO notice values(notice_seq.nextval, 'nick3', 't3', 'c3', sysdate);
+
+-- 공지사항 파일
+CREATE TABLE noticeFiles(
+	fileNum NUMBER CONSTRAINT NF_fileNum_PK PRIMARY KEY,
+	num NUMBER CONSTRAINT NF_num_FK REFERENCES notice(num) ON DELETE CASCADE,
+	fileName varchar2(400),
+	originName varchar2(400)
+);
+
+DROP TABLE NOTICEFILES;
+
+-- 자주하는질문
+CREATE TABLE faq(
+	num NUMBER CONSTRAINT faq_num_PK PRIMARY KEY,
+	nickName varchar2(20) CONSTRAINT faq_nickName_FK REFERENCES MEMBER(nickName),
+	title varchar2(100),
+	contents clob,
+	regDate DATE,
+	hit NUMBER
+);
+
+DROP TABLE faq;
+
+CREATE SEQUENCE faq_seq;
+DROP SEQUENCE faq_seq;
+
+INSERT INTO faq values(faq_seq.nextval, 'nick1', 't1', 'c1', sysdate);
+INSERT INTO faq values(faq_seq.nextval, 'nick2', 't2', 'c2', sysdate);
+INSERT INTO faq values(faq_seq.nextval, 'nick3', 't3', 'c3', sysdate);
+
+-- 자주하는 질문 파일
+CREATE TABLE faqFiles(
+	fileNum NUMBER CONSTRAINT FF_fileNum_PK PRIMARY KEY,
+	num NUMBER CONSTRAINT FF_num_FK REFERENCES faq(num) ON DELETE CASCADE,
+	fileName varchar2(400),
+	originName varchar2(400)
+);
+
+-- QnA
+CREATE TABLE qna (
+	num NUMBER CONSTRAINT qna_num_PK PRIMARY KEY,
+	id varchar2(20) CONSTRAINT qna_id_FK REFERENCES MEMBER(id) ON DELETE CASCADE,
+	category varchar2(20),
+	title varchar2(100),
+	contents clob,
+	regDate DATE,
+	hit NUMBER, 
+	REF NUMBER,
+	step NUMBER,
+	DEPTH NUMBER,
+	onOff varchar2(20)
+);
+
+DROP TABLE qna;
+
+CREATE SEQUENCE qna_seq;
+DROP SEQUENCE qna_seq;
+
+SELECT * FROM qna ORDER BY REF DESC, step ASC;
+
+-- 원본글
+INSERT INTO QNA values(qna_seq.nextval, 'nick1', 'qt1', 'qc1', sysdate, 0, qna_seq.currval, 0, 0, 'Y');
+INSERT INTO QNA values(qna_seq.nextval, 'nick2', 'qt2', 'qc2', sysdate, 0, qna_seq.currval, 0, 0, 'Y');
+
+
+-- 답글
+INSERT INTO QNA values(qna_seq.nextval, 'nick1_1', 'qt1_1', 'qc1_1', sysdate, 0, 2, 1, 1, 'Y');
+INSERT INTO QNA values(qna_seq.nextval, 'nick1_2', 'qt1_2', 'qc1_2', sysdate, 0, 2, 1, 1, 'Y');
+
+INSERT INTO QNA values(qna_seq.nextval, 'nick2_1', 'qt2_1', 'qc2_1', sysdate, 0, 2, 2, 2, 'Y');
+
+UPDATE QNA SET STEP = STEP + 1 WHERE REF = 2 AND step > 0;
+UPDATE QNA SET STEP = STEP + 1 WHERE REF = 2 AND step > 1;
+
+-- qna 파일
+CREATE TABLE qnaFiles(
+	fileNum NUMBER CONSTRAINT QF_fileNum_PK PRIMARY KEY,
+	num NUMBER CONSTRAINT QF_num_FK REFERENCES qna(num) ON DELETE CASCADE,
+	fileName varchar2(400),
+	originName varchar2(400)
+);
+
+
+-- 평점(리뷰)
+CREATE TABLE review(
+	reviewNum NUMBER CONSTRAINT review_reviewNum_PK PRIMARY KEY,
+	id varchar2(20) CONSTRAINT review_id_FK REFERENCES member(id) ON DELETE CASCADE,
+	nickName varchar2(20) CONSTRAINT review_nickName_FK REFERENCES member(nickName),
+	movieTitle varchar2(20),
+	star NUMBER(3, 1),
+	contents clob,
+	regDate DATE,
+	goodNum NUMBER, 
+	badNum NUMBER,
+	warning NUMBER
+);
+
+
+
+-- 지점
+CREATE TABLE location(
+	theaterNum NUMBER CONSTRAINT location_TN_PK PRIMARY KEY,
+	region varchar2(20),
+	address varchar2(50)
+);
+
+
+-- 극장정보
+
+-- 서울
+CREATE TABLE Seoul(
+	num NUMBER CONSTRAINT Seoul_num_PK PRIMARY KEY,
+	theaterNum NUMBER CONSTRAINT Seoul_TN_FK REFERENCES location(theaterNum) ON DELETE CASCADE,
+	room varchar2(20),
+	totalSeat NUMBER,
+	movieType varchar2(20),
+	scheduleDate DATE,
+	scheduleTime DATE
+);
+
+-- 부산
+CREATE TABLE Busan(
+	num NUMBER CONSTRAINT Busan_num_PK PRIMARY KEY,
+	theaterNum NUMBER CONSTRAINT Busan_TN_FK REFERENCES location(theaterNum) ON DELETE CASCADE,
+	room varchar2(20),
+	totalSeat NUMBER,
+	movieType varchar2(20),
+	scheduleDate DATE,
+	scheduleTime DATE
+);
+
+-- 대구
+CREATE TABLE Daegu(
+	num NUMBER CONSTRAINT Daegu_num_PK PRIMARY KEY,
+	theaterNum NUMBER CONSTRAINT Daegu_TN_FK REFERENCES location(theaterNum) ON DELETE CASCADE,
+	room varchar2(20),
+	totalSeat NUMBER,
+	movieType varchar2(20),
+	scheduleDate DATE,
+	scheduleTime DATE
+);
+
+-- 대전
+CREATE TABLE Daejeon(
+	num NUMBER CONSTRAINT Daejeon_num_PK PRIMARY KEY,
+	theaterNum NUMBER CONSTRAINT Daejeon_TN_FK REFERENCES location(theaterNum) ON DELETE CASCADE,
+	room varchar2(20),
+	totalSeat NUMBER,
+	movieType varchar2(20),
+	scheduleDate DATE,
+	scheduleTime DATE
+);
+
+-- 광주
+CREATE TABLE Gwangju(
+	num NUMBER CONSTRAINT Gwangju_num_PK PRIMARY KEY,
+	theaterNum NUMBER CONSTRAINT Gwangju_TN_FK REFERENCES location(theaterNum) ON DELETE CASCADE,
+	room varchar2(20),
+	totalSeat NUMBER,
+	movieType varchar2(20),
+	scheduleDate DATE,
+	scheduleTime DATE
+);
+
+-- 인천
+CREATE TABLE Incheon(
+	num NUMBER CONSTRAINT Incheon_num_PK PRIMARY KEY,
+	theaterNum NUMBER CONSTRAINT Incheon_TN_FK REFERENCES location(theaterNum) ON DELETE CASCADE,
+	room varchar2(20),
+	totalSeat NUMBER,
+	movieType varchar2(20),
+	scheduleDate DATE,
+	scheduleTime DATE
+);
+
+-- 세종
+CREATE TABLE Sejong(
+	num NUMBER CONSTRAINT Sejong_num_PK PRIMARY KEY,
+	theaterNum NUMBER CONSTRAINT Sejong_TN_FK REFERENCES location(theaterNum) ON DELETE CASCADE,
+	room varchar2(20),
+	totalSeat NUMBER,
+	movieType varchar2(20),
+	scheduleDate DATE,
+	scheduleTime DATE
+);
+
+-- 울산
+CREATE TABLE Ulsan(
+	num NUMBER CONSTRAINT Ulsan_num_PK PRIMARY KEY,
+	theaterNum NUMBER CONSTRAINT Ulsan_TN_FK REFERENCES location(theaterNum) ON DELETE CASCADE,
+	room varchar2(20),
+	totalSeat NUMBER,
+	movieType varchar2(20),
+	scheduleDate DATE,
+	scheduleTime DATE
+);
+
+
+
+DROP TABLE review;
+
+DROP TABLE location;
+DROP TABLE SEOUL;
+DROP TABLE BUSAN;
+DROP TABLE DAEGU;
+DROP TABLE DAEJEON;
+DROP TABLE gwangju;
+DROP TABLE INCHEON;
+DROP TABLE SEJONG;
+DROP TABLE ULSAN;
+
+
+DROP TABLE schedule;
+
+-- 예매 내역
+CREATE TABLE booked(
+	bookedCode varchar2(50) CONSTRAINT booked_BC_PK PRIMARY KEY,
+	id varchar2(20) CONSTRAINT booked_id_FK REFERENCES member(id) ON DELETE CASCADE,
+	movieTitle varchar2(20),
+	region varchar2(20),
+	room varchar2(20),
+	adult NUMBER,
+	kid NUMBER,
+	seatName varchar2(20),
+	price NUMBER,
+	payment varchar2(20),
+	state varchar2(20)
+);
