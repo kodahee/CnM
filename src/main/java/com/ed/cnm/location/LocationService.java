@@ -4,14 +4,14 @@ import java.util.List;
 
 public interface LocationService {
 	//==List==
-	public List<LocationDTO> getList() throws Exception; 
+	public List<LocationTheaterDTO> getList() throws Exception; 
 	//==Select==
-	public LocationDTO getSelect(LocationDTO locationDTO)throws Exception;
+	public LocationTheaterDTO getSelect(LocationTheaterDTO locationDTO)throws Exception;
 	//==Insert==
-	public int setInsert(LocationDTO locationDTO)throws Exception;
+	public int setInsert(LocationTheaterDTO locationDTO)throws Exception;
 	//==Delete== 
-	public int setDelete(LocationDTO locationDTO)throws Exception;
+	public int setDelete(LocationTheaterDTO locationDTO)throws Exception;
 	//==Update==
-	public int setUpdate(LocationDTO locationDTO)throws Exception;
+	public int setUpdate(LocationTheaterDTO locationDTO)throws Exception;
 
 }
