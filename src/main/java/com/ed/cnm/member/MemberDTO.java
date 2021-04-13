@@ -7,7 +7,7 @@ public class MemberDTO {
 	private String name;
 	private String phone;
 	private String email;
-	private String coupon;
+	private String couponCheck;
 	private long point;
 	private String grade;
 	private String profilePic;
