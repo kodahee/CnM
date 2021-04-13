@@ -151,3 +151,5 @@ $RECYCLE.BIN/
 
 # End of https://www.gitignore.io/api/git,java,maven,windows,eclipse
 target/m2e-wtp/web-resources/META-INF/maven/com.ed/cnm/pom.properties
+target/m2e-wtp/web-resources/META-INF/maven/com.ed/cnm/pom.properties
+target/m2e-wtp/web-resources/META-INF/MANIFEST.MF
