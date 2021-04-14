@@ -22,6 +22,11 @@ public class MemberDAO {
 		return sqlSession.delete(NAMESPACE+"memberDelete", memberDTO);
 	}
 	
+	// 아이디 중복 확인
+	public MemberDTO checkID(MemberDTO memberDTO) throws Exception {
+		return sqlSession.selectOne(NAMESPACE+"checkID", memberDTO);
+	}
+	
 	// 회원가입
 	public int memberJoin(MemberDTO memberDTO) throws Exception {
 		return sqlSession.insert(NAMESPACE+"memberJoin", memberDTO);

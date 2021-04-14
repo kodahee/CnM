@@ -33,7 +33,13 @@ $("#pw").blur(function() {
 });
 
 // pw 확인
-
+$("#pwCheck").blur(function() {
+	if($("#pw").val() == $("#pwCheck").val()){
+		$("#pwCheckResult").text("비밀번호가 일치합니다.");
+	} else {
+		$("#pwCheckResult").text("비밀번호가 일치하지 않습니다.");
+	}
+});
 
 
 

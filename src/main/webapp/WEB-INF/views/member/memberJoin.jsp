@@ -20,7 +20,7 @@
 				<label for="id">ID</label> 
 				<input type="text" class="form-control"	id="id" name="id">
 				<button type="button" class="btn btn-secondary" id="idCheck">중복검사</button>
-				<h6 id="idResult"></h6>
+				<h6 id="idResult" name="idCheck"></h6>
 				<!-- ID 는 6글자 이상 -->
 			</div>
 			<div class="form-group">
@@ -30,8 +30,9 @@
 				<!-- PW는 8글자 이상 -->
 			</div>
 			<div class="form-group">
-				<label for="pw">Password Check</label> <input type="password"
-					class="form-control" id="pwCheck" name="pwCheck">
+				<label for="pw">Password Check</label> 
+				<input type="password" class="form-control" id="pwCheck" name="pwCheck">
+				<h6 id="pwCheckResult"></h6>
 				<!-- PW 두개는 일치 -->	
 			</div>			
 			<div class="form-group">

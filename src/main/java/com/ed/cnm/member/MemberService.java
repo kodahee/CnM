@@ -9,19 +9,28 @@ public class MemberService {
 	@Autowired
 	private MemberDAO memberDAO;
 
-	public int memberUpdate(MemberDTO memberDTO)throws Exception{
+	// 회원정보수정
+	public int memberUpdate(MemberDTO memberDTO) throws Exception{
 		return memberDAO.memberUpdate(memberDTO);
 	}
 	
-	public int memberDelete(MemberDTO memberDTO)throws Exception{
+	// 회원탈퇴
+	public int memberDelete(MemberDTO memberDTO) throws Exception{
 		return memberDAO.memberDelete(memberDTO);
 	}
 	
-	public MemberDTO memberLogin(MemberDTO memberDTO)throws Exception{
+	// 아이디 중복 확인
+	public MemberDTO checkID(MemberDTO memberDTO) throws Exception {
+		return memberDAO.checkID(memberDTO);
+	}
+	
+	// 회원가입
+	public MemberDTO memberLogin(MemberDTO memberDTO) throws Exception{
 		return memberDAO.memberLogin(memberDTO);
 	}
 	
-	public int memberJoin(MemberDTO memberDTO)throws Exception{
+	// 로그인
+	public int memberJoin(MemberDTO memberDTO) throws Exception{
 		int result = memberDAO.memberJoin(memberDTO);
 		return result;
 	}

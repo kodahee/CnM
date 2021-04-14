@@ -41,6 +41,16 @@ public class MemberController {
 		return "common/commonResult";
 	}
 	
+	// 아이디 중복 확인
+	public void checkID(MemberDTO memberDTO, Model model) throws Exception {
+		memberDTO = memberService.checkID(memberDTO);
+		if(memberDTO != null) {
+			model.addAttribute("idCheck", "N");
+		} else {
+			model.addAttribute("idCheck", "Y");
+		}
+	}
+	
 	//------------- 로그인 -------------
 	@GetMapping("memberLogin")
 	public void memberLogin() throws Exception{}
