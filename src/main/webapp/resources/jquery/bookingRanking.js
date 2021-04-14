@@ -14,8 +14,13 @@ $("#btn").click(function(){
 			success:function(result){
 			
 				console.log(result);//데이터를 받아왔고,,, 이걸 출력하는데,,벨류로 줘서 다시 컨트롤러로 뺏어올까,,? 가능? 
-				$("#result").val(JSON.stringify(result));
-				console.log(result.boxOfficeResult.dailyBoxOfficeList[0]);
+				let result2=result.boxOfficeResult.dailyBoxOfficeList;
+				for(index in result2){
+					let result3=result2[index];
+					$('#result').val(JSON.stringify(result3));
+				};
+				//$("#result").val(JSON.stringify(result.boxOfficeResult.dailyBoxOfficeList));//가능은한데,, 
+				console.log(result.boxOfficeResult.dailyBoxOfficeList);
 				
 			}
 		})//ajax

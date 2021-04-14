@@ -15,7 +15,7 @@
 
 <button id="btn">button</button>
 <h3 id="test"> </h3>
-	<form action="./ranking/bookingRanking" >
+	<form action="./bookingRanking" >
 	<input id="result" name="result">
 	<button>button</button>
 	</form>
