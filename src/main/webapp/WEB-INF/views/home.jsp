@@ -17,24 +17,6 @@
 <button id="btn">button</button>
 <h3 id="test"> </h3>
 
-<script type="text/javascript">
-	$("#btn").click(function(){
-		$.ajax({
-			type:"GET",
-			url:"http://www.kobis.or.kr/kobisopenapi/webservice/rest/people/searchPeopleList.json",
-			data:{
-				key:"88c812405e947836cbbee3be8daa5603",
-				peopleNm:"김희애"
-			},
-			success:function(result){
-			
-				console.log(result);
-				alert('hihi')	
-			}
-		})//ajax
-	});
-	
-
-</script>
+<script type="text/javascript" src="./resources/jquery/moviesApi.js"> </script>
 </body>
 </html>

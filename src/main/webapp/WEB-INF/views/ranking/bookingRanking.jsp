@@ -11,5 +11,15 @@
 <body>
 <c:import url="../template/header.jsp"></c:import>
 
+	<c:forEach items="">
+	
+	</c:forEach>
+
+
+
+<button id="btn">button</button>
+<h3 id="test"> </h3>
+
+<script type="text/javascript" src="./resources/jquery/bookingRanking.js"> </script>
 </body>
 </html>
