@@ -33,7 +33,7 @@ public class MemberController {
 		
 		if(result>0) {
 			message ="회원 가입 성공";
-			path="../";
+			path="./memberJoinComplete";
 		}
 		
 		model.addAttribute("msg", message);
