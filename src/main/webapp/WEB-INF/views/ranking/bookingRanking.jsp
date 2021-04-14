@@ -15,11 +15,11 @@
 
 <button id="btn">button</button>
 <h3 id="test"> </h3>
-	<form action="./bookingRanking" >
-	<input id="result" name="result">
-	<button>button</button>
-	</form>
-	
+	<form action="./moviesApi" method="post">
+		<input id="result" name="result">
+		<button>button</button>
+	</form> 
+	 
 	
 
 <script type="text/javascript" src="../resources/jquery/bookingRanking.js"> </script>
