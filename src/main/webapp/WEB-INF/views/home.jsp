@@ -9,9 +9,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-<button id="btn3">btn3</button>
-<h3 id="krw"></h3>
-<h3 id = "usd"></h3>
+<c:import url="./template/header.jsp"></c:import>
+	
+	
+
 
 <button id="btn">button</button>
 <h3 id="test"> </h3>
@@ -33,24 +34,7 @@
 		})//ajax
 	});
 	
-	$("#btn3").click(function(){
-		let money=$("#exchange").val();
-		$.ajax({
-			type:"GET",
-			url:"https://api.manana.kr/exchange/price.json",
-			data:{
-				base:"KRW",
-				price: money,
-				code:"KRW,USD,JPY"
-			},
-			success: function(data){
-				console.log(data)
-				$("#krw").html(data.KRW);
-				$("#usd").html(data.USD)
-			}
-		})
-				
-	});
+
 </script>
 </body>
 </html>
