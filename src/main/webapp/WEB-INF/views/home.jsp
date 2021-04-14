@@ -20,12 +20,13 @@
 	$("#btn").click(function(){
 		$.ajax({
 			type:"GET",
-			uri:"http://www.kobis.or.kr/kobisopenapi/webservice/rest/people/searchPeopleList.json",
+			url:"http://www.kobis.or.kr/kobisopenapi/webservice/rest/people/searchPeopleList.json",
 			data:{
 				key:"88c812405e947836cbbee3be8daa5603",
 				peopleNm:"김희애"
 			},
 			success:function(result){
+			
 				console.log(result);
 				alert('hihi')	
 			}
