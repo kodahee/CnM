@@ -17,11 +17,33 @@ public class MemberController {
 	@Autowired
 	private MemberService memberService;
 	
+	//------------- 회원가입 -------------
+	@GetMapping("memberJoinCheck")
+	public void memberJoinCheck()throws Exception{}
+	
+	@GetMapping("memberJoin")
+	public void memberJoin()throws Exception{}
+	
+	@PostMapping("memberJoin")
+	public String memberJoin(MemberDTO memberDTO, HttpSession session, Model model)throws Exception{
+		int result = memberService.memberJoin(memberDTO);
+		
+		String message = "회원가입 실패";
+		String path="./memberJoin";
+		
+		if(result>0) {
+			message ="회원 가입 성공";
+			path="../";
+		}
+		
+		model.addAttribute("msg", message);
+		model.addAttribute("path", path);
+		return "common/commonResult";
+	}
+	
 	//------------- 로그인 -------------
 	@GetMapping("memberLogin")
-	public void memberLogin() throws Exception{
-		
-	}
+	public void memberLogin() throws Exception{}
 	
 	@PostMapping("memberLogin")
 	public String memberLogin(MemberDTO memberDTO, HttpSession session) throws Exception{
