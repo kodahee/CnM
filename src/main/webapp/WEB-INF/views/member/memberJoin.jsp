@@ -20,7 +20,7 @@
 				<label for="id">ID</label> 
 				<input type="text" class="form-control"	id="id" name="id">
 				<button type="button" class="btn btn-secondary" id="idCheck">중복검사</button>
-				<h6 id="idResult" name="idCheck"></h6>
+				<h6 id="idResult"></h6>
 				<!-- ID 는 6글자 이상 -->
 			</div>
 			<div class="form-group">
