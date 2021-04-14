@@ -5,21 +5,23 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<c:import url="../template/bootStrp.jsp"></c:import>
-<title>Insert title here</title>
+<c:import url="../template/bootStrap.jsp"></c:import>
+<title>랭킹</title>
 </head>
 <body>
 <c:import url="../template/header.jsp"></c:import>
-
-	<c:forEach items="">
-	
-	</c:forEach>
 
 
 
 <button id="btn">button</button>
 <h3 id="test"> </h3>
+	<form action="./ranking/bookingRanking" >
+	<input id="result" name="result">
+	<button>button</button>
+	</form>
+	
+	
 
-<script type="text/javascript" src="./resources/jquery/bookingRanking.js"> </script>
+<script type="text/javascript" src="../resources/jquery/bookingRanking.js"> </script>
 </body>
 </html>

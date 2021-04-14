@@ -1,19 +1,34 @@
 /**
  * 
  */
-
+//랭크
 $("#btn").click(function(){
 		$.ajax({
 			type:"GET",
 			url:"http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json",
 			data:{
 				key:"88c812405e947836cbbee3be8daa5603",
-				targetDt:"20210413"
+				targetDt:"20210413",//캘린더에서 하루 뺀 날자 받아와야할듯 
+				itemPerPage:20
 			},
 			success:function(result){
 			
-				console.log(result);
-				alert('hihi')	
+				console.log(result);//데이터를 받아왔고,,, 이걸 출력하는데,,벨류로 줘서 다시 컨트롤러로 뺏어올까,,? 가능? 
+				$("#result").val(JSON.stringify(result));
+				console.log(result.boxOfficeResult.dailyBoxOfficeList[0]);
+				
 			}
 		})//ajax
 });
+
+//주간
+$.ajax({
+	type:"GET",
+	url:"http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchWeeklyBoxOfficeList.json",
+	data:{
+				key:"88c812405e947836cbbee3be8daa5603"
+	},
+	success:function(){
+		
+	}
+})

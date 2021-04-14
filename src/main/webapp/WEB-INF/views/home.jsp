@@ -17,6 +17,6 @@
 <button id="btn">button</button>
 <h3 id="test"> </h3>
 
-<script type="text/javascript" src="./resources/jquery/moviesApi.js"> </script>
+<script type="text/javascript" src="./resources/jquery/bookingRanking.js"> </script>
 </body>
 </html>
