@@ -5,6 +5,12 @@
     
 <mapper namespace="com.ed.cnm.member.MemberDAO">
 
+	<!-- 회원가입 -->
+	<insert id="memberJoin" parameterType="MemberDTO">
+		INSERT INTO MEMBER values(#{id}, #{pw}, #{nickName}, #{name}, #{phone}, #{email}, #{couponCheck}, #{point}, #{grade}, #{profilePic})
+	</insert>
+
+	<!-- 로그인 -->
 	<select id="memberLogin" parameterType="MemberDTO" resultType="MemberDTO">
 		SELECT * FROM MEMBER WHERE id=#{id} and pw=#{pw}
 	</select>
