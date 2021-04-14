@@ -12,8 +12,20 @@ public class MemberDAOTest extends MyAbstractTest {
 	@Autowired
 	private MemberDAO memberDAO;
 	
+	// 회원탈퇴
 	@Test
-	public void memberJoint() throws Exception {
+	public void memberDelete() throws Exception {
+		MemberDTO memberDTO = new MemberDTO();
+		memberDTO.setId("id4");
+		
+		int result = memberDAO.memberDelete(memberDTO);
+		
+		assertNotEquals(0, result);
+	}
+	
+	// 회원가입
+	//@Test
+	public void memberJoin() throws Exception {
 		MemberDTO memberDTO = new MemberDTO();
 		memberDTO.setId("id4");
 		memberDTO.setPw("pw4");
@@ -31,7 +43,8 @@ public class MemberDAOTest extends MyAbstractTest {
 		assertNotEquals(0, result);
 	}
 
-	
+	// 로그인
+//	@Test
 	public void memberLogin() throws Exception {
 		MemberDTO memberDTO = new MemberDTO();
 		memberDTO.setId("id1");

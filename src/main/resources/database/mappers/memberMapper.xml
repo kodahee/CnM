@@ -5,6 +5,11 @@
     
 <mapper namespace="com.ed.cnm.member.MemberDAO">
 
+	<!-- 회원탈퇴 -->
+	<delete id="memberDelete" parameterType="MemberDTO">
+		DELETE MEMBER WHERE id=#{id}
+	</delete>
+
 	<!-- 회원가입 -->
 	<insert id="memberJoin" parameterType="MemberDTO">
 		INSERT INTO MEMBER values(#{id}, #{pw}, #{nickName}, #{name}, #{phone}, #{email}, #{couponCheck}, #{point}, #{grade}, #{profilePic})

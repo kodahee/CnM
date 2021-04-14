@@ -12,6 +12,11 @@ public class MemberDAO {
 	
 	private final String NAMESPACE = "com.ed.cnm.member.MemberDAO.";
 	
+	// 회원탈퇴
+	public int memberDelete(MemberDTO memberDTO) throws Exception {
+		return sqlSession.delete(NAMESPACE+"memberDelete", memberDTO);
+	}
+	
 	// 회원가입
 	public int memberJoin(MemberDTO memberDTO) throws Exception {
 		return sqlSession.insert(NAMESPACE+"memberJoin", memberDTO);
