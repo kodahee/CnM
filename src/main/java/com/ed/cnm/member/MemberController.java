@@ -106,13 +106,17 @@ public class MemberController {
 	public void memberJoinComplete() throws Exception {}
 
 	// 아이디 중복 확인
-	public void checkID(MemberDTO memberDTO, Model model) throws Exception {
+	@PostMapping("memberIdCheck")
+	public String checkID(MemberDTO memberDTO, HttpServletRequest request) throws Exception {
+		System.out.println(request.getParameter("id"));
+		memberDTO.setId(request.getParameter("id"));
 		memberDTO = memberService.checkID(memberDTO);
-		if(memberDTO != null) {
-			model.addAttribute("idCheck", "N");
-		} else {
-			model.addAttribute("idCheck", "Y");
+		String idCheck = "N";
+		if(memberDTO == null) {
+			idCheck = "Y";
 		}
+		System.out.println(idCheck);
+		return idCheck;
 	}
 
 	//------------- 로그인 -------------

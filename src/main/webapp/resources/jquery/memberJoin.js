@@ -13,17 +13,31 @@ $("#id").blur(function() {
 	console.log(id);
 	
 	if(id < 6) {
-		$("#idResult").text("아이디는 6자리 이상이어야 합니다.");
+		$("#idResult1").text("아이디는 6자리 이상이어야 합니다.");
 		idResult = false;
 	} else {
-		$("#idResult").text("");
+		$("#idResult1").text("");
 		idResult = true;
 	}
 });
 
 // id 중복 확인
-$("#idCheck").click(function() {
-	
+$("#idCheck").on('click', function() {
+	console.log("click");
+	$.ajax({
+		type: 'POST',
+		url: './memberIdCheck',
+		data: {id:$("#id").val()},
+		success: function(data) {
+			console.log($.trim(data));
+			
+			if($.trim(data) == "Y") {
+				$("#idResult2").text("");
+			} else {
+				$("#idResult2").text("이미 존재하는 아이디 입니다.");
+			}
+		}
+	});
 	
 });
 
@@ -53,7 +67,7 @@ $("#pwCheck").blur(function() {
 });
 
 
-
+/*
 // email 인증
 $("#sendCode").click(function() {
 	if ($("#email").val() == "") {
@@ -61,15 +75,14 @@ $("#sendCode").click(function() {
 	} else {
 		$.ajax({
 			type : 'POST',
-			url : 'emailConfirm',
-			data : {email: email},
-			dataType :'json',
+			url : 'emailCheck',
+			data : {email: email}
 		});
 		alert("인증코드가 전송되었습니다.") 
 		isCertification=true; //추후 인증 여부를 알기위한 값
 	}
 });
-
+*/
 
 //--------------------------------------------------------------
 
