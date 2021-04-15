@@ -43,6 +43,7 @@ $("#btn").click(function(){
 
 				for(index in result2){
 					let result3=result2[index];
+					console.log(JSON.stringify(result3));
 					let test = '<input type="text" name="jsonString" value="'+JSON.stringify(result3)+'">';
 					$('#result').append(test);
 					
