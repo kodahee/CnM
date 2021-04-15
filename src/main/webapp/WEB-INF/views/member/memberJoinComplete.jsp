@@ -12,8 +12,10 @@
 
 	<c:import url="../template/header.jsp"></c:import>
 
-	<h1> ${member.id} 님 환영합니다.</h1>
+	<h1> ${member.name}님 환영합니다.</h1>
 	
+	<a href="../" role="button" class="btn btn-info">Home</a>
+	<a href="./memberMyPage" role="button" class="btn btn-info">My Page</a>
 
 </body>
 </html>

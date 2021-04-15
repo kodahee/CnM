@@ -38,8 +38,9 @@ public class MemberController {
 		if(result>0) {
 			message ="회원 가입 성공";
 			path="./memberJoinComplete";
-
-			model.addAttribute("member", memberDTO);
+			
+			System.out.println(memberDTO.getName());
+			session.setAttribute("member", memberDTO);
 		}
 		
 		model.addAttribute("msg", message);
