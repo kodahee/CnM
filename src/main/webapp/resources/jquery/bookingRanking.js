@@ -40,11 +40,7 @@ $("#btn").click(function(){
 				
 			//	console.log(result);//데이터를 받아왔고,,, 이걸 출력하는데,,벨류로 줘서 다시 컨트롤러에서 받기,,
 				let result2=result.boxOfficeResult.dailyBoxOfficeList;
-				
-				
-				$('#result').append('<input type="text"')
-	
-				//$('#result').val(result2);
+
 				for(index in result2){
 					let result3=result2[index];
 					//벨류에 넣고 
