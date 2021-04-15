@@ -2,7 +2,7 @@ package com.ed.cnm.ranking;
 
 import org.springframework.stereotype.Component;
 
-@Component
+
 public class RankingDTO {
 	private String rank;
 	private String movieNm;
