@@ -44,8 +44,12 @@ $("#btn").click(function(){
 				for(index in result2){
 					let result3=result2[index];
 					console.log(JSON.stringify(result3));
-					let test = '<input type="text" name="jsonString" value="'+JSON.stringify(result3)+'">';
-					$('#result').append(test);
+					console.log("rank:"     +result3.rank);
+					
+					
+					/*let test = '<input type="text" name="jsonString" >';
+					console.log(test)
+					$('#result').append(test);*/
 					
 				};
 				//$("#result").val(JSON.stringify(result.boxOfficeResult.dailyBoxOfficeList));//가능은한데,, 
