@@ -8,14 +8,6 @@ public class RankingDAO {
 	@Autowired
 	private RankingDTO rankingDTO;
 	
-	public void getRanking(String result)throws Exception{
-		
-		System.out.println("--DAO");
-		System.out.println(result);
-		rankingDTO.setDailyBoxOfficeList(result);
-		System.out.println(rankingDTO.getDailyBoxOfficeList()+"print");
-	
-		
-	
+
 	}
 }
