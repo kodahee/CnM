@@ -21,6 +21,15 @@ public class MemberController {
 	@GetMapping("memberMyPage")
 	public void memberMyPage() throws Exception {}
 	
+	//------------- 회원탈퇴 -------------
+	@GetMapping("memberDelete")
+	public String memberDelete(HttpSession session) throws Exception {
+		MemberDTO memberDTO =(MemberDTO)session.getAttribute("member");
+		int result = memberService.memberDelete(memberDTO);
+		session.invalidate();
+		return "redirect:../";
+	}
+	
 	//------------- 회원가입 -------------
 	@GetMapping("memberJoinCheck")
 	public void memberJoinCheck() throws Exception {}
