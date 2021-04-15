@@ -8,33 +8,21 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 
 
 @Controller
 @RequestMapping("/ranking/**")
 public class RankingController {
-	
-	@Autowired
-	private RankingService rankingService;
-	
 
-	@GetMapping("bookingRanking")
+	
+	@RequestMapping(value="bookingRanking", method={RequestMethod.GET , RequestMethod.POST})
 	public void getRanking()throws Exception{
-		System.out.println("--controller");
+		System.out.println("controller");
 		
 	}
 	
-	@PostMapping("bookingRanking")
-	public void getRanking(RankingDTO [] rankingDTO)throws Exception{
-		
-	System.out.println(rankingDTO[0].getRank());
-		
-		
-		
-		System.out.println("controller--");
-
-	}
 	
 	
 	

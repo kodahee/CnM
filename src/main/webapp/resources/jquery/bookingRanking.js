@@ -47,10 +47,12 @@ $("#btn").click(function(){
 					console.log("rank:"+result3.rank);
 					console.log("name:"+result3.movieNm);
 					//랭킹rank, 이름movieNm, 평점, 예매율, 개봉일openDt
-					$('#rank').val(result3.rank);
-					console.log(result3.rank)
-					$('#movieNm').val(result3.rank);
-					$('#result').append(whole.html());
+					
+					$('#rank').text(result3.rank);
+					$('#movieNm').text(result3.movieNm);
+					
+					console.log($('#whole').html())
+					$('#result').append($('#whole').html());
 					
 					/*let test = '<input type="text" name="jsonString" >';
 					console.log(test)
