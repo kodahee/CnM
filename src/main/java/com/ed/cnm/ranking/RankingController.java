@@ -26,9 +26,9 @@ public class RankingController {
 	}
 	
 	@PostMapping("bookingRanking")
-	public void getRanking(String [] rank, String [] movieNm/*RankingDTO [] rankingDTO*/)throws Exception{
+	public void getRanking(RankingDTO [] rankingDTO)throws Exception{
 		
-		System.out.println(rank[0]);
+	System.out.println(rankingDTO[0].getRank());
 		
 		
 		
