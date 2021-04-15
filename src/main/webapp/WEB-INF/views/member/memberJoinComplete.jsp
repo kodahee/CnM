@@ -13,6 +13,7 @@
 	<c:import url="../template/header.jsp"></c:import>
 
 	<h1> ${member.id} 님 환영합니다.</h1>
+	
 
 </body>
 </html>

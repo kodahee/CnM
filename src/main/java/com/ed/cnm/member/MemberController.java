@@ -17,15 +17,19 @@ public class MemberController {
 	@Autowired
 	private MemberService memberService;
 	
+	//------------- 마이페이지 -------------
+	@GetMapping("memberMyPage")
+	public void memberMyPage() throws Exception {}
+	
 	//------------- 회원가입 -------------
 	@GetMapping("memberJoinCheck")
-	public void memberJoinCheck()throws Exception{}
+	public void memberJoinCheck() throws Exception {}
 	
 	@GetMapping("memberJoin")
-	public void memberJoin()throws Exception{}
+	public void memberJoin() throws Exception {}
 	
 	@PostMapping("memberJoin")
-	public String memberJoin(MemberDTO memberDTO, HttpSession session, Model model)throws Exception{
+	public String memberJoin(MemberDTO memberDTO, HttpSession session, Model model) throws Exception {
 		int result = memberService.memberJoin(memberDTO);
 		
 		String message = "회원가입 실패";
@@ -34,12 +38,17 @@ public class MemberController {
 		if(result>0) {
 			message ="회원 가입 성공";
 			path="./memberJoinComplete";
+
+			model.addAttribute("member", memberDTO);
 		}
 		
 		model.addAttribute("msg", message);
 		model.addAttribute("path", path);
 		return "common/commonResult";
 	}
+	
+	@GetMapping("memberJoinComplete")
+	public void memberJoinComplete() throws Exception {}
 	
 	// 아이디 중복 확인
 	public void checkID(MemberDTO memberDTO, Model model) throws Exception {
@@ -56,7 +65,7 @@ public class MemberController {
 	public void memberLogin() throws Exception{}
 	
 	@PostMapping("memberLogin")
-	public String memberLogin(MemberDTO memberDTO, HttpSession session) throws Exception{
+	public String memberLogin(MemberDTO memberDTO, HttpSession session) throws Exception {
 		memberDTO = memberService.memberLogin(memberDTO);
 		System.out.println(memberDTO);
 		
@@ -67,7 +76,7 @@ public class MemberController {
 	
 	//------------- 로그아웃 -------------
 	@GetMapping("memberLogout")
-	public String memberLogout(HttpSession session)throws Exception{
+	public String memberLogout(HttpSession session) throws Exception {
 		session.invalidate();
 		return "redirect:../";
 	}

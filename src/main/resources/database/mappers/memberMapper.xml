@@ -5,6 +5,7 @@
     
 <mapper namespace="com.ed.cnm.member.MemberDAO">
 
+
 	<!-- 회원정보수정 -->
 	<update id="memberUpdate">
 		update member set pw=#{pw}, nickName=#{nickName}, name=#{name}, phone=#{phone}, email=#{email}, profilePic=#{profilePic}, couponCheck=#{couponCheck}, point=#{point}, grade=#{grade} where id=#{id}

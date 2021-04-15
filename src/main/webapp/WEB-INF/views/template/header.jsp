@@ -9,7 +9,6 @@
 		<!-- Links -->
 		<ul class="navbar-nav">
 			<c:if test="${empty member}">
-				<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/bankbook/bankbookList">Product</a></li>
 				<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/member/memberLogin">Login</a></li>
 				<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/member/memberJoinCheck">Join</a></li>
 			</c:if>
