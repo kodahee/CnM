@@ -15,12 +15,15 @@
 
 <button id="btn">button</button>
 <h3 id="test"> </h3>
-	<form action="./bookingRanking" method="post">
+	<form action="./bookingRanking" method="post" id="result" >
+		
 		<button>button1</button>
 	</form>
-		<div id="result" name="result">
-		
-		</div>
+	
+	<div id="whole">
+		<input hidden="hidden" id="rank" name="rank">
+		<input hidden="hidden" id="movieNm" name="movieNm">
+	</div>
 	 
 	
 

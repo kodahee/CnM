@@ -8,5 +8,7 @@ public class RankingDAO {
 	@Autowired
 	private RankingDTO rankingDTO;
 	
-
+	public RankingDTO getRanking(RankingDTO rankingDTO)throws Exception{
+		return null;
+	}
 }

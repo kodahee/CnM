@@ -43,9 +43,14 @@ $("#btn").click(function(){
 
 				for(index in result2){
 					let result3=result2[index];
-					console.log(JSON.stringify(result3));
-					console.log("rank:"     +result3.rank);
-					
+					//console.log(JSON.stringify(result3));스트링타입이라서 ""때문에 에러아닌 에러가 생김 인식이 안되는 것.
+					console.log("rank:"+result3.rank);
+					console.log("name:"+result3.movieNm);
+					//랭킹rank, 이름movieNm, 평점, 예매율, 개봉일openDt
+					$('#rank').val(result3.rank);
+					console.log(result3.rank)
+					$('#movieNm').val(result3.rank);
+					$('#result').append(whole.html());
 					
 					/*let test = '<input type="text" name="jsonString" >';
 					console.log(test)
