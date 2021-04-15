@@ -44,7 +44,11 @@
 			<div class="form-group">
 				<label for="email">Email</label> 
 				<input type="text" class="form-control etc"	id="email" name="email">
+				<button type="button" class="btn btn-secondary" id="sendCode">인증코드 전송</button>
 				<!-- 비어 있으면 X -->
+				<input type="text" class="form-control etc" placeholder="인증번호를 입력하세요." id="emailCheck" name="emailCheck">
+				<h6 id="emailResult"></h6>
+				<!-- 받은 인증코드와 같아야함 -->
 			</div>
 			<div class="form-group">
 				<label for="phone">Phone</label> 
