@@ -43,13 +43,7 @@ $("#btn").click(function(){
 
 				for(index in result2){
 					let result3=result2[index];
-					//벨류에 넣고 
-					$('#test').val(JSON.stringify(result3));
-					//벨류가 들어가 있는 html을 변수에 담아
-					let test = $('#test').html();
-					console.log(test);
-					
-					//그걸 어펜드 한다,,
+					let test = '<input type="text" name="jsonString" value="'+JSON.stringify(result3)+'">';
 					$('#result').append(test);
 					
 				};
