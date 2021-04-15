@@ -15,7 +15,7 @@
 
 <button id="btn">button</button>
 <h3 id="test"> </h3>
-	<form action="./moviesApi" method="post">
+	<form action="./bookingRanking" method="post">
 		<input id="result" name="result">
 		<button>button</button>
 	</form> 

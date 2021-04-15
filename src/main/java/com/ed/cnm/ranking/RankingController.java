@@ -29,8 +29,10 @@ public class RankingController {
 	}
 	
 	@PostMapping("bookingRanking")
-	public void getRanking(String result)throws Exception{
-	
+	public void getRanking(Object result)throws Exception{
+	System.out.println(result);
+	Map<String, String> resultMap = (Map<String,String>)result;
+	System.out.println(resultMap.get("rank"));
 //		resultMap = JSONArray.fromObject(result);
 //		System.out.println(result);
 //		//rankingService.getRanking(result);
