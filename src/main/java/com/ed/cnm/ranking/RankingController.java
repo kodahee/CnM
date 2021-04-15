@@ -29,13 +29,13 @@ public class RankingController {
 	
 	@PostMapping("bookingRanking")
 	public void getRanking(String [] result)throws Exception{
-		System.out.println(result);
-		int count = result.length;
-		byte [] src = new byte[count];
-		ObjectMapper mapper = new ObjectMapper();
-		Map<String, String> map = mapper.readValue(src, new TypeReference<Map<String,String>>() {});
-		String a =map.get("rank");
-		System.out.println(a);
+//		System.out.println(result);
+//		int count = result.length;
+//		byte [] src = new byte[count];
+//		ObjectMapper mapper = new ObjectMapper();
+//		Map<String, String> map = mapper.readValue(src, new TypeReference<Map<String,String>>() {});
+//		String a =map.get("rank");
+//		System.out.println(a);
 		
 		//com.fasterxml.jackson.core.JsonParseException: Illegal character ((CTRL-CHAR, code 0)): only regular white space (\r, \n, \t) is allowed between tokens
 		// at [Source: (byte[])"

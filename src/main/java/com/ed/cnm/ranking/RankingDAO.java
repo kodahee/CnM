@@ -9,5 +9,4 @@ public class RankingDAO {
 	private RankingDTO rankingDTO;
 	
 
-	}
 }

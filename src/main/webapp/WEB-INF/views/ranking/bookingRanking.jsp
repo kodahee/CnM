@@ -16,11 +16,15 @@
 <button id="btn">button</button>
 <h3 id="test"> </h3>
 	<form action="./bookingRanking" method="post">
-		<input id="result" name="result">
-		<button>button</button>
-	</form> 
+		<button>button1</button>
+	</form>
+		<div id="result" title="" name="result">
+		
+		</div>
 	 
-	
+	<div id="test">
+				<input type="text" name="jsonString"> 
+	</div>
 
 <script type="text/javascript" src="../resources/jquery/bookingRanking.js"> </script>
 </body>
