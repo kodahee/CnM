@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <c:import url="../template/bootStrap.jsp"></c:import>
 <title>랭킹</title>
+
 <style type="text/css">
 #TT{
 	width:200px;
@@ -15,6 +16,7 @@
 	margin: 10px;
 }
 </style>
+
 </head>
 <body>
 <c:import url="../template/header.jsp"></c:import>

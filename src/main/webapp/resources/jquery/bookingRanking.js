@@ -2,7 +2,7 @@
  * 
  */
 //전역 변수 
-	let date = new Date();
+let date = new Date();
 	
 //날짜 지정 메서드(하루 전을 파라미터로 넘겨야 함)
 function getDate(date){
@@ -32,9 +32,6 @@ $("#btn").click(function(){
 				targetDt:getDate(date)-1,//하루 전날 
 			},
 			
-			//json링크
-			//http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=88c812405e947836cbbee3be8daa5603&targetDt=20210414
-			
 			traditional: true,
 			success:function(result){
 				
@@ -59,8 +56,7 @@ $("#btn").click(function(){
 					$('#result').append(test);*/
 					
 				};
-				//$("#result").val(JSON.stringify(result.boxOfficeResult.dailyBoxOfficeList));//가능은한데,, 
-			//	console.log(result.boxOfficeResult.dailyBoxOfficeList);
+
 				
 			}
 		})//ajax
