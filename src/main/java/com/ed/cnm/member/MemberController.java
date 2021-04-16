@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 @Controller
 @RequestMapping("/member/**")
@@ -32,6 +33,7 @@ public class MemberController {
 
 	@PostMapping("memberUpdate")
 	public void memberUpdate(MemberDTO memberDTO) throws Exception {
+		int result = memberService.memberUpdate(memberDTO);
 		
 	}
 	
@@ -96,7 +98,7 @@ public class MemberController {
 	public void memberJoin() throws Exception {}
 
 	@PostMapping("memberJoin")
-	public String memberJoin(MemberDTO memberDTO, HttpSession session, Model model) throws Exception {
+	public String memberJoin(MemberDTO memberDTO, MultipartFile profilePic, HttpSession session, Model model) throws Exception {
 
 		int result = memberService.memberJoin(memberDTO);
 

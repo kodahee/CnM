@@ -21,7 +21,7 @@
 
 	<h1>Member Update Page</h1>
 	
-	<form class="form-horizontal" action="./memberUpdate" method="post">
+	<form class="form-horizontal" action="./memberUpdate" method="post" enctype="multipart/form-data">
 		<div class="form-group">
 			<label class="control-label col-sm-2" for="name">Name</label>
 			<div class="col-sm-10">
