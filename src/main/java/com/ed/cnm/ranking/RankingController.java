@@ -3,6 +3,7 @@ package com.ed.cnm.ranking;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,15 +26,19 @@ public class RankingController {
 		Document doc = Jsoup.connect(url).get();//HTML부터 데이터 가져오기
 		//System.out.println(doc.toString());제대로 가져와짐
 		Elements element = doc.select("div.rst_sch");
-		Elements element2 = doc.select("div .rst_sch .tb1_comm");
+		Elements element2 = doc.select("div.rst_sch tbody");
 		//Elements elem = element.select("tbody");
 	
-		//for(Element el : element.select(url))
-		
-		System.out.println(element);
-		System.out.println("=======================");
-		System.out.println(element2);
-		
+		for(Element el : element2.select("td")) {
+			System.out.println(el.toString());
+			System.out.println("==");
+		}
+//		
+//		System.out.println(element2);
+//		System.out.println("=======================");
+//		
+//		System.out.println(element2.text());
+//		
 		
 		
 		/*
