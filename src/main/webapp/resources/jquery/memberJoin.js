@@ -74,11 +74,11 @@ $("#sendCode").click(function() {
 	} else {
 		$.ajax({
 			type : 'POST',
-			url : 'emailCheck',
-			data : {"email": $("#eamil").val()}
+			url : './emailCheck',
+			data : {"email": $("#email").val()}
 		});
 		alert("인증코드가 전송되었습니다.") 
-		isCertification=true; //추후 인증 여부를 알기위한 값
+		//isCertification=true; //추후 인증 여부를 알기위한 값
 	}
 });
 
