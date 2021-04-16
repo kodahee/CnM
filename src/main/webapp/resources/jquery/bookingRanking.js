@@ -66,23 +66,15 @@ $("#btn").click(function(){
 
 $('#btn2').click(function(){
 	
-/*	const request = new XMLHttpRequest();
-	const url = 'https://www.kobis.or.kr/kobis/business/stat/boxs/findRealTicketList.do'
+
+	$.ajax({
 	
-	request.open('GET', url, true);
-	request.onload = function () {
-	  console.log(request.responseText); // 긁어온 내용 뿌리기
-	};
-	request.send();
-<script src="jquery.js"></script>
-*/
-$.ajax({
-
-	url : "https://www.kobis.or.kr/kobis/business/stat/boxs/findRealTicketList.do",
-
+	url : "./bookingRanking",
+	type:"POST",
+	data: {CSRFToken: "W4V7cEw7nkifuib9SdxFnkNmmdK5xYGBzORfxHG-BxU"}
+	
 	}).done(function(data) {
-
-	alert(data);
+	console.log("hi");
 
 	});
 
