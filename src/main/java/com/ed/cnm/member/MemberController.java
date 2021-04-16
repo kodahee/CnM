@@ -99,7 +99,8 @@ public class MemberController {
 
 	@PostMapping("memberJoin")
 	public String memberJoin(MemberDTO memberDTO, MultipartFile profilePic, HttpSession session, Model model) throws Exception {
-
+		System.out.println(profilePic.getOriginalFilename());
+		
 		int result = memberService.memberJoin(memberDTO);
 
 		String message = "회원가입 실패";
