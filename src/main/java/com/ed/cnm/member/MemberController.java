@@ -25,6 +25,24 @@ public class MemberController {
 	private MemberService memberService;
 	@Autowired
 	private JavaMailSender javaMailSender;
+	
+	//------------- 개인정보 수정 -------------
+	@GetMapping("memberUpdate")
+	public void memberUpdate() throws Exception {}
+
+	@PostMapping("memberUpdate")
+	public void memberUpdate(MemberDTO memberDTO) throws Exception {
+		
+	}
+	
+	//------------- 마이페이지 -------------
+	@GetMapping("memberMyPage")
+	public void memberMyPage() throws Exception {}
+	
+	@PostMapping("memberMyPage")
+	public void memberMyPage(MemberDTO memberDTO) throws Exception {
+		
+	}
 
 	//------------- 이메일인증 -------------
 	@ResponseBody
@@ -44,7 +62,7 @@ public class MemberController {
 
 		String title = "CnM 회원가입 인증 이메일 입니다.";			// 제목
 		String content =									// 내용
-				System.getProperty("line.separator")+ 			// 한줄씩 줄간격을 두기위해 작성
+				System.getProperty("line.separator")+ 		// 한줄씩 줄간격을 두기위해 작성
 				System.getProperty("line.separator")+
 				"안녕하세요 회원님 저희 홈페이지를 찾아주셔서 감사합니다"
 
@@ -60,12 +78,6 @@ public class MemberController {
 
 		return code;
 	}
-
-
-
-	//------------- 마이페이지 -------------
-	@GetMapping("memberMyPage")
-	public void memberMyPage() throws Exception {}
 
 	//------------- 회원탈퇴 -------------
 	@GetMapping("memberDelete")

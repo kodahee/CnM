@@ -15,18 +15,14 @@
 		<h1>My Page</h1>
 
 		<ul class="list-group list-group-flush">
-			<li class="list-group-item">NickName : ${member.nickName}</li>
-			<li class="list-group-item">ID : ${member.id}</li>
-			<li class="list-group-item">Name : ${member.name}</li>
-			<li class="list-group-item">Phone : ${member.phone}</li>
-			<li class="list-group-item">Email : ${member.email}</li>
-			<li class="list-group-item">
-			</li>
+			<li><img alt="" src="../resources/upload/member/${member.profilePic}"></li>
+			<li class="list-group-item">${member.nickName}</li>
+			<li class="list-group-item">${member.grade}</li>
 		</ul>
 
 
-		<a href="./memberUpdate" class="btn btn-primary" role="button">수정</a>
-		<a href="./memberDelete" class="btn btn-danger" role="button">탈퇴</a>
+		<a href="./memberUpdate" class="btn btn-primary" role="button">Edit Profile</a>
+		
 	</div>
 
 
