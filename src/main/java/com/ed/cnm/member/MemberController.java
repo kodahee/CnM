@@ -106,6 +106,7 @@ public class MemberController {
 	public void memberJoinComplete() throws Exception {}
 
 	// 아이디 중복 확인
+	@ResponseBody
 	@PostMapping("memberIdCheck")
 	public String checkID(MemberDTO memberDTO, HttpServletRequest request) throws Exception {
 		System.out.println(request.getParameter("id"));

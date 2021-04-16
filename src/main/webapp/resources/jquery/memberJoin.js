@@ -27,12 +27,12 @@ $("#idCheck").on('click', function() {
 	$.ajax({
 		type: 'POST',
 		url: './memberIdCheck',
-		data: {id:$("#id").val()},
+		data: {"id":$("#id").val()},
 		success: function(data) {
 			console.log($.trim(data));
 			
 			if($.trim(data) == "Y") {
-				$("#idResult2").text("");
+				$("#idResult2").text("사용 가능한 아이디 입니다.");
 			} else {
 				$("#idResult2").text("이미 존재하는 아이디 입니다.");
 			}
