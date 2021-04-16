@@ -25,14 +25,9 @@
 <button id="btn">button</button>
 
 	<div id="result"></div>
+	<h3>${test }</h3>
 	
-	<div id="whole">
-		<div id="TT">
-			<h3 id="rank"></h3>
-			<h3 id="movieNm"></h3>
-		</div>
-	</div>
-	 
+<button id="btn2">button2</button>
 	
 
 <script type="text/javascript" src="../resources/jquery/bookingRanking.js"> </script>

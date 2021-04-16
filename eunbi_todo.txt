@@ -2,8 +2,9 @@ eunbi_todo
 04.11 웹사이트 기능 회의, 포토샵을 사용해 구현할 페이지 디자인,
 04.12 웹사이트 기능 회의, 포토샵을 사용해 구현할 페이지 디자인, 
 04.13 회의를 통해 DB 확정, DTO 파일 생성, openAPI 테스트
-04.14 openAPI테스트, nav구성(간략하게), 랭킹페이지진행(json을 컨트롤러에 받고자 함)
-04.15 랭킹페이지진행(json 
+04.14 openAPI테스트, nav구성(간략하게), 랭킹페이지진행(OPEN API json을 컨트롤러에 받고자 함)->X
+04.15 랭킹페이지진행(OPEN API,json 데이터 방향성 정함, jsp,js 테스트)
+04.16 랭킹페이지 진행(예매율은 사이트 크롤링 해야한다고 판단, 방향 전환, JSOUP사용할 것)
 
 ranking/bookingRanking
 ranking/boxofficeRanking

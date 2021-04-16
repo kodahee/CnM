@@ -44,13 +44,15 @@ $("#btn").click(function(){
 					console.log("rank:"+result3.rank);
 					console.log("name:"+result3.movieNm);
 					//랭킹rank, 이름movieNm, 평점, 예매율, 개봉일openDt
+					//직접 쳐서 옮겨라 ㅜ
+					//$('#rank').text(result3.rank);
+					//$('#movieNm').text(result3.movieNm);
+					let rank = '<h3 id="rank">'+result3.rank+'</h3>';
+					let movieNm = '<h3 id="movieNm">'+result3.movieNm+'</h3>';
 					
-					$('#rank').text(result3.rank);
-					$('#movieNm').text(result3.movieNm);
-					
-					console.log($('#whole').html())
-					$('#result').append($('#whole').html());
-					
+					let list='<div><div id="TT">'+rank+movieNm+'</div></div>';
+					$('#result').append(list);
+					//$('#result').append(movieNm);
 					/*let test = '<input type="text" name="jsonString" >';
 					console.log(test)
 					$('#result').append(test);*/
@@ -62,3 +64,28 @@ $("#btn").click(function(){
 		})//ajax
 });
 
+$('#btn2').click(function(){
+	
+/*	const request = new XMLHttpRequest();
+	const url = 'https://www.kobis.or.kr/kobis/business/stat/boxs/findRealTicketList.do'
+	
+	request.open('GET', url, true);
+	request.onload = function () {
+	  console.log(request.responseText); // 긁어온 내용 뿌리기
+	};
+	request.send();
+<script src="jquery.js"></script>
+*/
+$.ajax({
+
+	url : "https://www.kobis.or.kr/kobis/business/stat/boxs/findRealTicketList.do",
+
+	}).done(function(data) {
+
+	alert(data);
+
+	});
+
+
+	
+});
