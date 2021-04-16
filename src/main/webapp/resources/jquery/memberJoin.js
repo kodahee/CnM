@@ -67,6 +67,8 @@ $("#pwCheck").blur(function() {
 });
 
 
+let emailCode = "";
+
 // email 인증 메일 전송
 $("#sendCode").click(function() {
 	if ($("#email").val() == "") {
@@ -75,7 +77,11 @@ $("#sendCode").click(function() {
 		$.ajax({
 			type : 'POST',
 			url : './emailCheck',
-			data : {"email": $("#email").val()}
+			data : {"email": $("#email").val()},
+			success : function(data) {
+				console.log(data);
+				emailCode = data;
+			}
 		});
 		alert("인증코드가 전송되었습니다.") 
 		isCertification=true; 				//추후 인증 여부를 알기위한 값
@@ -84,7 +90,10 @@ $("#sendCode").click(function() {
 
 // email 인증코드 확인
 $("#emailCheck").blur(function(code) {
-	if ($("#emailCheck").val() == code) {   //인증 키 값을 비교를 위해 텍스트인풋과 벨류를 비교
+	console.log($("#emailCheck").val());
+	console.log(emailCode);
+	
+	if ($("#emailCheck").val() == emailCode) {   //인증 키 값을 비교를 위해 텍스트인풋과 벨류를 비교
 		$("#emailResult").text("인증 성공!");
 		isCertification = true;  			//인증 성공여부 check
 	} else {

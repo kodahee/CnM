@@ -25,42 +25,43 @@ public class MemberController {
 	private MemberService memberService;
 	@Autowired
 	private JavaMailSender javaMailSender;
-	
+
 	//------------- 이메일인증 -------------
+	@ResponseBody
 	@PostMapping("emailCheck")
-    public String sendEmail(HttpServletRequest request) throws Exception {
+	public String sendEmail(HttpServletRequest request) throws Exception {
 		Random r = new Random();
 		String code = "";
 		for (int i = 0; i < 3; i++) {
 			int index = r.nextInt(25) + 65; 			// A~Z까지 랜덤 알파벳 생성
 			code += (char) index;
 		}
-        code += r.nextInt(4589362) + 49311;				// 이메일로 받는 인증코드 부분 (난수)
-        System.out.println(code);
-        
-        String email = request.getParameter("email");
-        System.out.println(email);
-        
-        String title = "CnM 회원가입 인증 이메일 입니다.";			// 제목
-        String content =									// 내용
-	        System.getProperty("line.separator")+ 			// 한줄씩 줄간격을 두기위해 작성
-	        System.getProperty("line.separator")+
-	        "안녕하세요 회원님 저희 홈페이지를 찾아주셔서 감사합니다"
-	        
-	        +System.getProperty("line.separator")+
-	        System.getProperty("line.separator")+
-	        "인증번호는 " + code + " 입니다.";
-	      
-    	SimpleMailMessage message = new SimpleMailMessage();
-    	message.setTo(email);
+		code += r.nextInt(4589362) + 49311;				// 이메일로 받는 인증코드 부분 (난수)
+		System.out.println(code);
+
+		String email = request.getParameter("email");
+		System.out.println(email);
+
+		String title = "CnM 회원가입 인증 이메일 입니다.";			// 제목
+		String content =									// 내용
+				System.getProperty("line.separator")+ 			// 한줄씩 줄간격을 두기위해 작성
+				System.getProperty("line.separator")+
+				"안녕하세요 회원님 저희 홈페이지를 찾아주셔서 감사합니다"
+
+				+System.getProperty("line.separator")+
+				System.getProperty("line.separator")+
+				"인증번호는 " + code + " 입니다.";
+
+		SimpleMailMessage message = new SimpleMailMessage();
+		message.setTo(email);
 		message.setSubject(title);
 		message.setText(content);
 		javaMailSender.send(message);
-        
-		return code;
-    }
 
-	
+		return code;
+	}
+
+
 
 	//------------- 마이페이지 -------------
 	@GetMapping("memberMyPage")
