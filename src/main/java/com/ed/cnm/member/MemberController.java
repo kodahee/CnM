@@ -1,5 +1,7 @@
 package com.ed.cnm.member;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
 
 import javax.servlet.http.HttpServletRequest;
@@ -25,12 +27,19 @@ public class MemberController {
 	private JavaMailSender javaMailSender;
 	
 	//------------- 이메일인증 -------------
-	@ResponseBody
 	@PostMapping("emailCheck")
-    public void sendEmail(HttpServletRequest request) throws Exception {
-		
+    public String sendEmail(HttpServletRequest request) throws Exception {
 		Random r = new Random();
-        int code = r.nextInt(4589362) + 49311;				// 이메일로 받는 인증코드 부분 (난수)
+		String code = "";
+		for (int i = 0; i < 3; i++) {
+			int index = r.nextInt(25) + 65; 			// A~Z까지 랜덤 알파벳 생성
+			code += (char) index;
+		}
+        code += r.nextInt(4589362) + 49311;				// 이메일로 받는 인증코드 부분 (난수)
+        System.out.println(code);
+        
+        String email = request.getParameter("email");
+        System.out.println(email);
         
         String title = "CnM 회원가입 인증 이메일 입니다.";			// 제목
         String content =									// 내용
@@ -43,11 +52,12 @@ public class MemberController {
 	        "인증번호는 " + code + " 입니다.";
 	      
     	SimpleMailMessage message = new SimpleMailMessage();
-    	message.setTo(request.getParameter("email"));
+    	message.setTo(email);
 		message.setSubject(title);
 		message.setText(content);
 		javaMailSender.send(message);
-            
+        
+		return code;
     }
 
 	
