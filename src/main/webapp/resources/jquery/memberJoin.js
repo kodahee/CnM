@@ -67,7 +67,6 @@ $("#pwCheck").blur(function() {
 });
 
 
-/*
 // email 인증
 $("#sendCode").click(function() {
 	if ($("#email").val() == "") {
@@ -76,13 +75,13 @@ $("#sendCode").click(function() {
 		$.ajax({
 			type : 'POST',
 			url : 'emailCheck',
-			data : {email: email}
+			data : {"email": $("#eamil").val()}
 		});
 		alert("인증코드가 전송되었습니다.") 
 		isCertification=true; //추후 인증 여부를 알기위한 값
 	}
 });
-*/
+
 
 //--------------------------------------------------------------
 

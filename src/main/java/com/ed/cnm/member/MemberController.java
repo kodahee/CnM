@@ -1,16 +1,11 @@
 package com.ed.cnm.member;
 
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.lang.System.Logger;
 import java.util.Random;
 
 import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -21,7 +16,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 @RequestMapping("/member/**")
@@ -29,34 +23,33 @@ public class MemberController {
 
 	@Autowired
 	private MemberService memberService;
-	
+	@Autowired
 	private JavaMailSender javaMailSender;
 	
-	
-	@PostMapping("emailCheck")
+	//------------- 이메일인증 -------------
 	@ResponseBody
-    public void sendEmail(String email) throws Exception {
+	@PostMapping("emailCheck")
+    public void sendEmail(HttpServletRequest request) throws Exception {
 		
 		Random r = new Random();
-        int code = r.nextInt(4589362) + 49311;				//이메일로 받는 인증코드 부분 (난수)
+        int code = r.nextInt(4589362) + 49311;				// 이메일로 받는 인증코드 부분 (난수)
         
         String title = "CnM 회원가입 인증 이메일 입니다.";			// 제목
-        String content =
-	        System.getProperty("line.separator")+ 			//한줄씩 줄간격을 두기위해 작성
+        String content =									// 내용
+	        System.getProperty("line.separator")+ 			// 한줄씩 줄간격을 두기위해 작성
 	        System.getProperty("line.separator")+
 	        "안녕하세요 회원님 저희 홈페이지를 찾아주셔서 감사합니다"
 	        
 	        +System.getProperty("line.separator")+
 	        System.getProperty("line.separator")+
 	        " 인증번호는 " + code + " 입니다. ";
-	        
-        SimpleMailMessage message = new SimpleMailMessage();
-        message.setTo(email);
-        message.setSubject(title);
+	      
+    	SimpleMailMessage message = new SimpleMailMessage();
+    	message.setTo(request.getParameter("email"));
+		message.setSubject(title);
 		message.setText(content);
 		javaMailSender.send(message);
-        
-        
+            
     }
 
 	
@@ -105,7 +98,7 @@ public class MemberController {
 	@GetMapping("memberJoinComplete")
 	public void memberJoinComplete() throws Exception {}
 
-	// 아이디 중복 확인
+	// -- 아이디 중복 확인
 	@ResponseBody
 	@PostMapping("memberIdCheck")
 	public String checkID(MemberDTO memberDTO, HttpServletRequest request) throws Exception {
