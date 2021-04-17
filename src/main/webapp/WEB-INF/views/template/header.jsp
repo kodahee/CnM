@@ -7,7 +7,7 @@
 		<li class="nav-item">
 			<a class="nav-link active" href="#">홈</a></li>
 		<li class="nav-item">
-			<a class="nav-link active" href="${pageContext.request.contextPath }/ranking/bookingRanking">랭킹</a></li>
+			<a class="nav-link active" href="${pageContext.request.contextPath }/ranking/reservation">랭킹</a></li>
 		<li class="nav-item">
 			<a class="nav-link" href="#">상영/예정작</a></li>
 		<li class="nav-item">

@@ -21,15 +21,14 @@
 <body>
 <c:import url="../template/header.jsp"></c:import>
 
+<c:forEach items="${list }" var="dto">
+	<h3><img alt="" src="${dto.poster }"></h3>
+	<h3 id="movieNm">${dto.movieNm }</h3>
+	<h3>${dto.rankNum }</h3>
+	<h3>${dto.movieInfo }</h3>
+	<h3>${dto.reservation }</h3>
+</c:forEach>
 
-<button id="btn">button</button>
-
-	<div id="result"></div>
-	<h3>${test }</h3>
-	
-<button id="btn2">button2</button>
-	
-
-<script type="text/javascript" src="../resources/jquery/bookingRanking.js"> </script>
+<script type="text/javascript" src="../resources/jquery/reservation.js"> </script>
 </body>
 </html>
