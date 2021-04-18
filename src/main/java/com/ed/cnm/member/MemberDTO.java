@@ -10,9 +10,16 @@ public class MemberDTO {
 	private String couponCheck;
 	private long point;
 	private String grade;
-	private String profilePic;
+	
+	private MemberFileDTO memberFileDTO;
 	
 	
+	public MemberFileDTO getMemberFileDTO() {
+		return memberFileDTO;
+	}
+	public void setMemberFileDTO(MemberFileDTO memberFileDTO) {
+		this.memberFileDTO = memberFileDTO;
+	}
 	public String getId() {
 		return id;
 	}
@@ -67,14 +74,6 @@ public class MemberDTO {
 	public void setGrade(String grade) {
 		this.grade = grade;
 	}
-	public String getProfilePic() {
-		return profilePic;
-	}
-	public void setProfilePic(String profilePic) {
-		this.profilePic = profilePic;
-	}
-	
-	
 	
 	
 }

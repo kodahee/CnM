@@ -29,5 +29,9 @@
 	<select id="memberLogin" parameterType="MemberDTO" resultType="MemberDTO">
 		SELECT * FROM MEMBER WHERE id=#{id} and pw=#{pw}
 	</select>
+	
+	<select id="memberLoginFile" parameterType="MemberDTO" resultType="MemberDTO">
+		SELECT * FROM MEMBER WHERE id=#{id} and pw=#{pw}
+	</select>
 
 </mapper>

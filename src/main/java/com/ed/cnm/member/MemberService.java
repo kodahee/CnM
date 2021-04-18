@@ -37,10 +37,8 @@ public class MemberService {
 	}
 	
 	// 회원가입
-	public int memberJoin(MemberDTO memberDTO, MultipartFile memberPic, HttpSession session) throws Exception {
-		String profilePic = fileManager.save("member", memberPic, session);
-		
-		memberDTO.setProfilePic(profilePic);
+	public int memberJoin(MemberDTO memberDTO, MultipartFile profilePic, HttpSession session) throws Exception {
+		String fileName = fileManager.save("member", profilePic, session);
 		
 		int result = memberDAO.memberJoin(memberDTO);
 		
