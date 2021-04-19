@@ -67,10 +67,11 @@ public class MemberService {
 		
 		MemberFileDTO memberFileDTO = new MemberFileDTO();
 		memberFileDTO.setId(memberDTO.getId());
-		memberFileDTO.setOriginName("default.jpeg");
+		memberFileDTO.setOriginName(profilePic.getOriginalFilename());
 		memberFileDTO.setFileName(fileName);
 		
 		int result = memberDAO.memberJoin(memberDTO);
+		result = memberDAO.setFileInsert(memberFileDTO);
 		
 		return result;
 	}

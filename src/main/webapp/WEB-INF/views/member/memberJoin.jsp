@@ -56,7 +56,11 @@
 				<input type="text" class="form-control etc"	id="phone" name="phone">
 				<!-- 비어 있으면 X -->
 			</div>
-						
+			<div class="form-group">
+				<label for="profilePic">Profile Picture</label> 
+				<input type="file" class="form-control etc"	id="profilePic" name="profilePic">
+				<!-- 비어 있으면 X -->
+			</div>			
 			<input type="submit" id="btn" value="JOIN" class="btn btn-primary">
 			
 		</form>

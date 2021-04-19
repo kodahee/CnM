@@ -15,9 +15,6 @@
 		<h1>My Page</h1>
 
 		<ul class="list-group list-group-flush">
-			<c:if test="${memberFile == null}">
-				<li><img alt="" src="../resources/images/default.jpeg"></li>
-			</c:if>
 			<li><img alt="" src="../resources/upload/member/${member.memberFile.fileName}"></li>
 			<li class="list-group-item">${member.nickName}</li>
 			<li class="list-group-item">${member.grade}</li>
