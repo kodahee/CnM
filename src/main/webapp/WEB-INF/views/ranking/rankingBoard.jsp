@@ -13,6 +13,7 @@
 </head>
 <body>
 <c:import url="../template/header.jsp"></c:import>
+<h4>1</h4>
 <div class="box_ranking">
 	<ul>
 		<c:forEach items="${list }" var="dto">
