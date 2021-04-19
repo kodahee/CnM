@@ -22,31 +22,29 @@ function getDate(date){
 	return year+month+day;
 
 }
+
 //영화목록 API에서 영화코드 응답받겠다.
-let count = $('li').length;//li가 몇개 있는지,, 20개 제대로 나옴//필요한가?
 let movieNmList = [];
 let movieCdList=[];
 $('.movieNm').each(function(index, li){
 	//console.log(this);//엘리먼트 전부 뜸(태그까지)
 	//console.log($(this).text());//제목만 뜸
 	movieNmList.push($(this).text());
-	console.log(movieNmList[index]);
-	let movieNm = movieNmList[index];
-
-
+	console.log(index+' : '+movieNmList[index]);
 $.ajax({
 	url : "http://www.kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieList.json",
 	type:"GET",
 	data: {
 		key:"88c812405e947836cbbee3be8daa5603",
-		movieNm : movieNm
+		movieNm : movieNmList[index]
 	}
 	
 	}).done(function(data) {
-		
-		console.log(data);
+		console.log(index+' : '+movieNmList[index])
+		//console.log(data);
 		console.log('===')
 		
 		
 });
+
 });//each end 29번줄
