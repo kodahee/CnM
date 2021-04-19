@@ -2,11 +2,13 @@ package com.ed.cnm.board;
 
 import java.util.List;
 
+import com.ed.cnm.util.Pager;
+
 
 public interface BoardDAO {
 	
 	//==List==
-	public List<BoardDTO> getList(/*Pager pager*/)throws Exception;
+	public List<BoardDTO> getList(Pager pager)throws Exception;
 	//==Select==
 	public BoardDTO getSelect(BoardDTO boardDTO)throws Exception;
 	//==Insert==
