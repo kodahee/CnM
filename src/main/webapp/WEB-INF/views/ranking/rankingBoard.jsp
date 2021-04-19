@@ -8,26 +8,24 @@
 <c:import url="../template/bootStrap.jsp"></c:import>
 <title>랭킹</title>
 
-<style type="text/css">
-#TT{
-	width:200px;
-	height: 100px;
-	background-color: yellow;
-	margin: 10px;
-}
-</style>
+<link rel="stylesheet" type="text/css" href="../resources/css/common.css">
 
 </head>
 <body>
 <c:import url="../template/header.jsp"></c:import>
-
-<c:forEach items="${list }" var="dto">
-	<h3><img alt="" src="${dto.poster }"></h3>
-	<h3 id="movieNm">${dto.movieNm }</h3>
-	<h3>${dto.rankNum }</h3>
-	<h3>${dto.movieInfo }</h3>
-	<h3>${dto.reservation }</h3>
-</c:forEach>
+<div class="box_ranking">
+	<ul>
+		<c:forEach items="${list }" var="dto">
+			<li>
+				<h3><img class="poster" alt="" src="${dto.poster }"></h3>
+				<h3 id="movieNm">${dto.movieNm }</h3>
+				<h3>${dto.rankNum }</h3>
+				<h6>${dto.movieInfo }</h6>
+				<h3>${dto.reservation }</h3>
+			</li>
+		</c:forEach>
+	</ul>
+</div>
 
 <script type="text/javascript" src="../resources/jquery/reservation.js"> </script>
 </body>

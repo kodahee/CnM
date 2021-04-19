@@ -24,8 +24,12 @@ function getDate(date){
 }
 //영화목록 API에서 영화코드 응답받겠다.
 let movieNm=$('#movieNm').text();
-//갯수만큼 움직여야 하는데 이와 관련된 for문을 찾아야겠다 div에 넣어서 그 아이디가 몇개 잇는지
-//카운트 하는 게 잇을려나,,
+let movieCd="";
+//
+let count = $('li').length;//li가 몇개 있는지,, 
+//$('.box_ranking').each(function(index, li){
+	//console.log(this);//제대로 20개가 나옴
+	for(let i = 0; i<count; i++){
 $.ajax({
 	url : "http://www.kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieList.json",
 	type:"GET",
@@ -35,9 +39,11 @@ $.ajax({
 	}
 	
 	}).done(function(data) {
+		
+		console.log(this);
 		console.log(movieNm);
 		
-
+		
 });
-
-
+}
+//});//each

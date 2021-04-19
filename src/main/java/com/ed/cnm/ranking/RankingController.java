@@ -36,7 +36,7 @@ public class RankingController {
 			String poster = el.select("div.poster_movie img").attr("src");//""까지 출력안됨
 			String movieNm = el.select("div.poster_movie img").attr("alt");
 			String rankNum = el.select("div.poster_movie span.rank_num").text();
-			String movieInfo = el.select("div.poster_info").text();
+			String movieInfo = el.select("div.poster_info a.link_story").text();
 			String reservation = el.select("span.info_txt span.txt_num").text();
 			rankingDTO.setPoster(poster);
 			rankingDTO.setMovieNm(movieNm);
@@ -50,24 +50,6 @@ public class RankingController {
 		mv.setViewName("/ranking/rankingBoard");
 		return mv;
 	}
-	
-	
-//	@PostMapping("bookingRanking")
-//	public void getRanking(String CSRFToken, Model model)throws Exception{
-//		System.out.println("controller--");
-//		String url="https://www.kobis.or.kr/kobis/business/stat/boxs/findRealTicketList.do";
-//
-//		Document doc = Jsoup.connect(url).data("CSRFToken", CSRFToken).post();//HTML부터 데이터 가져오기
-//		//System.out.println(doc.toString());제대로 가져와짐
-//		Elements element = doc.select("div.rst_sch");
-//		Elements element2 = doc.select("div.rst_sch tbody");
-//		//Elements elem = element.select("tbody");
-//	
-//		for(Element el : element2.select("td")) {
-//			System.out.println(el.toString());
-//			System.out.println("==");
-//		
-//	}
 	
 	
 	
