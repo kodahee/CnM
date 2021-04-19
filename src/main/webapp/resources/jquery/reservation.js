@@ -37,7 +37,7 @@ $('.movieNm').each(function(index, li){
 			//저 코드를 가지고 다시 함수를 호출해야함,,
 		}//success end
 	});//ajax end
-});//each end 29번줄
+});//each end 
 			console.log(movieCdList.length);
 
 for(index in movieCdList){
