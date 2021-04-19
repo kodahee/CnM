@@ -37,12 +37,12 @@ $.ajax({
 	data: {
 		key:"88c812405e947836cbbee3be8daa5603",
 		movieNm : movieNmList[index]
-	}
-	
-	}).done(function(data) {
-		console.log(index+' : '+movieNmList[index])
+	},
+	success: function(data) {
+		console.log(index+' : '+movieNmList[index]);
 		//console.log(data);
-		console.log('===')
+		console.log('===');
+	}
 		
 		
 });
