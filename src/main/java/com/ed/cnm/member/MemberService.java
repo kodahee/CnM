@@ -21,6 +21,31 @@ public class MemberService {
 		return memberDAO.memberUpdate(memberDTO);
 	}
 	
+	public int setFileUpdate(MemberDTO memberDTO, MultipartFile profilePic, HttpSession session) throws Exception {
+		// 기존 사진 삭제
+		String fileName = memberDTO.getMemberFileDTO().getFileName();
+		boolean result = fileManager.delete("member", fileName, session);
+		
+		// 새로운 사진 저장
+		int result2 = 0;
+		
+		if(result) {
+			System.out.println("delete success");
+			
+			MemberFileDTO memberFileDTO = new MemberFileDTO();
+			memberFileDTO.setId(memberDTO.getId());
+			memberFileDTO.setOriginName(profilePic.getOriginalFilename());
+			memberFileDTO.setFileName(fileName);
+			
+			result2 = memberDAO.setFileInsert(memberFileDTO);
+			
+		} else {
+			System.out.println("delete fail");
+		}
+		
+		return result2;
+	}
+	
 	// 회원탈퇴
 	public int memberDelete(MemberDTO memberDTO) throws Exception {
 		return memberDAO.memberDelete(memberDTO);

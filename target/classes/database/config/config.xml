@@ -7,5 +7,6 @@
 <configuration>
 	<typeAliases>
 		<typeAlias type="com.ed.cnm.member.MemberDTO" alias="MemberDTO"/>
+		<typeAlias type="com.ed.cnm.member.MemberFileDTO" alias="MemberFileDTO"/>
 	</typeAliases>
 </configuration>

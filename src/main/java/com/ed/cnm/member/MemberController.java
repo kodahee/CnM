@@ -1,7 +1,5 @@
 package com.ed.cnm.member;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Random;
 
 import javax.servlet.http.HttpServletRequest;
@@ -32,8 +30,9 @@ public class MemberController {
 	public void memberUpdate() throws Exception {}
 
 	@PostMapping("memberUpdate")
-	public void memberUpdate(MemberDTO memberDTO) throws Exception {
+	public void memberUpdate(MemberDTO memberDTO, MultipartFile profilePic, HttpSession session) throws Exception {
 		int result = memberService.memberUpdate(memberDTO);
+		result = memberService.setFileUpdate(memberDTO, profilePic, session);
 	}
 	
 	//------------- 마이페이지 -------------
