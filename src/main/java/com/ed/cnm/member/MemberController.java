@@ -99,11 +99,6 @@ public class MemberController {
 	public String memberJoin(MemberDTO memberDTO, MultipartFile profilePic, HttpSession session, Model model) throws Exception {
 		int result = memberService.memberJoin(memberDTO, profilePic, session);
 
-		System.out.println(profilePic.getOriginalFilename());
-		System.out.println(profilePic.getName());
-		System.out.println(profilePic.getSize());
-		System.out.println(profilePic.isEmpty());
-
 		String message = "회원가입 실패";
 		String path="./memberJoin";
 

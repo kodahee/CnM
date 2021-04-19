@@ -56,12 +56,7 @@
 				<input type="text" class="form-control etc"	id="phone" name="phone">
 				<!-- 비어 있으면 X -->
 			</div>
-			<div class="form-group">
-				<label for="profilePic">ProfilePic</label> 
-				<input type="image" class="form-control etc" id="profilePic" name="profilePic" src="file:///Users/kodahee/kodahee_JAVA/CnM/src/main/webapp/resources/images/default.jpeg">
-				<!-- 비어 있으면 X -->
-			</div>	
-			
+						
 			<input type="submit" id="btn" value="JOIN" class="btn btn-primary">
 			
 		</form>

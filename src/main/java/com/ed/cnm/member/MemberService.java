@@ -63,15 +63,14 @@ public class MemberService {
 	
 	// 회원가입
 	public int memberJoin(MemberDTO memberDTO, MultipartFile profilePic, HttpSession session) throws Exception {
-		String fileName = fileManager.save("member", profilePic, session);
+		String fileName= fileManager.save("member", profilePic, session);
 		
 		MemberFileDTO memberFileDTO = new MemberFileDTO();
 		memberFileDTO.setId(memberDTO.getId());
-		memberFileDTO.setOriginName(profilePic.getOriginalFilename());
+		memberFileDTO.setOriginName("default.jpeg");
 		memberFileDTO.setFileName(fileName);
 		
 		int result = memberDAO.memberJoin(memberDTO);
-		result = memberDAO.setFileInsert(memberFileDTO);
 		
 		return result;
 	}
