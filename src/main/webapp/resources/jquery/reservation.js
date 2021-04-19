@@ -42,13 +42,13 @@ $('.movieNm').each(function(index, li){
 	
 //console.log(movieCdList.length)	//리턴 받아서 20개 됨	
 
-for(movieCd of movieCdList){
+for(index in movieCdList){
 	$.ajax({
 		url:"http://www.kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieInfo.json",
 		type:"GET",
 		data:{
 			key:"88c812405e947836cbbee3be8daa5603",
-			movieCd:movieCd
+			movieCd:movieCdList[index]
 		},
 		success:function(result){
 			//alert('hi')	//확인완료
@@ -60,10 +60,12 @@ for(movieCd of movieCdList){
 		
 			//로딩을 완전히 받아올때까지 기다려주는 그런거
 			//append를 사용할거임,,
-			test = '<h3 class="movieCd" >'+movieCd+'</h3>'
+		
+			test = '<h3 class="movieCd" >'+movieCdList[index]+'</h3>'
 			+'<h3>'+result.openDt+'</h3>'
 			+'<h3>'+result.audits[0].watchGradeNm+'</h3>';
 			$('.test').append(test);
+			count++;
 			
 		}
 		
