@@ -16,14 +16,14 @@
 <h4>1</h4>
 <div class="box_ranking">
 	<ul >
-		<c:forEach items="${list }" var="dto">
+		<c:forEach items="${list }" var="dto" varStatus="i"><!-- i.index -->
 			<li>
 				<h3><img class="poster" alt="" src="${dto.poster }"></h3>
 				<h3 class="movieNm">${dto.movieNm }</h3>
 				<h3>${dto.rankNum }</h3>
 				<h6>${dto.movieInfo }</h6>
 				<h3>${dto.reservation }</h3>
-				<div class="test">
+				<div class="test${i.index }">
 				
 				</div>
 			</li>
