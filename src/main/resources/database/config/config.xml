@@ -10,9 +10,9 @@
 		<typeAlias type="com.ed.cnm.member.MemberFileDTO" alias="MemberFileDTO"/>
 		<typeAlias type="com.ed.cnm.board.BoardDTO" alias="BoardDTO"/>
 		<typeAlias type="com.ed.cnm.board.BoardFileDTO" alias="BoardFileDTO"/>
-		<typeAlias type="com.ed.cnm.board.CommunityDTO" alias="CommunityDTO"/>
-		<typeAlias type="com.ed.cnm.board.FaqDTO" alias="FaqDTO"/>
-		<typeAlias type="com.ed.cnm.board.NoticeDTO" alias="NoticeDTO"/>
-		<typeAlias type="com.ed.cnm.board.QnaDTO" alias="QnaDTO"/>
+		<typeAlias type="com.ed.cnm.board.community.CommunityDTO" alias="CommunityDTO"/>
+		<typeAlias type="com.ed.cnm.board.faq.FaqDTO" alias="FaqDTO"/>
+		<typeAlias type="com.ed.cnm.board.notice.NoticeDTO" alias="NoticeDTO"/>
+		<typeAlias type="com.ed.cnm.board.qna.QnaDTO" alias="QnaDTO"/>
 	</typeAliases>
 </configuration>

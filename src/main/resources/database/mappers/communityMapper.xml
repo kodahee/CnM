@@ -5,8 +5,48 @@
     
 <mapper namespace="com.ed.cnm.board.community.CommunityDAO">
 
-	<select id="communityList" parameterType="boardDTO" resultType="boardDTO">
-		select * from community
+	<select id="getList" parameterType="boardDTO" resultType="boardDTO">
+		select * from
+			(select rownum R, C.* from
+				(select * from community where
+					<choose>
+						<when test="kind == 'Title'">
+							title
+						</when>
+						<when test="kind == 'NickName'">
+							nickName
+						</when>
+						<when test="kind == 'Contents'">
+							contents
+						</when>
+						
+						<otherwise>
+							genre
+						</otherwise>
+					</choose>
+				  like '%' || #{search} || '%' and num > 0 order by num desc) C)
+		where R between #{startRow} and #{lastRow}
+	</select>
+	
+	<select id="getTotalCount" resultType="Long" parameterType="Pager">
+		select count(num) from community
+		where 
+		<choose>
+			<when test="kind == 'Title'">
+				title
+			</when>
+			<when test="kind == 'NickName'">
+				nickName
+			</when>
+			<when test="kind == 'Contents'">
+				contents
+			</when>
+			
+			<otherwise>
+				genre
+			</otherwise>
+		</choose>
+		like '%'||#{search}||'%' and num >0
 	</select>
 
 </mapper>

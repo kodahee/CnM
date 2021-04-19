@@ -25,7 +25,7 @@
 				<div class="dropdown-menu">
 					<a class="dropdown-item" href="${pageContext.request.contextPath}/notice/noticeList">Notice</a> 
 					<a class="dropdown-item" href="${pageContext.request.contextPath}/qna/qnaList">QnA</a> 
-					<a class="dropdown-item" href="#">Link 3</a>
+					<a class="dropdown-item" href="${pageContext.request.contextPath}/community/communityList">Community</a>
 				</div>
 			</li>
 		</ul>

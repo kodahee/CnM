@@ -27,6 +27,12 @@ public class CommunityDAO implements BoardDAO {
 	}
 	
 	@Override
+	public long getTotalCount(Pager pager) throws Exception {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne(NAMESPACE+"getTotalCount", pager);
+	}
+	
+	@Override
 	public BoardDTO getSelect(BoardDTO boardDTO) throws Exception {
 		return null;
 	}
