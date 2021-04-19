@@ -47,7 +47,9 @@ public class MemberService {
 	}
 	
 	// 회원탈퇴
-	public int memberDelete(MemberDTO memberDTO) throws Exception {
+	public int memberDelete(MemberDTO memberDTO, HttpSession session) throws Exception {
+		MemberFileDTO memberFileDTO = memberDAO.getMemberFile(memberDTO);	
+		boolean check = fileManager.delete("member", memberFileDTO.getFileName(), session);
 		return memberDAO.memberDelete(memberDTO);
 	}
 	
@@ -62,12 +64,12 @@ public class MemberService {
 	}
 	
 	// 회원가입
-	public int memberJoin(MemberDTO memberDTO, MultipartFile profilePic, HttpSession session) throws Exception {
-		String fileName= fileManager.save("member", profilePic, session);
+	public int memberJoin(MemberDTO memberDTO, MultipartFile memberPic, HttpSession session) throws Exception {
+		String fileName= fileManager.save("member", memberPic, session);
 		
 		MemberFileDTO memberFileDTO = new MemberFileDTO();
 		memberFileDTO.setId(memberDTO.getId());
-		memberFileDTO.setOriginName(profilePic.getOriginalFilename());
+		memberFileDTO.setOriginName(memberPic.getOriginalFilename());
 		memberFileDTO.setFileName(fileName);
 		
 		int result = memberDAO.memberJoin(memberDTO);

@@ -30,19 +30,20 @@ public class MemberController {
 	public void memberUpdate() throws Exception {}
 
 	@PostMapping("memberUpdate")
-	public void memberUpdate(MemberDTO memberDTO, MultipartFile profilePic, HttpSession session) throws Exception {
+	public String memberUpdate(MemberDTO memberDTO, MultipartFile profilePic, HttpSession session) throws Exception {
 		int result = memberService.memberUpdate(memberDTO);
 		result = memberService.setFileUpdate(memberDTO, profilePic, session);
+		
+		if(result>0) {
+			session.setAttribute("member", memberDTO);
+		}
+		
+		return "memberMyPage";
 	}
 	
 	//------------- 마이페이지 -------------
 	@GetMapping("memberMyPage")
 	public void memberMyPage() throws Exception {}
-	
-	@PostMapping("memberMyPage")
-	public void memberMyPage(MemberDTO memberDTO) throws Exception {
-		
-	}
 
 	//------------- 이메일인증 -------------
 	@ResponseBody
@@ -83,7 +84,7 @@ public class MemberController {
 	@GetMapping("memberDelete")
 	public String memberDelete(HttpSession session) throws Exception {
 		MemberDTO memberDTO =(MemberDTO)session.getAttribute("member");
-		int result = memberService.memberDelete(memberDTO);
+		int result = memberService.memberDelete(memberDTO, session);
 		session.invalidate();
 		return "redirect:../";
 	}
@@ -96,13 +97,13 @@ public class MemberController {
 	public void memberJoin() throws Exception {}
 
 	@PostMapping("memberJoin")
-	public String memberJoin(MemberDTO memberDTO, MultipartFile profilePic, HttpSession session, Model model) throws Exception {
-		int result = memberService.memberJoin(memberDTO, profilePic, session);
+	public String memberJoin(MemberDTO memberDTO, MultipartFile memberPic, HttpSession session, Model model) throws Exception {
+		int result = memberService.memberJoin(memberDTO, memberPic, session);
 		
-		System.out.println(profilePic.getName());//파라미터명
-		System.out.println(profilePic.getOriginalFilename());//upload 할 때 파일명
-		System.out.println(profilePic.getSize());//파일의 크기(byte)
-		System.out.println(profilePic.isEmpty());//파일의 존재 유무
+		System.out.println(memberPic.getName());//파라미터명
+		System.out.println(memberPic.getOriginalFilename());//upload 할 때 파일명
+		System.out.println(memberPic.getSize());//파일의 크기(byte)
+		System.out.println(memberPic.isEmpty());//파일의 존재 유무
 		
 		String message = "회원가입 실패";
 		String path="./memberJoin";

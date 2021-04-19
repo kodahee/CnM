@@ -13,10 +13,10 @@ import org.springframework.web.multipart.MultipartFile;
 @Component
 public class FileManager {
 	
-	public boolean delete(String name, String profilePic, HttpSession session) throws Exception {
+	public boolean delete(String name, String fileName, HttpSession session) throws Exception {
 		// 1. 경로 설정
 		String path = session.getServletContext().getRealPath("resources/upload/"+name);
-		File file = new File(path, profilePic);		// 경로를 따라서 파일지정
+		File file = new File(path, fileName);		// 경로를 따라서 파일지정
 		
 		boolean check = false;
 		
@@ -41,18 +41,18 @@ public class FileManager {
 		}
 
 		// 2. 저장할 파일명
-		String profilePic = "";
+		String fileName = "";
 		
 		// UUID
-		profilePic = UUID.randomUUID().toString() + "_" + multipartFile.getOriginalFilename();
+		fileName = UUID.randomUUID().toString() + "_" + multipartFile.getOriginalFilename();
 		
 		// 3. HDD에 저장
-		file = new File(file, profilePic);
+		file = new File(file, fileName);
 		
 		// transfer to
 		multipartFile.transferTo(file);		// multipartFile에 있는 2진데이터를 파일경로에 저장
 
-		return profilePic;
+		return fileName;
 	}
 
 	public File makePath(HttpSession session) throws Exception {

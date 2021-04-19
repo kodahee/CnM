@@ -17,10 +17,6 @@ public class MemberDAO {
 		return sqlSession.update(NAMESPACE+"memberUpdate", memberDTO);
 	}
 	
-	public int setFileInsert(MemberFileDTO memberFileDTO) throws Exception {
-		return sqlSession.insert(NAMESPACE+"setFileInsert", memberFileDTO);
-	}
-	
 	public int setFileUpdate(MemberFileDTO memberFileDTO) throws Exception {
 		return sqlSession.update(NAMESPACE+"setFileUpdate", memberFileDTO);
 	}
@@ -38,6 +34,10 @@ public class MemberDAO {
 	// 회원가입
 	public int memberJoin(MemberDTO memberDTO) throws Exception {
 		return sqlSession.insert(NAMESPACE+"memberJoin", memberDTO);
+	}
+	
+	public int setFileInsert(MemberFileDTO memberFileDTO) throws Exception {
+		return sqlSession.insert(NAMESPACE+"setFileInsert", memberFileDTO);
 	}
 	
 	// 로그인
