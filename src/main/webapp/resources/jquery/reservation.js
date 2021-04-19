@@ -23,30 +23,30 @@ function getDate(date){
 
 }
 //영화목록 API에서 영화코드 응답받겠다.
-let movieNm=$('.movieNm').html();
-let movieCd="";
-//
-let count = $('li').length;//li가 몇개 있는지,, 20개 제대로 나옴
-//$('.box_ranking').each(function(index, li){
-	//console.log(this);//제대로 20개가 나옴
-console.log(movieNm)
-for(Nm of movieNm){
-	console.log(Nm);
-	}
+let count = $('li').length;//li가 몇개 있는지,, 20개 제대로 나옴//필요한가?
+let movieNmList = [];
+let movieCdList=[];
+$('.movieNm').each(function(index, li){
+	//console.log(this);//엘리먼트 전부 뜸(태그까지)
+	//console.log($(this).text());//제목만 뜸
+	movieNmList.push($(this).text());
+	console.log(movieNmList[index]);
+	let movieNm = movieNmList[index];
+
+
 $.ajax({
 	url : "http://www.kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieList.json",
 	type:"GET",
 	data: {
 		key:"88c812405e947836cbbee3be8daa5603",
-		movieNm : Nm
+		movieNm : movieNm
 	}
 	
 	}).done(function(data) {
 		
-		console.log(Nm);
+		console.log(data);
 		console.log('===')
 		
 		
 });
-
-//});//each
+});//each end 29번줄
