@@ -11,7 +11,7 @@ $('.movieNm').each(function(index, li){
 	//console.log($(this).text());//제목만 뜸
 	//console.log(index+' : '+movieNmList[index]);
 	movieNmList.push($(this).text());
-	
+	let test ='';
 	$.ajax({
 		url : "http://www.kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieList.json",
 		type:"GET",
@@ -19,6 +19,7 @@ $('.movieNm').each(function(index, li){
 			key:"88c812405e947836cbbee3be8daa5603",
 			movieNm : movieNmList[index]
 		},
+		async: false,//========ajax를 동기식으로 바꾸기========리턴 가능!!========로딩바 필요해짐,,
 		success: function(data) {
 			data = data.movieListResult.movieList//데이터가 여러개 올 가능성 있음
 			//1. 이름이 완전히 같아야 하고, 2. movieCd가 제일 큰수 일때 배열로 추가하겟다.
@@ -31,14 +32,17 @@ $('.movieNm').each(function(index, li){
 			//이름이 같은 것들 중에서 제일 큰수를 뽑겠다.
 			let movieCd=Math.max.apply(null,equalNmToCd);
 			//console.log('이름'+index+': ' +movie.movieNm+' 코드: '+movieCd)//성공!
-			//movieCdList.push(movieCd);
-			searchMovieInfo(movieCd);
-			//저 코드를 가지고 다시 함수를 호출해야함,,
-		}//success end
+			movieCdList.push(movieCd);
+			let test = '<h3 class="movieCd" >'+movieCd+'</h3>'
+			
+		},//success end
+		
 	});//ajax end
 });//each end 
-			
-function searchMovieInfo(movieCd){
+	
+//console.log(movieCdList.length)	//리턴 받아서 20개 됨	
+
+for(movieCd of movieCdList){
 	$.ajax({
 		url:"http://www.kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieInfo.json",
 		type:"GET",
@@ -48,14 +52,18 @@ function searchMovieInfo(movieCd){
 		},
 		success:function(result){
 			//alert('hi')	//확인완료
-			result=result.movieInfoResult.movieInfo
-			console.log(result)
+			result=result.movieInfoResult.movieInfo;
+			/*console.log(result.movieNm)//된다!
 			console.log(result.openDt)
-			console.log(result.audits.watchGradeNm)
 			console.log(movieCd);
-			console.log(result.movieNm)
-			
+			console.log(result.audits[0].watchGradeNm)*/
+		
+			//로딩을 완전히 받아올때까지 기다려주는 그런거
 			//append를 사용할거임,,
+			test = '<h3 class="movieCd" >'+movieCd+'</h3>'
+			+'<h3>'+result.openDt+'</h3>'
+			+'<h3>'+result.audits[0].watchGradeNm+'</h3>';
+			$('.test').append(test);
 			
 		}
 		

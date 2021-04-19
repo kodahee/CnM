@@ -15,7 +15,7 @@
 <c:import url="../template/header.jsp"></c:import>
 <h4>1</h4>
 <div class="box_ranking">
-	<ul>
+	<ul >
 		<c:forEach items="${list }" var="dto">
 			<li>
 				<h3><img class="poster" alt="" src="${dto.poster }"></h3>
@@ -23,6 +23,9 @@
 				<h3>${dto.rankNum }</h3>
 				<h6>${dto.movieInfo }</h6>
 				<h3>${dto.reservation }</h3>
+				<div class="test">
+				
+				</div>
 			</li>
 		</c:forEach>
 	</ul>
