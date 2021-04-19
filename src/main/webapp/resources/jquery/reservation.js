@@ -20,7 +20,6 @@ $('.movieNm').each(function(index, li){
 			movieNm : movieNmList[index]
 		},
 		success: function(data) {
-			//console.log(index+' : '+movieNmList[index]);
 			data = data.movieListResult.movieList//데이터가 여러개 올 가능성 있음
 			//1. 이름이 완전히 같아야 하고, 2. movieCd가 제일 큰수 일때 배열로 추가하겟다.
 			let equalNmToCd=[];
@@ -32,30 +31,28 @@ $('.movieNm').each(function(index, li){
 			//이름이 같은 것들 중에서 제일 큰수를 뽑겠다.
 			let movieCd=Math.max.apply(null,equalNmToCd);
 			//console.log('이름'+index+': ' +movie.movieNm+' 코드: '+movieCd)//성공!
-			movieCdList.push(movieCd);
-			
+			//movieCdList.push(movieCd);
+			searchMovieInfo(movieCd);
 			//저 코드를 가지고 다시 함수를 호출해야함,,
 		}//success end
 	});//ajax end
 });//each end 
-			console.log(movieCdList.length);
-
-for(index in movieCdList){
-	
+			
+function searchMovieInfo(movieCd){
 	$.ajax({
 		url:"http://www.kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieInfo.json",
 		type:"GET",
 		data:{
 			key:"88c812405e947836cbbee3be8daa5603",
-			movieCd:movieCdList[index]
+			movieCd:movieCd
 		},
 		success:function(result){
-			alert('hi')
+			//alert('hi')	//확인완료
 			result=result.movieInfoResult.movieInfo
 			console.log(result)
 			console.log(result.openDt)
 			console.log(result.audits.watchGradeNm)
-			console.log(movieCdList[index]+'=='+result.movieCd)
+			console.log(movieCd);
 			console.log(result.movieNm)
 			
 			//append를 사용할거임,,
@@ -64,5 +61,4 @@ for(index in movieCdList){
 		
 	});
 	
-	
-};//movieCdList for end
+};
