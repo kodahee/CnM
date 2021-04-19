@@ -18,7 +18,7 @@
 		<c:forEach items="${list }" var="dto">
 			<li>
 				<h3><img class="poster" alt="" src="${dto.poster }"></h3>
-				<h3 id="movieNm">${dto.movieNm }</h3>
+				<h3 class="movieNm">${dto.movieNm }</h3>
 				<h3>${dto.rankNum }</h3>
 				<h6>${dto.movieInfo }</h6>
 				<h3>${dto.reservation }</h3>
