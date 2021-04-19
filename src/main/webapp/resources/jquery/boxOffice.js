@@ -1,6 +1,26 @@
 /**
  * 
  */
+//전역 변수 
+let date = new Date();
+//날짜 지정 메서드(하루 전을 파라미터로 넘겨야 함)
+function getDate(date){
+	let year = date.getFullYear();
+	let month = (1+date.getMonth());
+	if(month>=10){
+		month=month
+	}else{
+		month='0'+month;
+	};
+	let day = date.getDate();
+	if(day>=10){
+		day=day;
+	}else{
+		day='0'+day;
+	}
+	return year+month+day;
+
+}
 
 
 $("#btn").click(function(){
