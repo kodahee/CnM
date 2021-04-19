@@ -15,7 +15,7 @@
 		<h1>My Page</h1>
 
 		<ul class="list-group list-group-flush">
-			<li><img alt="" src="../resources/upload/member/${member.profilePic}"></li>
+			<li><img alt="" src="../resources/upload/member/${member.memberFile.fileName}"></li>
 			<li class="list-group-item">${member.nickName}</li>
 			<li class="list-group-item">${member.grade}</li>
 		</ul>

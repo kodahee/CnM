@@ -17,6 +17,10 @@ public class MemberDAO {
 		return sqlSession.update(NAMESPACE+"memberUpdate", memberDTO);
 	}
 	
+	public int setFileUpdate(MemberFileDTO memberFileDTO) throws Exception {
+		return sqlSession.update(NAMESPACE+"setFileUpdate", memberFileDTO);
+	}
+	
 	// 회원탈퇴
 	public int memberDelete(MemberDTO memberDTO) throws Exception {
 		return sqlSession.delete(NAMESPACE+"memberDelete", memberDTO);
@@ -32,17 +36,21 @@ public class MemberDAO {
 		return sqlSession.insert(NAMESPACE+"memberJoin", memberDTO);
 	}
 	
+	public int setFileInsert(MemberFileDTO memberFileDTO) throws Exception {
+		return sqlSession.insert(NAMESPACE+"setFileInsert", memberFileDTO);
+	}
+	
 	// 로그인
 	public MemberDTO memberLogin(MemberDTO memberDTO) throws Exception {
 		return sqlSession.selectOne(NAMESPACE+"memberLogin", memberDTO);
 	}
 	
 	// 로그인 - 프로필사진 불러옴
-	public MemberFileDTO memberLoginFile(MemberDTO memberDTO)throws Exception{
+	public MemberFileDTO memberLoginFile(MemberDTO memberDTO) throws Exception {
 		return sqlSession.selectOne(NAMESPACE+"memberLoginFile", memberDTO);
 	}
 	
-	public MemberFileDTO getMemberFile(MemberDTO memberDTO)throws Exception{
+	public MemberFileDTO getMemberFile(MemberDTO memberDTO) throws Exception {
 		return sqlSession.selectOne(NAMESPACE+"getMemberFile", memberDTO);
 	}
 	

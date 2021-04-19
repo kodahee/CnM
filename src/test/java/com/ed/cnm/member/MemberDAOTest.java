@@ -25,7 +25,6 @@ public class MemberDAOTest extends MyAbstractTest {
 		memberDTO.setCouponCheck("Y");
 		memberDTO.setPoint(1414);
 		memberDTO.setGrade("1");
-		memberDTO.setProfilePic("pic4");
 		
 		int result = memberDAO.memberJoin(memberDTO);
 		
@@ -56,7 +55,6 @@ public class MemberDAOTest extends MyAbstractTest {
 		memberDTO.setCouponCheck("Y");
 		memberDTO.setPoint(1414);
 		memberDTO.setGrade("1");
-		memberDTO.setProfilePic("pic4");
 		
 		int result = memberDAO.memberJoin(memberDTO);
 		

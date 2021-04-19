@@ -7,7 +7,11 @@
 
 	<!-- 회원정보수정 -->
 	<update id="memberUpdate">
-		update member set pw=#{pw}, nickName=#{nickName}, name=#{name}, phone=#{phone}, email=#{email}, profilePic=#{profilePic}, couponCheck=#{couponCheck}, point=#{point}, grade=#{grade} where id=#{id}
+		update member set pw=#{pw}, nickName=#{nickName}, name=#{name}, phone=#{phone}, email=#{email}, couponCheck=#{couponCheck}, point=#{point}, grade=#{grade} where id=#{id}
+	</update>
+	
+	<update id="setFileUpdate" parameterType="MemberFileDTO">
+		update memberFile set fileName=#{fileName}, originName=#{originName}) where id=#{id}
 	</update>
 
 	<!-- 회원탈퇴 -->
@@ -22,16 +26,48 @@
 
 	<!-- 회원가입 -->
 	<insert id="memberJoin" parameterType="MemberDTO">
-		INSERT INTO MEMBER values(#{id}, #{pw}, #{name}, #{name}, #{phone}, #{email}, 'N', 0, 'grade0', 'pic')
+		INSERT INTO MEMBER values(#{id}, #{pw}, #{name}, #{name}, #{phone}, #{email}, 'N', 0, 'grade0')
+	</insert>
+	
+	<insert id="setFileInsert" parameterType="MemberFileDTO">
+		insert into memberFile values(FN_SEQ.nextval, #{id}, #{fileName}, #{originName})
 	</insert>
 	
 	<!-- 로그인 -->
-	<select id="memberLogin" parameterType="MemberDTO" resultType="MemberDTO">
-		SELECT * FROM MEMBER WHERE id=#{id} and pw=#{pw}
+	<select id="memberLogin" parameterType="MemberDTO" resultMap="memberLoginResult">
+		select M.*, MF.* 
+		from member M left join memberFile MF
+		on M.id = MF.id
+		where M.id=#{id} and M.pw=#{pw}
 	</select>
 	
-	<select id="memberLoginFile" parameterType="MemberDTO" resultType="MemberDTO">
-		SELECT * FROM MEMBER WHERE id=#{id} and pw=#{pw}
+	<resultMap type="MemberDTO" id="memberLoginResult">
+		<id property="id" column="id" />
+		<result property="pw" column="pw"/>
+		<result property="nickName" column="nickName"/>
+		<result property="name" column="name"/>
+		<result property="email" column="email"/>
+		<result property="phone" column="phone"/>
+		<result property="couponCheck" column="couponCheck"/>
+		<result property="point" column="point"/>
+		<result property="grade" column="grade"/>
+		<association property="memberFileDTO" javaType="MemberFileDTO" resultMap="memberFileResult">
+
+		</association>
+	</resultMap>
+	
+	<resultMap id="memberFileResult" type="MemberFileDTO">
+		<id property="num" column="num"/>
+		<result property="fileName" column="fileName"/>
+		<result property="originName" column="originName"/>
+	</resultMap>
+	
+	<select id="memberLoginFile" resultType="MemberFileDTO" parameterType="MemberDTO" >
+		select * from memberFile where id=#{id}
+	</select>
+	
+	<select id="getMemberFile" parameterType="MemberDTO" resultType="MemberFileDTO">
+		select fileName from memberFile where id=#{id}
 	</select>
 
 </mapper>

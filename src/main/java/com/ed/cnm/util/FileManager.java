@@ -43,21 +43,13 @@ public class FileManager {
 		// 2. 저장할 파일명
 		String profilePic = "";
 		
-		// 1) 시간
-//		Calendar cal = Calendar.getInstance();
-//		long time = cal.getTimeInMillis();
-//		fileName = time + "_" + multipartFile.getOriginalFilename();	// getOriginalFilename()에 확장자가 있음
-		
-		// 2) UUID
+		// UUID
 		profilePic = UUID.randomUUID().toString() + "_" + multipartFile.getOriginalFilename();
 		
 		// 3. HDD에 저장
 		file = new File(file, profilePic);
 		
-		// 1) copy
-//		FileCopyUtils.copy(multipartFile.getBytes(), file);		// 2진데이터를 지정해놓은 경로에 저장
-		
-		// 2) transfer to
+		// transfer to
 		multipartFile.transferTo(file);		// multipartFile에 있는 2진데이터를 파일경로에 저장
 
 		return profilePic;
