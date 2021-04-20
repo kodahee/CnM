@@ -6,6 +6,7 @@
 <mapper namespace="com.ed.cnm.board.community.CommunityDAO">
 
 	<select id="getList" parameterType="communityDTO" resultType="communityDTO">
+		select * from community order by num desc
 		select * from
 			(select rownum R, C.* from
 				(select * from community where

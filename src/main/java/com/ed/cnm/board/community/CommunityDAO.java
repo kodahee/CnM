@@ -43,6 +43,10 @@ public class CommunityDAO implements BoardDAO {
 		return sqlSession.insert(NAMESPACE+"setInsert", communityDTO);
 	}
 	
+	public long getNum() throws Exception {
+		return sqlSession.selectOne(NAMESPACE+"getNum");
+	}
+	
 	@Override
 	public int setDelete(BoardDTO boardDTO) throws Exception {
 		// TODO Auto-generated method stub
