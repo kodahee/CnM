@@ -33,10 +33,9 @@
 					<tr>
 						<td>${dto.num}</td>
 						<td>${dto.genre}</td>
-						<td><a href="./${board}Select?num=${dto.num}"> <c:catch>
-									<c:forEach begin="1" end="${dto.depth}">--</c:forEach>
-								</c:catch> ${dto.title}
-						</a></td>
+						<td>
+							<a href="./${board}Select?num=${dto.num}">${dto.title}</a>
+						</td>
 						<td>${dto.nickName}</td>
 						<td>${dto.regDate}</td>
 						<td>${dto.hit}</td>
@@ -85,9 +84,8 @@
 			</form>
 		</div>
 
-		<c:if test="${member.name eq 'admin' && board not eq 'community'">
-			<a href="./${board}Insert" class="btn  btn-primary" role="button">Write</a>
-		</c:if>
+		
+		<a href="./${board}Insert" class="btn  btn-primary" role="button">Write</a>
 		
 		<script type="text/javascript">
 			let kind = '${pager.kind}';

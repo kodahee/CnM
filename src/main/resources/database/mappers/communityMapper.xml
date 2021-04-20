@@ -5,7 +5,7 @@
     
 <mapper namespace="com.ed.cnm.board.community.CommunityDAO">
 
-	<select id="getList" parameterType="boardDTO" resultType="boardDTO">
+	<select id="getList" parameterType="communityDTO" resultType="communityDTO">
 		select * from
 			(select rownum R, C.* from
 				(select * from community where
