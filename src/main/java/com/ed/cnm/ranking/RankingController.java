@@ -21,10 +21,10 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 @RequestMapping("/ranking/**")
 public class RankingController {
-	
+	//===================예매율=====================
 	@GetMapping("reservation")
-	public ModelAndView getRanking(ModelAndView mv)throws Exception{
-		System.out.println("--controller");
+	public ModelAndView getReservation(ModelAndView mv)throws Exception{
+		System.out.println("--controller reservation");
 		String url="https://movie.daum.net/ranking/reservation";
 		Document doc = Jsoup.connect(url).get();
 		Elements elements = doc.select("div.box_ranking ol li");
@@ -33,7 +33,7 @@ public class RankingController {
 		List<RankingDTO> list = new ArrayList<RankingDTO>();
 		for(Element el : elements) {
 			RankingDTO rankingDTO = new RankingDTO();
-			String poster = el.select("div.poster_movie img").attr("src");//""까지 출력안됨
+			String poster = el.select("div.poster_movie img").attr("src");//""출력안됨
 			String movieNm = el.select("div.poster_movie img").attr("alt");
 			String rankNum = el.select("div.poster_movie span.rank_num").text();
 			String movieInfo = el.select("div.poster_info a.link_story").text();
@@ -46,11 +46,40 @@ public class RankingController {
 			list.add(rankingDTO);
 		}
 		mv.addObject("list", list);
-		mv.addObject("ranking", "reservation");
-		mv.setViewName("/ranking/rankingBoard");
+		mv.setViewName("/ranking/reservation");
+		
 		return mv;
 	}
 	
+	//===================박스 오피스=====================
+	@GetMapping("boxOffice/weekly")
+	public ModelAndView getBoxOffice (ModelAndView mv, String date) throws Exception{
+		//포스터 긁어오기
+		System.out.println("--controller BOweekly");
+		String url="https://movie.daum.net/ranking/boxoffice/weekly";
+		if(date!=null) {
+			url=url+"?="+date;
+		}
+		Document doc = Jsoup.connect(url).get();
+		Elements elements = doc.select("ol.list_movieranking li");
+		
+		List<RankingDTO> list = new ArrayList<RankingDTO>();
+		int i =0;
+		for(Element el : elements) {
+			RankingDTO rankingDTO = new RankingDTO();
+			String poster = el.select("div.poster_movie img").attr("src");
+			rankingDTO.setPoster(poster);
+			i++;
+			if(i==10) {
+				break;
+			}
+		}
+		mv.addObject("list", list);
+		mv.addObject("boxOffice", "weekly");
+		mv.setViewName("/ranking/boxOfficeBoard");
+		
+		return mv;
+	}
 	
 	
 	
