@@ -80,5 +80,9 @@ public class CommunityDAO implements BoardDAO {
 		return sqlSession.selectOne(NAMESPACE+"getFileSelect", boardFileDTO);
 	}
 	
+	public List<CommunityDTO> getGenreList(CommunityDTO communityDTO) throws Exception {
+		return sqlSession.selectList(NAMESPACE+"getGenreList", communityDTO);
+	}
+	
 
 }

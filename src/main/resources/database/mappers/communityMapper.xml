@@ -49,6 +49,10 @@
 		like '%'||#{search}||'%' and num>0
 	</select>
 	
+	<select id="getGenreList" parameterType="CommunityDTO" resultType="CommunityDTO">
+		SELECT DISTINCT genre FROM community ORDER BY genre asc
+	</select>
+	
 	<select id="getSelect" parameterType="BoardDTO" resultMap="selectResult">
 		select C.*, CF.*
 		from community C left join communityFiles CF

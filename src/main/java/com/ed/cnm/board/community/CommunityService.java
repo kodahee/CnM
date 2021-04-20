@@ -107,5 +107,9 @@ public class CommunityService implements BoardService {
 		}
 		return result;
 	}
+	
+	public List<CommunityDTO> getGenreList(CommunityDTO communityDTO) throws Exception {
+		return communityDAO.getGenreList(communityDTO);
+	}
 
 }

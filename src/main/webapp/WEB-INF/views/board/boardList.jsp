@@ -13,6 +13,20 @@
 	<c:import url="../template/header.jsp"></c:import>
 
 	<div class="container">
+		<!-- 커뮤니티 카테고리 -->
+		<c:if test="${board eq 'community'}">
+		    <div class="col-sm-4">
+		      <h3>장르</h3>
+		      <c:forEach items="${genre}" var="dto">
+		      <ul class="nav nav-pills flex-column">
+		        <li class="nav-item">
+		          <a class="nav-link" href="./${board}List?kind=Genre&search=${dto.genre}">${dto.genre}</a>
+		        </li>
+		      </ul>
+		      </c:forEach>
+		      <hr class="d-sm-none">
+		    </div>
+	    </c:if>
 
 		<h2>${board}List</h2>
 

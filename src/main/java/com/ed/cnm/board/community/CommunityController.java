@@ -134,16 +134,20 @@ public class CommunityController {
 	}
 	
 	@GetMapping("communityList")
-	public ModelAndView getList(Pager pager) throws Exception {
+	public ModelAndView getList(Pager pager, CommunityDTO communityDTO) throws Exception {
 		ModelAndView mv = new ModelAndView();
 		List<BoardDTO> ar = communityService.getList(pager);
+		List<CommunityDTO> genreAr = communityService.getGenreList(communityDTO);
 		
 		mv.addObject("board", "community");
 		mv.addObject("list", ar);
 		mv.addObject("pager", pager);
 		mv.setViewName("board/boardList");
 		
+		mv.addObject("genre", genreAr);
+		
 		return mv;
 	}
+	
 	
 }
