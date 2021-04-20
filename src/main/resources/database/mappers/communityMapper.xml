@@ -5,8 +5,7 @@
     
 <mapper namespace="com.ed.cnm.board.community.CommunityDAO">
 
-	<select id="getList" parameterType="communityDTO" resultType="communityDTO">
-		select * from community order by num desc
+	<select id="getList" parameterType="CommunityDTO" resultType="CommunityDTO">
 		select * from
 			(select rownum R, C.* from
 				(select * from community where
@@ -50,8 +49,50 @@
 		like '%'||#{search}||'%' and num>0
 	</select>
 	
-	<insert id="setInsert" parameterType="communityDTO">
+	<select id="getSelect" parameterType="BoardDTO" resultMap="selectResult">
+		select C.*, CF.*
+		from community C left join communityFiles CF
+		on C.num = CF.num
+		where C.num=#{num}
+	</select>
+	
+	<resultMap type="CommunityDTO" id="selectResult">
+		<id property="num" column="num"/>
+		<result property="genre" column="genre"/>
+		<result property="nickName" column="nickName"/>
+		<result property="title" column="title"/>
+		<result property="contents" column="contents"/>
+		<result property="regDate" column="regDate"/>
+		<result property="hit" column="hit"/>
+		<collection property="communityFiles" javaType="java.util.List" ofType="BoardFileDTO">
+			<id property="fileNum" column="fileNum"/>
+			<result property="fileName" column="fileName"/>
+			<result property="origineName" column="origineName"/>
+		</collection>
+	</resultMap>
+	
+	<insert id="setInsert" parameterType="BoardDTO">
 		INSERT INTO COMMUNITY values(community_seq.nextval, #{nickName}, #{genre}, #{title}, #{contents}, sysdate, 0)
 	</insert>
+	
+	<insert id="setFileInsert" parameterType="BoardFileDTO">
+		insert into communityFiles values(file_seq.nextval, #{num}, #{fileName}, #{originName})
+	</insert>
+	
+	<select id="getNum" resultType="java.lang.Long">
+		select community_seq.nextval from dual
+	</select>
+	
+	<insert id="setInsert" parameterType="BoardDTO">
+		insert into community values(#{num}, #{nickName}, #{genre}, #{title}, #{contents}, sysdate, 0)
+	</insert>
+	
+	<delete id="setDelete" parameterType="BoardDTO">
+		delete community where num=#{num}
+	</delete>
+	
+	<update id="setUpdate" parameterType="BoardDTO">
+		update community set genre=#{genre}, title=#{title}, contents=#{contents} where num=#{num}
+	</update>
 
 </mapper>

@@ -34,13 +34,13 @@ public class CommunityDAO implements BoardDAO {
 	
 	@Override
 	public BoardDTO getSelect(BoardDTO boardDTO) throws Exception {
-		return null;
+		return sqlSession.selectOne(NAMESPACE+"getSelect", boardDTO);
 	}
 	
-//	@Override
-	public int setInsert(CommunityDTO communityDTO) throws Exception {
+	@Override
+	public int setInsert(BoardDTO boardDTO) throws Exception {
 		// TODO Auto-generated method stub
-		return sqlSession.insert(NAMESPACE+"setInsert", communityDTO);
+		return sqlSession.insert(NAMESPACE+"setInsert", boardDTO);
 	}
 	
 	public long getNum() throws Exception {
@@ -48,19 +48,24 @@ public class CommunityDAO implements BoardDAO {
 	}
 	
 	@Override
+	public int setFileInsert(BoardFileDTO boardFileDTO) throws Exception {
+		return sqlSession.insert(NAMESPACE+"setFileInsert", boardFileDTO);
+	}
+	
+	@Override
 	public int setDelete(BoardDTO boardDTO) throws Exception {
 		// TODO Auto-generated method stub
-		return 0;
+		return sqlSession.delete(NAMESPACE+"setDelete", boardDTO);
 	}
 	
 	@Override
 	public int setUpdate(BoardDTO boardDTO) throws Exception {
 		// TODO Auto-generated method stub
-		return 0;
+		return sqlSession.update(NAMESPACE+"setUpdate", boardDTO);
 	}
 	
 	@Override
-	public int setFileInsert(BoardFileDTO boardFileDTO) throws Exception {
+	public int setHitUpdate(BoardDTO boardDTO) throws Exception {
 		// TODO Auto-generated method stub
 		return 0;
 	}
@@ -68,7 +73,11 @@ public class CommunityDAO implements BoardDAO {
 	@Override
 	public int setFileDelete(BoardFileDTO boardFileDTO) throws Exception {
 		// TODO Auto-generated method stub
-		return 0;
+		return sqlSession.delete(NAMESPACE+"setFileDelete", boardFileDTO);
+	}
+	
+	public BoardFileDTO getFileSelect(BoardFileDTO boardFileDTO) throws Exception {
+		return sqlSession.selectOne(NAMESPACE+"getFileSelect", boardFileDTO);
 	}
 	
 

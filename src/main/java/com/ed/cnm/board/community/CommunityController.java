@@ -12,6 +12,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ed.cnm.board.BoardDTO;
+import com.ed.cnm.board.BoardFileDTO;
 import com.ed.cnm.util.Pager;
 
 @Controller
@@ -20,6 +21,83 @@ public class CommunityController {
 
 	@Autowired
 	private CommunityService communityService;
+	
+	@PostMapping("summerFileDelete")
+	public ModelAndView setSummerFileDelete(String fileName)throws Exception{
+		ModelAndView mv = new ModelAndView();
+		boolean result = communityService.setSummerFileDelete(fileName);
+		mv.addObject("result", result);
+		mv.setViewName("common/ajaxResult");
+		return mv;
+	}
+	
+	@PostMapping("summerFileUpload")
+	public ModelAndView setSummerFileUpload(MultipartFile file)throws Exception{
+		ModelAndView mv = new ModelAndView();
+		System.out.println("Summer File Upload");
+		System.out.println(file.getOriginalFilename());
+		String fileName = communityService.setSummerFileUpload(file);
+		fileName = "../resources/upload/notice/"+fileName;
+		mv.addObject("result", fileName);
+		mv.setViewName("common/ajaxResult");
+		
+		return mv;
+	}
+	
+	@GetMapping("fileDelete")
+	public ModelAndView setFileDelete(BoardFileDTO boardFileDTO)throws Exception{
+		ModelAndView mv = new ModelAndView();
+		int result = communityService.setFileDelete(boardFileDTO);
+		mv.addObject("result", result);
+		mv.setViewName("common/ajaxResult");
+		return mv;
+	}
+	
+	@PostMapping("communityDelete")
+	public ModelAndView setDelete(CommunityDTO communityDTO) throws Exception {
+		ModelAndView mv = new ModelAndView();
+		int result = communityService.setDelete(communityDTO);
+		
+		String message = "삭제 실패";
+		String path = "./communityList";
+		
+		if(result > 0) {
+			message = "삭제 성공";
+		}
+		
+		mv.addObject("msg", message);
+		mv.addObject("path", path);
+		mv.setViewName("common/commonResult");
+		
+		return mv;
+	}
+	
+	@GetMapping("communityUpdate")
+	public ModelAndView setUpdate(BoardDTO boardDTO) throws Exception {
+		ModelAndView mv = new ModelAndView();
+		boardDTO = communityService.getSelect(boardDTO);
+		
+		mv.addObject("dto", boardDTO);
+		mv.addObject("board", "community");
+		mv.setViewName("board/boardUpdate");
+		
+		return mv;
+	}
+	
+	@PostMapping("communityUpdate")
+	public ModelAndView setUpdate(BoardDTO boardDTO, ModelAndView mv, MultipartFile [] files) throws Exception {
+		int result = communityService.setUpdate(boardDTO, files);
+		
+		if(result > 0) {
+			mv.setViewName("redirect:../communityList");
+		} else {
+			mv.addObject("msg", "수정 실패");
+			mv.addObject("path", "./communitySelect");
+			mv.setViewName("common/commonResult");
+		}
+		
+		return mv;
+	}
 	
 	@GetMapping("communityInsert")
 	public ModelAndView setInsert() throws Exception {

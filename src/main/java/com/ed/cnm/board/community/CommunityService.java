@@ -38,28 +38,16 @@ public class CommunityService implements BoardService {
 	}
 	
 	@Override
-	public long getTotalCount(Pager pager) throws Exception {
-		// TODO Auto-generated method stub
-		return communityDAO.getTotalCount(pager);
-	}
-	
-	@Override
 	public BoardDTO getSelect(BoardDTO boardDTO) throws Exception {
 		// TODO Auto-generated method stub
 		return communityDAO.getSelect(boardDTO);
 	}
 	
 	@Override
-	public int setDelete(BoardDTO boardDTO) throws Exception {
-		// TODO Auto-generated method stub
-		return communityDAO.setDelete(boardDTO);
-	}
-	
-//	@Override
-	public int setInsert(CommunityDTO communityDTO, MultipartFile[] files) throws Exception {
+	public int setInsert(BoardDTO boardDTO, MultipartFile[] files) throws Exception {
 		long num = communityDAO.getNum();
-		communityDTO.setNum(num);
-		int result = communityDAO.setInsert(communityDTO);
+		boardDTO.setNum(num);
+		int result = communityDAO.setInsert(boardDTO);
 		
 		// 글번호찾기
 		for(MultipartFile mf : files) {
@@ -77,9 +65,47 @@ public class CommunityService implements BoardService {
 	}
 	
 	@Override
+	public int setDelete(BoardDTO boardDTO) throws Exception {
+		return communityDAO.setDelete(boardDTO);
+	}
+	
+	@Override
 	public int setUpdate(BoardDTO boardDTO, MultipartFile[] files) throws Exception {
-		// TODO Auto-generated method stub
+		for(MultipartFile multipartFile:files) {
+			BoardFileDTO boardFileDTO = new BoardFileDTO();
+			// file들을 HDD에 저장
+			String fileName = fileManager.save("community", multipartFile, session);
+			boardFileDTO.setFileName(fileName);
+			boardFileDTO.setOriginName(multipartFile.getOriginalFilename());
+			boardFileDTO.setNum(boardDTO.getNum());
+			// DB에 insert
+			communityDAO.setFileInsert(boardFileDTO);
+		}
 		return communityDAO.setUpdate(boardDTO);
+	}
+	
+	public boolean setSummerFileDelete(String fileName)throws Exception{
+		boolean result = fileManager.delete("community", fileName, session);
+		return result;
+	}
+	
+	public String setSummerFileUpload(MultipartFile file)throws Exception{
+		
+		String fileName = fileManager.save("community", file, session);
+		return fileName;
+	}
+	
+	
+	public int setFileDelete(BoardFileDTO boardFileDTO)throws Exception{
+		// 조회
+		boardFileDTO = communityDAO.getFileSelect(boardFileDTO);
+		// table 삭제
+		int result = communityDAO.setFileDelete(boardFileDTO);
+		// HDD 삭제
+		if(result > 0) {
+			fileManager.delete("community", boardFileDTO.getFileName(), session);
+		}
+		return result;
 	}
 
 }

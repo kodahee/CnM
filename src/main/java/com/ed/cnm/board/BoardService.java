@@ -11,12 +11,10 @@ public interface BoardService {
 	
 	//==List==
 	public List<BoardDTO> getList(Pager pager) throws Exception; 
-	//==TotalCount==
-	public long getTotalCount(Pager pager) throws Exception;
 	//==Select==
 	public BoardDTO getSelect(BoardDTO boardDTO) throws Exception;
-//	//==Insert==
-//	public int setInsert(BoardDTO boardDTO, MultipartFile [] files) throws Exception;
+	//==Insert==
+	public int setInsert(BoardDTO boardDTO, MultipartFile [] files) throws Exception;
 	//==Delete== 
 	public int setDelete(BoardDTO boardDTO) throws Exception;
 	//==Update==

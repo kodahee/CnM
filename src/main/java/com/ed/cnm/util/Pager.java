@@ -8,7 +8,7 @@ public class Pager {
 	
 	public Pager() {
 		this.perPage = 25;
-		this.perPage = 10;
+		this.perBlock = 10;
 		this.curPage = 1;
 	}
 
