@@ -37,10 +37,10 @@ public class CommunityDAO implements BoardDAO {
 		return null;
 	}
 	
-	@Override
-	public int setInsert(BoardDTO boardDTO) throws Exception {
+//	@Override
+	public int setInsert(CommunityDTO communityDTO) throws Exception {
 		// TODO Auto-generated method stub
-		return 0;
+		return sqlSession.insert(NAMESPACE+"setInsert", communityDTO);
 	}
 	
 	@Override

@@ -13,7 +13,7 @@ public class MemberDAOTest extends MyAbstractTest {
 	private MemberDAO memberDAO;
 	
 	// 회원정보수정
-	@Test
+	//@Test
 	public void memberUpdate() throws Exception {
 		MemberDTO memberDTO = new MemberDTO();
 		memberDTO.setId("id4_1");
@@ -43,22 +43,24 @@ public class MemberDAOTest extends MyAbstractTest {
 	}
 	
 	// 회원가입
-	//@Test
+	@Test
 	public void memberJoin() throws Exception {
-		MemberDTO memberDTO = new MemberDTO();
-		memberDTO.setId("id4");
-		memberDTO.setPw("pw4");
-		memberDTO.setNickName("nick4");
-		memberDTO.setName("name4");
-		memberDTO.setPhone("01000000004");
-		memberDTO.setEmail("id4@gmail.com");
-		memberDTO.setCouponCheck("Y");
-		memberDTO.setPoint(1414);
-		memberDTO.setGrade("1");
-		
-		int result = memberDAO.memberJoin(memberDTO);
-		
-		assertNotEquals(0, result);
+		for(int i=0; i<100; i++) {
+			MemberDTO memberDTO = new MemberDTO();
+			memberDTO.setId("testid"+i);
+			memberDTO.setPw("testpw"+i);
+			memberDTO.setNickName("test NickName"+i);
+			memberDTO.setName("testname"+i);
+			memberDTO.setPhone("01000000"+i);
+			memberDTO.setEmail("testid"+i+"@gmail.com");
+			memberDTO.setCouponCheck("Y");
+			memberDTO.setPoint(0);
+			memberDTO.setGrade("1");
+			
+			int result = memberDAO.memberJoin(memberDTO);
+			System.out.println(result);
+		}
+
 	}
 
 	// 로그인

@@ -10,5 +10,21 @@ public class CommunityDAOTest extends MyAbstractTest {
 	@Autowired
 	private CommunityDAO communityDAO;
 	
-
+	@Test
+	public void setInsertTest() throws Exception {
+		for(int i=0;i<100;i++) {
+			for(int j=0; j<5; j++) {
+				CommunityDTO communityDTO = new CommunityDTO();
+				communityDTO.setNickName("testname"+i);
+				communityDTO.setGenre("test Genre"+j);
+				communityDTO.setTitle("test Title"+i);
+				communityDTO.setContents("test Contents"+i);
+				int result = communityDAO.setInsert(communityDTO);
+				System.out.println(result);
+				if(i%10==0) {
+					Thread.sleep(500);
+				}
+			}
+		}
+	}
 }

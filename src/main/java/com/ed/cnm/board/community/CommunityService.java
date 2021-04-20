@@ -40,10 +40,10 @@ public class CommunityService implements BoardService {
 		return communityDAO.setDelete(boardDTO);
 	}
 	
-	@Override
-	public int setInsert(BoardDTO boardDTO, MultipartFile[] files) throws Exception {
+//	@Override
+	public int setInsert(CommunityDTO communityDTO, MultipartFile[] files) throws Exception {
 		// TODO Auto-generated method stub
-		return communityDAO.setInsert(boardDTO);
+		return communityDAO.setInsert(communityDTO);
 	}
 	
 	@Override

@@ -24,11 +24,11 @@
 							genre
 						</otherwise>
 					</choose>
-				  like '%' || #{search} || '%' and num > 0 order by num desc) C)
+				  like '%' || #{search} || '%' and num>0 order by num desc) C)
 		where R between #{startRow} and #{lastRow}
 	</select>
 	
-	<select id="getTotalCount" resultType="Long" parameterType="Pager">
+	<select id="getTotalCount" parameterType="Pager" resultType="Long">
 		select count(num) from community
 		where 
 		<choose>
@@ -46,7 +46,11 @@
 				genre
 			</otherwise>
 		</choose>
-		like '%'||#{search}||'%' and num >0
+		like '%'||#{search}||'%' and num>0
 	</select>
+	
+	<insert id="setInsert" parameterType="communityDTO">
+		INSERT INTO COMMUNITY values(community_seq.nextval, #{nickName}, #{genre}, #{title}, #{contents}, sysdate, 0)
+	</insert>
 
 </mapper>
