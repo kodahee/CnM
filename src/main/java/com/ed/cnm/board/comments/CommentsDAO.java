@@ -1,4 +1,4 @@
-package com.ed.cnm.comments;
+package com.ed.cnm.board.comments;
 
 import java.util.List;
 
@@ -12,7 +12,7 @@ public class CommentsDAO {
 	@Autowired
 	private SqlSession sqlSession;
 	
-	private String NAMESPACE = "com.ed.cnm.comments.CommentsDAO.";
+	private String NAMESPACE = "com.ed.cnm.board.comments.CommentsDAO.";
 	
 	public int setInsert(CommentsDTO commentsDTO) throws Exception {
 		return sqlSession.insert(NAMESPACE+"setInsert", commentsDTO);

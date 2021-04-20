@@ -25,7 +25,7 @@ $("#comments").on("click", "#remove", function() {
 });
 
 function getList() {
-	$.get("../commentsList?num="+num, function(data) {
+	$.get("../comments/commentsList?num="+num, function(data) {
 		console.log(data);
 		$("#comments").html(data.trim());
 	});

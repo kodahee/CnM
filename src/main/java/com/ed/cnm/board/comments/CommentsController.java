@@ -1,4 +1,4 @@
-package com.ed.cnm.comments;
+package com.ed.cnm.board.comments;
 
 import java.util.List;
 

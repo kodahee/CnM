@@ -17,13 +17,18 @@
 		<c:if test="${board eq 'community'}">
 		    <div class="col-sm-4">
 		      <h3>장르</h3>
-		      <c:forEach items="${genre}" var="dto">
 		      <ul class="nav nav-pills flex-column">
+		        <li class="nav-item">
+		          <a class="nav-link" href="./${board}List">All</a>
+		        </li>
+		        
+		      <c:forEach items="${genre}" var="dto">
 		        <li class="nav-item">
 		          <a class="nav-link" href="./${board}List?kind=Genre&search=${dto.genre}">${dto.genre}</a>
 		        </li>
-		      </ul>
 		      </c:forEach>
+		      
+		      </ul>
 		      <hr class="d-sm-none">
 		    </div>
 	    </c:if>

@@ -3,7 +3,7 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
     
-<mapper namespace="com.ed.cnm.comments.CommentsDAO">
+<mapper namespace="com.ed.cnm.board.comments.CommentsDAO">
 	<insert id="setInsert" parameterType="CommentsDTO">
 		insert into comments values(comments_seq.nextval, #{num}, #{nickName}, #{contents}, sysdate, 0, 0, 0)
 	</insert>
