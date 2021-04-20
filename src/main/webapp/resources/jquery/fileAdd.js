@@ -6,7 +6,7 @@ let count = $("#files").attr("title");
 
 
 $("#add").click(function() {
-	alert(count);
+	// alert(count);
 	
 	if(count < 5) {
 		$("#files").append($("#sample").html());

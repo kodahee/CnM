@@ -32,8 +32,8 @@
 		
 		<div>
 			<div class="form-group">
-			  <label for="usr">Name:</label>
-			  <input type="text" class="form-control" id="name" >
+			  <label for="usr">NickName:</label>
+			  <input type="text" class="form-control" id="nickName" value="${member.nickName}" readonly="readonly">
 			</div>
 			<div class="form-group">
 			  <label for="comment">Comment:</label>
