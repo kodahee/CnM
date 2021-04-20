@@ -29,7 +29,7 @@ function uploadFile(files) {
 	// 파일 업로드 method : post, encType : multipart/form-data
 	const formData = new FormData();		// form 태그 생성
 	formData.append('file', files[0]);		// input type="file" name="file"
-	let filName = "";
+	let fileName = "";
 	
 	// ajax를 통해 보냄
 	$.ajax({

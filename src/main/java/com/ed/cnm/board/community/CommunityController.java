@@ -37,7 +37,7 @@ public class CommunityController {
 		System.out.println("Summer File Upload");
 		System.out.println(file.getOriginalFilename());
 		String fileName = communityService.setSummerFileUpload(file);
-		fileName = "../resources/upload/notice/"+fileName;
+		fileName = "../resources/upload/community/"+fileName;
 		mv.addObject("result", fileName);
 		mv.setViewName("common/ajaxResult");
 		
@@ -103,7 +103,7 @@ public class CommunityController {
 	public ModelAndView setInsert() throws Exception {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("board/boardInsert");
-		mv.addObject("board", "notice");
+		mv.addObject("board", "community");
 		return mv;
 	}
 	

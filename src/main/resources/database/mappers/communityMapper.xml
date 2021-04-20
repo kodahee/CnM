@@ -64,10 +64,10 @@
 		<result property="contents" column="contents"/>
 		<result property="regDate" column="regDate"/>
 		<result property="hit" column="hit"/>
-		<collection property="communityFiles" javaType="java.util.List" ofType="BoardFileDTO">
+		<collection property="boardFiles" javaType="java.util.List" ofType="BoardFileDTO">
 			<id property="fileNum" column="fileNum"/>
 			<result property="fileName" column="fileName"/>
-			<result property="origineName" column="origineName"/>
+			<result property="originName" column="originName"/>
 		</collection>
 	</resultMap>
 	
@@ -76,16 +76,12 @@
 	</insert>
 	
 	<insert id="setFileInsert" parameterType="BoardFileDTO">
-		insert into communityFiles values(file_seq.nextval, #{num}, #{fileName}, #{originName})
+		insert into communityFiles values(fileNum_seq.nextval, #{num}, #{fileName}, #{originName})
 	</insert>
 	
 	<select id="getNum" resultType="java.lang.Long">
 		select community_seq.nextval from dual
 	</select>
-	
-	<insert id="setInsert" parameterType="BoardDTO">
-		insert into community values(#{num}, #{nickName}, #{genre}, #{title}, #{contents}, sysdate, 0)
-	</insert>
 	
 	<delete id="setDelete" parameterType="BoardDTO">
 		delete community where num=#{num}
