@@ -89,7 +89,7 @@ public class CommunityController {
 		int result = communityService.setUpdate(communityDTO, files);
 		
 		if(result > 0) {
-			mv.setViewName("redirect:./communityList");
+			mv.setViewName("redirect:./communitySelect");
 		} else {
 			mv.addObject("msg", "수정 실패");
 			mv.addObject("path", "./communitySelect");

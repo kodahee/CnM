@@ -76,7 +76,7 @@
 	</resultMap>
 	
 	<insert id="setInsert" parameterType="CommunityDTO">
-		INSERT INTO COMMUNITY values(community_seq.nextval, #{nickName}, #{genre}, #{title}, #{contents}, sysdate, 0)
+		INSERT INTO COMMUNITY values(#{num}, #{nickName}, #{genre}, #{title}, #{contents}, sysdate, 0)
 	</insert>
 	
 	<insert id="setFileInsert" parameterType="BoardFileDTO">
