@@ -2,9 +2,22 @@
  * 
  */
 
+
 $('#iconCalendar').click(function(){
 	$('#calendarOpen').toggle();
-	calendarMaker($('#calendar'), new Date());
+	let selectDay=calendarMaker($('#calendar'), new Date());
+	$('#calendarTable').on('click','td',function(){
+		$.ajax({
+			url:'/ranking/boxOffice/weekly',
+			type:'GET',
+			data:{
+				date: selectDay
+			},
+			success: function(data){
+				
+			}			
+		});
+	});
 });
 
 
@@ -17,7 +30,7 @@ function calendarMaker(target, date){
 		let year = nowDate.getFullYear();//YYYY
 		let month = nowDate.getMonth()+1;//MM
 		//새로 선언할거니까 일단 비우고 다시 값을 집어 넣자
-		$(target).empty().append(assembly(year, month));//밑에 함수 설정 있음
+		$(target).empty().append(setCalendar(year, month));//밑에 함수 설정 있음
 	//}
 	
 	//내가 여기서 착각한게 달은 0~11인데 이걸 우리가 보기 편하게 할때 +1하는거지 얘네 자체는 그냥 해도 알아먹음 
@@ -34,9 +47,10 @@ function calendarMaker(target, date){
 	
 	//날짜 채우기
 	for(i =1; i<=thisLastDay.getDate(); i++){
-		
+		if(nowDate.getDate()==i){
+			selectDate=nowDate.getTime();
+		}
 		tag = tag+"<td>"+i+"</td>";
-		
 		cnt++;
 		if(cnt%7==0){
 			tag=tag+"</tr>";
@@ -45,12 +59,14 @@ function calendarMaker(target, date){
 	
 	
 	$(target).find('#setDate').append(tag);
-	calendarEvent(target);
+	let selectDay=calendarEvent(target);
 	
-	
+	return selectDay;
 };//function
 
 function calendarEvent(target){
+	let selectDay = new Date();
+	
 	//==저번 달==
 	$('.calendarTable').on('click', '.prev', function(){
 		if(nowDate.getMonth()==0){
@@ -72,12 +88,13 @@ function calendarEvent(target){
 	});
 	//날짜 선택 
 	$('.calendarTable').on('click', 'td', function(){
-		$(".custom_calendar_table .select_day").removeClass("select_day");
-		$(this).addClass('select_day');
+		selectDay = new Date(nowDate.getFullYear(), nowDate.getMonth(), $(this).text())
+		
 	});
+	return selectDay;
 }
 
-function assembly(year, month) {
+function setCalendar(year, month) {
         let calendar_html_code ='<table class = "calendarTable">'+
 			//==테이블 설정==
 			'<colgroup>'+
