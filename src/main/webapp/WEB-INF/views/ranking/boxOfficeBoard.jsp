@@ -17,10 +17,8 @@
 <span id="iconCalendar">
 	<img alt="calendar" src="../../resources/img/calendar.png">
 </span>
-<div id="calendar">
-	<div id="calendarTable">
-		
-	</div>
+<div id="calendarOpen">
+	<div id="calendar"></div>
 </div>
 
 <div class="box_ranking">
