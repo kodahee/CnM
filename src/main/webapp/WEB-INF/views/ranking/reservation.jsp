@@ -30,7 +30,9 @@
 		</c:forEach>
 	</ul>
 </div>
-
+<!-- 
+<script type="text/javascript" src="../resources/jquery/commonList.js"></script>
 <script type="text/javascript" src="../resources/jquery/reservation.js"> </script>
+ -->
 </body>
 </html>

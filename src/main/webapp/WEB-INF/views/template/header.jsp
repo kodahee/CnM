@@ -23,9 +23,9 @@
 	</ul>
 </div>
 <div>
-<c:if test="${ranking !=null}">
-<a class="nav-link active" href="${pageContext.request.contextPath }/rankig/reservation">reservation</a>
-<a class="nav-link active" href="${pageContext.request.contextPath }/rankig/boxOffice/weekly">boxOffice</a>
+<c:if test="${not empty ranking}">
+<a class="nav-link active" href="${pageContext.request.contextPath }/ranking/reservation">reservation</a>
+<a class="nav-link active" href="${pageContext.request.contextPath }/ranking/boxOffice/weekly">boxOffice</a>
 
 </c:if>
 </div>
