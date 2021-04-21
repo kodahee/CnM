@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.ed.cnm.board.notice.NoticeDAO">
+	<select id="getList" resultType="NoticeDTO" parameterType="Pager">
+		select * from
+			(select rownum R, N.* from
+				(select * from notice where
+					<choose>
+						<when test="kind=='NickName'">
+							nickName
+						</when>
+						<when test="kind =='Contents'">
+							contents
+						</when>
+						
+						<otherwise>
+							title
+						</otherwise>
+					</choose>
+				  like '%' || #{search} || '%' and num > 0 order by num desc) N)
+		where R between #{startRow} and #{lastRow}
+	</select>
+	
+	<select id="getTotalCount" resultType="Long" parameterType="Pager">
+		select count(num) from notice
+		where 
+		<choose>
+			<when test="kind == 'NickName'">
+				nickName
+			</when>
+			<when test="kind == 'Contents'">
+				contents
+			</when>
+			
+			<otherwise>
+				title
+			</otherwise>
+		</choose>
+		like '%'||#{search}||'%' and num >0
+	</select>
+	
+	<select id="getSelect" parameterType="BoardDTO" resultMap="selectResult">
+		select N.*, NF.*
+		from notice N left join noticeFiles NF
+		on N.num = NF.num
+		where N.num=#{num}
+	</select>
+	
+	<resultMap type="NoticeDTO" id="selectResult">
+		<id property="num" column="num"/>
+		<result property="nickName" column="nickName"/>
+		<result property="title" column="title"/>
+		<result property="contents" column="contents"/>
+		<result property="regDate" column="regDate"/>
+		<result property="hit" column="hit"/>
+		
+		<collection property="boardFiles" javaType="java.util.List" ofType="BoardFileDTO">
+			<id property="fileNum" column="fileNum"/>
+			<result property="fileName" column="fileName"/>
+			<result property="originName" column="originName"/>
+		</collection>
+	</resultMap>
+	
+	<select id="getNum" resultType="java.lang.Long">
+		select notice_seq.nextval from dual
+	</select>
+	
+	<insert id="setInsert" parameterType="BoardDTO">
+		insert into notice values(#{num}, #{nickName}, #{title}, #{contents}, sysdate, 0)
+	</insert>
+	
+	<delete id="setDelete" parameterType="BoardDTO">
+		delete notice where num=#{num}
+	</delete>
+	
+	<update id="setUpdate" parameterType="BoardDTO">
+		update notice set title=#{title}, contents=#{contents} where num=#{num}
+	</update>
+	
+	<select id="getFileSelect" parameterType="BoardFileDTO" resultType="BoardFileDTO">
+		select * from noticeFiles where fileNum=#{fileNum}
+	</select>
+
+	<delete id="setFileDelete" parameterType="BoardFileDTO">
+		delete noticeFiles where fileNum=#{fileNum}
+	</delete>
+	
+	<insert id="setFileInsert" parameterType="BoardFileDTO">
+		insert into noticeFiles values(file_seq.nextval, #{num}, #{fileName}, #{originName})
+	</insert>
+</mapper>
