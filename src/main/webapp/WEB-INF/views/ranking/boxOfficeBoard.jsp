@@ -18,7 +18,9 @@
 	<img alt="calendar" src="../../resources/img/calendar.png">
 </span>
 <div id="calendar">
-	<div id="calendarTable"><h1>ho!</h1></div>
+	<div id="calendarTable">
+		
+	</div>
 </div>
 
 <div class="box_ranking">

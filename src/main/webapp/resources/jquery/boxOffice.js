@@ -3,10 +3,11 @@
  */
 //전역 변수 
 let date = new Date();
+date.setTime(date.getTime()-86400000);//하루전으로 돌림
 //날짜 지정 메서드(하루 전을 파라미터로 넘겨야 함)
 //주간으로 할때 월~일로 해야하는데 오늘이 몇요일인지 확인해서 하는게 필요할까,,?
 function getDate(date){
-	let year = date.getFullYear();//YY getYear=>YYYY
+	let year = date.getFullYear();//YYYY
 	let month = (1+date.getMonth());
 	if(month>=10){
 		month=month
@@ -14,15 +15,13 @@ function getDate(date){
 		month='0'+month;
 	};
 	let day = date.getDate();
-	if(day==1){
-		day=32;
-	}
+	
 	if(day>=10){
 		day=day;
 	}else{
 		day='0'+day;
 	}
-	return year+month+day-1;
+	return year+month+day;
 
 }
 
