@@ -70,6 +70,7 @@
 	
 	<script type="text/javascript" src="../resources/jquery/boardUpdate.js"></script>
 	<script type="text/javascript" src="../resources/jquery/fileAdd.js"></script>
+	<script type="text/javascript" src="../resources/jquery/summerFile.js"></script>
 	<!-- <script type="text/javascript" src="../resources/js/insertCheck.js"></script> -->
 </body>
 </html>

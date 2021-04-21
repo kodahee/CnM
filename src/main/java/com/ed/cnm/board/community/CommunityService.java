@@ -43,11 +43,12 @@ public class CommunityService implements BoardService {
 		return communityDAO.getSelect(boardDTO);
 	}
 	
-	@Override
-	public int setInsert(BoardDTO boardDTO, MultipartFile[] files) throws Exception {
+//	@Override
+	public int setInsert(CommunityDTO communityDTO, MultipartFile[] files) throws Exception {
 		long num = communityDAO.getNum();
-		boardDTO.setNum(num);
-		int result = communityDAO.setInsert(boardDTO);
+		communityDTO.setNum(num);
+		System.out.println(num);
+		int result = communityDAO.setInsert(communityDTO);
 		
 		// 글번호찾기
 		for(MultipartFile mf : files) {
@@ -69,19 +70,19 @@ public class CommunityService implements BoardService {
 		return communityDAO.setDelete(boardDTO);
 	}
 	
-	@Override
-	public int setUpdate(BoardDTO boardDTO, MultipartFile[] files) throws Exception {
+//	@Override
+	public int setUpdate(CommunityDTO communityDTO, MultipartFile[] files) throws Exception {
 		for(MultipartFile multipartFile:files) {
 			BoardFileDTO boardFileDTO = new BoardFileDTO();
 			// file들을 HDD에 저장
 			String fileName = fileManager.save("community", multipartFile, session);
 			boardFileDTO.setFileName(fileName);
 			boardFileDTO.setOriginName(multipartFile.getOriginalFilename());
-			boardFileDTO.setNum(boardDTO.getNum());
+			boardFileDTO.setNum(communityDTO.getNum());
 			// DB에 insert
 			communityDAO.setFileInsert(boardFileDTO);
 		}
-		return communityDAO.setUpdate(boardDTO);
+		return communityDAO.setUpdate(communityDTO);
 	}
 	
 	public boolean setSummerFileDelete(String fileName)throws Exception{

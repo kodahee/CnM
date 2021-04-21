@@ -14,11 +14,11 @@ public interface BoardDAO {
 	//==Select==
 	public BoardDTO getSelect(BoardDTO boardDTO) throws Exception;
 	//==Insert==
-	public int setInsert(BoardDTO boardDTO) throws Exception;
+//	public int setInsert(BoardDTO boardDTO) throws Exception;
 	//==Delete==
 	public int setDelete(BoardDTO boardDTO) throws Exception;
 	//==Update==
-	public int setUpdate(BoardDTO boardDTO) throws Exception;
+//	public int setUpdate(BoardDTO boardDTO) throws Exception;
 	//==Hit Update==
 	public int setHitUpdate(BoardDTO boardDTO) throws Exception;
 	//==insertFile

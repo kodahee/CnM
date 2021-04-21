@@ -14,10 +14,10 @@ public interface BoardService {
 	//==Select==
 	public BoardDTO getSelect(BoardDTO boardDTO) throws Exception;
 	//==Insert==
-	public int setInsert(BoardDTO boardDTO, MultipartFile [] files) throws Exception;
+//	public int setInsert(BoardDTO boardDTO, MultipartFile [] files) throws Exception;
 	//==Delete== 
 	public int setDelete(BoardDTO boardDTO) throws Exception;
 	//==Update==
-	public int setUpdate(BoardDTO boardDTO, MultipartFile [] files) throws Exception;
+//	public int setUpdate(BoardDTO boardDTO, MultipartFile [] files) throws Exception;
 	
 }

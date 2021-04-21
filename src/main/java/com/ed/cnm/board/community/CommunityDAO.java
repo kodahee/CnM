@@ -37,10 +37,10 @@ public class CommunityDAO implements BoardDAO {
 		return sqlSession.selectOne(NAMESPACE+"getSelect", boardDTO);
 	}
 	
-	@Override
-	public int setInsert(BoardDTO boardDTO) throws Exception {
+//	@Override
+	public int setInsert(CommunityDTO communityDTO) throws Exception {
 		// TODO Auto-generated method stub
-		return sqlSession.insert(NAMESPACE+"setInsert", boardDTO);
+		return sqlSession.insert(NAMESPACE+"setInsert", communityDTO);
 	}
 	
 	public long getNum() throws Exception {
@@ -58,10 +58,10 @@ public class CommunityDAO implements BoardDAO {
 		return sqlSession.delete(NAMESPACE+"setDelete", boardDTO);
 	}
 	
-	@Override
-	public int setUpdate(BoardDTO boardDTO) throws Exception {
+//	@Override
+	public int setUpdate(CommunityDTO communityDTO) throws Exception {
 		// TODO Auto-generated method stub
-		return sqlSession.update(NAMESPACE+"setUpdate", boardDTO);
+		return sqlSession.update(NAMESPACE+"setUpdate", communityDTO);
 	}
 	
 	@Override

@@ -75,12 +75,12 @@
 		</collection>
 	</resultMap>
 	
-	<insert id="setInsert" parameterType="BoardDTO">
+	<insert id="setInsert" parameterType="CommunityDTO">
 		INSERT INTO COMMUNITY values(community_seq.nextval, #{nickName}, #{genre}, #{title}, #{contents}, sysdate, 0)
 	</insert>
 	
 	<insert id="setFileInsert" parameterType="BoardFileDTO">
-		insert into communityFiles values(fileNum_seq.nextval, #{num}, #{fileName}, #{originName})
+		insert into communityFiles values(fileNum_seq.nextval, #{num}+1, #{fileName}, #{originName})
 	</insert>
 	
 	<select id="getNum" resultType="java.lang.Long">

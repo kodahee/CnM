@@ -85,8 +85,8 @@ public class CommunityController {
 	}
 	
 	@PostMapping("communityUpdate")
-	public ModelAndView setUpdate(BoardDTO boardDTO, ModelAndView mv, MultipartFile [] files) throws Exception {
-		int result = communityService.setUpdate(boardDTO, files);
+	public ModelAndView setUpdate(CommunityDTO communityDTO, ModelAndView mv, MultipartFile [] files) throws Exception {
+		int result = communityService.setUpdate(communityDTO, files);
 		
 		if(result > 0) {
 			mv.setViewName("redirect:../communityList");
