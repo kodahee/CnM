@@ -7,6 +7,11 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <c:import url="../template/bootStrap.jsp"></c:import>
+
+<!-- summernote  -->
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
+
 <style type="text/css">
 	#sample {
 		display: none;
@@ -23,19 +28,19 @@
 		<form id="frm" action="./${board}Update" method="post" enctype="multipart/form-data">
 			<input type="hidden" name="num" value="${param.num}">
 			<div class="form-group">
-				<label for="exampleFormControlInput1">NickName</label> 
+				<label for="nickName">NickName</label> 
 				<input class="form-control form-control-lg" type="text" value="${dto.nickName}" id="nickName" name="nickName" readonly="readonly">
 			</div>
 			<div class="form-group">
-				<label for="exampleFormControlInput1">Genre</label> 
+				<label for="genre">Genre</label> 
 				<input class="form-control form-control-lg" type="text" value="${dto.genre}" name="genre" id="genre">
 			</div>
 			<div class="form-group">
-				<label for="exampleFormControlInput1">Title</label> 
+				<label for="title">Title</label> 
 				<input class="form-control form-control-lg" type="text" value="${dto.title}" name="title" id="title">
 			</div>
 			<div class="form-group">
-				<label for="exampleFormControlTextarea1">Contents</label>
+				<label for="contents">Contents</label>
 				<textarea class="form-control" id="contents" rows="10" name="contents">${dto.contents}</textarea>
 			</div>
 			

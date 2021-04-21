@@ -80,7 +80,7 @@
 	</insert>
 	
 	<insert id="setFileInsert" parameterType="BoardFileDTO">
-		insert into communityFiles values(fileNum_seq.nextval, #{num}+1, #{fileName}, #{originName})
+		insert into communityFiles values(fileNum_seq.nextval, #{num}, #{fileName}, #{originName})
 	</insert>
 	
 	<select id="getNum" resultType="java.lang.Long">
@@ -91,7 +91,7 @@
 		delete community where num=#{num}
 	</delete>
 	
-	<update id="setUpdate" parameterType="BoardDTO">
+	<update id="setUpdate" parameterType="CommunityDTO">
 		update community set genre=#{genre}, title=#{title}, contents=#{contents} where num=#{num}
 	</update>
 

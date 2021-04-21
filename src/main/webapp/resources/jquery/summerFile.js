@@ -3,7 +3,7 @@
  */
 
 $("#contents").summernote({
-	height: 500,		// 처음 시작 크기
+	height: 500,								// 처음 시작 크기
 	placeholder: 'write here...',
 	callbacks: {
 	    onImageUpload: function(files) {		// files 는 이미지파일, 배열

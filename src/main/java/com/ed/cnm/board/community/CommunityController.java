@@ -89,7 +89,7 @@ public class CommunityController {
 		int result = communityService.setUpdate(communityDTO, files);
 		
 		if(result > 0) {
-			mv.setViewName("redirect:../communityList");
+			mv.setViewName("redirect:./communityList");
 		} else {
 			mv.addObject("msg", "수정 실패");
 			mv.addObject("path", "./communitySelect");
@@ -116,7 +116,7 @@ public class CommunityController {
 			message="등록 성공";
 		}
 		
-		model.addAttribute("msa", message);
+		model.addAttribute("msg", message);
 		model.addAttribute("path", "./communityList");
 		
 		return "common/commonResult";

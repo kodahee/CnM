@@ -6,6 +6,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.ed.cnm.board.BoardDTO;
@@ -47,13 +48,13 @@ public class CommunityService implements BoardService {
 	public int setInsert(CommunityDTO communityDTO, MultipartFile[] files) throws Exception {
 		long num = communityDAO.getNum();
 		communityDTO.setNum(num);
-		System.out.println(num);
 		int result = communityDAO.setInsert(communityDTO);
 		
 		// 글번호찾기
 		for(MultipartFile mf : files) {
 			BoardFileDTO boardFileDTO = new BoardFileDTO();
 			String fileName = fileManager.save("community", mf, session);
+			
 			
 			boardFileDTO.setNum(num);
 			boardFileDTO.setFileName(fileName);
