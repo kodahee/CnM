@@ -100,6 +100,7 @@ $.ajax({
 	data: {date: selectDay},
 	success: function(result){
 		alert('hi')
+		location.replace(result)//TT
 	}
 });
 }
