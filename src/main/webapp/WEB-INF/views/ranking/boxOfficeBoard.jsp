@@ -38,9 +38,9 @@
 </div>
 
 <script type="text/javascript" src="../../resources/jquery/calendar.js"></script>
-<!-- 
+
 <script type="text/javascript" src="../../resources/jquery/commonList.js"></script>
 <script type="text/javascript" src="../../resources/jquery/boxOffice.js"></script>
- -->
+ 
 </body>
 </html>

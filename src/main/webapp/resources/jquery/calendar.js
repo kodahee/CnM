@@ -1,43 +1,36 @@
 /**
  * 
  */
+let selectDay=new Date();
 
-
+$('#calendarOpen').hide();
 $('#iconCalendar').click(function(){
 	$('#calendarOpen').toggle();
-	let selectDay=calendarMaker($('#calendar'), new Date());
-	$('#calendarTable').on('click','td',function(){
-		$.ajax({
-			url:'/ranking/boxOffice/weekly',
-			type:'GET',
-			data:{
-				date: selectDay
-			},
-			success: function(data){
-				
-			}			
-		});
-	});
+	selectDay=calendarMaker($('#calendar'), new Date());
+
 });
 
+
+	
 
 
 let nowDate = new Date();
 function calendarMaker(target, date){
 	
 	nowDate=date;
-	//if($(target).length>0){//요소의 갯수가 0보다 크냐,, 아니요,,? 
-		let year = nowDate.getFullYear();//YYYY
-		let month = nowDate.getMonth()+1;//MM
-		//새로 선언할거니까 일단 비우고 다시 값을 집어 넣자
-		$(target).empty().append(setCalendar(year, month));//밑에 함수 설정 있음
-	//}
+	
+
+	let year = nowDate.getFullYear();//YYYY
+	let month = nowDate.getMonth()+1;//MM
+	//새로 선언할거니까 일단 비우고 다시 값을 집어 넣자, Html코드 만듬(헤드만 잇는 상태)
+	$(target).empty().append(setCalendar(year, month));//밑에 함수 설정 있음
+	
 	
 	//내가 여기서 착각한게 달은 0~11인데 이걸 우리가 보기 편하게 할때 +1하는거지 얘네 자체는 그냥 해도 알아먹음 
 	let thisMonth = new Date(nowDate.getFullYear(), nowDate.getMonth(), 1); //20210401 처음날
 	let thisLastDay = new Date(nowDate.getFullYear(), nowDate.getMonth()+1, 0); //20210430 마지막날
 	
-	//공백 만들기,,
+	//달력에 공백 만들기,,
 	let tag = "<tr>";
 	let cnt=0;
 	for(i=0; i<thisMonth.getDay(); i++){//getDay=요일0~6
@@ -45,27 +38,27 @@ function calendarMaker(target, date){
 		cnt++;
 	}
 	
-	//날짜 채우기
+	//달력에 날짜 채우기
 	for(i =1; i<=thisLastDay.getDate(); i++){
-		if(nowDate.getDate()==i){
-			selectDate=nowDate.getTime();
-		}
 		tag = tag+"<td>"+i+"</td>";
+		if(nowDate.getDate()==i){
+			selectDay=nowDate.getTime();//선택된 날을 일단 selectDay에 담아보기,,
+		}
 		cnt++;
 		if(cnt%7==0){
 			tag=tag+"</tr>";
 		}
 	}
 	
-	
+	//만들어둔 달력에 어펜드 
 	$(target).find('#setDate').append(tag);
-	let selectDay=calendarEvent(target);
-	
+	selectDay=calendarEvent(target);
+	console.log('달력만드는 함수: '+selectDay.toDateString())
+	//Uncaught TypeError: selectDay.toDateString is not a function오류
 	return selectDay;
 };//function
 
 function calendarEvent(target){
-	let selectDay = new Date();
 	
 	//==저번 달==
 	$('.calendarTable').on('click', '.prev', function(){
@@ -88,14 +81,15 @@ function calendarEvent(target){
 	});
 	//날짜 선택 
 	$('.calendarTable').on('click', 'td', function(){
-		selectDay = new Date(nowDate.getFullYear(), nowDate.getMonth(), $(this).text())
-		
+		$(this).addClass('selected');
+		selectDay = new Date(nowDate.getFullYear(), nowDate.getMonth(), $('td.selected').text().trim())
+		console.log('이벤트 함수: '+selectDay.toDateString())
 	});
 	return selectDay;
 }
 
 function setCalendar(year, month) {
-        let calendar_html_code ='<table class = "calendarTable">'+
+        let calHtmlCode ='<table class = "calendarTable">'+
 			//==테이블 설정==
 			'<colgroup>'+
 			'<col style = "width:30px"/>'+
@@ -121,5 +115,5 @@ function setCalendar(year, month) {
 			'<tbody id="setDate">'+
 			'</tbody>'+
 			'</table>';
-        return calendar_html_code;
+        return calHtmlCode;
     }

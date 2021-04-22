@@ -9,6 +9,7 @@ eunbi_todo
 04.19 예매율페이지 진행(ajax 비동기식에 대해 공부하고 동기식으로 전환) - 예매율 일단락(ajax부분 수정할지도 모름)
 04.20 박스페이지 진행(진행방향 구상)
 04.21 박스페이지 진행(jquery 정리, 달력작업)->날짜 선택 하는거 아직 안됨
+04.22 박스페이지 진행(달력 작업, 
 
 ranking/bookingRanking
 ranking/boxofficeRanking

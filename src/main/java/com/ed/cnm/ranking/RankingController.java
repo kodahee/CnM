@@ -62,8 +62,8 @@ public class RankingController {
 	public ModelAndView getBoxOffice (WebCrawlering webCrawlering, ModelAndView mv, String date) throws Exception{
 		
 		System.out.println("--controller BOweekly");
-		String url="https://movie.daum.net/ranking/boxoffice/weekly";
-		List<RankingDTO> list = webCrawlering.getCrawlering(url, date);
+		String url="https://movie.daum.net/ranking/boxoffice/weekly?="+date;
+		List<RankingDTO> list = webCrawlering.getCrawlering(url);
 		//포스터랑 시놉시스, 이름(pk용으로 쓸 수 있을까 해서,,)
 		mv.addObject("list", list);
 		mv.addObject("boxOffice", "weekly");

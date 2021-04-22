@@ -4,8 +4,10 @@
 //전역 변수 
 let date = new Date();
 date.setTime(date.getTime()-86400000);//하루전으로 돌림
+//selectDay = getSelectDay();
+date=selectDay;
 //날짜 지정 메서드(하루 전을 파라미터로 넘겨야 함)
-//주간으로 할때 월~일로 해야하는데 오늘이 몇요일인지 확인해서 하는게 필요할까,,?
+//주간으로 할때 월~일로 해야하는데 오늘이 몇요일인지 확인해서 하는게 필요,,
 function getDate(date){
 	let year = date.getFullYear();//YYYY
 	let month = (1+date.getMonth());

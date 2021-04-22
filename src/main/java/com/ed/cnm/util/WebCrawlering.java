@@ -11,13 +11,11 @@ import org.jsoup.select.Elements;
 import com.ed.cnm.ranking.RankingDTO;
 
 public class WebCrawlering {
-	public List<RankingDTO> getCrawlering(String url,String date) throws Exception{
+	public List<RankingDTO> getCrawlering(String url) throws Exception{
 
 		//디폴트로 작업하던거 if말고 있었던 거 같은데 알아보기
 		
-		if(date!=null) {
-			url=url+"?="+date;
-		}
+	
 		Document doc = Jsoup.connect(url).get();
 		Elements elements = doc.select("ol.list_movieranking li");
 		
