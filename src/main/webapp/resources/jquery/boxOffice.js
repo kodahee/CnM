@@ -1,18 +1,16 @@
 /**
  * 
  */
-//전역 변수 
+//전역 변수
+//캘린더에 selectDay(date타입) 있고 몇요일인지 확인 할 필요 없이 json출력 되는 거 확인 
+//캘런더 선택 함수가 실행될때 selectDay있고 아닐 땐 없음
 let date = new Date();
-if(selectDay.toDateString != date.toDateString){
+if(selectDay != null){
 	date= selectDay;
 }else{
 	date=date.getTime()-86400000;//하루전으로 돌림
 }
-getDate(date)
-//selectDay = getSelectDay();
-//date=selectDay;
-//날짜 지정 메서드(하루 전을 파라미터로 넘겨야 함)
-//주간으로 할때 월~일로 해야하는데 오늘이 몇요일인지 확인해서 하는게 필요,,
+
 function getDate(date){
 	let year = date.getFullYear();//YYYY
 	let month = (1+date.getMonth());
@@ -28,15 +26,16 @@ function getDate(date){
 	}else{
 		day='0'+day;
 	}
+	console.log(year+month+day)
 	return year+month+day;
 
 }
 
-
 let movieCdList=[];
+//function search(){
 $.ajax({
 	type:"GET",
-	url:"http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json",
+	url:"http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchWeeklyBoxOfficeList.json",
 	data:{
 		key:"88c812405e947836cbbee3be8daa5603",
 		targetDt:getDate(date),
@@ -44,9 +43,9 @@ $.ajax({
 		},
 	async: false,
 	success:function(result){
-				
+		
 		result=result.boxOfficeResult.dailyBoxOfficeList;
-
+	
 		for(index in result){
 			let one=result[index];
 			
@@ -54,10 +53,10 @@ $.ajax({
 			let movieNm = '<h3 class="movieNm">'+one.movieNm+'</h3>';
 			let movieCd = one.movieCd;
 			
-		
+			
 			
 			$('.test'+index).append(rank+movieNm);
-		
+			
 			movieCdList.push(movieCd);
 					
 		};
@@ -65,5 +64,5 @@ $.ajax({
 				
 	}
 })//ajax
-
+//}//function
 commonList(movieCdList);

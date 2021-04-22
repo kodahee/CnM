@@ -86,6 +86,7 @@ function calendarEvent(target){
 		selectDay = new Date(nowDate.getFullYear(), nowDate.getMonth(), $('td.selected').text().trim());
 		console.log('===')
 		console.log(selectDay)//왜 스트링타입,,? Fri Apr 16 2021 00:00:00 GMT+0900 (대한민국 표준시)
+		//콘솔에 찍어보니까 그냥 자동 toString 된거처럼 된거,,, ,,,? .......
 		selectDay = new Date(Date.parse(selectDay));
 		console.log(selectDay.getTime());
 		//선택하면 ajax 소환
@@ -95,12 +96,13 @@ function calendarEvent(target){
 
 function selectTime(){
 $.ajax({
-	url: './weekly',
+	url: './list',
 	type: 'GET',
 	data: {date: selectDay},
 	success: function(result){
+		//result = movieList.jsp
 		alert('hi')
-		location.replace(result)//TT
+		$('#listBox').html(result);
 	}
 });
 }
