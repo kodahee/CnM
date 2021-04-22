@@ -13,17 +13,19 @@
 </head>
 <body>
 <c:import url="../template/header.jsp"></c:import>
-
-<span id="iconCalendar">
+<div>
+<span id="iconCalendar" >
 	<img alt="calendar" src="../../resources/img/calendar.png">
-</span>
-<div id="calendarOpen">
-	<div id="calendar"></div>
-</div>
+</span><p></p>
 
+</div>
+<div id="calendarOpen" >
+	<div id="calendar" ></div>
+</div>
+<!-- 
 <div class="box_ranking">
 	<ul >
-		<c:forEach items="${list }" var="dto" varStatus="i"><!-- i.index -->
+		<c:forEach items="${list }" var="dto" varStatus="i">
 			<li>
 				<h3><img class="poster" alt="" src="${dto.poster }"></h3>
 				<h6>${dto.movieInfo }</h6><h3>${dto.reservation }</h3>
@@ -36,11 +38,11 @@
 		</c:forEach>
 	</ul>
 </div>
-
+ -->
 <script type="text/javascript" src="../../resources/jquery/calendar.js"></script>
-
+<!-- 
 <script type="text/javascript" src="../../resources/jquery/commonList.js"></script>
 <script type="text/javascript" src="../../resources/jquery/boxOffice.js"></script>
- 
+ -->
 </body>
 </html>

@@ -6,8 +6,7 @@ let selectDay=new Date();
 $('#calendarOpen').hide();
 $('#iconCalendar').click(function(){
 	$('#calendarOpen').toggle();
-	selectDay=calendarMaker($('#calendar'), new Date());
-
+	calendarMaker($('#calendar'), new Date());
 });
 
 
@@ -52,14 +51,13 @@ function calendarMaker(target, date){
 	
 	//만들어둔 달력에 어펜드 
 	$(target).find('#setDate').append(tag);
-	selectDay=calendarEvent(target);
-	console.log('달력만드는 함수: '+selectDay.toDateString())
-	//Uncaught TypeError: selectDay.toDateString is not a function오류
-	return selectDay;
+	calendarEvent(target);
+	console.log('달력만들기: '+selectDay)
+	
 };//function
 
 function calendarEvent(target){
-	
+	//이벤트를 걸어주는 것들 뿐,,이벤트를 실행한거 아니다
 	//==저번 달==
 	$('.calendarTable').on('click', '.prev', function(){
 		if(nowDate.getMonth()==0){
@@ -81,11 +79,14 @@ function calendarEvent(target){
 	});
 	//날짜 선택 
 	$('.calendarTable').on('click', 'td', function(){
+		$('table').find('td.selected').removeClass('selected');
 		$(this).addClass('selected');
-		selectDay = new Date(nowDate.getFullYear(), nowDate.getMonth(), $('td.selected').text().trim())
-		console.log('이벤트 함수: '+selectDay.toDateString())
+		selectDay = new Date(nowDate.getFullYear(), nowDate.getMonth(), $('td.selected').text().trim());
+		console.log('===')
+		console.log(selectDay)
+		selectDay = new Date(Date.parse(selectDay));
+		console.log(selectDay.getTime());
 	});
-	return selectDay;
 }
 
 function setCalendar(year, month) {
