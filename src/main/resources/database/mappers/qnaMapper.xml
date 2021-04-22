@@ -38,7 +38,7 @@
 				title
 			</otherwise>
 		</choose>
-		like '%'||#{search}||'%' and num >0
+		like '%'||#{search}||'%' and num > 0
 	</select>
 
 	<select id="getSelect" parameterType="BoardDTO" resultType="QnaDTO">
@@ -49,7 +49,7 @@
 		<selectKey keyProperty="num" resultType="java.lang.Long" order="BEFORE">
 			select qna_seq.nextval from dual
 		</selectKey>
-		insert into qna values(#{num}, #{nickName}, #{title}, #{contents}, sysdate, 0, #{num}, 0,0)
+		insert into qna values(#{num}, #{id}, #{category}, #{title}, #{contents}, sysdate, 0, #{num}, 0, 0, #{onOff})
 	</insert>
 	
 	<update id="setUpdate" parameterType="BoardDTO">

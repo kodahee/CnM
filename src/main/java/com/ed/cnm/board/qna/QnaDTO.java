@@ -5,13 +5,22 @@ import java.util.List;
 import com.ed.cnm.board.BoardDTO;
 import com.ed.cnm.board.BoardFileDTO;
 
-public class QnaDTO extends BoardDTO{
+public class QnaDTO extends BoardDTO {
+	private String category;
 	private long ref;
 	private long step;
 	private long depth;
 	private String onOff;
 	
 	private List<BoardFileDTO> boardFiles;
+	
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
+	}
 
 	public long getRef() {
 		return ref;
