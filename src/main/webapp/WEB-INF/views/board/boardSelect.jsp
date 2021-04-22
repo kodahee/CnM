@@ -15,7 +15,9 @@
 	<div class="container">
 		<h1>${board} Select Page</h1>
 		<h3>Title : ${dto.title}</h3>
-		<h3>Genre : ${dto.genre}</h3>
+		<c:if test="${board eq 'community'}">
+			<h3>Genre : ${dto.genre}</h3>
+		</c:if>
 		<h3>Writer : ${dto.nickName}</h3>
 		<h3>Contents : ${dto.contents}</h3>
 		

@@ -27,18 +27,16 @@
 		<h2>${board} Insert Page</h2>
 
 		<form id="frm" action="./${board}Insert" method="post" enctype="multipart/form-data">
-			<%-- <div class="form-group">
-				<input class="form-control" type="text"
-					placeholder="${dto.name}" readonly>
-			</div> --%>
 			<div class="form-group">
 				<label for="exampleFormControlInput1">NickName</label> 
 				<input class="form-control form-control-lg myCheck" type="text" value="${member.nickName}" id="nickName" name="nickName" readonly="readonly">
 			</div>
-			<div class="form-group">
-				<label for="exampleFormControlInput1">Genre</label> 
-				<input class="form-control form-control-lg myCheck" type="text" name="genre" id="genre">
-			</div>
+			<c:if test="${board eq 'community'}">
+				<div class="form-group">
+					<label for="exampleFormControlInput1">Genre</label> 
+					<input class="form-control form-control-lg myCheck" type="text" name="genre" id="genre">
+				</div>
+			</c:if>
 			<div class="form-group">
 				<label for="exampleFormControlInput1">Title</label> 
 				<input class="form-control form-control-lg myCheck" type="text" name="title" id="title">

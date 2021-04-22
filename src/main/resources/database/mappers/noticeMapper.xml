@@ -90,6 +90,6 @@
 	</delete>
 	
 	<insert id="setFileInsert" parameterType="BoardFileDTO">
-		insert into noticeFiles values(file_seq.nextval, #{num}, #{fileName}, #{originName})
+		insert into noticeFiles values(fileNum_seq.nextval, #{num}, #{fileName}, #{originName})
 	</insert>
 </mapper>

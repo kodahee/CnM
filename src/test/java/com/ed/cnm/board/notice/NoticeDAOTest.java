@@ -2,14 +2,10 @@ package com.ed.cnm.board.notice;
 
 import static org.junit.Assert.*;
 
-import java.util.List;
-
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.ed.cnm.MyAbstractTest;
-import com.ed.cnm.board.notice.NoticeDAO;
-import com.ed.cnm.board.notice.NoticeDTO;
 
 public class NoticeDAOTest extends MyAbstractTest {
 	
@@ -32,7 +28,7 @@ public class NoticeDAOTest extends MyAbstractTest {
 	}
 	
 	@Test
-	public void setInsert() throws Exception {
+	public void setInsertTest() throws Exception {
 		for(int i=0; i<120; i++) {
 			NoticeDTO noticeDTO = new NoticeDTO();
 			long num = noticeDAO.getNum();
@@ -43,9 +39,6 @@ public class NoticeDAOTest extends MyAbstractTest {
 			int result = noticeDAO.setInsert(noticeDTO);
 			System.out.println(result);
 //			assertEquals(1, result);
-			if(i%10 == 0) {
-				Thread.sleep(500);
-			}
 		}
 	}
 	

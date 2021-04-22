@@ -108,9 +108,9 @@
 			</form>
 		</div>
 
-		<c:if test="${board ne 'community' && member.id eq 'admin'}">
+		<%-- <c:if test="${board ne 'community' && member.id eq 'admin'}"> --%>
 			<a href="./${board}Insert" class="btn  btn-primary" role="button">Write</a>
-		</c:if>
+		<%-- </c:if> --%>
 		
 		<script type="text/javascript">
 			let kind = '${pager.kind}';
