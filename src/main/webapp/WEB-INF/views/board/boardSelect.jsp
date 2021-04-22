@@ -28,26 +28,34 @@
 		</div>
 		
 		<!-- 댓글 리스트 -->
-		<div id="comments" title="${dto.num}">
-			
-		</div>
-		
-		<div>
-			<div class="form-group">
-			  <label for="usr">NickName:</label>
-			  <input type="text" class="form-control" id="nickName" value="${member.nickName}" readonly="readonly">
+		<c:if test="${board eq 'community' || board eq 'qna'}">
+			<div id="comments" title="${dto.num}">
+				
 			</div>
-			<div class="form-group">
-			  <label for="comment">Comment:</label>
-			  <textarea class="form-control" rows="5" id="contents"></textarea>
+		
+			<div>
+				<div class="form-group">
+				  <label for="usr">NickName:</label>
+				  <input type="text" class="form-control" id="nickName" value="${member.nickName}" readonly="readonly">
+				</div>
+				<div class="form-group">
+				  <label for="comment">Comment:</label>
+				  <textarea class="form-control" rows="5" id="contents"></textarea>
+				</div>
+				<button type="button" class="btn btn-success" id="write">Write</button>
 			</div>
-			<button type="button" class="btn btn-success" id="write">Write</button>
-		</div>
+		</c:if>
 		
-		
-		<a href="./${board}Update?num=${dto.num}" class="btn btn-danger">Update</a>
-		<a href="#" id="del" class="btn btn-info">Delete</a>
-
+		<c:choose>
+			<c:when test="${board ne 'notice'}">
+				<a href="./${board}Update?num=${dto.num}" class="btn btn-danger">Update</a>
+				<a href="#" id="del" class="btn btn-info">Delete</a>
+			</c:when>
+			<c:when test="${board eq 'notice' && member.id eq 'admin'}">
+				<a href="./${board}Update?num=${dto.num}" class="btn btn-danger">Update</a>
+				<a href="#" id="del" class="btn btn-info">Delete</a>
+			</c:when>
+		</c:choose>
 		
 		<form action="./${board}Delete" id="frm">
 			<input type="hidden" name="num" value="${dto.num}">

@@ -31,10 +31,12 @@
 				<label for="nickName">NickName</label> 
 				<input class="form-control form-control-lg" type="text" value="${dto.nickName}" id="nickName" name="nickName" readonly="readonly">
 			</div>
-			<div class="form-group">
-				<label for="genre">Genre</label> 
-				<input class="form-control form-control-lg" type="text" value="${dto.genre}" name="genre" id="genre">
-			</div>
+			<c:if test="${board eq 'community'}">
+				<div class="form-group">
+					<label for="genre">Genre</label> 
+					<input class="form-control form-control-lg" type="text" value="${dto.genre}" name="genre" id="genre">
+				</div>
+			</c:if>
 			<div class="form-group">
 				<label for="title">Title</label> 
 				<input class="form-control form-control-lg" type="text" value="${dto.title}" name="title" id="title">
