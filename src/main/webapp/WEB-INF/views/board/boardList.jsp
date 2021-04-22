@@ -39,7 +39,9 @@
 			<thead class="thead-dark">
 				<tr>
 					<th>NUM</th>
-					<th>GENRE</th>
+					<c:if test="${board eq 'community'}">
+						<th>GENRE</th>
+					</c:if>
 					<th>TITLE</th>
 					<th>NICKNAME</th>
 					<th>DATE</th>
@@ -51,7 +53,9 @@
 				<c:forEach items="${list}" var="dto">
 					<tr>
 						<td>${dto.num}</td>
-						<td>${dto.genre}</td>
+						<c:if test="${board eq 'community'}">
+							<td>${dto.genre}</td>
+						</c:if>
 						<td>
 							<a href="./${board}Select?num=${dto.num}">${dto.title}</a>
 						</td>
@@ -75,7 +79,6 @@
 			</c:if>
 
 			<c:forEach begin="${pager.startNum}" end="${pager.lastNum}" var="i">
-
 				<li class="page-item"><a class="page-link p" href="#" title="${i}">${i}</a></li>
 			</c:forEach>
 
@@ -93,7 +96,9 @@
 						<option class="sel">Title</option>
 						<option class="sel">Contents</option>
 						<option class="sel">NickName</option>
-						<option class="sel">Genre</option>
+						<c:if test="${board eq 'community'}">
+							<option class="sel">Genre</option>
+						</c:if>
 					</select>
 				</div>
 				<input type="text" class="form-control" name="search" id="search" value="${pager.search}" placeholder="">
@@ -103,8 +108,9 @@
 			</form>
 		</div>
 
-		
-		<a href="./${board}Insert" class="btn  btn-primary" role="button">Write</a>
+		<c:if test="${board ne 'community' && member.id eq 'admin'}">
+			<a href="./${board}Insert" class="btn  btn-primary" role="button">Write</a>
+		</c:if>
 		
 		<script type="text/javascript">
 			let kind = '${pager.kind}';
