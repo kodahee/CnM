@@ -1,7 +1,10 @@
 package com.ed.cnm.ranking;
 
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import org.jsoup.Jsoup;
@@ -59,10 +62,21 @@ public class RankingController {
 	
 	//===================박스 오피스=====================
 	@GetMapping("boxOffice/weekly")
-	public ModelAndView getBoxOffice (WebCrawlering webCrawlering, ModelAndView mv, String date) throws Exception{
+	public ModelAndView getBoxOffice (WebCrawlering webCrawlering, ModelAndView mv, Date date) throws Exception{
 		
 		System.out.println("--controller BOweekly");
-		String url="https://movie.daum.net/ranking/boxoffice/weekly?="+date;
+
+		//Date date 를 YYYYmmdd로 바꾸기
+		String result = "";
+		if(date!=null) {
+			SimpleDateFormat sd = new SimpleDateFormat("yyyyMMdd");
+			
+			result = sd.format(date);
+			System.out.println(""+result);
+		}
+		
+		String url="https://movie.daum.net/ranking/boxoffice/weekly?="+result;
+		
 		List<RankingDTO> list = webCrawlering.getCrawlering(url);
 		//포스터랑 시놉시스, 이름(pk용으로 쓸 수 있을까 해서,,)
 		mv.addObject("list", list);

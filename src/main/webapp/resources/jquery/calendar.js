@@ -1,23 +1,25 @@
 /**
  * 
  */
-let selectDay=new Date();
 
 $('#calendarOpen').hide();
+
+//====아이콘 클릭하면 달력을 보여주겠다.====
 $('#iconCalendar').click(function(){
 	$('#calendarOpen').toggle();
+	//==달력 만드는 함수==
 	calendarMaker($('#calendar'), new Date());
+
 });
 
-
-	
-
-
+//========전역 변수========
+let selectDay=new Date();
 let nowDate = new Date();
+//=======================
+
 function calendarMaker(target, date){
 	
 	nowDate=date;
-	
 
 	let year = nowDate.getFullYear();//YYYY
 	let month = nowDate.getMonth()+1;//MM
@@ -56,11 +58,12 @@ function calendarMaker(target, date){
 	
 };//function
 
+
+//====이벤트 함수, 실행x, 걸어둔 상태임을 기억 ====
 function calendarEvent(target){
-	//이벤트를 걸어주는 것들 뿐,,이벤트를 실행한거 아니다
 	//==저번 달==
 	$('.calendarTable').on('click', '.prev', function(){
-		if(nowDate.getMonth()==0){
+		if(nowDate.getMonth()==0){//1월이면 작년으로 가자
 			nowDate = new Date(nowDate.getFullYear()-1, 11, nowDate.getDate());
 		}else{
 			nowDate = new Date(nowDate.getFullYear(), nowDate.getMonth() -1, nowDate.getDate());
@@ -69,11 +72,10 @@ function calendarEvent(target){
 	});
 	//다음 달	
 	$('.calendarTable').on('click', '.next', function(){
-		if(nowDate.getMonth==11){
+		if(nowDate.getMonth==11){//12월이면 내년으로 가자
 			nowDate = new Date(nowDate.getFullYear()+1, 0, nowDate.getDate());
 		}else{
-			nowDate = new Date(nowDate.getFullYear(), nowDate.getMonth() +1, nowDate.getDate());
-				
+			nowDate = new Date(nowDate.getFullYear(), nowDate.getMonth() +1, nowDate.getDate());			
 		}
 		calendarMaker($(target), nowDate);
 	});
@@ -83,12 +85,26 @@ function calendarEvent(target){
 		$(this).addClass('selected');
 		selectDay = new Date(nowDate.getFullYear(), nowDate.getMonth(), $('td.selected').text().trim());
 		console.log('===')
-		console.log(selectDay)
+		console.log(selectDay)//왜 스트링타입,,? Fri Apr 16 2021 00:00:00 GMT+0900 (대한민국 표준시)
 		selectDay = new Date(Date.parse(selectDay));
 		console.log(selectDay.getTime());
+		//선택하면 ajax 소환
+		selectTime();
 	});
 }
 
+function selectTime(){
+$.ajax({
+	url: './weekly',
+	type: 'GET',
+	data: {date: selectDay},
+	success: function(result){
+		alert('hi')
+	}
+});
+}
+
+//===달력 만드는 HTML 코드 ==
 function setCalendar(year, month) {
         let calHtmlCode ='<table class = "calendarTable">'+
 			//==테이블 설정==
