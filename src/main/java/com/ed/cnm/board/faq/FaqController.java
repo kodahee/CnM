@@ -47,7 +47,7 @@ public class FaqController {
 		return mv;
 	}
 	
-	@GetMapping("noticeInsert")
+	@GetMapping("faqInsert")
 	public ModelAndView setInsert()throws Exception{
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("board/boardInsert");
@@ -55,7 +55,7 @@ public class FaqController {
 		return mv;
 	}
 	
-	@PostMapping("noticeInsert")
+	@PostMapping("faqInsert")
 	public String setInsert(BoardDTO boardDTO, Model model, MultipartFile [] files)throws Exception{
 		int result = faqService.setInsert(boardDTO, files);
 		

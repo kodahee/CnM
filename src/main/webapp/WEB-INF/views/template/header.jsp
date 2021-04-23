@@ -23,7 +23,8 @@
 				class="nav-link dropdown-toggle" href="#" id="navbardrop"
 				data-toggle="dropdown"> Board </a>
 				<div class="dropdown-menu">
-					<a class="dropdown-item" href="${pageContext.request.contextPath}/notice/noticeList">Notice</a> 
+					<a class="dropdown-item" href="${pageContext.request.contextPath}/notice/noticeList">Notice</a>
+					<a class="dropdown-item" href="${pageContext.request.contextPath}/faq/faqList">Faq</a> 
 					<a class="dropdown-item" href="${pageContext.request.contextPath}/qna/qnaList">QnA</a> 
 					<a class="dropdown-item" href="${pageContext.request.contextPath}/community/communityList">Community</a>
 				</div>
