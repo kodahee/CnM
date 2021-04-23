@@ -6,6 +6,8 @@ import com.ed.cnm.board.BoardDTO;
 import com.ed.cnm.board.BoardFileDTO;
 
 public class QnaDTO extends BoardDTO {
+	
+	private String id;
 	private String category;
 	private long ref;
 	private long step;
@@ -14,6 +16,14 @@ public class QnaDTO extends BoardDTO {
 	
 	private List<BoardFileDTO> boardFiles;
 	
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
 	public String getCategory() {
 		return category;
 	}

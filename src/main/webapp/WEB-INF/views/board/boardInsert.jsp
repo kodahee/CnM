@@ -31,12 +31,22 @@
 				<label for="exampleFormControlInput1">NickName</label> 
 				<input class="form-control form-control-lg myCheck" type="text" value="${member.nickName}" id="nickName" name="nickName" readonly="readonly">
 			</div>
-			<c:if test="${board eq 'community'}">
-				<div class="form-group">
-					<label for="exampleFormControlInput1">Genre</label> 
-					<input class="form-control form-control-lg myCheck" type="text" name="genre" id="genre">
-				</div>
-			</c:if>
+			
+			<c:choose>
+				<c:when test="${board eq 'community'}">
+					<div class="form-group">
+						<label for="exampleFormControlInput1">Genre</label> 
+						<input class="form-control form-control-lg myCheck" type="text" name="genre" id="genre">
+					</div>
+				</c:when>
+				<c:when test="${board eq 'qna'}">
+					<div class="form-group">
+						<label for="exampleFormControlInput1">Category</label> 
+						<input class="form-control form-control-lg myCheck" type="text" name="category" id="category">
+					</div>
+				</c:when>
+			</c:choose>
+			
 			<div class="form-group">
 				<label for="exampleFormControlInput1">Title</label> 
 				<input class="form-control form-control-lg myCheck" type="text" name="title" id="title">

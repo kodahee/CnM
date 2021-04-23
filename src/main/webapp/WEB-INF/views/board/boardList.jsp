@@ -39,9 +39,14 @@
 			<thead class="thead-dark">
 				<tr>
 					<th>NUM</th>
-					<c:if test="${board eq 'community'}">
-						<th>GENRE</th>
-					</c:if>
+					<c:choose>
+						<c:when test="${board eq 'community'}">
+							<th>GENRE</th>
+						</c:when>
+						<c:when test="${board eq 'qna'}">
+							<th>CATEGORY</th>
+						</c:when>
+					</c:choose>
 					<th>TITLE</th>
 					<th>NICKNAME</th>
 					<th>DATE</th>
@@ -53,9 +58,14 @@
 				<c:forEach items="${list}" var="dto">
 					<tr>
 						<td>${dto.num}</td>
-						<c:if test="${board eq 'community'}">
-							<td>${dto.genre}</td>
-						</c:if>
+						<c:choose>
+							<c:when test="${board eq 'community'}">
+								<td>${dto.genre}</td>
+							</c:when>
+							<c:when test="${board eq 'qna'}">
+								<td>${dto.category}</td>
+							</c:when>
+						</c:choose>
 						<td>
 							<a href="./${board}Select?num=${dto.num}">${dto.title}</a>
 						</td>
