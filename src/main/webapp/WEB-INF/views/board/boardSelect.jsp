@@ -28,7 +28,7 @@
 		</div>
 		
 		<!-- 댓글 리스트 -->
-		<c:if test="${board eq 'community' || board eq 'qna'}">
+		<c:if test="${board eq 'community'}">
 			<div id="comments" title="${dto.num}">
 				
 			</div>
@@ -47,7 +47,7 @@
 		</c:if>
 		
 		<c:choose>
-			<c:when test="${board ne 'notice'}">
+			<c:when test="${board eq 'community'}">	<!-- 작성자 == 사용자 -->
 				<a href="./${board}Update?num=${dto.num}" class="btn btn-danger">Update</a>
 				<a href="#" id="del" class="btn btn-info">Delete</a>
 			</c:when>
@@ -55,7 +55,15 @@
 				<a href="./${board}Update?num=${dto.num}" class="btn btn-danger">Update</a>
 				<a href="#" id="del" class="btn btn-info">Delete</a>
 			</c:when>
+			<c:when test="${board eq 'faq' && member.id eq 'admin'}">
+				<a href="./${board}Update?num=${dto.num}" class="btn btn-danger">Update</a>
+				<a href="#" id="del" class="btn btn-info">Delete</a>
+			</c:when>
 		</c:choose>
+		
+		<c:if test="${board eq 'qna' && member.id eq 'admin'}">
+			<a href="./${board}Reply?num=${dto.num}" class="btn btn-primary">Reply</a>
+		</c:if>
 		
 		<form action="./${board}Delete" id="frm">
 			<input type="hidden" name="num" value="${dto.num}">

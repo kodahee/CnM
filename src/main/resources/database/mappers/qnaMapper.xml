@@ -65,7 +65,7 @@
 	</update>
 	
 	<insert id="setReply" parameterType="QnaDTO">
-		insert into qna values(qna_seq.nextval, #{nickName}, #{title}, #{contents}, sysdate, 0, #{ref}, #{step}, #{depth})
+		insert into qna values(qna_seq.nextval, #{id}, #{title}, #{contents}, sysdate, 0, #{ref}, #{step}, #{depth})
 	</insert>
 	
 	<update id="setReplyUpdate" parameterType="QnaDTO">
