@@ -42,13 +42,15 @@ public class FaqService implements BoardService {
 	}
 	
 	public int setInsert(BoardDTO boardDTO, MultipartFile [] files) throws Exception {
+		long num = faqDAO.getNum();
+		boardDTO.setNum(num);
 		int result = faqDAO.setInsert(boardDTO);
 		
 		for(MultipartFile mf : files) {
 			BoardFileDTO boardFileDTO = new BoardFileDTO();
 			String fileName= fileManager.save("faq", mf, session);
 			
-			boardFileDTO.setNum(boardDTO.getNum());
+			boardFileDTO.setNum(num);
 			boardFileDTO.setFileName(fileName);
 			boardFileDTO.setOriginName(mf.getOriginalFilename());
 			

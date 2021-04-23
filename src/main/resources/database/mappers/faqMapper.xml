@@ -60,7 +60,7 @@
 				title
 			</otherwise>
 		</choose>
-		like '%'||#{search}||'%' and num >0
+		like '%'||#{search}||'%' and num > 0
 	</select>
 
 	<select id="getNum" resultType="java.lang.Long">

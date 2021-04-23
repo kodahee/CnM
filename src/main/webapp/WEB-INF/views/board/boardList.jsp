@@ -118,9 +118,10 @@
 			<c:when test="${board eq 'faq' && member.id eq 'admin'}">
 				<a href="./${board}Insert" class="btn  btn-primary" role="button">Write</a>
 			</c:when>
-			<c:when test="${board ne 'qna' && member.id ne 'admin'}">
+			<c:when test="${board eq 'qna' && member.id ne 'admin'}">
 				<a href="./${board}Insert" class="btn  btn-primary" role="button">Write</a>
 			</c:when>
+			<c:otherwise></c:otherwise>
 		</c:choose>
 		
 		<script type="text/javascript">
