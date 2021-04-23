@@ -17,7 +17,7 @@ public class CommunityDAO implements BoardDAO {
 	@Autowired
 	private SqlSession sqlSession;
 	
-	private String NAMESPACE = "com.ed.cnm.board.community.CommunityDAO.";
+	private final String NAMESPACE = "com.ed.cnm.board.community.CommunityDAO.";
 	
 	
 	@Override
@@ -67,7 +67,7 @@ public class CommunityDAO implements BoardDAO {
 	@Override
 	public int setHitUpdate(BoardDTO boardDTO) throws Exception {
 		// TODO Auto-generated method stub
-		return 0;
+		return sqlSession.update(NAMESPACE+"setHitUpdate", boardDTO);
 	}
 	
 	@Override

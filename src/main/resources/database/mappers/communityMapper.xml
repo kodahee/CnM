@@ -94,5 +94,9 @@
 	<update id="setUpdate" parameterType="CommunityDTO">
 		update community set genre=#{genre}, title=#{title}, contents=#{contents} where num=#{num}
 	</update>
+	
+	<update id="setHitUpdate" parameterType="BoardDTO">
+		update community set hit=hit+1 where num=#{num}
+	</update>
 
 </mapper>

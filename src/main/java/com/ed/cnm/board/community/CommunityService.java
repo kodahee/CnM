@@ -26,7 +26,6 @@ public class CommunityService implements BoardService {
 	@Autowired
 	private HttpSession session;
 	
-	
 	@Override
 	public List<BoardDTO> getList(Pager pager) throws Exception {
 		pager.makeRow();
@@ -39,7 +38,7 @@ public class CommunityService implements BoardService {
 	
 	@Override
 	public BoardDTO getSelect(BoardDTO boardDTO) throws Exception {
-		// TODO Auto-generated method stub
+		int result = communityDAO.setHitUpdate(boardDTO);
 		return communityDAO.getSelect(boardDTO);
 	}
 	
@@ -53,7 +52,6 @@ public class CommunityService implements BoardService {
 		for(MultipartFile mf : files) {
 			BoardFileDTO boardFileDTO = new BoardFileDTO();
 			String fileName = fileManager.save("community", mf, session);
-			
 			
 			boardFileDTO.setNum(num);
 			boardFileDTO.setFileName(fileName);

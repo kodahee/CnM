@@ -81,6 +81,10 @@
 		update notice set title=#{title}, contents=#{contents} where num=#{num}
 	</update>
 	
+	<update id="setHitUpdate" parameterType="BoardDTO">
+		update notice set hit=hit+1 where num=#{num}
+	</update>
+	
 	<select id="getFileSelect" parameterType="BoardFileDTO" resultType="BoardFileDTO">
 		select * from noticeFiles where fileNum=#{fileNum}
 	</select>

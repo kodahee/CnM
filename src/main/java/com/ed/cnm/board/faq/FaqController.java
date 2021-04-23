@@ -33,6 +33,7 @@ public class FaqController {
 		mv.setViewName("board/boardList");
 		mv.addObject("board", "faq");
 		mv.addObject("pager", pager);
+		
 		return mv;
 	}
 

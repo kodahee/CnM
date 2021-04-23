@@ -108,9 +108,20 @@
 			</form>
 		</div>
 
-		<%-- <c:if test="${board ne 'community' && member.id eq 'admin'}"> --%>
-			<a href="./${board}Insert" class="btn  btn-primary" role="button">Write</a>
-		<%-- </c:if> --%>
+		<c:choose>
+			<c:when test="${board eq 'community'}">
+				<a href="./${board}Insert" class="btn  btn-primary" role="button">Write</a>
+			</c:when>
+			<c:when test="${board eq 'notice' && member.id eq 'admin'}">
+				<a href="./${board}Insert" class="btn  btn-primary" role="button">Write</a>
+			</c:when>
+			<c:when test="${board eq 'faq' && member.id eq 'admin'}">
+				<a href="./${board}Insert" class="btn  btn-primary" role="button">Write</a>
+			</c:when>
+			<c:when test="${board ne 'qna' && member.id ne 'admin'}">
+				<a href="./${board}Insert" class="btn  btn-primary" role="button">Write</a>
+			</c:when>
+		</c:choose>
 		
 		<script type="text/javascript">
 			let kind = '${pager.kind}';

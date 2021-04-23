@@ -38,7 +38,7 @@ public class NoticeService implements BoardService {
 	
 	@Override
 	public BoardDTO getSelect(BoardDTO boardDTO) throws Exception {
-		// TODO Auto-generated method stub
+		int result = noticeDAO.setHitUpdate(boardDTO);
 		return noticeDAO.getSelect(boardDTO);
 	}
 	

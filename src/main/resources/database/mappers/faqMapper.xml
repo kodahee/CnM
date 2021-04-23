@@ -39,16 +39,14 @@
 		<result property="contents" column="contents" />
 		<result property="regDate" column="regDate" />
 		<result property="hit" column="hit" />
-		<collection property="boardFiles" javaType="java.util.List"
-			ofType="BoardFileDTO">
+		<collection property="boardFiles" javaType="java.util.List" ofType="BoardFileDTO">
 			<id property="fileNum" column="fileNum" />
 			<result property="fileName" column="fileName" />
 			<result property="originName" column="originName" />
 		</collection>
 	</resultMap>
 
-	<select id="getTotalCount" resultType="Long"
-		parameterType="Pager">
+	<select id="getTotalCount" resultType="Long" parameterType="Pager">
 		select count(num) from faq
 		where
 		<choose>
@@ -80,6 +78,10 @@
 	<delete id="setDelete" parameterType="BoardDTO">
 		delete faq where num=#{num}
 	</delete>
+	
+	<update id="setHitUpdate" parameterType="BoardDTO">
+		update faq set hit=hit+1 where num=#{num}
+	</update>
 
 	<insert id="setFileInsert" parameterType="BoardFileDTO">
 		insert into faqFiles values(fileNum_seq.nextval, #{num}, #{fileName}, #{originName})
