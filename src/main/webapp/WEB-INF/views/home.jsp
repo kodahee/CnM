@@ -22,5 +22,8 @@
 </h1>
 
 <P>  The time on the server is ${serverTime}. </P>
+
+<a href="./reservation/selectSeat">Select Seat</a>
+
 </body>
 </html>

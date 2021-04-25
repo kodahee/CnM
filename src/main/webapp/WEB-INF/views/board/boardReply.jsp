@@ -30,6 +30,11 @@
 				<textarea class="form-control" id="contents" rows="10" name="contents"></textarea>
 			</div>
 			
+			<div class="form-group">
+				<label for="exampleFormControlInput1">Private</label> 
+				<input class="form-control form-control-lg myCheck" type="text" value="${dto.onOff}" name="onOff" id="onOff">
+			</div>
+			
 			<input type="submit" value="Write" id="btn" class="btn btn-primary">
 
 		</form>
