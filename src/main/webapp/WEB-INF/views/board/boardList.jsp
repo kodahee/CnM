@@ -67,7 +67,25 @@
 							</c:when>
 						</c:choose>
 						<td>
-							<a href="./${board}Select?num=${dto.num}">${dto.title}</a>
+							<c:choose>
+								<c:when test="${board eq 'qna'}">
+									<c:choose>
+										<c:when test="${dto.onOff eq 'N'}">
+											<a href="./${board}Select?num=${dto.num}">${dto.title}</a>
+										</c:when>
+										<c:when test="${dto.onOff eq 'Y' && dto.id eq member.id}">
+											<a href="./${board}Select?num=${dto.num}">${dto.title}</a>
+										</c:when>
+										<c:otherwise>
+											${dto.title}
+										</c:otherwise>
+									</c:choose>
+								</c:when>
+								
+								<c:otherwise>
+									<a href="./${board}Select?num=${dto.num}">${dto.title}</a>
+								</c:otherwise>
+							</c:choose>
 						</td>
 						<td>${dto.nickName}</td>
 						<td>${dto.regDate}</td>

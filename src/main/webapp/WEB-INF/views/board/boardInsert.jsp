@@ -77,6 +77,11 @@
 				최대 5개까지만 -->
 			</div>
 			
+			<div class="form-group">
+				<label for="exampleFormControlInput1">Private</label> 
+				<input class="form-control form-control-lg myCheck" type="text" name="onOff" id="onOff">
+			</div>
+			
 			<input type="button" value="Write" id="btn" class="btn btn-primary">
 
 		</form>
