@@ -37,8 +37,8 @@ public class QnaDAO implements BoardDAO {
 		return sqlSession.selectOne(NAMESPACE+"getSelect", boardDTO);
 	}
 	
-	public int setInsert(BoardDTO boardDTO) throws Exception {
-		return sqlSession.insert(NAMESPACE+"setInsert", boardDTO);
+	public int setInsert(QnaDTO qnaDTO) throws Exception {
+		return sqlSession.insert(NAMESPACE+"setInsert", qnaDTO);
 	}
 	
 	public int setUpdate(BoardDTO boardDTO) throws Exception {

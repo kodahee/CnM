@@ -45,7 +45,7 @@
 		select * from qna where num=#{num}
 	</select>
 
-	<insert id="setInsert" parameterType="BoardDTO">
+	<insert id="setInsert" parameterType="QnaDTO">
 		<selectKey keyProperty="num" resultType="java.lang.Long" order="BEFORE">
 			select qna_seq.nextval from dual
 		</selectKey>

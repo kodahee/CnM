@@ -52,9 +52,9 @@ public class QnaController {
 	}
 	
 	@PostMapping("qnaInsert")
-	public ModelAndView setInsert(BoardDTO boardDTO, MultipartFile [] files) throws Exception {
+	public ModelAndView setInsert(QnaDTO qnaDTO, MultipartFile [] files) throws Exception {
 		ModelAndView mv = new ModelAndView(); 
-		int result = qnaService.setInsert(boardDTO, files);
+		int result = qnaService.setInsert(qnaDTO, files);
 		mv.setViewName("redirect:./qnaList");
 		
 		return mv;

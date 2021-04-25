@@ -42,14 +42,14 @@ public class QnaService implements BoardService {
 		return qnaDAO.getSelect(boardDTO);
 	}
 	
-	public int setInsert(BoardDTO boardDTO, MultipartFile [] files) throws Exception {
-		int result = qnaDAO.setInsert(boardDTO);
+	public int setInsert(QnaDTO qnaDTO, MultipartFile [] files) throws Exception {
+		int result = qnaDAO.setInsert(qnaDTO);
 		
 		for(MultipartFile mf : files) {
 			BoardFileDTO boardFileDTO = new BoardFileDTO();
 			String fileName= fileManager.save("qna", mf, session);
 			
-			boardFileDTO.setNum(boardDTO.getNum());
+			boardFileDTO.setNum(qnaDTO.getNum());
 			boardFileDTO.setFileName(fileName);
 			boardFileDTO.setOriginName(mf.getOriginalFilename());
 			

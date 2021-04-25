@@ -27,10 +27,25 @@
 		<h2>${board} Insert Page</h2>
 
 		<form id="frm" action="./${board}Insert" method="post" enctype="multipart/form-data">
-			<div class="form-group">
-				<label for="exampleFormControlInput1">NickName</label> 
-				<input class="form-control form-control-lg myCheck" type="text" value="${member.nickName}" id="nickName" name="nickName" readonly="readonly">
-			</div>
+			<c:choose>
+				<c:when test="${board ne 'qna'}">
+					<div class="form-group">
+						<label for="exampleFormControlInput1">NickName</label> 
+						<input class="form-control form-control-lg myCheck" type="text" value="${member.nickName}" id="nickName" name="nickName" readonly="readonly">
+					</div>
+				</c:when>
+				<c:when test="${board eq 'qna'}">
+					<div class="form-group">
+						<label for="exampleFormControlInput1">NickName</label> 
+						<input class="form-control form-control-lg myCheck" type="text" value="${member.nickName}" id="nickName" name="nickName" readonly="readonly">
+					</div>
+					<div class="form-group">
+						<label for="exampleFormControlInput1">Id</label> 
+						<input class="form-control form-control-lg myCheck" type="text" value="${member.id}" id="id" name="id" readonly="readonly">
+					</div>
+				</c:when>
+			</c:choose>
+			
 			
 			<c:choose>
 				<c:when test="${board eq 'community'}">
