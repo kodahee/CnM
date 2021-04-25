@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ed.cnm.board.faq.FaqDAO">
+	<select id="getList" resultType="FaqDTO" parameterType="Pager">
+		select * from
+		(select rownum R, F.* from
+		(select * from faq where
+		<choose>
+			<when test="kind=='NickName'">
+				nickName
+			</when>
+			<when test="kind =='Contents'">
+				contents
+			</when>
+			<otherwise>
+				title
+			</otherwise>
+		</choose>
+		like '%' || #{search} || '%' and num > 0 order by num desc) F)
+		where R
+		between #{startRow} and #{lastRow}
+	</select>
+
+	<select id="getSelect" parameterType="BoardDTO" resultMap="selectResult">
+		select F.*, FF.*
+		from faq F left join faqFiles FF
+		on
+		F.num = FF.num
+		where F.num=#{num}
+	</select>
+
+	<resultMap type="FaqDTO" id="selectResult">
+		<id property="num" column="num" />
+		<result property="nickName" column="nickName" />
+		<result property="title" column="title" />
+		<result property="contents" column="contents" />
+		<result property="regDate" column="regDate" />
+		<result property="hit" column="hit" />
+		<collection property="boardFiles" javaType="java.util.List" ofType="BoardFileDTO">
+			<id property="fileNum" column="fileNum" />
+			<result property="fileName" column="fileName" />
+			<result property="originName" column="originName" />
+		</collection>
+	</resultMap>
+
+	<select id="getTotalCount" resultType="Long" parameterType="Pager">
+		select count(num) from faq
+		where
+		<choose>
+			<when test="kind == 'NickName'">
+				nickName
+			</when>
+			<when test="kind == 'Contents'">
+				contents
+			</when>
+			<otherwise>
+				title
+			</otherwise>
+		</choose>
+		like '%'||#{search}||'%' and num > 0
+	</select>
+
+	<select id="getNum" resultType="java.lang.Long">
+		select faq_seq.nextval from dual
+	</select>
+
+	<insert id="setInsert" parameterType="BoardDTO">
+		insert into faq values(#{num}, #{nickName}, #{title}, #{contents}, sysdate, 0)
+	</insert>
+
+	<update id="setUpdate" parameterType="BoardDTO">
+		update faq set title=#{title}, contents=#{contents} where num=#{num}
+	</update>
+
+	<delete id="setDelete" parameterType="BoardDTO">
+		delete faq where num=#{num}
+	</delete>
+	
+	<update id="setHitUpdate" parameterType="BoardDTO">
+		update faq set hit=hit+1 where num=#{num}
+	</update>
+
+	<insert id="setFileInsert" parameterType="BoardFileDTO">
+		insert into faqFiles values(fileNum_seq.nextval, #{num}, #{fileName}, #{originName})
+	</insert>
+
+	<select id="getFileSelect" parameterType="BoardFileDTO" resultType="BoardFileDTO">
+		select * from faqFiles where fileNum=#{fileNum}
+	</select>
+
+	<delete id="setFileDelete" parameterType="BoardFileDTO">
+		delete faqFiles where fileNum=#{fileNum}
+	</delete>
+
+</mapper>

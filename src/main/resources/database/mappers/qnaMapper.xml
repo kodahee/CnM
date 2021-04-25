@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ed.cnm.board.qna.QnaDAO">
+	<select id="getList" resultType="QnaDTO" parameterType="Pager">
+		select * from
+		(select rownum R, Q.* from
+		(select * from qna where
+		<choose>
+			<when test="kind == 'NickName'">
+				nickName
+			</when>
+			<when test="kind == 'Contents'">
+				contents
+			</when>
+			<otherwise>
+				title
+			</otherwise>
+		</choose>
+		like '%' || #{search} || '%' and num > 0
+		order by ref desc, step asc) Q)
+		where R between #{startRow} and #{lastRow}
+	</select>
+
+	<select id="getTotalCount" resultType="Long" parameterType="Pager">
+		select count(num) from qna
+		where
+		<choose>
+			<when test="kind == 'NickName'">
+				nickName
+			</when>
+			<when test="kind == 'Contents'">
+				contents
+			</when>
+			<otherwise>
+				title
+			</otherwise>
+		</choose>
+		like '%'||#{search}||'%' and num > 0
+	</select>
+
+	<select id="getSelect" parameterType="BoardDTO" resultType="QnaDTO">
+		select * from qna where num=#{num}
+	</select>
+
+	<insert id="setInsert" parameterType="QnaDTO">
+		<selectKey keyProperty="num" resultType="java.lang.Long" order="BEFORE">
+			select qna_seq.nextval from dual
+		</selectKey>
+		insert into qna values(#{num}, #{id}, #{category}, #{title}, #{contents}, sysdate, 0, #{num}, 0, 0, #{onOff})
+	</insert>
+	
+	<update id="setUpdate" parameterType="BoardDTO">
+		update qna set title=#{title}, contents=#{contents} where num=#{num}
+	</update>
+	
+	<delete id="setDelete" parameterType="BoardDTO">
+		delete qna where num=#{num}
+	</delete>
+	
+	<update id="setHitUpdate" parameterType="BoardDTO">
+		update qna set hit=hit+1 where num=#{num}
+	</update>
+	
+	<insert id="setReply" parameterType="QnaDTO">
+		insert into qna values(qna_seq.nextval, #{id}, #{title}, #{contents}, sysdate, 0, #{ref}, #{step}, #{depth})
+	</insert>
+	
+	<update id="setReplyUpdate" parameterType="QnaDTO">
+		update qna set step=step+1 where ref=#{ref} and step > #{step}
+	</update>
+	
+	<insert id="setFileInsert" parameterType="BoardFileDTO">
+		insert into qnaFiles values(fileNum_seq.nextval, #{num}, #{fileName}, #{originName})
+	</insert>
+	
+
+</mapper>

@@ -3,3 +3,21 @@
 <!DOCTYPE configuration
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
+  
+<configuration>
+	<typeAliases>
+		<typeAlias type="com.ed.cnm.member.MemberDTO" alias="MemberDTO"/>
+		<typeAlias type="com.ed.cnm.member.MemberFileDTO" alias="MemberFileDTO"/>
+		<typeAlias type="com.ed.cnm.board.BoardDTO" alias="BoardDTO"/>
+		<typeAlias type="com.ed.cnm.board.BoardFileDTO" alias="BoardFileDTO"/>
+		<typeAlias type="com.ed.cnm.board.community.CommunityDTO" alias="CommunityDTO"/>
+		<typeAlias type="com.ed.cnm.board.faq.FaqDTO" alias="FaqDTO"/>
+		<typeAlias type="com.ed.cnm.board.notice.NoticeDTO" alias="NoticeDTO"/>
+		<typeAlias type="com.ed.cnm.board.qna.QnaDTO" alias="QnaDTO"/>
+		<typeAlias type="com.ed.cnm.board.comments.CommentsDTO" alias="CommentsDTO"/>
+		
+		<typeAlias type="com.ed.cnm.util.Pager" alias="Pager"/>
+		
+		<typeAlias type="java.lang.Long" alias="Long"/>
+	</typeAliases>
+</configuration>
