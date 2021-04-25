@@ -1,5 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-<<<<<<< HEAD
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!doctype html>
@@ -26,22 +25,6 @@
 
 <a href="./reservation/selectSeat">Select Seat</a>
 
-=======
-    pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<c:import url="./template/bootStrap.jsp"></c:import>
-<title>Insert title here</title>
-</head>
-<body>
-<c:import url="./template/header.jsp"></c:import>
-	
-	
 
-
->>>>>>> eunbi-ranking
 </body>
 </html>
