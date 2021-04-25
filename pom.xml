@@ -46,8 +46,23 @@
 			<artifactId>commons-fileupload</artifactId>
 			<version>1.4</version>
 		</dependency>
+<<<<<<< HEAD
 
 
+=======
+		
+		
+		<!-- jsoup -->
+		<dependency>
+		    <groupId>org.jsoup</groupId>
+		    <artifactId>jsoup</artifactId>
+		    <version>1.11.3</version>
+		</dependency>
+	
+	
+				
+	
+>>>>>>> eunbi-ranking
 		<!-- mybatis -->
 		<dependency>
 			<groupId>org.mybatis</groupId>
