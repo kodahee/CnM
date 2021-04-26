@@ -17,15 +17,6 @@
 				<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/member/memberMyPage">MyPage</a></li>
 				<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/member/memberLogout">Logout</a></li>
 			</c:if>
-			
-			<!-- Dropdown -->
-			<li class="nav-item dropdown"><a
-				class="nav-link dropdown-toggle" href="#" id="navbardrop"
-				data-toggle="dropdown"> Board </a>
-				<div class="dropdown-menu">
-					<a class="dropdown-item" href="${pageContext.request.contextPath}/community/communityList">Community</a>
-				</div>
-			</li>
 		</ul>
 	</nav> 
 

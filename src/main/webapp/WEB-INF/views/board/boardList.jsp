@@ -23,6 +23,12 @@
 			<li class="nav-item">
 				<a class="nav-link" href="${pageContext.request.contextPath}/qna/qnaList">Q&A</a>
 			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="${pageContext.request.contextPath}/community/communityList">Community</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="${pageContext.request.contextPath}/review">Review</a>
+			</li>
 		</ul>
 	</div>
 

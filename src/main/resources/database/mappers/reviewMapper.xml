@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.ed.cnm.review.ReviewDAO">
+	<insert id="setInsert" parameterType="ReviewDTO">
+		INSERT INTO REVIEW values(review_seq.nextval, #{id}, #{nickName}, #{movieTitle}, #{star}, #{contents}, sysdate, 0, 0, 0)
+	</insert>
+</mapper>
