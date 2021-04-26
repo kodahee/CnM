@@ -45,7 +45,7 @@
  <!-- selectDay를 받아서 오픈API 소환, 영화 코드를 받아서 commonList함수 소환 -->
 <script type="text/javascript" src="../../resources/jquery/ranking/boxOffice.js"></script>
   <!-- 달력 소환, 날짜 선택시 selectDay에 담고, Date타입으로 존재함 -->
- <script type="text/javascript" src="../../resources/jquery/ranking/calendar.js"></script>
+ <script type="text/javascript" src="../../resources/jquery/ranking/weekCalendar.js"></script>
 
 </body>
 </html>
