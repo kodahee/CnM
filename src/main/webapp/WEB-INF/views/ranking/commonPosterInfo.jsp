@@ -11,6 +11,6 @@
 		<h3>${dto.reservation }</h3>
 
 
-		<div class="test${i.index }"></div>
+		<div class="subInfo${i.index }"></div>
 	</li>
 </c:forEach>

@@ -23,7 +23,7 @@
 				<h3>${dto.rankNum }</h3>
 				<h6>${dto.movieInfo }</h6>
 				<h3>${dto.reservation }</h3>
-				<div class="test${i.index }">
+				<div class="subInfo${i.index }">
 				
 				</div>
 			</li>
@@ -31,8 +31,8 @@
 	</ul>
 </div>
 <!-- 
-<script type="text/javascript" src="../resources/jquery/commonList.js"></script>
-<script type="text/javascript" src="../resources/jquery/reservation.js"> </script>
+<script type="text/javascript" src="../resources/jquery/ranking/commonList.js"></script>
+<script type="text/javascript" src="../resources/jquery/ranking/reservation.js"> </script>
  -->
 </body>
 </html>

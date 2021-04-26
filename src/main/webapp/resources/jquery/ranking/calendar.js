@@ -1,7 +1,6 @@
 /**
  * 
  */
-
 $('#calendarOpen').hide();
 
 //====아이콘 클릭하면 달력을 보여주겠다.====
@@ -13,9 +12,10 @@ $('#iconCalendar').click(function(){
 });
 
 //========전역 변수========
-let selectDay=new Date();
-let nowDate = new Date();
+//let selectDay=new Date();
+//let nowDate = new Date();
 //=======================
+
 
 function calendarMaker(target, date){
 	
@@ -43,7 +43,8 @@ function calendarMaker(target, date){
 	for(i =1; i<=thisLastDay.getDate(); i++){
 		tag = tag+"<td>"+i+"</td>";
 		if(nowDate.getDate()==i){
-			selectDay=nowDate.getTime();//선택된 날을 일단 selectDay에 담아보기,,
+			selectDay=nowDate.getTime();
+			
 		}
 		cnt++;
 		if(cnt%7==0){
@@ -54,7 +55,6 @@ function calendarMaker(target, date){
 	//만들어둔 달력에 어펜드 
 	$(target).find('#setDate').append(tag);
 	calendarEvent(target);
-	console.log('달력만들기: '+selectDay)
 	
 };//function
 
@@ -100,11 +100,11 @@ $.ajax({
 	type: 'GET',
 	data: {date: selectDay},
 	success: function(result){
-		//result = movieList.jsp
-		alert('hi')
 		$('#listBox').html(result);
+		searchAPI()
 	}
 });
+		
 }
 
 //===달력 만드는 HTML 코드 ==
@@ -137,3 +137,4 @@ function setCalendar(year, month) {
 			'</table>';
         return calHtmlCode;
     }
+

@@ -81,7 +81,7 @@ public class RankingController {
 	}
 	//===========리스트(ajax)==================
 	@GetMapping("boxOffice/list")
-	public ModelAndView getMovieList(WebCrawlering webCrawlering, ModelAndView mv, Date date)throws Exception{
+	public ModelAndView getPosterInfo(WebCrawlering webCrawlering, ModelAndView mv, Date date)throws Exception{
 		
 		//Date date 를 YYYYmmdd로 바꾸기
 		
@@ -94,7 +94,7 @@ public class RankingController {
 		List<RankingDTO> list =webCrawlering.getCrawlering(url);
 		
 		mv.addObject("list", list);
-		mv.setViewName("/ranking/movieList");
+		mv.setViewName("/ranking/commonPosterInfo");
 		
 		return mv;
 	}
