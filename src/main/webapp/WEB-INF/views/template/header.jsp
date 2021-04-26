@@ -23,9 +23,6 @@
 				class="nav-link dropdown-toggle" href="#" id="navbardrop"
 				data-toggle="dropdown"> Board </a>
 				<div class="dropdown-menu">
-					<a class="dropdown-item" href="${pageContext.request.contextPath}/notice/noticeList">Notice</a>
-					<a class="dropdown-item" href="${pageContext.request.contextPath}/faq/faqList">Faq</a> 
-					<a class="dropdown-item" href="${pageContext.request.contextPath}/qna/qnaList">QnA</a> 
 					<a class="dropdown-item" href="${pageContext.request.contextPath}/community/communityList">Community</a>
 				</div>
 			</li>
@@ -44,7 +41,7 @@
 		<li class="nav-item">
 			<a class="nav-link" href="#">콘텐츠</a></li>
 		<li class="nav-item">
-			<a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">고객센터</a></li>
+			<a class="nav-link" href="${pageContext.request.contextPath}/notice/noticeList" tabindex="-1" aria-disabled="true">고객센터</a></li>
 		<li class="nav-item" href="#">
 			<form class="form-inline">
 			    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">

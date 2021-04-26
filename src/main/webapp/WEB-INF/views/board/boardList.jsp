@@ -11,6 +11,20 @@
 <body>
 
 	<c:import url="../template/header.jsp"></c:import>
+	
+	<div>
+		<ul class="nav justify-content-end">
+			<li class="nav-item">
+				<a class="nav-link active" href="${pageContext.request.contextPath}/notice/noticeList">공지사항</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link active" href="${pageContext.request.contextPath}/faq/faqList">자주묻는질문</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="${pageContext.request.contextPath}/qna/qnaList">Q&A</a>
+			</li>
+		</ul>
+	</div>
 
 	<div class="container">
 		<!-- 커뮤니티 카테고리 -->
