@@ -27,7 +27,7 @@
 				<a class="nav-link" href="${pageContext.request.contextPath}/community/communityList">Community</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="${pageContext.request.contextPath}/review">Review</a>
+				<a class="nav-link" href="${pageContext.request.contextPath}/ranking/review">Review</a>
 			</li>
 		</ul>
 	</div>
