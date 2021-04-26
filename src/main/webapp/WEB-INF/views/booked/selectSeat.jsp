@@ -26,7 +26,6 @@
 					</c:forEach>
 				</div>
 			</div>
-
 			<div class="form-group">
 				<label for="kids">청소년</label>
 				<div class="btn-group">
@@ -35,6 +34,26 @@
 					</c:forEach>
 				</div>
 			</div>
+			
+			<div class="form-group">
+				<label for="info">선택한 상영관 및 시간</label>
+				<%-- <div>
+					<p>${booked.region}</p>
+					<p>${booked.room}</p>
+					<p>${booked.movieTitle}</p>
+					<p>${booked.time}</p>
+				</div> --%>
+			</div>
+			<div class="form-group">
+				<label for="info">선택한 좌석</label>
+				<div class="seats">
+					<%-- <p>선택한 좌석명</p> --%>
+				</div>
+			</div>
+			<div class="form-group">
+				<button type="button" class="btn btn-light" id="reset">처음부터 다시 선택</button>				
+			</div>
+			
 
 			<div class="seat-wrap">
 				<div class="seat-screen"></div>
@@ -75,6 +94,10 @@
 			<input type="button" value="결제하기" id="btn" class="btn btn-primary">
 
 		</form>
+	</div>
+	
+	<div id="seatList">
+		<p>${booked.region}</p>
 	</div>
 
 	<script type="text/javascript" src="../resources/jquery/selectSeat.js"></script>
