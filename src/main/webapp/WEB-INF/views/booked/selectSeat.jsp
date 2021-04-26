@@ -97,7 +97,7 @@
 	</div>
 	
 	<div id="seatList">
-		<p>${booked.region}</p>
+		<p></p>
 	</div>
 
 	<script type="text/javascript" src="../resources/jquery/selectSeat.js"></script>
