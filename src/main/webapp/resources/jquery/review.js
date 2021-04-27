@@ -1,26 +1,16 @@
 /**
  * 
  */
-let num = $("#comments").attr("title");
-console.log(num);
 
 getList();
 
 $("#review").on("click", "#remove", function() {
-	const ar = [];		// 빈 배열
-	
-	$(".del").each(function() {
-		let ch = $(this).prop("checked");
-		if(ch) {
-			ar.push($(this).val());
-		}
-	});
 	
 	$.ajax({
 		type: "POST",
 		url: "../review/reviewDelete",
 		traditional: true,		// 배열 전송
-		data: {commentsNum:ar},
+		data: {reviewNum:reviewNum},
 		success: function(data) {
 			alert(data);
 		}
@@ -31,21 +21,40 @@ $("#review").on("click", "#remove", function() {
 
 // review List
 function getList() {
-	$.get("../ranking/review?movieTitle="+movieTitle, function(data) {
+	$.get("../ranking/review", function(data) {
 		console.log(data);
-		$("#comments").html(data.trim());
+		$("#review").html(data.trim());
 	});
 }
 
+let star = 0;
+
+$(".star").on("click",function(){
+ 	let idx = $(this).index();
+	$(".star").removeClass("on");
+	
+	for(let i=0; i<=idx; i++){
+		$(".star").eq(i).addClass("on");
+	}
+	star = idx + 1;
+	console.log(star);
+});
+
+$("#good").on("click", function() {
+	
+});
 
 // review Write
 $("#write").click(function() {
+	let movieTitle = 'movie1';
+	let id = $("#id").val();
 	let nickName = $("#nickName").val();
 	let contents = $("#contents").val();
 	
-	$.post("../review/reviewInsert", 
+	$.post("../ranking/reviewInsert", 
 	{
 		movieTitle:movieTitle,
+		id:id,
 		nickName:nickName,
 		star:star,
 		contents:contents

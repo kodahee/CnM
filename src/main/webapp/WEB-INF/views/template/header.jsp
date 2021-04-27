@@ -27,7 +27,7 @@
 					<a class="dropdown-item" href="${pageContext.request.contextPath}/faq/faqList">Faq</a> 
 					<a class="dropdown-item" href="${pageContext.request.contextPath}/qna/qnaList">QnA</a> 
 					<a class="dropdown-item" href="${pageContext.request.contextPath}/community/communityList">Community</a>
-					<a class="dropdown-item" href="${pageContext.request.contextPath}/ranking/reviewList">Review</a>
+					<a class="dropdown-item" href="${pageContext.request.contextPath}/ranking/review">Review</a>
 				</div>
 			</li>
 		</ul>

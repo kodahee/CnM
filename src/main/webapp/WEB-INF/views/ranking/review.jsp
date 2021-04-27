@@ -7,6 +7,27 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <c:import url="../template/bootStrap.jsp"></c:import>
+<style type="text/css">
+	*{margin:0; padding:0;}
+	.star{
+	  display:inline-block;
+	  width: 30px;height: 60px;
+	  cursor: pointer;
+	}
+	.star_left{
+	  background: url(../resources/img/emptyStar.png) no-repeat 0 0; 
+	  background-size: 60px; 
+	  margin-right: -3px;
+	}
+	.star_right{
+	  background: url(../resources/img/emptyStar.png) no-repeat -30px 0; 
+	  background-size: 60px; 
+	  margin-left: -3px;
+	}
+	.star.on{
+	  background-image: url(../resources/img/star.png);
+	}
+</style>
 </head>
 <body>
 
@@ -16,14 +37,25 @@
 	
 	<div>
 		<div class="form-group">
-		  <label for="usr">NickName:</label>
-		  <input type="text" class="form-control" id="nickName" value="${member.nickName}" readonly="readonly">
+		  <input type="text" class="form-control" id="id" value="${member.id}" hidden="hidden">
+		  <input type="text" class="form-control" id="nickName" value="${member.nickName}" hidden="hidden">
 		</div>
 		<div class="form-group">
-			<div class="btn-group">
-				<c:forEach var="i" begin="1" end="10">
-					<button type="button" class="btn btn-primary">${i}</button>
-				</c:forEach>
+			<div class="star-box">
+				<span class="star star_left"></span>
+				<span class="star star_right"></span>
+				
+				<span class="star star_left"></span>
+				<span class="star star_right"></span>
+				
+				<span class="star star_left"></span>
+				<span class="star star_right"></span>
+				
+				<span class="star star_left"></span>
+				<span class="star star_right"></span>
+				
+				<span class="star star_left"></span>
+				<span class="star star_right"></span>
 			</div>
 		</div>
 		<div class="form-group">
@@ -36,14 +68,22 @@
 	<table class="table table-hober">
 		<c:forEach items="${list}" var="review">
 			<tr>
+				<td>${review.star}</td>
 				<td>${review.nickName}</td>
 				<td>${review.contents}</td>
 				<td>${review.regDate}</td>
-				<td><input type="checkbox" class="del" value="${review.reviewNum}"></td>
+				<td><input type="button" id="good" value="Good"></td>
+				<td>${review.goodNum}</td>
+				<td><input type="button" id="bad" value="Bad"></td>
+				<td>${review.badNum}</td>
+				<c:if test="${review.id eq member.id}">
+					<td><input type="button" id="remove" value="delete"></td>
+				</c:if>
 			</tr>
 		</c:forEach>
 	</table>
-	<button type="button" class="btn btn-danger" id="remove">Delete</button>
 
+	<script type="text/javascript" src="../resources/jquery/review.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </body>
 </html> 

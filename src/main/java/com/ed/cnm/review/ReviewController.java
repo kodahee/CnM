@@ -27,5 +27,19 @@ public class ReviewController {
 	public void setIsnert(ReviewDTO reviewDTO) throws Exception {
 		int result = reviewService.setInsert(reviewDTO);
 	}
+	
+	@PostMapping("reviewDelete")
+	public void reviewDelete(ReviewDTO reviewDTO) throws Exception {
+		System.out.println("Start");
+		
+		System.out.println("finish");
+	}
+	
+	@PostMapping("reviewUpdate")
+	public void reviewUpdate(ReviewDTO reviewDTO) throws Exception {
+		System.out.println("Start");
+		
+		System.out.println("finish");
+	}
 
 }
