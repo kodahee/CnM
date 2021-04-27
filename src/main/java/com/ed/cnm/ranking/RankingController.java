@@ -1,12 +1,16 @@
 package com.ed.cnm.ranking;
 
 
+import java.io.FileReader;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -19,7 +23,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+
 import com.ed.cnm.util.WebCrawlering;
+
+import oracle.jdbc.proxy.annotation.Post;
 
 
 
@@ -99,5 +106,24 @@ public class RankingController {
 		return mv;
 	}
 	
+	@GetMapping("boxOffice/monthly")
+	public void getMonthlyInfo()throws Exception{
+		
+	}
+	
+	
+	@PostMapping("boxOffice/monthly")
+	public ModelAndView getMontlyInfo(Object result, String hi)throws Exception{
+		ModelAndView mv = new ModelAndView();
+		
+		//==
+	System.out.println(hi);
+		
+		JSONObject j = (JSONObject)result;
+		JSONArray json = (JSONArray)j.get("boxOfficeResult");
+		System.out.println(json);
+		
+		return mv;
+	}
 	
 }

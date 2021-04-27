@@ -54,7 +54,8 @@ $.ajax({
 	success:function(result){
 		
 		result=result.boxOfficeResult.weeklyBoxOfficeList;
-	
+		
+		console.log(test)
 		for(index in result){
 			let one=result[index];
 			
