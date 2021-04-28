@@ -1,19 +1,16 @@
 @charset "UTF-8";
-/* 네비게이션 */
-@font-face {
-    font-family: 'YESGothic-Bold';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_13@1.0/YESGothic-Bold.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+
+body{
+	font-family: "맑은 고딕", "Malgun Gothic", "애플 SD 산돌고딕 Neo", "Apple SD Gothic Neo", sans-serif;
 }
+a{color:black;}
 
 nav{
-	font-family: 'YESGothic-Bold';
+	font-weight:bold; 
 	font-size: 1em;
 }
-
-a{color:black;}
 .memberNav{
-	font-size: 0.5em;
+	font-size: 0.75em;
+	padding-right: 1.75em;
 }
 
