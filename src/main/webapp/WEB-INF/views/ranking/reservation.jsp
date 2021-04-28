@@ -14,23 +14,35 @@
 <body>
 <c:import url="../template/header.jsp"></c:import>
 <h4>1</h4>
-<div class="box_ranking">
-	<ul >
+<div class="box_ranking" data-tiara-layer="list">
+	<ol class="list_movieranking" >
 		<c:forEach items="${list }" var="dto" varStatus="i"><!-- i.index -->
 			<li>
-			<div class="itemPoster">
-				<h3><img class="poster" alt="" src="${dto.poster }"></h3>
-				<h3 class="movieNm">${dto.movieNm }</h3>
-				<h3>${dto.rankNum }</h3>
-				<h6>${dto.movieInfo }</h6>
-				<h3>${dto.reservation }</h3>
-				<div class="subInfo${i.index }">
+			<div class="item_poster">
+				<div class="thumb_item">
+					<div class="poster_movie">
+						<img class="item_thumb" alt="${dto.movieNm }" src="${dto.poster }">
+						<span class="rank_num">${dto.rankNum }</span>
+						<span class="txt_tag${i.index }">
+						</span>
+					</div>
+					<div class="poster_info">
+						<a href="" class="link_story" data-tiara-layer="poster">${dto.movieInfo }</a>
+						<span class="info_btn">
+							<a href="" class= "link_info" target="_blank">예매하기</a>
+						</span>
+					</div>
+				</div>
+				<div class="thumb_cont">
+					<h3 class="movieNm">${dto.movieNm }</h3>
+					<h3>${dto.reservation }</h3>
+					<div class="subInfo${i.index }"></div>
 				
 				</div>
 			</div>
 			</li>
 		</c:forEach>
-	</ul>
+	</ol>
 </div>
 <!-- 
 <script type="text/javascript" src="../resources/jquery/ranking/commonList.js"></script>

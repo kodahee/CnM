@@ -14,26 +14,19 @@ for(index in movieCdList){
 		},
 		async: false,
 		success:function(result){
-			//alert('hi')	//확인완료
 			result=result.movieInfoResult.movieInfo;
-			/*console.log(result.movieNm)//된다!
-			console.log(result.openDt)
-			console.log(movieCd);
-			console.log(result.audits[0].watchGradeNm)*/
-		
-			//로딩을 완전히 받아올때까지 기다려주는 그런거
-			//append를 사용할거임,,
+			
+			let adits = '<span class="ico_movie ico_see">'+result.audits[0].watchGradeNm+'</span>';
+			$('.txt_tag'+i).append(adits);		
+			
+			
 			let subInfo = '<h3 class="movieCd" name="movieCd" val="'+movieCdList[index]+'">'+movieCdList[index]+'</h3>';
 			try{
 				subInfo=subInfo+'<h3>'+result.openDt+'</h3>';
 			}catch(e){
 				subInfo=subInfo+'<h3>해당정보가 없습니다.</h3>'
 			}
-			try{
-				subInfo=subInfo+'<h3>'+result.audits[0].watchGradeNm+'</h3>';			
-			}catch(e){
-				subInfo=subInfo+'<h3>해당정보가 없습니다.</h3>'			
-			}
+			
 			
 			$('.subInfo'+i).append(subInfo);
 			
