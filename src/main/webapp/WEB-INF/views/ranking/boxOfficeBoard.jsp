@@ -10,6 +10,7 @@
 
 <link rel="stylesheet" type="text/css" href="../../resources/css/common.css">
 <link rel="stylesheet" type="text/css" href="../../resources/css/calendar.css">
+<link rel="stylesheet" type="text/css" href="../resources/css/ranking.css">
 </head>
 <body>
 <c:import url="../template/header.jsp"></c:import>
