@@ -9,10 +9,18 @@
 <title>Insert title here</title>
 
 <link rel="stylesheet" type="text/css" href="../../resources/css/common.css">
-
+<link rel="stylesheet" type="text/css" href="../../resources/css/calendar.css">
 </head>
 <body>
 <c:import url="../template/header.jsp"></c:import>
+
+<form id="monthly" action="./monthly" method="post" >
+	<input type="hidden" id="monthlyResult" name ="result" >
+	<input type="text" id="test" name="hi">
+	<button>월간</button>
+</form>
+
+
 <div>
 <span id="iconCalendar" >
 	<img alt="calendar" src="../../resources/img/calendar.png">
@@ -40,11 +48,7 @@
 </div>
 
 
-<form id="monthly" action="./monthly" method="post" >
-	<input type="hidden" id="monthlyResult" name ="result" >
-	<input type="text" id="test" name="hi">
-	<button>월간</button>
-</form>
+
 
  <!-- 
 

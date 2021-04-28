@@ -1,13 +1,19 @@
 @charset "UTF-8";
-.poster{
-	width: 204px;
-	height: 298px;
+/* 네비게이션 */
+@font-face {
+    font-family: 'YESGothic-Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_13@1.0/YESGothic-Bold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }
 
-#calendar{
-	position: absolute;
+nav{
+	font-family: 'YESGothic-Bold';
+	font-size: 1em;
 }
 
-.selected{
-	background-color: yellow;
+a{color:black;}
+.memberNav{
+	font-size: 0.5em;
 }
+
