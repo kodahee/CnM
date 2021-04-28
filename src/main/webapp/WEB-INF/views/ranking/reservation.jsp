@@ -9,7 +9,7 @@
 <title>랭킹</title>
 
 <link rel="stylesheet" type="text/css" href="../resources/css/common.css">
-
+<link rel="stylesheet" type="text/css" href="../resources/css/ranking.css">
 </head>
 <body>
 <c:import url="../template/header.jsp"></c:import>
@@ -18,6 +18,7 @@
 	<ul >
 		<c:forEach items="${list }" var="dto" varStatus="i"><!-- i.index -->
 			<li>
+			<div class="itemPoster">
 				<h3><img class="poster" alt="" src="${dto.poster }"></h3>
 				<h3 class="movieNm">${dto.movieNm }</h3>
 				<h3>${dto.rankNum }</h3>
@@ -26,6 +27,7 @@
 				<div class="subInfo${i.index }">
 				
 				</div>
+			</div>
 			</li>
 		</c:forEach>
 	</ul>

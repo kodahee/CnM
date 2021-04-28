@@ -2,6 +2,8 @@
 
 body{
 	font-family: "맑은 고딕", "Malgun Gothic", "애플 SD 산돌고딕 Neo", "Apple SD Gothic Neo", sans-serif;
+	width: 75%;
+	margin: 0 auto;
 }
 a{color:black;}
 
