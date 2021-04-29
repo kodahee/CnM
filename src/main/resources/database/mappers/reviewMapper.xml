@@ -9,6 +9,6 @@
 	</insert>
 	
 	<select id="getList" parameterType="ReviewDTO" resultType="ReviewDTO">
-		select * from review where movieTitle='movie1' order by reviewNum desc
+		select * from review where movieTitle=#{movieTitle} order by reviewNum desc
 	</select>
 </mapper> 

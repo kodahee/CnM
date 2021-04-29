@@ -35,6 +35,18 @@
 
 	<h1>Review Page</h1>
 	
+	<!-- 커뮤니티 카테고리 -->
+    <div class="col-sm-4">
+      <ul class="nav nav-pills flex-column">
+        
+        <li class="nav-item">
+          <a class="nav-link" href="./review?movieTitle=movie1">movie1</a>
+        </li>
+      
+      </ul>
+      <hr class="d-sm-none">
+    </div>
+	
 	<div>
 		<div class="form-group">
 		  <input type="text" class="form-control" id="id" value="${member.id}" hidden="hidden">
@@ -77,6 +89,7 @@
 				<td><input type="button" id="bad" value="Bad"></td>
 				<td>${review.badNum}</td>
 				<c:if test="${review.id eq member.id}">
+					<%-- <td><input type="text" class="del" value="${review.reviewNum}" hidden="hidden"></td> --%>
 					<td><input type="button" id="remove" value="delete"></td>
 				</c:if>
 			</tr>

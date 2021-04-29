@@ -1,15 +1,15 @@
 /**
  * 
  */
-
+//let movieTitle = $("#review").attr("movieTitle");
 getList();
 
 $("#review").on("click", "#remove", function() {
-	
+	console.log(review.reviewNum);
+		
 	$.ajax({
 		type: "POST",
 		url: "../review/reviewDelete",
-		traditional: true,		// 배열 전송
 		data: {reviewNum:reviewNum},
 		success: function(data) {
 			alert(data);
@@ -40,13 +40,14 @@ $(".star").on("click",function(){
 	console.log(star);
 });
 
+let goodNum = 0;
 $("#good").on("click", function() {
-	
+	goodNum = goodNum + 1;
+	console.log(goodNum);
 });
 
 // review Write
 $("#write").click(function() {
-	let movieTitle = 'movie1';
 	let id = $("#id").val();
 	let nickName = $("#nickName").val();
 	let contents = $("#contents").val();
