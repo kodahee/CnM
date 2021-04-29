@@ -10,6 +10,7 @@
 .list_movieranking li{
 	list-style: none;
 	float: left;
+	padding-top: 40px;
 }
 
 .item_poster{
@@ -102,6 +103,20 @@
     right: 15px;
 }
 
+/*hidden*/
+.item_poster .poster_info {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(26, 25, 28, 0.95);
+    opacity: 0;
+    -webkit-transition: all .2s ease-out .3s;
+    transition: all .2s ease-out .3s;
+}
+
 .item_poster .link_story {
     display: block;
     display: -webkit-box;
@@ -113,7 +128,9 @@
     line-height: 20px;
     color: #D4D4D4;
     text-decoration: none;
+    letter-spacing: -0.06em;
 }
+
 .item_poster .info_btn {
     display: flex;
     position: absolute;
@@ -123,6 +140,8 @@
     height: 50px;
     background-color: #000;
 }
+
+
 .item_poster .info_btn .link_info {
     flex: 1;
     font-weight: 500;
@@ -134,5 +153,55 @@
 
 
 
-/*  */
+/* 포스터 밑에 글자 */
+.item_poster .thumb_cont{
+	padding: 17px 8px 0px;
+}
 
+.item_poster .thumb_cont .tit_item {
+    display: block;
+    overflow: hidden;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 21px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    letter-spacing: -0.06em;
+}
+
+.item_poster .thumb_cont .txt_append {
+    display: block;
+    padding-top: 7px;
+    font-size: 13px;
+    line-height: 16px;
+}
+
+.item_poster .thumb_cont .info_txt {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.item_poster .thumb_cont .txt_grade {
+    padding-left: 5px;
+    color: #E92130;
+}
+
+.item_poster .thumb_cont .txt_num {
+    padding-left: 5px;
+}
+
+.item_poster .thumb_cont .txt_info {
+    display: block;
+    padding-top: 7px;
+    font-size: 13px;
+    line-height: 16px;
+    color: #98989C;
+}
+
+.item_poster .thumb_cont .txt_append + .txt_info {
+    padding-top: 3px;
+}
+
+.item_poster .thumb_cont .txt_num {
+    padding-left: 5px;
+}

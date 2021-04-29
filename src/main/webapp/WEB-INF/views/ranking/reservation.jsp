@@ -13,7 +13,7 @@
 </head>
 <body>
 <c:import url="../template/header.jsp"></c:import>
-<h4>1</h4>
+
 <div class="box_ranking" data-tiara-layer="list">
 	<ol class="list_movieranking" >
 		<c:forEach items="${list }" var="dto" varStatus="i"><!-- i.index -->
@@ -23,28 +23,37 @@
 					<div class="poster_movie">
 						<img class="item_thumb" alt="${dto.movieNm }" src="${dto.poster }">
 						<span class="rank_num">${dto.rankNum }</span>
-						<span class="txt_tag${i.index }">
-						</span>
+						<span class="txt_tag${i.index }"></span>
 					</div>
+					<!-- hidden -->
 					<div class="poster_info">
-						<a href="" class="link_story" data-tiara-layer="poster">${dto.movieInfo }</a>
+						<a href="" class="link_story linkDetail" title="poster">${dto.movieInfo }</a>
 						<span class="info_btn">
-							<a href="" class= "link_info" target="_blank">예매하기</a>
+							<a href="" class= "link_info linkDetail" target="_blank">예매하기</a>
 						</span>
 					</div>
 				</div>
-				<div class="thumb_cont">
-					<h3 class="movieNm">${dto.movieNm }</h3>
-					<h3>${dto.reservation }</h3>
-					<div class="subInfo${i.index }"></div>
 				
+				<div class="thumb_cont">
+					<strong class="tit_item movieNm"><a href="" class="link_txt linkDetail" title="moviename">${dto.movieNm }</a></strong>
+					<span class="txt_append">
+						<span class="info_txt grade${i.index }">평점
+							<!-- <span class="txt_grade>평점</span>" -->
+						</span>
+						<span class="info_txt">예매율
+							<span class="txt_num">${dto.reservation }</span>
+						</span>
+					</span>
+					<span class="txt_info openNum${i.index }">개봉
+						<!-- <span class="txt_num">개봉일</span> -->
+					</span>
 				</div>
 			</div>
 			</li>
 		</c:forEach>
 	</ol>
 </div>
-<!-- 
+
 <script type="text/javascript" src="../resources/jquery/ranking/commonList.js"></script>
 <script type="text/javascript" src="../resources/jquery/ranking/reservation.js"> </script>
  -->
