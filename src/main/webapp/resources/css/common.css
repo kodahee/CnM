@@ -1,4 +1,11 @@
 @charset "UTF-8";
+.headerBox{
+	height: 260px;
+	border-bottom-style: solid;
+	border-bottom-width: thin;
+	border-color: #999999;
+}
+
 
 body{
 	font-family: "맑은 고딕", "Malgun Gothic", "애플 SD 산돌고딕 Neo", "Apple SD Gothic Neo", sans-serif;
@@ -17,3 +24,29 @@ nav{
 	padding-right: 1.75em;
 }
 
+.subNav{
+	text-align:center;
+	padding-top: 90px;
+	font-weight: bold;
+}
+.subNav_name{
+	width:120px;
+	margin: 0px auto;
+	border-bottom-style: solid;
+	border-bottom-width: 3.5px;
+	border-color:red;
+	padding-bottom: 5px;
+	font-size: 1.3em;
+	
+}
+
+.subNav_item{
+	display: inline-block;
+	margin: 0px 15px;
+	padding-top: 10px;
+	vertical-align: top;
+}
+
+.on{
+	color: red;
+}

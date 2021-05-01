@@ -61,6 +61,7 @@ public class RankingController {
 			list.add(rankingDTO);
 		}
 		mv.addObject("list", list);
+		mv.addObject("nav","ranking");
 		mv.addObject("ranking", "reservation");
 		mv.setViewName("/ranking/reservation");
 		
@@ -80,6 +81,7 @@ public class RankingController {
 		List<RankingDTO> list = webCrawlering.getCrawlering(url);
 		//포스터랑 시놉시스, 이름(pk용으로 쓸 수 있을까 해서,,)
 		mv.addObject("list", list);
+		mv.addObject("nav","ranking");
 		mv.addObject("boxOffice", "weekly");
 		mv.addObject("ranking", "boxOffice");
 		mv.setViewName("/ranking/boxOfficeBoard");

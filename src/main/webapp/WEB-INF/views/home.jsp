@@ -19,7 +19,6 @@
 <body>
 
 <c:import url="./template/header.jsp"></c:import>
-
 <h1>
 	Hello world!  
 </h1>

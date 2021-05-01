@@ -2,9 +2,7 @@
  * 
  */
 
-$('.item_poster').mouseenter(function(){
-	$('.poster_info').show();
-});
+
 
 
 function commonList(movieCdList){
@@ -22,8 +20,8 @@ for(index in movieCdList){
 		success:function(result){
 			result=result.movieInfoResult.movieInfo;
 			
-			let adits = '<span class="ico_movie ico_see">'+result.audits[0].watchGradeNm+'</span>';
-			$('.txt_tag'+i).append(adits);		
+			let adits = '<img class="ico_movie ico_see" alt="result.audits[0].watchGradeNm" src="${../resources/img/'+result.audits[0].watchGradeNm+'.png">';
+			$('.icon'+i).append(adits);		
 			
 			let openDt = '<span class="txt_num">'+result.openDt+'</span>';
 			$('.openNum'+i).append(openDt);

@@ -14,7 +14,10 @@
 <body>
 <c:import url="../template/header.jsp"></c:import>
 
-<div class="box_ranking" data-tiara-layer="list">
+
+<div class="title"><span class="titleName">예매순위</span></div>
+
+<div class="box_ranking" title="list">
 	<ol class="list_movieranking" >
 		<c:forEach items="${list }" var="dto" varStatus="i"><!-- i.index -->
 			<li>
@@ -23,7 +26,9 @@
 					<div class="poster_movie">
 						<img class="item_thumb" alt="${dto.movieNm }" src="${dto.poster }">
 						<span class="rank_num">${dto.rankNum }</span>
-						<span class="txt_tag${i.index }"></span>
+						<span class="txt_tag">
+						<span class="icon${i.index }"><!-- ico_movie ico_see --></span>
+						</span>
 					</div>
 					<!-- hidden -->
 					<div class="poster_info">
@@ -54,8 +59,7 @@
 	</ol>
 </div>
 
-<script type="text/javascript" src="../resources/jquery/ranking/commonList.js"></script>
-<script type="text/javascript" src="../resources/jquery/ranking/reservation.js"> </script>
- -->
+<!-- <script type="text/javascript" src="../resources/jquery/ranking/reservation.js"> </script> -->
+
 </body>
 </html>
