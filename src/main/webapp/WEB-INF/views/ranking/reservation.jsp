@@ -13,7 +13,7 @@
 </head>
 <body>
 <c:import url="../template/header.jsp"></c:import>
-
+<div class="rankingBox">
 
 <div class="title"><span class="titleName">예매순위</span></div>
 
@@ -58,7 +58,7 @@
 		</c:forEach>
 	</ol>
 </div>
-
+</div>
 <!-- <script type="text/javascript" src="../resources/jquery/ranking/reservation.js"> </script> -->
 
 </body>

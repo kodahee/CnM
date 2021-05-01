@@ -1,14 +1,140 @@
 @charset "UTF-8";
 
-.title{
-	margin-left:40px;
-	padding-top: 90px;
-	font-weight: bold;
+.rankingBox{
+	padding-top: 80px;
 }
 
-.titleName{
-	box-sizing:content-box;
+/**/
+
+.title{
+	position: relative;
+	display: block;
+	margin-bottom: 40px;
+	
+}
+
+
+.title:after {
+  display: block;
+  visibility: hidden;
+  height: 0;
+  font-size: 0;
+  clear: both;
+  content: ''; }
+
+
+.title .titleName{
+	margin-left:40px;
+	font-weight: bold;
 	font-size: 1.25em;
+	float:left;
+}
+
+/* 박스오피스 전용*/
+.itemDate{
+    overflow: hidden;
+    text-align: center;
+}
+
+.title .itemDate{
+	position: absolute;
+    top: 2px;
+    left: 6px;
+    right: 0;
+}
+
+.title .innerDate{
+	display: inline-block;
+    vertical-align: top;
+}
+
+.itemDate .selectDate_item{
+	font-style: none;
+	display: inline-block;
+    margin: 0 18px;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 24px;
+    vertical-align: top;
+}
+
+.selectDate .week_prev{
+	float: left; 
+}
+
+.selectDate .week_next{
+	float: right;
+}
+
+.title .headCal{
+	float: right;
+    position: relative;
+}
+
+.selectCal{
+	display: inline-block;
+    overflow: hidden;
+    vertical-align: top;
+}
+.title .selectCal{
+	margin-top: 2px;
+}
+
+.selectCal li{
+	list-style: none;
+	margin-left: 25px;
+	float: left;
+}
+
+.selectCal li:first-child{
+	margin-left:  0;
+}
+
+.selectCal .link_tab{
+	display: block;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 23px;
+}
+
+
+.iconCalendar{
+	display: inline-block;
+    position: relative;
+    vertical-align: top;
+}
+
+.title .iconCalendar{
+	margin: 2px 0 0 37px;
+} 
+
+.calendar{
+	display: inline-block;
+    vertical-align: top;
+}
+
+/* .calendarOpen{
+	display: none;
+    position: absolute;
+    right: -4px;
+    top: 30px;
+    z-index: 20;
+    width: 254px;
+}
+
+.calendarOpen .calendar{
+	position: relative;
+    min-height: 238px;
+    border: 1px solid #000;
+    background-color: #fff;
+}
+
+ */
+
+/*리스트*/
+.box_ranking{
+	display: block;
+	
 }
 
 .list_movieranking{
@@ -21,7 +147,11 @@
 .list_movieranking li{
 	list-style: none;
 	float: left;
-	padding-top: 40px;
+	padding-top: 60px;
+}
+
+.list_movieranking li:nth-child(-n+5) {
+    padding-top: 0;
 }
 
 .item_poster{
@@ -36,10 +166,10 @@
 	height: 298px;
 }
 .item_poster .thumb_item{
+	height: 298px;
 	display: block;
 	overflow:hidden;
 	position: relative;
-	height: 298px;
 	border-radius: 8px;
 }
 
@@ -222,45 +352,3 @@
     padding-left: 5px;
 }
 
-
-/* 박스오피스 전용*/
-.selectDate{
-    overflow: hidden;
-    text-align: center;
-}
-
-.title .selectDate{
-	position: absolute;
-    top: 2px;
-    left: 6px;
-    right: 0;
-}
-
-.title .inner_date{
-	display: inline-block;
-    vertical-align: top;
-}
-
-.title .selectDate_item{
-	display: inline-block;
-    margin: 0 18px;
-    font-weight: 600;
-    font-size: 22px;
-    line-height: 24px;
-    vertical-align: top;
-}
-
-.selectDate .week_prev{
-	background-position: -120px 0;
-}
-
-.selectDate .week_next{
-	float: right;
-}
-
-
-
-
-#iconCalendar{
-	position: static;
-}

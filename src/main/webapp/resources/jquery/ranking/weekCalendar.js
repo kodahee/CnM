@@ -1,13 +1,13 @@
 /**
  * 
  */
-$('#calendarOpen').hide();
+$('.calendarOpen').hide();
 
 //====아이콘 클릭하면 달력을 보여주겠다.====
-$('#iconCalendar').click(function(){
-	$('#calendarOpen').toggle();
+$('.iconCalendar').click(function(){
+	$('.calendarOpen').toggle();
 	//==달력 만드는 함수==
-	calendarMaker($('#calendar'), new Date());
+	calendarMaker($('.calendar'), new Date());
 
 });
 
@@ -53,7 +53,7 @@ function calendarMaker(target, date){
 	}
 	
 	//만들어둔 달력에 어펜드 
-	$(target).find('#setDate').append(tag);
+	$(target).find('.setDate').append(tag);
 	calendarEvent(target);
 	
 };//function
@@ -100,7 +100,7 @@ $.ajax({
 	type: 'GET',
 	data: {date: selectDay},
 	success: function(result){
-		$('#listBox').html(result);
+		$('.listBox').html(result);
 		searchAPI()
 	}
 });
@@ -132,7 +132,7 @@ function setCalendar(year, month) {
 			'</tr>'+
 			'</thead>'+
 			//==테이블 바디(함수적용)==
-			'<tbody id="setDate">'+
+			'<tbody class="setDate">'+
 			'</tbody>'+
 			'</table>';
         return calHtmlCode;

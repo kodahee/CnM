@@ -1,16 +1,8 @@
 @charset "UTF-8";
-.headerBox{
-	height: 260px;
-	border-bottom-style: solid;
-	border-bottom-width: thin;
-	border-color: #999999;
-}
 
 
 body{
 	font-family: "맑은 고딕", "Malgun Gothic", "애플 SD 산돌고딕 Neo", "Apple SD Gothic Neo", sans-serif;
-	width: 75%;
-	margin: 0 auto;
 	color:#333333;
 }
 a{color:#333333;}
@@ -49,4 +41,28 @@ nav{
 
 .on{
 	color: red;
+}
+
+main{
+	display: block;
+}
+
+.headerBox{
+	height: 280px;
+	border-bottom-style: solid;
+	border-bottom-width: thin;
+	border-color: #e2e2e2;
+}
+
+.content{
+	position: relative;
+    min-height: 100%;
+    background-image: linear-gradient(to bottom, #fafbfb 0, white 300px);
+}
+
+.article{
+	width: 1100px;
+	min-height: 500px;
+	margin: 0 auto;
+    padding-bottom: 150px;
 }

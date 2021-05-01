@@ -31,8 +31,8 @@ function getDate(date){
 
 searchAPI()
 function searchAPI(){
-	alert('date'+getDate(date))
-	alert('select'+getDate(selectDay))
+	/*alert('date'+getDate(date))
+	alert('select'+getDate(selectDay))*/
 	if(getDate(date)==getDate(selectDay)){
 		date=date.getTime()-86400000;
 	}else{
