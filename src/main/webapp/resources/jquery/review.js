@@ -8,8 +8,8 @@ $("#remove").on("click", function() {
 	const ar = [];		// 빈 배열
 	
 	$(".del").each(function() {
-		let  = $(this).prop("checked");
-		if(ch) {
+		let del = $(this).prop("checked");
+		if(del) {
 			ar.push($(this).val());
 		}
 	});
@@ -67,9 +67,9 @@ $("#write").click(function() {
 		$("#contents").val('');
 		// 별점 지우기
 		$(".star").removeClass("on");
-		
 		// 리스트 다시 호출
 		getList();
+		
 	} else {
 		$.post("../ranking/reviewInsert", 
 		{
