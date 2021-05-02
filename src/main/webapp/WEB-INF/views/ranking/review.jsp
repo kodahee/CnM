@@ -35,7 +35,6 @@
 
 	<h1>Review Page</h1>
 	
-	<!-- 커뮤니티 카테고리 -->
     <div class="col-sm-4">
       <ul class="nav nav-pills flex-column">
         
@@ -49,8 +48,8 @@
 	
 	<div>
 		<div class="form-group">
-		  <input type="text" class="form-control" id="id" value="${member.id}" hidden="hidden">
-		  <input type="text" class="form-control" id="nickName" value="${member.nickName}" hidden="hidden">
+		  <input type="hidden" class="form-control" id="id" value="${member.id}">
+		  <input type="hidden" class="form-control" id="nickName" value="${member.nickName}">
 		</div>
 		<div class="form-group">
 			<div class="star-box">
@@ -89,7 +88,7 @@
 				<td><input type="button" id="bad" value="Bad"></td>
 				<td>${review.badNum}</td>
 				<c:if test="${review.id eq member.id}">
-					<%-- <td><input type="text" class="del" value="${review.reviewNum}" hidden="hidden"></td> --%>
+					<input type="hidden" class="del" value="${review.reviewNum}">
 					<td><input type="button" id="remove" value="delete"></td>
 				</c:if>
 			</tr>

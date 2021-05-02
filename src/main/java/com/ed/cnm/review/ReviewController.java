@@ -36,14 +36,14 @@ public class ReviewController {
 	}
 	
 	@PostMapping("reviewDelete")
-	public void reviewDelete(ReviewDTO reviewDTO) throws Exception {
+	public void setDelete(ReviewDTO reviewDTO) throws Exception {
 		System.out.println("Start");
 		
 		System.out.println("finish");
 	}
 	
 	@PostMapping("reviewUpdate")
-	public void reviewUpdate(ReviewDTO reviewDTO) throws Exception {
+	public void setUpdate(ReviewDTO reviewDTO) throws Exception {
 		System.out.println("Start");
 		
 		System.out.println("finish");

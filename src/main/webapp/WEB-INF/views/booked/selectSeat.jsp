@@ -84,6 +84,12 @@
 						</c:choose>
 						<c:forEach var="j" begin="1" end="18">
 							<input type="button" class="btn btn-primary myCheck seatName" value="${j}" name="seatName">
+							<%-- <c:if test="${j eq 4}">
+								<td></td>
+							</c:if>
+							<c:if test="${j eq 16}">
+								<td></td>
+							</c:if> --%>
 						</c:forEach>
 					</c:forEach>
 				</div>
@@ -97,7 +103,7 @@
 	</div>
 	
 	<div id="seatList">
-		<p></p>
+		<p>${seatName}</p>
 	</div>
 
 	<script type="text/javascript" src="../resources/jquery/selectSeat.js"></script>

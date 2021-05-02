@@ -1,15 +1,24 @@
 /**
  * 
  */
-//let movieTitle = $("#review").attr("movieTitle");
+let movieTitle = $("#review").attr("movieTitle");
 getList();
 
-$("#review").on("click", "#remove", function() {
-	console.log(review.reviewNum);
+$("#remove").on("click", function() {
+	const ar = [];		// 빈 배열
+	
+	$(".del").each(function() {
+		let  = $(this).prop("checked");
+		if(ch) {
+			ar.push($(this).val());
+		}
+	});
+	console.log($(".del").val());
+	let reviewNum = $(".del").val()
 		
 	$.ajax({
 		type: "POST",
-		url: "../review/reviewDelete",
+		url: "../ranking/reviewDelete",
 		data: {reviewNum:reviewNum},
 		success: function(data) {
 			alert(data);
@@ -52,28 +61,41 @@ $("#write").click(function() {
 	let nickName = $("#nickName").val();
 	let contents = $("#contents").val();
 	
-	$.post("../ranking/reviewInsert", 
-	{
-		movieTitle:movieTitle,
-		id:id,
-		nickName:nickName,
-		star:star,
-		contents:contents
-	},
-	function(data) {
-		data = data.trim();
-		if(data == 1) {
-			alert('등록 성공');
-			
-			// 칸 비우기
-			$("#contents").val('');
-			
-			// 리스트 다시 호출
-			getList();
-			
-		} else {
-			alert('등록 실패');
-		}
-	});
+	if(id == '') {
+		alert('로그인이 필요한 서비스입니다.');
+		// 칸 비우기
+		$("#contents").val('');
+		// 별점 지우기
+		$(".star").removeClass("on");
+		
+		// 리스트 다시 호출
+		getList();
+	} else {
+		$.post("../ranking/reviewInsert", 
+		{
+			movieTitle:movieTitle,
+			id:id,
+			nickName:nickName,
+			star:star,
+			contents:contents
+		},
+		function(data) {
+			data = data.trim();
+			if(data == 1) {
+				alert('등록 성공');
+				
+				// 칸 비우기
+				$("#contents").val('');
+				// 별점 지우기
+				$(".star").removeClass("on");
+				
+				// 리스트 다시 호출
+				getList();
+				
+			} else {
+				alert('등록 실패');
+			}
+		});
+	}
 	
 });
