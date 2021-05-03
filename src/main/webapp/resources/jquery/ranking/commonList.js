@@ -1,8 +1,6 @@
 /**
  * 
  */
-
-
 //코드를 기반으로 영화 상세 정보 불러와서 뷰에 장식하는 함수
 function commonList(movieCdList){
 	let i=0;
@@ -18,11 +16,14 @@ function commonList(movieCdList){
 			success:function(result){
 				result=result.movieInfoResult.movieInfo;
 				
-				let adits = '<img class="ico_movie ico_see" alt="result.audits[0].watchGradeNm" src="${../resources/img/'+result.audits[0].watchGradeNm+'.png">';
+				let adits = '<img class="ico_movie ico_see" alt="result.audits[0].watchGradeNm" src="../resources/img/'+result.audits[0].watchGradeNm+'.png">';
 				$('.icon'+i).append(adits);		
 				
 				let openDt = '<span class="txt_num">'+result.openDt+'</span>';
 				$('.openNum'+i).append(openDt);
+				
+				$('a').attr('title', movieCdList[index]);
+				
 				
 			}
 			
@@ -34,19 +35,16 @@ function commonList(movieCdList){
 
 //컨트롤러에 넘기는 함수
 $('.linkDetail').click(function(){
+	let movieCd = $('a').attr('title');
 	alert('hi');
-	movieDetail();
-	function movieDetail(){
 		$.ajax({
 			url:"../movieDetail/detailedInfo",
 			type:"Get",
-			data:{movieCd:movieCdList[index]},
+			data:{movieCd:movieCd},
 			success: function(result){
 				
 			}
 		});
-	}
-	
 });
 //api다시 불러오기
 

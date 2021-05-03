@@ -28,17 +28,17 @@ $('.movieNm').each(function(index, li){
 			let movieCd=Math.max.apply(null,equalNmToCd);
 			movieCdList.push(movieCd);
 			
-			$.ajax({//DB에 코드 저장하기 위한 용도
-				url: './setMovieCd',
-				type: 'POST',
-				dataType: 'text',
-				data: {movieCd: movieCdList[index], movieNm: movieNmList[index]},
-				success: function(result){
-					console.log(movieNmList[index])
-					console.log(movieCdList[index])
-				}
-			});
-			//여기서 이름이랑 코드를 데이터베이스에 저장한다면? 편해짐,,
+				$.ajax({//DB에 코드 저장하기 위한 용도
+					url: './reservation',
+					type: 'POST',
+					dataType: 'text',
+					data: {movieCd: movieCdList[index], movieNm: movieNmList[index]},
+					success: function(result){
+						console.log(movieNmList[index])
+						console.log(movieCdList[index])
+					}
+				});
+			
 		},//success end
 		
 	});//ajax end

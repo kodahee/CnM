@@ -75,9 +75,10 @@ public class RankingController {
 		return mv;
 	}
 	//=========Cd DB에 담는 용도=============
-	@PostMapping("setMovieCd")
+	@PostMapping("reservation")
 	public void setMovieCd(RankingDTO rankingDTO)throws Exception{
 		int result=rankingService.setMovieCd(rankingDTO);
+		
 	}
 	
 	
