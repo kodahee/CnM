@@ -34,7 +34,7 @@
 	    </c:if>
 
 		<table class="table">
-			<thead class="thead-dark">
+			<thead>
 				<tr>
 					<th>NUM</th>
 					<c:choose>
