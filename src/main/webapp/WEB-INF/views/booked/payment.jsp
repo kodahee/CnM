@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <c:import url="../template/bootStrap.jsp"></c:import>
+<link rel="stylesheet" type="text/css" href="../resources/css/common.css">
 <title>Insert title here</title>
 </head>
 <body>

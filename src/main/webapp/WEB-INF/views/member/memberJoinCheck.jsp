@@ -8,14 +8,14 @@
 <title>Insert title here</title>
 
 <c:import url="../template/bootStrap.jsp"></c:import>
-
+<link rel="stylesheet" type="text/css" href="../resources/css/common.css">
 </head>
 <body>
 
 	<c:import url="../template/header.jsp"></c:import>
 
 	<div class="container">
-		<h1>Member Join Check Page</h1>
+		<h1>회원가입 약관 동의</h1>
 		
 		<div class="form-check">
 			<label class="form-check-label"> 

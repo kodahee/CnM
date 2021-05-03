@@ -7,13 +7,14 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <c:import url="../template/bootStrap.jsp"></c:import>
+<link rel="stylesheet" type="text/css" href="../resources/css/common.css">
 </head>
 <body>
 
 	<c:import url="../template/header.jsp"></c:import>
 	
 	<div class="container mt-2">
-		<h2 class="mt-4">Member Join Page</h2>
+		<h2 class="mt-4">회원가입</h2>
 
 		<form id="frm" action="./memberJoin" method="post" enctype="multipart/form-data">
 			<div class="form-group">

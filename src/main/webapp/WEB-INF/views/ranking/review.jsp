@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <c:import url="../template/bootStrap.jsp"></c:import>
+<link rel="stylesheet" type="text/css" href="../resources/css/common.css">
 <style type="text/css">
 	*{margin:0; padding:0;}
 	.star{

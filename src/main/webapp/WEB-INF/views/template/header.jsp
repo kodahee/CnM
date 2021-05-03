@@ -19,13 +19,8 @@
 	<ul class="nav justify-content-end">
 		<li class="nav-item"><a class="nav-link active" href="${pageContext.request.contextPath }/">홈</a></li>
 		<li class="nav-item"><a class="nav-link active" href="${pageContext.request.contextPath }/ranking/reservation">랭킹</a></li>
-		<li class="nav-item"><a class="nav-link" href="#">상영/예정작</a></li>		
-		<li class="nav-item dropdown">
-			<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown"> 커뮤니티 </a>
-			<div class="dropdown-menu">
-				<a class="dropdown-item" href="${pageContext.request.contextPath}/community/communityList">Community</a>
-			</div>
-		</li>
+		<li class="nav-item"><a class="nav-link" href="#">상영/예정작</a></li>
+		<li class="nav-item"><a class="nav-link active" href="${pageContext.request.contextPath}/community/communityList">커뮤니티</a></li>		
 		<li class="nav-item dropdown">
 			<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown"> 고객센터 </a>
 			<div class="dropdown-menu">
