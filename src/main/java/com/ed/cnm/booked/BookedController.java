@@ -21,4 +21,8 @@ public class BookedController {
 		System.out.println("finish");
 	}
 	
+	@GetMapping("payment")
+	public void payments() throws Exception {
+
+	}
 }

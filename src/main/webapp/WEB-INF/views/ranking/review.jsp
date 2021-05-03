@@ -11,7 +11,8 @@
 	*{margin:0; padding:0;}
 	.star{
 	  display:inline-block;
-	  width: 30px;height: 60px;
+	  width: 30px;
+	  height: 60px;
 	  cursor: pointer;
 	}
 	.star_left{
@@ -84,7 +85,7 @@
 				<td>${review.contents}</td>
 				<td>${review.regDate}</td>
 				<td><input type="button" id="good" value="Good"></td>
-				<td>${review.goodNum}</td>
+				<td id="goodNum">${review.goodNum}</td>
 				<td><input type="button" id="bad" value="Bad"></td>
 				<td>${review.badNum}</td>
 				<c:if test="${review.id eq member.id}">
@@ -96,6 +97,6 @@
 	</table>
 
 	<script type="text/javascript" src="../resources/jquery/review.js"></script>
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	
 </body>
 </html> 

@@ -5,17 +5,10 @@ let movieTitle = $("#review").attr("movieTitle");
 getList();
 
 $("#remove").on("click", function() {
-	const ar = [];		// 빈 배열
 	
-	$(".del").each(function() {
-		let del = $(this).prop("checked");
-		if(del) {
-			ar.push($(this).val());
-		}
-	});
 	console.log($(".del").val());
-	let reviewNum = $(".del").val()
-		
+	let reviewNum = $(".del").val();
+	
 	$.ajax({
 		type: "POST",
 		url: "../ranking/reviewDelete",
@@ -51,7 +44,31 @@ $(".star").on("click",function(){
 
 let goodNum = 0;
 $("#good").on("click", function() {
-	goodNum = goodNum + 1;
+	//let reviewNum = $(".del").val();
+	$(".del").each(function() {
+		console.log($(this).val());
+		goodNum = $(this).val();
+		goodNum = goodNum + 1;
+	});
+	
+	$.post("../ranking/reviewUpdate",
+	{
+		reviewNum:reviewNum,
+		goodNum:goodNum
+	},
+	function(data) {
+		data = data.trim();
+		alert(data);
+		
+		if(data == 1) {
+			alert("update");
+			// 리스트 다시 호출
+			getList();
+		} else {
+			alert("xxxxxx");
+		}
+	});
+	
 	console.log(goodNum);
 });
 
