@@ -1,9 +1,27 @@
 /**
  * 
  */
+//컨트롤러에 넘기고
+$('.linkDetail').click(function(){
+	let index = $('.rank_num').text()-1;
+	let movieInfo = $('.link_story').text();
+	let poster = $('.poster').attr('src');
+
+	$.ajax({
+		url:"../movieDetail/detailedInfo",
+		type:"POST",
+		data:{movieCd:movieCdList[index], movieInfo: movieInfo, poster: poster},
+		success: function(result){
+			
+		}
+	});
+	
+});
+//api다시 불러오기
 
 
 
+//=======================랭킹===============================
 
 function commonList(movieCdList){
 	
@@ -26,7 +44,7 @@ for(index in movieCdList){
 			let openDt = '<span class="txt_num">'+result.openDt+'</span>';
 			$('.openNum'+i).append(openDt);
 			
-			$('.linkDetail').attr('href',/*여기에 링크+cd하면 될듯*/+movieCdList[index]);
+			//$('.linkDetail').attr('href','movieDetail/detailedInfo?movieCd='+movieCdList[index]);
 			
 		
 		}
@@ -37,3 +55,5 @@ for(index in movieCdList){
 };
 
 }
+
+

@@ -8,8 +8,8 @@
 <c:import url="../template/bootStrap.jsp"></c:import>
 <title>Insert title here</title>
 
-<link rel="stylesheet" type="text/css" href="../../resources/css/common.css">
-<link rel="stylesheet" type="text/css" href="../../resources/css/ranking.css">
+<link rel="stylesheet" type="text/css" href="../resources/css/common.css">
+<link rel="stylesheet" type="text/css" href="../resources/css/ranking.css">
 </head>
 <body>
 <c:import url="../template/header.jsp"></c:import>
@@ -23,19 +23,15 @@
 				<span class="titleName">박스오피스</span>
 				<div class="itemDate">
 					<div class="innerDate">
-						<img src="../../resources/img/mPrev.png" class="week_prev">
+						<img src="../resources/img/mPrev.png" class="week_prev">
 						<span class="selectDate_item">21.04.19~21.04.25</span>
-						<img src="../../resources/img/mNext.png" class="week_next">
+						<img src="../resources/img/mNext.png" class="week_next">
 					</div>
 				</div>
 				<div class="headCal">
-					<ul class="selectCal">
-						<li><a href="./weekly" class="link_tab">주간</a></li>
-						<li><a href="./monthly" class="link_tab">월간</a></li>
-						<li><a href="./yearly" class="link_tab">년간</a></li>
-					</ul>
+					
 					<div class="iconCalendar" id="iconCalendar" >
-						<img alt="calendar" src="../../resources/img/calendar.png">
+						<img alt="calendar" src="../resources/img/calendar.png">
 						<div class="calendarOpen" id="calendarOpen">
 							<div class="calendarInner" id="calendarInner">
 								<div class="calendar" id="calendar"></div>
@@ -52,21 +48,21 @@
 						<div class="item_poster">
 							<div class="thumb_item">
 								<div class="poster_movie">
-									<img class="item_thumb" alt="${dto.movieNm }" src="${dto.poster }">
+									<img class="item_thumb poster" alt="${dto.movieNm }" src="${dto.poster }">
 									<span class="rank_num">${dto.rankNum }</span>
 									<span class="txt_tag${i.index }"><!-- ico_movie ico_see --></span>
 								</div>
 								<!-- hidden -->
 								<div class="poster_info">
-									<a href="" class="link_story linkDetail" title="poster">${dto.movieInfo }</a>
+									<a href="#" class="link_story linkDetail" title="poster">${dto.movieInfo }</a>
 									<span class="info_btn">
-										<a href="" class= "link_info linkDetail" target="_blank">예매하기</a>
+										<a href="#" class= "link_info linkDetail" target="_blank">예매하기</a>
 									</span>
 								</div>
 							</div>
 							
 							<div class="thumb_cont">
-								<strong class="tit_item movieNm"><a href="" class="link_txt linkDetail" title="moviename">${dto.movieNm }</a></strong>
+								<strong class="tit_item movieNm"><a href="#" class="link_txt linkDetail" title="moviename">${dto.movieNm }</a></strong>
 								<span class="txt_info">
 									<span class="info_txt openNum${i.index }">개봉
 										<!-- <span class="txt_num">개봉일</span> -->
@@ -90,11 +86,11 @@
  
 
 <!-- commonList 함수를 가지고 있는 js, 무비코드를 이용하여 상세목록 조회(개봉일, 관람등급) -->
-<script type="text/javascript" src="../../resources/jquery/ranking/commonList.js"></script>
+<script type="text/javascript" src="../resources/jquery/ranking/commonList.js"></script>
 <!--  selectDay를 받아서 오픈API 소환, 영화 코드를 받아서 commonList함수 소환-->
-<script type="text/javascript" src="../../resources/jquery/ranking/boxOffice.js"></script>
+<script type="text/javascript" src="../resources/jquery/ranking/boxOffice.js"></script>
 <!-- 달력 소환, 날짜 선택시 selectDay에 담고, Date타입으로 존재함 -->  
-<script type="text/javascript" src="../../resources/jquery/ranking/weekCalendar.js"></script>
+<script type="text/javascript" src="../resources/jquery/ranking/weekCalendar.js"></script>
 
 </body>
 </html>

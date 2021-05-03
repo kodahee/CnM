@@ -69,7 +69,7 @@ public class RankingController {
 	}
 	
 	//===================박스 오피스=====================
-	@GetMapping("boxOffice/weekly")
+	@GetMapping("boxOffice")
 	public ModelAndView getBoxOffice (WebCrawlering webCrawlering, ModelAndView mv, Date date) throws Exception{
 		
 		System.out.println("--controller BOweekly");
@@ -82,7 +82,6 @@ public class RankingController {
 		//포스터랑 시놉시스, 이름(pk용으로 쓸 수 있을까 해서,,)
 		mv.addObject("list", list);
 		mv.addObject("nav","ranking");
-		mv.addObject("boxOffice", "weekly");
 		mv.addObject("ranking", "boxOffice");
 		mv.setViewName("/ranking/boxOfficeBoard");
 		
@@ -108,24 +107,6 @@ public class RankingController {
 		return mv;
 	}
 	
-	@GetMapping("boxOffice/monthly")
-	public void getMonthlyInfo()throws Exception{
-		
-	}
-	
-	
-	@PostMapping("boxOffice/monthly")
-	public ModelAndView getMontlyInfo(Object result, String hi)throws Exception{
-		ModelAndView mv = new ModelAndView();
-		
-		//==
-	System.out.println(hi);
-		
-		JSONObject j = (JSONObject)result;
-		JSONArray json = (JSONArray)j.get("boxOfficeResult");
-		System.out.println(json);
-		
-		return mv;
-	}
+
 	
 }

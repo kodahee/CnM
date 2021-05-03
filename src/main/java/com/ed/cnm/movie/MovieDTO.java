@@ -1,19 +1,12 @@
-package com.ed.cnm.ranking;
+package com.ed.cnm.movie;
 
-public class RankingDTO {
+public class MovieDTO {
 	private String poster;
 	private String movieNm;//영화이름
 	private String rankNum;
 	private String movieInfo;//시놉시스
 	private String reservation;//예약 예매율
 	private String movieCd;
-	
-	public String getMovieCd() {
-		return movieCd;
-	}
-	public void setMovieCd(String movieCd) {
-		this.movieCd = movieCd;
-	}
 	public String getPoster() {
 		return poster;
 	}
@@ -43,6 +36,12 @@ public class RankingDTO {
 	}
 	public void setReservation(String reservation) {
 		this.reservation = reservation;
+	}
+	public String getMovieCd() {
+		return movieCd;
+	}
+	public void setMovieCd(String movieCd) {
+		this.movieCd = movieCd;
 	}
 	
 	

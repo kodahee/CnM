@@ -40,7 +40,7 @@
 			<div class="subNav_name">랭킹</div>
 			<div>
 				<span><a class="subNav_item" href="${pageContext.request.contextPath }/ranking/reservation">예매율</a></span>
-				<span><a class="subNav_item" href="${pageContext.request.contextPath }/ranking/boxOffice/weekly">박스오피스</a></span>
+				<span><a class="subNav_item" href="${pageContext.request.contextPath }/ranking/boxOffice">박스오피스</a></span>
 			</div>
 		</c:when>
 		

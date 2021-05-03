@@ -13,9 +13,16 @@
 </head>
 <body>
 <c:import url="../template/header.jsp"></c:import>
-<div class="rankingBox">
 
-<div class="title"><span class="titleName">예매순위</span></div>
+
+
+
+<main class="content">
+	<div class="article">
+		<div class="rankingBox">
+			<div class="title">
+				<span class="titleName">예매율</span>
+			</div>
 
 <div class="box_ranking" title="list">
 	<ol class="list_movieranking" >
@@ -32,9 +39,9 @@
 					</div>
 					<!-- hidden -->
 					<div class="poster_info">
-						<a href="" class="link_story linkDetail" title="poster">${dto.movieInfo }</a>
+						<a href="#" class="link_story linkDetail" title="poster">${dto.movieInfo }</a>
 						<span class="info_btn">
-							<a href="" class= "link_info linkDetail" target="_blank">예매하기</a>
+							<a href="#" class= "link_info linkDetail" target="_blank">예매하기</a>
 						</span>
 					</div>
 				</div>
@@ -58,8 +65,13 @@
 		</c:forEach>
 	</ol>
 </div>
-</div>
-<!-- <script type="text/javascript" src="../resources/jquery/ranking/reservation.js"> </script> -->
+
+		</div>
+	</div>
+</main>
+
+<script type="text/javascript" src="../resources/jquery/ranking/commonList.js"></script>
+<script type="text/javascript" src="../resources/jquery/ranking/reservation.js"> </script>
 
 </body>
 </html>

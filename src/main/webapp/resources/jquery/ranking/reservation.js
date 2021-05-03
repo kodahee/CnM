@@ -8,7 +8,6 @@ let movieCdList=[];
 
 $('.movieNm').each(function(index, li){
 	movieNmList.push($(this).text());
-	let test ='';
 	$.ajax({
 		url : "http://www.kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieList.json",
 		type:"GET",
@@ -18,8 +17,7 @@ $('.movieNm').each(function(index, li){
 		},
 		async: false,
 		success: function(data) {
-			data = data.movieListResult.movieList//데이터가 여러개 올 가능성 있음
-			//1. 이름이 완전히 같아야 하고, 2. movieCd가 제일 큰수 일때 배열로 추가하겟다.
+			data = data.movieListResult.movieList
 			let equalNmToCd=[];
 			for(movie of data){//데이터(배열)을 반복하면서 
 				if(movieNmList[index]==movie.movieNm){//이름이 같은걸 찾고 같다면
@@ -57,9 +55,6 @@ function commonList(movieCdList){
 				
 				let openDt = '<span class="txt_num">'+result.openDt+'</span>';
 				$('.openNum'+i).append(openDt);
-				
-				$('.linkDetail').attr('href',/*여기에 링크+cd하면 될듯*/+movieCdList[index]);
-				
 			
 			}
 			
