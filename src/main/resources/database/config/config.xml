@@ -21,5 +21,7 @@
 		
 		<typeAlias type="java.lang.Long" alias="Long"/>
 		
+		<typeAlias type="com.ed.cnm.ranking.RankingDTO" alias="RankingDTO"/>
+		<typeAlias type="com.ed.cnm.movieInfo.MovieInfoDTO" alias="MovieInfoDTO"/>
 	</typeAliases>
 </configuration>

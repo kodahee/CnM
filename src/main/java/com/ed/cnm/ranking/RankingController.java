@@ -35,6 +35,8 @@ import oracle.jdbc.proxy.annotation.Post;
 @RequestMapping("/ranking/**")
 public class RankingController {
 	
+	@Autowired
+	private RankingService rankingService;
 	
 	//===================예매율=====================
 	@GetMapping("reservation")
@@ -45,6 +47,7 @@ public class RankingController {
 		Elements elements = doc.select("div.box_ranking ol li");
 	
 		//크롤링한 포스터이미지, 영화이름, 예매율 랭크, 시놉시스, 예매율 % 을 순차적으로 list에 담았다.
+		//시놉시스 영화이름 포스터이미지 데이터베이스에 넣었음 
 		List<RankingDTO> list = new ArrayList<RankingDTO>();
 		for(Element el : elements) {
 			RankingDTO rankingDTO = new RankingDTO();
@@ -58,15 +61,26 @@ public class RankingController {
 			rankingDTO.setRankNum(rankNum);
 			rankingDTO.setMovieInfo(movieInfo);
 			rankingDTO.setReservation(reservation);
+			//DB저장 Cd없음 중복 방지를 위한 코드 필요
+			long result = rankingService.getCount(rankingDTO);
+			if(result<1) {
+				rankingService.setInfo(rankingDTO);
+			}
 			list.add(rankingDTO);
 		}
 		mv.addObject("list", list);
 		mv.addObject("nav","ranking");
-		mv.addObject("ranking", "reservation");
 		mv.setViewName("/ranking/reservation");
 		
 		return mv;
 	}
+	//=========Cd DB에 담는 용도=============
+	@PostMapping("setMovieCd")
+	public void setMovieCd(RankingDTO rankingDTO)throws Exception{
+		int result=rankingService.setMovieCd(rankingDTO);
+	}
+	
+	
 	
 	//===================박스 오피스=====================
 	@GetMapping("boxOffice")

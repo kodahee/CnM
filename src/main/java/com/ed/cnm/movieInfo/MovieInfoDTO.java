@@ -1,11 +1,11 @@
-package com.ed.cnm.movie;
+package com.ed.cnm.movieInfo;
 
-public class MovieDTO {
+public class MovieInfoDTO {
 	private String movieCd;
 	private String movieNm;//영화이름
 	private String movieInfo;//시놉시스
 	private String poster;
-	private String rankNum;
+	private String movieNum;
 	public String getPoster() {
 		return poster;
 	}

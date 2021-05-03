@@ -1,5 +1,6 @@
-package com.ed.cnm.movie;
+package com.ed.cnm.movieInfo;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -9,14 +10,16 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 @RequestMapping("/movieDetail/**")
-public class MovieController {
+public class MovieInfoController {
+	@Autowired
+	private MovieInfoService movieInfoService;
 
 	@PostMapping("detailedInfo")
-	public ModelAndView getDetailInfo(MovieDTO movieDTO ,ModelAndView mv)throws Exception{
+	public ModelAndView getDetailInfo(MovieInfoDTO movieInfoDTO ,ModelAndView mv)throws Exception{
 		System.out.println("movieDetail Controller");
-		System.out.println(movieDTO.getMovieCd());
+		movieInfoDTO = movieInfoService.getInfo(movieInfoDTO);
 		
-		mv.addObject("dto", movieDTO);
+		mv.addObject("dto", movieInfoDTO);
 		mv.setViewName("/movieDetail/infoBoard");
 		return mv;
 	}
