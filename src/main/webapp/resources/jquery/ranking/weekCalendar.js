@@ -99,7 +99,7 @@ $.ajax({
 	data: {date: selectDay},
 	success: function(result){
 		$('.listBox').html(result);
-		searchAPI()
+		searchAPI();
 	}
 });
 		

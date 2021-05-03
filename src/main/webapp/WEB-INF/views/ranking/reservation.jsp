@@ -31,8 +31,8 @@
 			<div class="item_poster">
 				<div class="thumb_item">
 					<div class="poster_movie">
-						<img class="item_thumb" alt="${dto.movieNm }" src="${dto.poster }">
-						<span class="rank_num">${dto.rankNum }</span>
+						<img class="item_thumb poster" alt="${dto.movieNm }" src="${dto.poster }">
+						<span class="rank_num" title="${i.index }">${dto.rankNum }</span>
 						<span class="txt_tag">
 						<span class="icon${i.index }"><!-- ico_movie ico_see --></span>
 						</span>
@@ -41,7 +41,7 @@
 					<div class="poster_info">
 						<a href="#" class="link_story linkDetail" title="poster">${dto.movieInfo }</a>
 						<span class="info_btn">
-							<a href="#" class= "link_info linkDetail" target="_blank">예매하기</a>
+							<a href="#" class= "link_info linkDetail" >예매하기</a>
 						</span>
 					</div>
 				</div>

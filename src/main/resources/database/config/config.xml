@@ -20,5 +20,6 @@
 		<typeAlias type="com.ed.cnm.util.Pager" alias="Pager"/>
 		
 		<typeAlias type="java.lang.Long" alias="Long"/>
+		
 	</typeAliases>
 </configuration>

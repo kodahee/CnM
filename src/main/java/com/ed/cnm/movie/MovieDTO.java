@@ -1,12 +1,11 @@
 package com.ed.cnm.movie;
 
 public class MovieDTO {
-	private String poster;
-	private String movieNm;//영화이름
-	private String rankNum;
-	private String movieInfo;//시놉시스
-	private String reservation;//예약 예매율
 	private String movieCd;
+	private String movieNm;//영화이름
+	private String movieInfo;//시놉시스
+	private String poster;
+	private String rankNum;
 	public String getPoster() {
 		return poster;
 	}
@@ -31,12 +30,7 @@ public class MovieDTO {
 	public void setMovieInfo(String movieInfo) {
 		this.movieInfo = movieInfo;
 	}
-	public String getReservation() {
-		return reservation;
-	}
-	public void setReservation(String reservation) {
-		this.reservation = reservation;
-	}
+
 	public String getMovieCd() {
 		return movieCd;
 	}

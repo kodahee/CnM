@@ -49,7 +49,7 @@
 							<div class="thumb_item">
 								<div class="poster_movie">
 									<img class="item_thumb poster" alt="${dto.movieNm }" src="${dto.poster }">
-									<span class="rank_num">${dto.rankNum }</span>
+									<span class="rank_num" title="${i.index }">${dto.rankNum }</span>
 									<span class="txt_tag${i.index }"><!-- ico_movie ico_see --></span>
 								</div>
 								<!-- hidden -->

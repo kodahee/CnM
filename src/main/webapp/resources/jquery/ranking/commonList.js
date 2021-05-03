@@ -3,18 +3,23 @@
  */
 //컨트롤러에 넘기고
 $('.linkDetail').click(function(){
-	let index = $('.rank_num').text()-1;
+	let index = $('.rank_num').attr('title');
 	let movieInfo = $('.link_story').text();
 	let poster = $('.poster').attr('src');
-
-	$.ajax({
-		url:"../movieDetail/detailedInfo",
-		type:"POST",
-		data:{movieCd:movieCdList[index], movieInfo: movieInfo, poster: poster},
-		success: function(result){
-			
-		}
-	});
+	console.log(index)
+	console.log(movieInfo)
+	console.log(poster)
+	movieDetail();
+	function movieDetail(){
+		$.ajax({
+			url:"../movieDetail/detailedInfo",
+			type:"Get",
+			data:{movieCd:movieCdList[index]},
+			success: function(result){
+				
+			}
+		});
+	}
 	
 });
 //api다시 불러오기

@@ -13,6 +13,8 @@ public class MovieController {
 
 	@PostMapping("detailedInfo")
 	public ModelAndView getDetailInfo(MovieDTO movieDTO ,ModelAndView mv)throws Exception{
+		System.out.println("movieDetail Controller");
+		System.out.println(movieDTO.getMovieCd());
 		
 		mv.addObject("dto", movieDTO);
 		mv.setViewName("/movieDetail/infoBoard");
