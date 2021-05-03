@@ -13,28 +13,53 @@
 </head>
 <body>
 <c:import url="../template/header.jsp"></c:import>
-<h4>1</h4>
-<div class="box_ranking">
-	<ul >
+<div class="rankingBox">
+
+<div class="title"><span class="titleName">예매순위</span></div>
+
+<div class="box_ranking" title="list">
+	<ol class="list_movieranking" >
 		<c:forEach items="${list }" var="dto" varStatus="i"><!-- i.index -->
 			<li>
-			<div class="itemPoster">
-				<h3><img class="poster" alt="" src="${dto.poster }"></h3>
-				<h3 class="movieNm">${dto.movieNm }</h3>
-				<h3>${dto.rankNum }</h3>
-				<h6>${dto.movieInfo }</h6>
-				<h3>${dto.reservation }</h3>
-				<div class="subInfo${i.index }">
+			<div class="item_poster">
+				<div class="thumb_item">
+					<div class="poster_movie">
+						<img class="item_thumb" alt="${dto.movieNm }" src="${dto.poster }">
+						<span class="rank_num">${dto.rankNum }</span>
+						<span class="txt_tag">
+						<span class="icon${i.index }"><!-- ico_movie ico_see --></span>
+						</span>
+					</div>
+					<!-- hidden -->
+					<div class="poster_info">
+						<a href="" class="link_story linkDetail" title="poster">${dto.movieInfo }</a>
+						<span class="info_btn">
+							<a href="" class= "link_info linkDetail" target="_blank">예매하기</a>
+						</span>
+					</div>
+				</div>
 				
+				<div class="thumb_cont">
+					<strong class="tit_item movieNm"><a href="" class="link_txt linkDetail" title="moviename">${dto.movieNm }</a></strong>
+					<span class="txt_append">
+						<span class="info_txt grade${i.index }">평점
+							<!-- <span class="txt_grade>평점</span>" -->
+						</span>
+						<span class="info_txt">예매율
+							<span class="txt_num">${dto.reservation }</span>
+						</span>
+					</span>
+					<span class="txt_info openNum${i.index }">개봉
+						<!-- <span class="txt_num">개봉일</span> -->
+					</span>
 				</div>
 			</div>
 			</li>
 		</c:forEach>
-	</ul>
+	</ol>
 </div>
-<!-- 
-<script type="text/javascript" src="../resources/jquery/ranking/commonList.js"></script>
-<script type="text/javascript" src="../resources/jquery/ranking/reservation.js"> </script>
- -->
+</div>
+<!-- <script type="text/javascript" src="../resources/jquery/ranking/reservation.js"> </script> -->
+
 </body>
 </html>

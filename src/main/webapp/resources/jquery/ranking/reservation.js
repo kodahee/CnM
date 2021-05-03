@@ -7,9 +7,6 @@ let movieNmList = [];
 let movieCdList=[];
 
 $('.movieNm').each(function(index, li){
-	//console.log(this);//엘리먼트 전부 뜸(태그까지)
-	//console.log($(this).text());//제목만 뜸
-	//console.log(index+' : '+movieNmList[index]);
 	movieNmList.push($(this).text());
 	let test ='';
 	$.ajax({
@@ -19,7 +16,7 @@ $('.movieNm').each(function(index, li){
 			key:"88c812405e947836cbbee3be8daa5603",
 			movieNm : movieNmList[index]
 		},
-		async: false,//========ajax를 동기식으로 바꾸기========리턴 가능!!========로딩바 필요해짐,,
+		async: false,
 		success: function(data) {
 			data = data.movieListResult.movieList//데이터가 여러개 올 가능성 있음
 			//1. 이름이 완전히 같아야 하고, 2. movieCd가 제일 큰수 일때 배열로 추가하겟다.
@@ -36,7 +33,39 @@ $('.movieNm').each(function(index, li){
 		
 	});//ajax end
 });//each end 
-	
-//console.log(movieCdList.length)	//리턴 받아서 20개 됨	
 
 commonList(movieCdList);
+
+
+function commonList(movieCdList){
+	
+	let i=0;
+	for(index in movieCdList){
+		$.ajax({
+			url:"http://www.kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieInfo.json",
+			type:"GET",
+			data:{
+				key:"88c812405e947836cbbee3be8daa5603",
+				movieCd:movieCdList[index]
+			},
+			async: false,
+			success:function(result){
+				result=result.movieInfoResult.movieInfo;
+				
+				let adits = '<img class="ico_movie ico_see" alt="result.audits[0].watchGradeNm" src="../resources/img/'+result.audits[0].watchGradeNm+'.png">';
+				$('.icon'+i).append(adits);		
+				
+				let openDt = '<span class="txt_num">'+result.openDt+'</span>';
+				$('.openNum'+i).append(openDt);
+				
+				$('.linkDetail').attr('href',/*여기에 링크+cd하면 될듯*/+movieCdList[index]);
+				
+			
+			}
+			
+		});//ajax
+	i++;
+		
+	};
+
+}
