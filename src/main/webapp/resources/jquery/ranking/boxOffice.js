@@ -31,9 +31,10 @@ function getDate(date){
 
 searchAPI()
 function searchAPI(){
-	alert('date'+getDate(date))
-	alert('select'+getDate(selectDay))
+	/*alert('date'+getDate(date))
+	alert('select'+getDate(selectDay))*/
 	if(getDate(date)==getDate(selectDay)){
+		date = new Date(Date.parse(date));
 		date=date.getTime()-86400000;
 	}else{
 		movieCdList=[];
@@ -55,7 +56,6 @@ $.ajax({
 		
 		result=result.boxOfficeResult.weeklyBoxOfficeList;
 		
-		console.log(test)
 		for(index in result){
 			let one=result[index];
 			

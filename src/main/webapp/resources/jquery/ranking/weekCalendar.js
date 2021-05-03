@@ -1,20 +1,15 @@
-/**
- * 
- */
-$('#calendarOpen').hide();
+
+$('.calendarOpen').hide();
 
 //====아이콘 클릭하면 달력을 보여주겠다.====
-$('#iconCalendar').click(function(){
-	$('#calendarOpen').toggle();
+$('.iconCalendar').click(function(){
+	$('.calendarOpen').toggle();
 	//==달력 만드는 함수==
-	calendarMaker($('#calendar'), new Date());
+	calendarMaker($('.calendar'), new Date());
 
 });
 
-//========전역 변수========
-//let selectDay=new Date();
-//let nowDate = new Date();
-//=======================
+
 
 
 function calendarMaker(target, date){
@@ -53,16 +48,17 @@ function calendarMaker(target, date){
 	}
 	
 	//만들어둔 달력에 어펜드 
-	$(target).find('#setDate').append(tag);
+	$(target).find('.setDate').append(tag);
 	calendarEvent(target);
-	
+	console.log('달력만들기: '+selectDay)
 };//function
 
 
 //====이벤트 함수, 실행x, 걸어둔 상태임을 기억 ====
 function calendarEvent(target){
-	//==저번 달==
-	$('.calendarTable').on('click', '.prev', function(){
+	
+	$('.tableDate').on('click', '#prev', function(){
+		alert('prev')
 		if(nowDate.getMonth()==0){//1월이면 작년으로 가자
 			nowDate = new Date(nowDate.getFullYear()-1, 11, nowDate.getDate());
 		}else{
@@ -71,7 +67,8 @@ function calendarEvent(target){
 		calendarMaker($(target), nowDate);
 	});
 	//다음 달	
-	$('.calendarTable').on('click', '.next', function(){
+	$('.tableDate').on('click', '#next', function(){
+		alert('next')
 		if(nowDate.getMonth==11){//12월이면 내년으로 가자
 			nowDate = new Date(nowDate.getFullYear()+1, 0, nowDate.getDate());
 		}else{
@@ -81,7 +78,8 @@ function calendarEvent(target){
 	});
 	//날짜 선택 
 	$('.calendarTable').on('click', 'td', function(){
-		$('table').find('td.selected').removeClass('selected');
+		alert('td')
+		$('.calendarTable').find('td.selected').removeClass('selected');
 		$(this).addClass('selected');
 		selectDay = new Date(nowDate.getFullYear(), nowDate.getMonth(), $('td.selected').text().trim());
 		console.log('===')
@@ -100,7 +98,7 @@ $.ajax({
 	type: 'GET',
 	data: {date: selectDay},
 	success: function(result){
-		$('#listBox').html(result);
+		$('.listBox').html(result);
 		searchAPI()
 	}
 });
@@ -109,32 +107,34 @@ $.ajax({
 
 //===달력 만드는 HTML 코드 ==
 function setCalendar(year, month) {
-        let calHtmlCode ='<table class = "calendarTable">'+
-			//==테이블 설정==
-			'<colgroup>'+
-			'<col style = "width:30px"/>'+
-			'<col style = "width:30px"/>'+
-			'<col style = "width:30px"/>'+
-			'<col style = "width:30px"/>'+
-			'<col style = "width:30px"/>'+
-			'<col style = "width:30px"/>'+
-			'<col style = "width:30px"/>'+
-			'</colgroup>'+
-			//==테이블 헤드==
-			'<thead>'+
-			'<tr>'+
-			'<th><img src="../../resources/img/smallPrev.png" class="prev"></th>'+
-			'<th calspan="5" align="center">'+year+' . '+month+'</th>'+
-			'<th><img src="../../resources/img/smallNext.png" class="next"></th>'+
-			'</tr>'+
-			'<tr>'+
-			'<th>일</th><th>월</th><th>화</th><th>수</th><th>목</th><th>금</th><th>토</th>'+
-			'</tr>'+
-			'</thead>'+
-			//==테이블 바디(함수적용)==
-			'<tbody id="setDate">'+
-			'</tbody>'+
-			'</table>';
+        let calHtmlCode =
+				//==테이블 설정==
+			//'<div class="setCal">'+
+				'<div class="tableDate">'+
+					'<img src="../../resources/img/smallPrev.png" class="prev" >'+
+					'<div class="tableDate_item">'+year+'년 '+month+'월'+'</div>'+
+					'<img src="../../resources/img/smallNext.png" class="next">'+
+				'</div>'+
+				'<table class = "calendarTable">'+
+					'<colgroup>'+
+					'<col >'+
+					'<col style = "width:34px"/>'+
+					'<col style = "width:34px"/>'+
+					'<col style = "width:34px"/>'+
+					'<col style = "width:34px"/>'+
+					'<col style = "width:34px"/>'+
+					'<col >'+
+					'</colgroup>'+
+					//==테이블 헤드==
+					'<thead>'+
+					'<tr>'+
+						'<th>일</th><th>월</th><th>화</th><th>수</th><th>목</th><th>금</th><th>토</th>'+
+					'</tr>'+
+					'</thead>'+
+					//==테이블 바디(함수적용)==
+					'<tbody class="setDate">'+
+					'</tbody>'+
+				'</table>'
+			//'</div>';
         return calHtmlCode;
     }
-

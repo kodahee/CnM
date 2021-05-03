@@ -33,6 +33,8 @@ public class NoticeController {
 		mv.setViewName("board/boardList");
 		mv.addObject("board", "notice");
 		mv.addObject("pager", pager);
+		mv.addObject("nav","serviceCenter");
+		
 		return mv;
 	}
 	
