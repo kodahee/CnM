@@ -15,6 +15,7 @@
 		<typeAlias type="com.ed.cnm.board.notice.NoticeDTO" alias="NoticeDTO"/>
 		<typeAlias type="com.ed.cnm.board.qna.QnaDTO" alias="QnaDTO"/>
 		<typeAlias type="com.ed.cnm.board.comments.CommentsDTO" alias="CommentsDTO"/>
+		<typeAlias type="com.ed.cnm.review.ReviewDTO" alias="ReviewDTO"/>
 		
 		<typeAlias type="com.ed.cnm.util.Pager" alias="Pager"/>
 		
