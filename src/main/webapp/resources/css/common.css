@@ -5,11 +5,16 @@ body{
 	font-family: "맑은 고딕", "Malgun Gothic", "애플 SD 산돌고딕 Neo", "Apple SD Gothic Neo", sans-serif;
 	color:#333333;
 }
+
 a{color:#333333;}
+
+
 
 nav{
 	font-weight:bold; 
 	font-size: 1em;
+	padding-top: 20px;
+	margin-right: 50px;
 }
 .memberNav{
 	font-size: 0.75em;

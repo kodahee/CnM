@@ -103,7 +103,7 @@ public class RankingController {
 		List<RankingDTO> list =webCrawlering.getCrawlering(url);
 		
 		mv.addObject("list", list);
-		mv.setViewName("/ranking/commonPosterInfo");
+		mv.setViewName("/ranking/boxOfficeResult");
 		
 		return mv;
 	}

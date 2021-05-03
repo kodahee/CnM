@@ -9,7 +9,6 @@
 <title>Insert title here</title>
 
 <link rel="stylesheet" type="text/css" href="../../resources/css/common.css">
-<link rel="stylesheet" type="text/css" href="../../resources/css/calendar.css">
 <link rel="stylesheet" type="text/css" href="../../resources/css/ranking.css">
 </head>
 <body>
@@ -35,16 +34,18 @@
 						<li><a href="./monthly" class="link_tab">월간</a></li>
 						<li><a href="./yearly" class="link_tab">년간</a></li>
 					</ul>
-					<div class="iconCalendar" >
+					<div class="iconCalendar" id="iconCalendar" >
 						<img alt="calendar" src="../../resources/img/calendar.png">
-						<div class="calendarOpen" >
-							<div class="calendar" ></div>
+						<div class="calendarOpen" id="calendarOpen">
+							<div class="calendarInner" id="calendarInner">
+								<div class="calendar" id="calendar"></div>
+							</div>
 						</div>	
 					</div>
 				</div>
 			</div>
 
-			<div class="box_ranking" data-tiara-layer="list">
+			<div class="box_ranking" >
 				<ol class="list_movieranking" >
 					<c:forEach items="${list }" var="dto" varStatus="i"><!-- i.index -->
 						<li>

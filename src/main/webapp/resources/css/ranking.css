@@ -4,7 +4,7 @@
 	padding-top: 80px;
 }
 
-/**/
+/*=====================타이틀=====================*/
 
 .title{
 	position: relative;
@@ -30,7 +30,7 @@
 	float:left;
 }
 
-/* 박스오피스 전용*/
+/* =====================박스오피스 전용=====================*/
 .itemDate{
     overflow: hidden;
     text-align: center;
@@ -97,6 +97,7 @@
     line-height: 23px;
 }
 
+/*=====================캘린더=====================*/
 
 .iconCalendar{
 	display: inline-block;
@@ -108,13 +109,11 @@
 	margin: 2px 0 0 37px;
 } 
 
-.calendar{
-	display: inline-block;
-    vertical-align: top;
+.iconCalendar .calendarOpen{
+	display: block;
 }
 
-/* .calendarOpen{
-	display: none;
+.calendarOpen{
     position: absolute;
     right: -4px;
     top: 30px;
@@ -122,16 +121,83 @@
     width: 254px;
 }
 
-.calendarOpen .calendar{
+.calendarOpen .calendarInner{
 	position: relative;
     min-height: 238px;
-    border: 1px solid #000;
-    background-color: #fff;
+    border: 1px solid #000000;
+    background-color: #ffffff;
 }
 
- */
+.calendarOpen .calendar{
+	position: relative;
+    padding-bottom: 8px;
+}
 
-/*리스트*/
+
+.calendarOpen .prev{
+	position: absolute;
+    top: 15px;
+	left: 43px;
+}
+
+.calendarOpen .next{
+	position: absolute;
+    top: 15px;
+	right: 43px;
+}
+
+table{
+	display: table;
+    border-collapse: separate;
+    box-sizing: border-box;
+    text-indent: initial;
+    border-spacing: 2px;
+    border-color: grey;
+}
+
+.calendarOpen .tableDate{
+	display: block;
+    height: 48px;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 50px;
+    text-align: center;
+    margin-bottom: 12px;
+}
+
+.calendarOpen .tableDate .tableDate_item{
+	position: relative;
+    padding: 6px 12px 0px 12px;
+    color: #000;
+    text-decoration: none;
+    text-align: center;
+}
+
+.calendarTable{
+	table-layout: fixed;
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+thead{
+	display: table-header-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+
+tbody{
+	display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+
+td .selected{
+	background-color: #888888;
+}
+
+
+/*=====================리스트=====================*/
 .box_ranking{
 	display: block;
 	
@@ -190,7 +256,7 @@
     background-image: linear-gradient(to top, rgba(0, 0, 0, 0) 0, black 100%);
 }
 
-/* 포스터 */
+/* =====================리스트 포스터===================== */
 
 
 .item_poster .img_thumb {
@@ -234,7 +300,7 @@
     right: 15px;
 }
 
-/*hidden*/
+/*=====================hidden=====================*/
 .item_poster .poster_info {
     position: absolute;
     z-index: -1;
@@ -299,7 +365,7 @@
 
 
 
-/* 포스터 밑에 글자 */
+/* =====================포스터 밑에 글자===================== */
 .item_poster .thumb_cont{
 	padding: 17px 8px 0px;
 }
