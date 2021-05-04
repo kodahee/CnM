@@ -39,9 +39,9 @@
 					</div>
 					<!-- hidden -->
 					<div class="poster_info">
-						<a href="#" class="link_story linkDetail" >${dto.movieInfo }</a>
+						<a href="#" class="link_story linkDetail a${i.index }" >${dto.movieInfo }</a>
 						<span class="info_btn">
-							<a href="#" class= "link_info linkDetail" >예매하기</a>
+							<a href="#" class= "link_info linkDetail a${i.index }" >예매하기</a>
 						</span>
 					</div>
 				</div>

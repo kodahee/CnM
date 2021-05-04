@@ -22,7 +22,7 @@ function commonList(movieCdList){
 				let openDt = '<span class="txt_num">'+result.openDt+'</span>';
 				$('.openNum'+i).append(openDt);
 				
-				$('a').attr('href', '../movieDetail/infoBoard?movieCd='+movieCdList[index]);
+				$('.a'+i).attr('href', '../movieDetail/infoBoard?movieCd='+movieCdList[index]);
 				
 				
 			}

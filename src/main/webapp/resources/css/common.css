@@ -8,7 +8,9 @@ body{
 
 a{color:#333333;}
 
-
+ul, li{
+	list-style: none;
+}
 
 nav{
 	font-weight:bold; 
