@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    
+    pageEncoding="UTF-8"%>  
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
@@ -18,7 +17,8 @@
 <main class="content">
 	<div class="article">
 		<img alt="" src="${dto.poster }">
-	
+		<div>${dto.movieNm }</div>
+		<div>${dto.movieInfo }</div>
 	
 	
 	</div>

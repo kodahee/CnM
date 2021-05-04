@@ -22,7 +22,7 @@ function commonList(movieCdList){
 				let openDt = '<span class="txt_num">'+result.openDt+'</span>';
 				$('.openNum'+i).append(openDt);
 				
-				$('a').attr('title', movieCdList[index]);
+				$('a').attr('href', '../movieDetail/infoBoard?movieCd='+movieCdList[index]);
 				
 				
 			}
@@ -33,18 +33,6 @@ function commonList(movieCdList){
 }//commonList()
 
 
-//컨트롤러에 넘기는 함수
-$('.linkDetail').click(function(){
-	let movieCd = $('a').attr('title');
-	alert('hi');
-		$.ajax({
-			url:"../movieDetail/detailedInfo",
-			type:"Get",
-			data:{movieCd:movieCd},
-			success: function(result){
-				
-			}
-		});
-});
+
 //api다시 불러오기
 

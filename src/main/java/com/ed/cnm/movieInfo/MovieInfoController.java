@@ -14,7 +14,7 @@ public class MovieInfoController {
 	@Autowired
 	private MovieInfoService movieInfoService;
 
-	@PostMapping("detailedInfo")
+	@GetMapping("infoBoard")
 	public ModelAndView getDetailInfo(MovieInfoDTO movieInfoDTO ,ModelAndView mv)throws Exception{
 		System.out.println("movieDetail Controller");
 		movieInfoDTO = movieInfoService.getInfo(movieInfoDTO);
