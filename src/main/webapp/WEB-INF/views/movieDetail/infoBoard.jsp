@@ -32,47 +32,40 @@
 							</span>
 						</h3>
 						<div class="head_origin">
-							<span class="txt_name"><!-- 오리지널 이름 -->origin</span>
+							<span class="txt_name originNm"><!-- 오리지널 이름 -->origin</span>
 						</div>
 					</div>
 					<div class="detail_cont">
 						<div class="inner_cont">
 							<dl class="list_cont">
 								<dt>개봉</dt>
-								<dd><!-- js --></dd>
+								<dd class="openDt"><!-- js --></dd>
 							</dl>
 							<dl class="list_cont">
 								<dt>장르</dt>
-								<dd><!-- js --></dd>
-							</dl>
-							<dl class="list_cont">
-								<dt>국가</dt>
-								<dd><!-- js --></dd>
-							</dl>
-							<dl class="list_cont">
-								<dt>등급</dt>
-								<dd><!-- js --></dd>
+								<dd class="genreNm"><!-- js --></dd>
 							</dl>
 							<dl class="list_cont">
 								<dt>러닝타임</dt>
-								<dd><!-- js --></dd>
+								<dd class="showTm"><!-- js --></dd>
 							</dl>
 						</div>
 						<div class="inner_cont">
 							<dl class="list_cont">
+								<dt>국가</dt>
+								<dd class="nationNm"><!-- js --></dd>
+							</dl>
+							<dl class="list_cont">
+								<dt>등급</dt>
+								<dd class="watchGradeNm"><!-- js --></dd>
+							</dl>
+							<dl class="list_cont">
 								<dt>평점</dt>
-								<dd><!-- js --></dd>
-							</dl>
-							<dl class="list_cont">
-								<dt>누적관객</dt>
-								<dd><!-- js --></dd>
-							</dl>
-							<dl class="list_cont">
-								<dt>박스오피스</dt>
 								<dd><!-- js --></dd>
 							</dl>
 						</div>
 					</div>
+					<div hidden="hidden" class="movieCd">${dto.movieCd }</div>
 					<div class="detail_btn">
 						<div class="group_btn">
 							<a href="#" class="btn_g">예매하기</a>
@@ -104,7 +97,7 @@
 					<div class="detail_crewinfo">
 						<h5 class="tit_section">출연진</h5>		
 						<ul class="list_crewall">
-							<li><!-- 출연진 수만큼 js작업 최대 7개-->
+							<!-- <li>출연진 수만큼 js작업 최대 7개
 								<div class="item_crewall">
 									<div class="thumb_item">
 										<img src="" class="img_thumb">
@@ -113,16 +106,17 @@
 										<div class="tit_item">
 											<div class="link_tit"></div>
 										</div>
-										<span class="txt_info"><!-- 감독이나 주연이냐 --></span>
+										<span class="txt_info">감독이나 주연이냐</span>
 									</div>
 								</div>
-							</li>
+							</li> -->
 						</ul>
 						<a href="#" class="link_more">더보기<!-- 출연제작으로 넘어가는 js --></a>
 					</div>
 					<div class="detail_vodphotoinfo">
 						<h5 class="tit_section">영상/포토</h5>
-						<ul></ul>
+						<ul class="list_vod"></ul>
+						<ul class="list_vodphoto"></ul>
 						
 					</div>
 					
@@ -141,6 +135,7 @@
 </main>
 
 
+<script type="text/javascript" src="../resources/jquery/movieDetail.js"></script>
 
 
 </body>

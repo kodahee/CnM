@@ -64,7 +64,7 @@ h3{
     display: block;
     overflow: hidden;
     margin-left: 2px;
-    font-size: 16px;
+    font-size: 15px;
     line-height: 19px;
     color: #000;
     word-break: break-all;
@@ -232,6 +232,10 @@ h3{
     float: left;
 }
 
+.list_crewall li + li {
+    margin-left: 48px;
+}
+
 .item_crewall {
     width: 116px;
 }
@@ -249,7 +253,6 @@ h3{
     display: block;
     width: 100%;
 }
-
 .item_crewall .img_thumb {
     height: 100%;
 }
