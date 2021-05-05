@@ -120,7 +120,14 @@
 						</ul>
 						<a href="#" class="link_more">더보기<!-- 출연제작으로 넘어가는 js --></a>
 					</div>
-				</div>
+					<div class="detail_vodphotoinfo">
+						<h5 class="tit_section">영상/포토</h5>
+						<ul></ul>
+						
+					</div>
+					
+					
+				</div><!-- contents -->
 			
 			</div>
 	
