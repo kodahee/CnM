@@ -5,7 +5,7 @@
     
 <mapper namespace="com.ed.cnm.location.seoul.SeoulTheaterDAO">
 	<select id="getList" parameterType="LocationTheaterDTO" resultType="LocationTheaterDTO">
-		select * from seoul
+		select * from seoul where scheduleDate=#{scheduleDate} order by scheduleTime asc
 	</select>
 
 </mapper>

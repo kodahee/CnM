@@ -50,7 +50,7 @@ function searchAPI(){
 	
 $.ajax({
 	type:"GET",
-	url:"http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchWeeklyBoxOfficeList.json",
+	url:"http://http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchWeeklyBoxOfficeList.json",
 	data:{
 		key:"88c812405e947836cbbee3be8daa5603",
 		targetDt:getDate(date),
@@ -91,3 +91,25 @@ $.ajax({
 console.log(movieCdList)
 commonList(movieCdList);
 }//function
+
+
+setWeek()
+function setWeek(){
+selectDay = new Date(Date.parse(selectDay));
+console.log(selectDay)
+console.log(selectDay.getDay())
+console.log(selectDay.getTime())
+if(selectDay.getDay()!=0){
+		
+		selectDay=selectDay.getTime()-(86400000*selectDay.getDay());
+	}
+selectDay = new Date(selectDay);
+console.log(selectDay)
+let str2 = selectDay.toLocaleDateString();
+console.log(str2)
+	selectDay = new Date(selectDay.getTime()-(86400000*6));
+let str = selectDay.toLocaleDateString();
+console.log(str)
+$('.selectDate_item').text(str+'~'+str2);
+
+}

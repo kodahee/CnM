@@ -24,14 +24,14 @@
 				<div class="itemDate">
 					<div class="innerDate">
 						<img src="../resources/img/mPrev.png" class="week_prev">
-						<span class="selectDate_item">21.04.19~21.04.25</span>
+						<span class="selectDate_item">00.00.00~00.00.00</span>
 						<img src="../resources/img/mNext.png" class="week_next">
 					</div>
 				</div>
 				<div class="headCal">
 					
 					<div class="iconCalendar" id="iconCalendar" >
-						<img alt="calendar" src="../resources/img/calendar.png">
+						<img id="cal"alt="calendar" src="../resources/img/calendar.png">
 						<div class="calendarOpen" id="calendarOpen">
 							<div class="calendarInner" id="calendarInner">
 								<div class="calendar" id="calendar"></div>

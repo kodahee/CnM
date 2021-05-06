@@ -118,7 +118,7 @@ public class RankingController {
 	}
 	
 	//===========리스트(ajax)==================
-	@GetMapping("boxOffice/list")
+	@GetMapping("boxOfficeList")
 	public ModelAndView getPosterInfo(WebCrawlering webCrawlering, ModelAndView mv, Date date)throws Exception{
 		
 		//Date date 를 YYYYmmdd로 바꾸기
@@ -126,7 +126,7 @@ public class RankingController {
 		SimpleDateFormat sd = new SimpleDateFormat("yyyyMMdd");
 					
 		String result = sd.format(date);
-		System.out.println(""+result);
+		System.out.println("리스트ajax"+result);
 
 		String url="https://movie.daum.net/ranking/boxoffice/weekly?date="+result;
 		List<RankingDTO> list =webCrawlering.getCrawlering(url);

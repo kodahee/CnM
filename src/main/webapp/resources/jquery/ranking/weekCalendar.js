@@ -1,9 +1,11 @@
 
 $('.calendarOpen').hide();
 
+
+
 //====아이콘 클릭하면 달력을 보여주겠다.====
-$('.iconCalendar').click(function(){
-	$('.calendarOpen').toggle();
+$('#cal').click(function(){
+	$('#calendarOpen').toggle();
 	//==달력 만드는 함수==
 	calendarMaker($('.calendar'), new Date());
 
@@ -39,7 +41,6 @@ function calendarMaker(target, date){
 		tag = tag+"<td>"+i+"</td>";
 		if(nowDate.getDate()==i){
 			selectDay=nowDate.getTime();
-			
 		}
 		cnt++;
 		if(cnt%7==0){
@@ -50,6 +51,9 @@ function calendarMaker(target, date){
 	//만들어둔 달력에 어펜드 
 	$(target).find('.setDate').append(tag);
 	calendarEvent(target);
+	
+	
+	
 	console.log('달력만들기: '+selectDay)
 };//function
 
@@ -57,8 +61,8 @@ function calendarMaker(target, date){
 //====이벤트 함수, 실행x, 걸어둔 상태임을 기억 ====
 function calendarEvent(target){
 	
-	$('.tableDate').on('click', '#prev', function(){
-		alert('prev')
+	$('.calendarOpen').on('click', '.prev', function(){
+		
 		if(nowDate.getMonth()==0){//1월이면 작년으로 가자
 			nowDate = new Date(nowDate.getFullYear()-1, 11, nowDate.getDate());
 		}else{
@@ -67,8 +71,8 @@ function calendarEvent(target){
 		calendarMaker($(target), nowDate);
 	});
 	//다음 달	
-	$('.tableDate').on('click', '#next', function(){
-		alert('next')
+	$('.calendarOpen').on('click', '.next', function(){
+		
 		if(nowDate.getMonth==11){//12월이면 내년으로 가자
 			nowDate = new Date(nowDate.getFullYear()+1, 0, nowDate.getDate());
 		}else{
@@ -78,15 +82,14 @@ function calendarEvent(target){
 	});
 	//날짜 선택 
 	$('.calendarTable').on('click', 'td', function(){
-		alert('td')
+		
 		$('.calendarTable').find('td.selected').removeClass('selected');
 		$(this).addClass('selected');
 		selectDay = new Date(nowDate.getFullYear(), nowDate.getMonth(), $('td.selected').text().trim());
-		console.log('===')
-		console.log(selectDay)//왜 스트링타입,,? Fri Apr 16 2021 00:00:00 GMT+0900 (대한민국 표준시)
-		//콘솔에 찍어보니까 그냥 자동 toString 된거처럼 된거,,, ,,,? .......
+		console.log('===');
+		console.log(selectDay);
 		selectDay = new Date(Date.parse(selectDay));
-		console.log(selectDay.getTime());
+		
 		//선택하면 ajax 소환
 		selectTime();
 	});
@@ -94,12 +97,13 @@ function calendarEvent(target){
 
 function selectTime(){
 $.ajax({
-	url: './list',
+	url: './boxOfficeList',
 	type: 'GET',
 	data: {date: selectDay},
 	success: function(result){
-		$('.listBox').html(result);
+		$('.list_movieranking').html(result);
 		searchAPI();
+		setWeek();
 	}
 });
 		
@@ -108,12 +112,10 @@ $.ajax({
 //===달력 만드는 HTML 코드 ==
 function setCalendar(year, month) {
         let calHtmlCode =
-				//==테이블 설정==
-			//'<div class="setCal">'+
 				'<div class="tableDate">'+
-					'<img src="../../resources/img/smallPrev.png" class="prev" >'+
+					'<img src="../resources/img/smallPrev.png" class="prev">'+
 					'<div class="tableDate_item">'+year+'년 '+month+'월'+'</div>'+
-					'<img src="../../resources/img/smallNext.png" class="next">'+
+					'<img src="../resources/img/smallNext.png" class="next">'+
 				'</div>'+
 				'<table class = "calendarTable">'+
 					'<colgroup>'+
@@ -134,8 +136,10 @@ function setCalendar(year, month) {
 					//==테이블 바디(함수적용)==
 					'<tbody class="setDate">'+
 					'</tbody>'+
-				'</table>'
-			//'</div>';
+				'</table>';
         return calHtmlCode;
     }
+
+
+
 

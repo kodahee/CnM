@@ -138,6 +138,7 @@
 	position: absolute;
     top: 15px;
 	left: 43px;
+	z-index: 1;
 }
 
 .calendarOpen .next{
@@ -192,8 +193,8 @@ tbody{
     border-color: inherit;
 }
 
-td .selected{
-	background-color: #888888;
+.selected{
+	background-color: #e4e4e4;
 }
 
 
