@@ -11,7 +11,6 @@ public class BookedController {
 	
 	@GetMapping("selectTime")
 	public void selectTime() throws Exception{
-		System.out.println("hi");
 	}
 
 	

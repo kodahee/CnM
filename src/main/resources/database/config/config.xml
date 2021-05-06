@@ -26,5 +26,6 @@
 		<typeAlias type="com.ed.cnm.movieInfo.MovieInfoDTO" alias="MovieInfoDTO"/>
 		
 		<typeAlias type="com.ed.cnm.location.LocationDTO" alias="LocationDTO"/>
+		<typeAlias type="com.ed.cnm.location.LocationTheaterDTO" alias="LocationTheaterDTO"/>
 	</typeAliases>
 </configuration>

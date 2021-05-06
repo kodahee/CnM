@@ -30,27 +30,34 @@
 			<div class="set_body">
 				<div class="inner_cont location">
 					<dl class="list_cont">
-						<dt class="select" title="002">서울특별시</dt>
+						<dt class="select" title="seoul">서울특별시</dt>
 					</dl>
 					<dl class="list_cont">
-						<dt title="051">부산광역시</dt>
+						<dt title="busan">부산광역시</dt>
 					</dl>
 					<dl class="list_cont">
-						<dt title="062">광주광역시</dt>
+						<dt title="gwangju">광주광역시</dt>
 					</dl>
 					<dl class="list_cont">
-						<dt title="032">인천광역시</dt>
+						<dt title="incheon">인천광역시</dt>
 					</dl>
 					<dl class="list_cont">
-						<dt title="044">세종광역시</dt>
+						<dt title="sejong">세종광역시</dt>
 					</dl>
 					<dl class="list_cont">
-						<dt title="042">대전광역시</dt>
+						<dt title="daejeon">대전광역시</dt>
 					</dl>
 					<dl class="list_cont">
-						<dt title="052">울산광역시</dt>
+						<dt title="daegu">대구광역시</dt>
+					</dl>
+					<dl class="list_cont">
+						<dt title="ulsan">울산광역시</dt>
 					</dl>
 				</div><!-- location -->
+			</div>
+		
+			<div class="inner_cont time">
+				<div class="test"></div>
 			</div>
 		
 		</div>
