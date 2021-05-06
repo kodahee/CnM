@@ -56,8 +56,8 @@
 				</div><!-- location -->
 			</div>
 		
-			<div class="inner_cont time">
-				<div class="test"></div>
+			<div class="time">
+				<div class="schedule"></div>
 			</div>
 		
 		</div>

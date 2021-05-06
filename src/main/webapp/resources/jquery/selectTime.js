@@ -15,8 +15,7 @@ function getList(theaterName){
 		url:"../locationTheater/"+theaterName,
 		type:"GET",
 		success:function(result){
-			alert('hi')
-			$('.test').append(result);
+			$('.schedule').append(result);
 		}
 		
 	});
