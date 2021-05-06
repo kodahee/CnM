@@ -20,7 +20,7 @@
 			<input type="hidden" name="num" value="${param.num}">
 			<div class="form-group">
 				<label for="exampleFormControlInput1">Id</label> 
-				<input class="form-control form-control-lg" type="text" value="${member.id}" id="id" name="id" readonly="readonly">
+				<input class="form-control form-control-lg" type="hidden" value="${member.id}" id="id" name="id">
 			</div>
 			<div class="form-group">
 				<label for="exampleFormControlInput1">Title</label> 
@@ -32,8 +32,11 @@
 			</div>
 			
 			<div class="form-group">
-				<label for="exampleFormControlInput1">Private</label> 
-				<input class="form-control form-control-lg myCheck" type="text" value="${dto.onOff}" name="onOff" id="onOff">
+				<label for="private">공개 여부</label>
+				<select class="form-control myCheck" name="onOff" id="onOff">
+					<option value="N" selected="selected">공개</option>
+					<option value="Y">비공개</option>
+				</select>
 			</div>
 			
 			<input type="submit" value="Write" id="btn" class="btn btn-primary">

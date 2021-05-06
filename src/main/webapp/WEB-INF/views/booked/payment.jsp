@@ -17,12 +17,16 @@
 		<h1>Payment Page</h1>
 	
 		<div class="price_wrap">
-			<input type="text" id="price" name="price" readonly="readonly">원
+			<input type="text" id="price" name="price">원
 		</div>
 		<div id="btnSelect"></div>
 		<div id="next_button">
 			<a href="#" class="btn btn-primary" id="btn">결제하기</a>
 		</div>
+		
+		<!-- <form method="post" action="/kakaoPay">
+		    <button>카카오페이로 결제하기</button>
+		</form> -->
 	</div>
 	
 

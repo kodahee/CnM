@@ -16,7 +16,6 @@
 	<div class="container">
 		<!-- 커뮤니티 카테고리 -->
 		<c:if test="${board eq 'community'}">
-		    <div class="col-sm-4">
 		      <ul class="nav justify-content-center">
 		        <li class="nav-item">
 		          <a class="nav-link" href="./${board}List">All</a>
@@ -30,7 +29,6 @@
 		      
 		      </ul>
 		      <hr class="d-sm-none">
-		    </div>
 	    </c:if>
 
 		<table class="table">
@@ -46,7 +44,14 @@
 						</c:when>
 					</c:choose>
 					<th>TITLE</th>
-					<th>NICKNAME</th>
+					<c:choose>
+						<c:when test="${board eq 'qna'}">
+							<th>ID</th>
+						</c:when>
+						<c:otherwise>
+							<th>NICKNAME</th>
+						</c:otherwise>
+					</c:choose>
 					<th>DATE</th>
 					<th>HIT</th>
 				</tr>
@@ -79,13 +84,19 @@
 										</c:otherwise>
 									</c:choose>
 								</c:when>
-								
 								<c:otherwise>
 									<a href="./${board}Select?num=${dto.num}">${dto.title}</a>
 								</c:otherwise>
 							</c:choose>
 						</td>
-						<td>${dto.nickName}</td>
+						<c:choose>
+							<c:when test="${board eq 'qna'}">
+								<td>${dto.id}</td>
+							</c:when>
+							<c:otherwise>
+								<td>${dto.nickName}</td>
+							</c:otherwise>
+						</c:choose>
 						<td>${dto.regDate}</td>
 						<td>${dto.hit}</td>
 					</tr>

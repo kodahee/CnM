@@ -4,26 +4,33 @@
 let movieTitle = $("#review").attr("movieTitle");
 getList();
 
-$("#remove").on("click", function() {
+$(".remove2").on("click", function() {
 	
-	console.log($(".del").val());
-	let reviewNum = $(".del").val();
+	let reviewNum = $(this).val();
+	console.log(reviewNum);
 	
-	$.ajax({
-		type: "POST",
-		url: "../ranking/reviewDelete",
-		data: {reviewNum:reviewNum},
-		success: function(data) {
-			alert(data);
-		}
-	});
+	$.post("../ranking/reviewDelete", 
+		{
+			reviewNum:reviewNum
+		},
+		function(data) {
+			data = data.trim();
+			if(data == 1) {
+				alert('삭제 완료');
+				
+				// 리스트 다시 호출
+				getList();
+			} else {
+				alert('삭제 실패');
+			}
+		});
 	
 });
 
 
 // review List
 function getList() {
-	$.get("../ranking/review", function(data) {
+	$.get("../ranking/review?movieTitle=movie1", function(data) {
 		console.log(data);
 		$("#review").html(data.trim());
 	});
@@ -42,35 +49,10 @@ $(".star").on("click",function(){
 	console.log(star);
 });
 
-let goodNum = 0;
-$("#good").on("click", function() {
-	//let reviewNum = $(".del").val();
-	$(".del").each(function() {
-		console.log($(this).val());
-		goodNum = $(this).val();
-		goodNum = goodNum + 1;
-	});
-	
-	$.post("../ranking/reviewUpdate",
-	{
-		reviewNum:reviewNum,
-		goodNum:goodNum
-	},
-	function(data) {
-		data = data.trim();
-		alert(data);
-		
-		if(data == 1) {
-			alert("update");
-			// 리스트 다시 호출
-			getList();
-		} else {
-			alert("xxxxxx");
-		}
-	});
-	
-	console.log(goodNum);
-});
+// 좋아요
+
+// 싫어요
+
 
 // review Write
 $("#write").click(function() {

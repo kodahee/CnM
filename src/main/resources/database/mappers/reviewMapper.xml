@@ -4,11 +4,16 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.ed.cnm.review.ReviewDAO">
-	<insert id="setInsert" parameterType="ReviewDTO">
-		INSERT INTO REVIEW values(review_seq.nextval, #{id}, #{nickName}, #{movieTitle}, #{star}, #{contents}, sysdate, 0, 0, 0)
-	</insert>
 	
 	<select id="getList" parameterType="ReviewDTO" resultType="ReviewDTO">
 		select * from review where movieTitle=#{movieTitle} order by reviewNum desc
 	</select>
+	
+	<insert id="setInsert" parameterType="ReviewDTO">
+		INSERT INTO REVIEW values(review_seq.nextval, #{id}, #{nickName}, #{movieTitle}, #{star}, #{contents}, sysdate, 0, 0, 0)
+	</insert>
+	
+	<delete id="setDelete" parameterType="ReviewDTO">
+		delete * from review where reviewNum=#{movieTitle} 
+	</delete>
 </mapper> 
