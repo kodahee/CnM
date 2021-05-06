@@ -57,7 +57,7 @@
 			</div>
 		
 			<div class="time">
-				<div class="schedule"></div>
+				<div class="schedule"><!-- selectTimeBoard --></div>
 			</div>
 		
 		</div>
