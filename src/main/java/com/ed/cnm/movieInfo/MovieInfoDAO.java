@@ -13,4 +13,8 @@ public class MovieInfoDAO {
 	public MovieInfoDTO getInfo(MovieInfoDTO movieInfoDTO)throws Exception{
 		return sqlSession.selectOne(NAMESPACE+"getInfo", movieInfoDTO);
 	}
+	
+	public MovieInfoDTO getCd(MovieInfoDTO movieInfoDTO)throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"getCd", movieInfoDTO);
+	}
 }

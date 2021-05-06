@@ -7,4 +7,8 @@
 	<select id="getInfo" parameterType="MovieInfoDTO" resultType="MovieInfoDTO">
 		select * from movieInfo where movieCd=#{movieCd}
 	</select>
+	
+	<select id="getCd" parameterType="MovieInfoDTO" resultType="MovieInfoDTO">
+		select * from movieInfo where movieNm=#{movieNm}
+	</select>
 </mapper>

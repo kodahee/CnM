@@ -11,4 +11,8 @@ public class MovieInfoService {
 	public MovieInfoDTO getInfo(MovieInfoDTO movieInfoDTO)throws Exception{
 		return movieInfoDAO.getInfo(movieInfoDTO);
 	}
+	
+	public MovieInfoDTO getCd(MovieInfoDTO movieInfoDTO)throws Exception{
+		return movieInfoDAO.getCd(movieInfoDTO);
+	}
 }

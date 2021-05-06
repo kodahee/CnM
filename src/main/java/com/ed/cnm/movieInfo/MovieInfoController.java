@@ -33,8 +33,12 @@ public class MovieInfoController {
 			MovieInfoDTO infoDTO = new MovieInfoDTO(); 
 			rankingDTO =  list.get(i);
 			infoDTO.setPoster(rankingDTO.getPoster());
-			infoDTO.setMovieNm(rankingDTO.getMovieNm());
-			infoDTO.setMovieCd(rankingDTO.getMovieCd()); 
+			String name = rankingDTO.getMovieNm();
+			infoDTO.setMovieNm(name);
+			MovieInfoDTO cd = movieInfoService.getCd(infoDTO);
+			System.out.println(cd.getMovieCd());
+			String cdCode = cd.getMovieCd();
+			infoDTO.setMovieCd(cdCode); 
 			list2.add(infoDTO);
 		}
 		

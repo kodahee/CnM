@@ -8,39 +8,58 @@ public class MovieInfoDTO {
 	
 	
 	private String movieNum;
-	
-	public String getMovieNum() {
-		return movieNum;
-	}
-	public void setMovieNum(String movieNum) {
-		this.movieNum = movieNum;
-	}
-	public String getPoster() {
-		return poster;
-	}
-	public void setPoster(String poster) {
-		this.poster = poster;
-	}
-	public String getMovieNm() {
-		return movieNm;
-	}
-	public void setMovieNm(String movieNm) {
-		this.movieNm = movieNm;
-	}
-	
-	public String getMovieInfo() {
-		return movieInfo;
-	}
-	public void setMovieInfo(String movieInfo) {
-		this.movieInfo = movieInfo;
-	}
+
 
 	public String getMovieCd() {
 		return movieCd;
 	}
+
+
 	public void setMovieCd(String movieCd) {
 		this.movieCd = movieCd;
 	}
+
+
+	public String getMovieNm() {
+		return movieNm;
+	}
+
+
+	public void setMovieNm(String movieNm) {
+		this.movieNm = movieNm;
+	}
+
+
+	public String getMovieInfo() {
+		return movieInfo;
+	}
+
+
+	public void setMovieInfo(String movieInfo) {
+		this.movieInfo = movieInfo;
+	}
+
+
+	public String getPoster() {
+		return poster;
+	}
+
+
+	public void setPoster(String poster) {
+		this.poster = poster;
+	}
+
+
+	public String getMovieNum() {
+		return movieNum;
+	}
+
+
+	public void setMovieNum(String movieNum) {
+		this.movieNum = movieNum;
+	}
+	
+	
 	
 	
 }
