@@ -46,7 +46,7 @@
 		
 		
 		<div class="form-group">
-			<label class="control-label col-sm-2" for="phone">Profile Pic</label>
+			<label class="control-label col-sm-2" for="profilePic">Profile Pic</label>
 			<div class="col-sm-10">
 				<img alt="" src="../resources/upload/member/${member.profilePic}">
 			</div>

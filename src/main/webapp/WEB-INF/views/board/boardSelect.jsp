@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <c:import url="../template/bootStrap.jsp"></c:import>
+<link rel="stylesheet" type="text/css" href="../resources/css/common.css">
 <title>Insert title here</title>
 </head>
 <body>
@@ -52,19 +53,19 @@
 		</c:if>
 		
 		<c:choose>
-			<c:when test="${board eq 'community' && dto.id eq member.id}">
+			<c:when test="${board eq 'community' && dto.nickName eq member.nickName}">
 				<a href="./${board}Update?num=${dto.num}" class="btn btn-danger">Update</a>
 				<a href="#" id="del" class="btn btn-info">Delete</a>
 			</c:when>
-			<c:when test="${board eq 'notice' && member.id eq 'admin'}">
+			<c:when test="${board eq 'notice' && member.nickName eq 'admin'}">
 				<a href="./${board}Update?num=${dto.num}" class="btn btn-danger">Update</a>
 				<a href="#" id="del" class="btn btn-info">Delete</a>
 			</c:when>
-			<c:when test="${board eq 'faq' && member.id eq 'admin'}">
+			<c:when test="${board eq 'faq' && member.nickName eq 'admin'}">
 				<a href="./${board}Update?num=${dto.num}" class="btn btn-danger">Update</a>
 				<a href="#" id="del" class="btn btn-info">Delete</a>
 			</c:when>
-			<c:when test="${board eq 'qna' && dto.id eq member.id}">
+			<c:when test="${board eq 'qna' && dto.nickName eq member.nickName}">
 				<a href="#" id="del" class="btn btn-info">Delete</a>
 			</c:when>
 		</c:choose>

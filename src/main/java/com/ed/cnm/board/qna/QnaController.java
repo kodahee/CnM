@@ -28,6 +28,7 @@ public class QnaController {
 		mv.addObject("board", "qna");
 		mv.addObject("pager", pager);
 		mv.setViewName("board/boardList");
+		mv.addObject("nav","serviceCenter");
 		
 		return mv;	
 	}

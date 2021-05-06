@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <c:import url="../template/bootStrap.jsp"></c:import>
+<link rel="stylesheet" type="text/css" href="../resources/css/common.css">
 <style type="text/css">
 	*{margin:0; padding:0;}
 	.star{
@@ -80,17 +81,17 @@
 	<table class="table table-hober">
 		<c:forEach items="${list}" var="review">
 			<tr>
+				<td class="reviewNum">${review.reviewNum}</td>
 				<td>${review.star}</td>
 				<td>${review.nickName}</td>
 				<td>${review.contents}</td>
 				<td>${review.regDate}</td>
-				<td><input type="button" id="good" value="Good"></td>
-				<td id="goodNum">${review.goodNum}</td>
-				<td><input type="button" id="bad" value="Bad"></td>
+				<td><input type="button" class="good" value="Good"></td>
+				<td class="goodNum">${review.goodNum}</td>
+				<td><input type="button" class="bad" value="Bad"></td>
 				<td>${review.badNum}</td>
 				<c:if test="${review.id eq member.id}">
-					<input type="hidden" class="del" value="${review.reviewNum}">
-					<td><input type="button" id="remove" value="delete"></td>
+					<td><button class="remove2" value="${review.reviewNum}">Delete</button></td>
 				</c:if>
 			</tr>
 		</c:forEach>

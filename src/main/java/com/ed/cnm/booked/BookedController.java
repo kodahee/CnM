@@ -21,7 +21,7 @@ public class BookedController {
 	}
 	
 	@PostMapping("selectSeat")
-	public void selectSeat(BookedDTO bookedDO) throws Exception {
+	public void selectSeat(BookedDTO bookedDTO) throws Exception {
 		System.out.println("Start");
 		
 		System.out.println("finish");

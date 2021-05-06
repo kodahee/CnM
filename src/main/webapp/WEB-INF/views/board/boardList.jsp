@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <c:import url="../template/bootStrap.jsp"></c:import>
+<link rel="stylesheet" type="text/css" href="../resources/css/common.css">
 </head>
 <body>
 
@@ -15,13 +16,11 @@
 	<div class="container">
 		<!-- 커뮤니티 카테고리 -->
 		<c:if test="${board eq 'community'}">
-		    <div class="col-sm-4">
-		      <h3>장르</h3>
-		      <ul class="nav nav-pills flex-column">
+		      <ul class="nav justify-content-center">
 		        <li class="nav-item">
 		          <a class="nav-link" href="./${board}List">All</a>
 		        </li>
-		        
+		      <!-- 국내 해외 액션 SF 코미디 스릴러 멜로 판타지 스포츠 음악 -->  
 		      <c:forEach items="${genre}" var="dto">
 		        <li class="nav-item">
 		          <a class="nav-link" href="./${board}List?kind=Genre&search=${dto.genre}">${dto.genre}</a>
@@ -30,13 +29,10 @@
 		      
 		      </ul>
 		      <hr class="d-sm-none">
-		    </div>
 	    </c:if>
 
-		<h2>${board}List</h2>
-
 		<table class="table">
-			<thead class="thead-dark">
+			<thead>
 				<tr>
 					<th>NUM</th>
 					<c:choose>
@@ -48,7 +44,14 @@
 						</c:when>
 					</c:choose>
 					<th>TITLE</th>
-					<th>NICKNAME</th>
+					<c:choose>
+						<c:when test="${board eq 'qna'}">
+							<th>ID</th>
+						</c:when>
+						<c:otherwise>
+							<th>NICKNAME</th>
+						</c:otherwise>
+					</c:choose>
 					<th>DATE</th>
 					<th>HIT</th>
 				</tr>
@@ -81,13 +84,19 @@
 										</c:otherwise>
 									</c:choose>
 								</c:when>
-								
 								<c:otherwise>
 									<a href="./${board}Select?num=${dto.num}">${dto.title}</a>
 								</c:otherwise>
 							</c:choose>
 						</td>
-						<td>${dto.nickName}</td>
+						<c:choose>
+							<c:when test="${board eq 'qna'}">
+								<td>${dto.id}</td>
+							</c:when>
+							<c:otherwise>
+								<td>${dto.nickName}</td>
+							</c:otherwise>
+						</c:choose>
 						<td>${dto.regDate}</td>
 						<td>${dto.hit}</td>
 					</tr>

@@ -36,17 +36,14 @@ public class ReviewController {
 	}
 	
 	@PostMapping("reviewDelete")
-	public void setDelete(ReviewDTO reviewDTO) throws Exception {
-		System.out.println("Start");
-		
-		System.out.println("finish");
+	public ModelAndView setDelete(ReviewDTO reviewDTO) throws Exception {
+		System.out.println("delete");
+		ModelAndView mv = new ModelAndView();
+		int result = reviewService.setDelete(reviewDTO);
+		mv.addObject("result", result);
+		mv.setViewName("common/ajaxResult");
+		return mv;
 	}
 	
-	@PostMapping("reviewUpdate")
-	public void setUpdate(ReviewDTO reviewDTO) throws Exception {
-		System.out.println("Start");
-		
-		System.out.println("finish");
-	}
 
 }

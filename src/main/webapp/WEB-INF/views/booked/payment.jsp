@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <c:import url="../template/bootStrap.jsp"></c:import>
+<link rel="stylesheet" type="text/css" href="../resources/css/common.css">
 <title>Insert title here</title>
 </head>
 <body>
@@ -16,14 +17,18 @@
 		<h1>Payment Page</h1>
 	
 		<div class="price_wrap">
-			<input type="text" id="price" name="price" readonly="readonly">원
+			<input type="text" id="price" name="price">원
 		</div>
-		<div id="btnSelect"></div>
-		<div id="next_button">
-			<a href="#" class="btn btn-primary" id="btn">결제하기</a>
+		<div>
+			<input type="button" id="payment" value="결제하기">
 		</div>
+		
 	</div>
 	
+	<!-- 아임포트 결제 -->
+	<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
+	<script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
+	<script type="text/javascript" src="../resources/jquery/payment.js"></script>
 
 </body>
 </html>

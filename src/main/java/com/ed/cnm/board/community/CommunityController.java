@@ -32,6 +32,7 @@ public class CommunityController {
 		mv.addObject("list", ar);
 		mv.addObject("pager", pager);
 		mv.setViewName("board/boardList");
+		mv.addObject("nav", "contents");
 		
 		mv.addObject("genre", genreAr);
 		

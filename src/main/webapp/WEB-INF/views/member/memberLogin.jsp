@@ -7,13 +7,13 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <c:import url="../template/bootStrap.jsp"></c:import>
+<link rel="stylesheet" type="text/css" href="../resources/css/common.css">
 </head>
 <body>
 
 	<c:import url="../template/header.jsp"></c:import>
 
 	<div class="container">
-		<h2>Member Login Page</h2>
 		<form action="./memberLogin" method="post">
 			<div class="form-group">
 				<label for="id">ID</label> 

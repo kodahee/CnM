@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <c:import url="../template/bootStrap.jsp"></c:import>
+<link rel="stylesheet" type="text/css" href="../resources/css/common.css">
 
 <!-- summernote -->
 <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
@@ -30,18 +31,14 @@
 			<c:choose>
 				<c:when test="${board ne 'qna'}">
 					<div class="form-group">
-						<label for="exampleFormControlInput1">NickName</label> 
+						<label for="nickName">NickName</label> 
 						<input class="form-control form-control-lg myCheck" type="text" value="${member.nickName}" id="nickName" name="nickName" readonly="readonly">
 					</div>
 				</c:when>
 				<c:when test="${board eq 'qna'}">
 					<div class="form-group">
-						<label for="exampleFormControlInput1">NickName</label> 
-						<input class="form-control form-control-lg myCheck" type="text" value="${member.nickName}" id="nickName" name="nickName" readonly="readonly">
-					</div>
-					<div class="form-group">
-						<label for="exampleFormControlInput1">Id</label> 
-						<input class="form-control form-control-lg myCheck" type="text" value="${member.id}" id="id" name="id" readonly="readonly">
+						<label for="id">Id</label> 
+						<input class="form-control form-control-lg myCheck" type="hidden" value="${member.id}" id="id" name="id">
 					</div>
 				</c:when>
 			</c:choose>
@@ -50,24 +47,33 @@
 			<c:choose>
 				<c:when test="${board eq 'community'}">
 					<div class="form-group">
-						<label for="exampleFormControlInput1">Genre</label> 
-						<input class="form-control form-control-lg myCheck" type="text" name="genre" id="genre">
+						<label for="genre">Genre</label>
+						<select class="form-control myCheck" type="text" name="genre" id="genre">
+							<c:forEach items="${genre}" var="dto">
+								<option>${dto.genre}</option>
+						  	</c:forEach>
+						</select>
 					</div>
 				</c:when>
 				<c:when test="${board eq 'qna'}">
 					<div class="form-group">
-						<label for="exampleFormControlInput1">Category</label> 
-						<input class="form-control form-control-lg myCheck" type="text" name="category" id="category">
+						<label for="category">Category</label>
+						<select class="form-control myCheck" name="category" id="category">
+							<option selected="selected">티켓예매</option>
+							<option>분실물</option>
+							<option>단체/대관문의</option>
+							<option>기타문의</option>
+						</select>
 					</div>
 				</c:when>
 			</c:choose>
 			
 			<div class="form-group">
-				<label for="exampleFormControlInput1">Title</label> 
+				<label for="title">Title</label> 
 				<input class="form-control form-control-lg myCheck" type="text" name="title" id="title">
 			</div>
 			<div class="form-group">
-				<label for="exampleFormControlTextarea1">Contents</label>
+				<label for="contents">Contents</label>
 				<textarea class="form-control myCheck" id="contents" rows="10" name="contents"></textarea>
 			</div>
 			
@@ -78,9 +84,13 @@
 			</div>
 			
 			<div class="form-group">
-				<label for="exampleFormControlInput1">Private</label> 
-				<input class="form-control form-control-lg myCheck" type="text" name="onOff" id="onOff">
+				<label for="private">공개 여부</label>
+				<select class="form-control myCheck" name="onOff" id="onOff">
+					<option value="N" selected="selected">공개</option>
+					<option value="Y">비공개</option>
+				</select>
 			</div>
+			<!-- <input class="form-control form-control-lg myCheck" type="text" name="onOff" id="onOff"> -->
 			
 			<input type="button" value="Write" id="btn" class="btn btn-primary">
 
@@ -93,8 +103,7 @@
 					class="form-control-file border" name="files">
 			</div>
 			<div class="input-group-append delete">
-				<input class="btn btn-outline-secondary" type="button"
-					id="inputGroupFileAddon04" value="Delete">
+				<input class="btn btn-outline-secondary" type="button" id="inputGroupFileAddon04" value="Delete">
 			</div>
 		</div>
 	</div>

@@ -20,7 +20,7 @@
 		<li class="nav-item"><a class="nav-link active" href="${pageContext.request.contextPath }/">홈</a></li>
 		<li class="nav-item"><a class="nav-link active" href="${pageContext.request.contextPath }/ranking/reservation">랭킹</a></li>
 		<li class="nav-item"><a class="nav-link active" href="#">상영/예정작</a></li>		
-		<li class="nav-item"><a class="nav-link active" href="${pageContext.request.contextPath}/community/communityList">콘텐츠</a></li>
+		<li class="nav-item"><a class="nav-link active" href="${pageContext.request.contextPath}/community/communityList">커뮤니티</a></li>
 		<li class="nav-item"><a class="nav-link active" href="${pageContext.request.contextPath}/notice/noticeList">고객센터</a></li>
 			
 				
@@ -44,22 +44,17 @@
 			</div>
 		</c:when>
 		
-		<c:when test="${nav eq 'preMovie' }">
+		<c:when test="${nav eq 'preMovie'}">
 			<div class="subNav_name">상영/예정작</div>
 		</c:when>
 		
-		<c:when test="${nav eq 'contents' }">
-			<div class="subNav_name"> 콘텐츠</div>
-			<span ><a class="subNav_item" href="">영화뉴스</a></span>
-			<span ><a class="subNav_item" href="${pageContext.request.contextPath}/community/communityList">커뮤니티</a></span>
-		</c:when>
-		
-		<c:when test="${nav eq 'serviceCenter' }">
+		<c:when test="${nav eq 'serviceCenter'}">
 			<div class="subNav_name">고객센터</div>
-			<span ><a class="subNav_item" href="${pageContext.request.contextPath}/notice/noticeList">Notice</a></span>
-			<span ><a class="subNav_item" href="${pageContext.request.contextPath}/faq/faqList">Faq</a> </span>
-			<span ><a class="subNav_item" href="${pageContext.request.contextPath}/qna/qnaList">QnA</a> </span>
-		
+			<div>
+				<span><a class="subNav_item" href="${pageContext.request.contextPath}/notice/noticeList">Notice</a></span>
+				<span><a class="subNav_item" href="${pageContext.request.contextPath}/faq/faqList">Faq</a></span>
+				<span><a class="subNav_item" href="${pageContext.request.contextPath}/qna/qnaList">QnA</a></span>
+			</div>
 		</c:when>
 	</c:choose>
 </div>
