@@ -32,4 +32,3 @@ $("#payment").on("click", function() {
 	});
 });
 
-
