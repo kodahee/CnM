@@ -9,7 +9,7 @@ public class LocationTheaterDTO {
 	private String totalSeat;
 	private String movieType;
 	private Date scheduleDate;
-	private Date scheduleTime;
+	private String scheduleTime;
 	public long getNum() {
 		return num;
 	}
@@ -46,10 +46,10 @@ public class LocationTheaterDTO {
 	public void setScheduleDate(Date scheduleDate) {
 		this.scheduleDate = scheduleDate;
 	}
-	public Date getScheduleTime() {
+	public String getScheduleTime() {
 		return scheduleTime;
 	}
-	public void setScheduleTime(Date scheduleTime) {
+	public void setScheduleTime(String scheduleTime) {
 		this.scheduleTime = scheduleTime;
 	}
 	
