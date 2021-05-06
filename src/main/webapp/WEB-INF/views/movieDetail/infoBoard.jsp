@@ -68,7 +68,7 @@
 					<div hidden="hidden" class="movieCd">${dto.movieCd }</div>
 					<div class="detail_btn">
 						<div class="group_btn">
-							<a href="../booked/selectTime" class="btn_g">예매하기</a>
+							<a href="../booked/selectTime?movieCd=${dto.movieCd }" class="btn_g">예매하기</a>
 						</div>
 					</div>
 				</div>
@@ -78,7 +78,7 @@
 			<!-- 탭메뉴 -->
 				<div class="tabmenu_wrap">
 					<ul class="list_tabmenu">
-						<li id="i1">주요정보</li><!-- 클릭시 class="on" -->
+						<li id="i1">주요정보</li>
 						<li id="i2">출연/제작</li>
 						<li id="">평점</li>
 					</ul>

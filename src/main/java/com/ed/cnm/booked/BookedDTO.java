@@ -15,7 +15,14 @@ public class BookedDTO {
 	private String payment;
 	private String state;
 	
+	private String movieCd;
 	
+	public String getMovieCd() {
+		return movieCd;
+	}
+	public void setMovieCd(String movieCd) {
+		this.movieCd = movieCd;
+	}
 	public String getBookedCode() {
 		return bookedCode;
 	}

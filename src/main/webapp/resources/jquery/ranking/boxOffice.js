@@ -1,6 +1,10 @@
 /**
  * 
  */
+$('.i1').removeClass('on');
+$('.i2').addClass('on');
+
+
 //========전역 변수========
 let selectDay=new Date();
 let nowDate = new Date();

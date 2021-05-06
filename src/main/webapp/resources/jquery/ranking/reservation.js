@@ -1,7 +1,6 @@
 /**
  * 
  */
-
 //영화목록 API에서 영화코드 응답받겠다.
 let movieNmList = [];
 let movieCdList=[];
@@ -48,3 +47,4 @@ $('.movieNm').each(function(index, li){
 commonList(movieCdList);
 
 //클릭한 경우 실행 될 상세페이지 
+
