@@ -113,11 +113,21 @@
 						</ul>
 						<a href="#" class="link_more">더보기<!-- 출연제작으로 넘어가는 js --></a>
 					</div>
-					<div class="detail_vodphotoinfo">
-						<h5 class="tit_section">영상/포토</h5>
-						<ul class="list_vod"></ul>
-						<ul class="list_vodphoto"></ul>
-						
+					
+					<div class="detail_boxofficeinfo">
+						<h5 class="tit_section">박스오피스</h5>
+						<ul class="list_thumbsub">
+							<c:forEach items="${list }" var="list" varStatus="i">
+								<li>
+									<div class="item_thumbsub">
+										<a href="./infoBoard?movieCd=${list.movieCd }" class="thumb_item">
+											<span class="rank_num">${i.index +1}</span>
+											<img alt="" src="${list.poster }" class="img_thumb">
+										</a>
+									</div>
+								</li>
+							</c:forEach>
+						</ul>
 					</div>
 					
 					

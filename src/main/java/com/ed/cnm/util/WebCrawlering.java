@@ -14,8 +14,6 @@ public class WebCrawlering {
 	public List<RankingDTO> getCrawlering(String url) throws Exception{
 
 		//디폴트로 작업하던거 if말고 있었던 거 같은데 알아보기
-		
-	
 		Document doc = Jsoup.connect(url).get();
 		Elements elements = doc.select("ol.list_movieranking li");
 		
@@ -35,10 +33,11 @@ public class WebCrawlering {
 				break;
 			}
 		}
-		
-		
-		
-		
 		return list;
 	}
+	
+	
+	
 }
+
+

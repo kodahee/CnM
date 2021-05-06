@@ -59,6 +59,5 @@ function li(peopleNm, nmInfo){
 		'</li>';
 	
 	return li;
-	
-	
 }
+
