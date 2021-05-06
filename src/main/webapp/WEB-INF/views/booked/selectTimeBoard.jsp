@@ -20,7 +20,6 @@
 	<c:when test="${dto.room eq'2관' }">
 		<div>
 		<div></div>
-		<div>${dto.totalSeat }</div>
 		<div>${dto.scheduleDate }</div>
 		<div>${dto.room }</div>
 			<dl>
@@ -32,7 +31,6 @@
 	<c:when test="${dto.room eq'3관' }">
 		<div>
 		<div></div>
-		<div>${dto.totalSeat }</div>
 		<div>${dto.scheduleDate }</div>
 		<div>${dto.room }</div>
 			<dl>
@@ -44,7 +42,6 @@
 	<c:when test="${dto.room eq'4관' }">
 		<div>
 		<div></div>
-		<div>${dto.totalSeat }</div>
 		<div>${dto.scheduleDate }</div>
 		<div>${dto.room }</div>
 			<dl>

@@ -27,5 +27,6 @@
 		
 		<typeAlias type="com.ed.cnm.location.LocationDTO" alias="LocationDTO"/>
 		<typeAlias type="com.ed.cnm.location.LocationTheaterDTO" alias="LocationTheaterDTO"/>
+		<typeAlias type="com.ed.cnm.booked.BookedDTO" alias="BookedDTO"/>
 	</typeAliases>
 </configuration>

@@ -15,16 +15,16 @@
 				</div>
 				<!-- hidden -->
 				<div class="poster_info">
-					<a href="" class="link_story linkDetail" title="poster">${dto.movieInfo }</a>
+					<a href="" class="link_story linkDetail a${i.index }" title="poster">${dto.movieInfo }</a>
 					<span class="info_btn"> 
-						<a href="" class="link_info linkDetail" target="_blank">예매하기</a>
+						<a href="" class="link_info linkDetail a${i.index }" target="_blank">예매하기</a>
 					</span>
 				</div>
 			</div>
 
 			<div class="thumb_cont">
 				<strong class="tit_item movieNm">
-					<a href="" class="link_txt linkDetail" title="moviename">${dto.movieNm }</a>
+					<a href="" class="link_txt linkDetail a${i.index }" title="moviename">${dto.movieNm }</a>
 				</strong> 
 				<span class="txt_info"> 
 					<span class="info_txt openNum${i.index }">개봉

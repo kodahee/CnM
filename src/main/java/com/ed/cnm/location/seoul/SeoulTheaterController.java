@@ -1,5 +1,6 @@
 package com.ed.cnm.location.seoul;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +23,14 @@ public class SeoulTheaterController {
 	public ModelAndView getList(LocationTheaterDTO theaterDTO, ModelAndView mv)throws Exception{
 		System.out.println("seoul");
 		List<LocationTheaterDTO> list =Service.getList(theaterDTO);
-		mv.addObject("list", list);
+		List<LocationTheaterDTO> ar = new ArrayList<LocationTheaterDTO>();
+		for(LocationTheaterDTO index: list) {
+			if(index.getScheduleDate()==theaterDTO.getScheduleDate()) {
+				ar.add(theaterDTO);
+			};
+		}
+		
+		mv.addObject("list", ar);
 		mv.setViewName("/booked/selectTimeBoard");
 		return mv;
 	}

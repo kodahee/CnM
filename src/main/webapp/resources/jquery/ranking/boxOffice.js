@@ -88,6 +88,7 @@ $.ajax({
 				
 	}
 })//ajax
+
 console.log(movieCdList)
 commonList(movieCdList);
 }//function
@@ -95,21 +96,19 @@ commonList(movieCdList);
 
 setWeek()
 function setWeek(){
-selectDay = new Date(Date.parse(selectDay));
-console.log(selectDay)
-console.log(selectDay.getDay())
-console.log(selectDay.getTime())
-if(selectDay.getDay()!=0){
-		
-		selectDay=selectDay.getTime()-(86400000*selectDay.getDay());
-	}
-selectDay = new Date(selectDay);
-console.log(selectDay)
-let str2 = selectDay.toLocaleDateString();
-console.log(str2)
+	selectDay = new Date(Date.parse(selectDay));
+	
+	if(selectDay.getDay()!=0){
+			
+			selectDay=selectDay.getTime()-(86400000*selectDay.getDay());
+		}
+	selectDay = new Date(selectDay);
+	
+	let str2 = selectDay.toLocaleDateString();
+	
 	selectDay = new Date(selectDay.getTime()-(86400000*6));
-let str = selectDay.toLocaleDateString();
-console.log(str)
-$('.selectDate_item').text(str+'~'+str2);
+	let str = selectDay.toLocaleDateString();
+	
+	$('.selectDate_item').text(str+'~'+str2);
 
 }

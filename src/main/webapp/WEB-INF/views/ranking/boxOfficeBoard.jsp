@@ -54,15 +54,15 @@
 								</div>
 								<!-- hidden -->
 								<div class="poster_info">
-									<a href="#" class="link_story linkDetail a" title="poster">${dto.movieInfo }</a>
+									<a href="#" class="link_story linkDetail a${i.index }" title="poster">${dto.movieInfo }</a>
 									<span class="info_btn">
-										<a href="#" class= "link_info linkDetail a" target="_blank">예매하기</a>
+										<a href="#" class= "link_info linkDetail a${i.index }" target="_blank">예매하기</a>
 									</span>
 								</div>
 							</div>
 							
 							<div class="thumb_cont">
-								<strong class="tit_item movieNm"><a href="#" class="link_txt linkDetail" title="moviename">${dto.movieNm }</a></strong>
+								<strong class="tit_item movieNm"><a href="#" class="link_txt linkDetail a${i.index }" title="moviename">${dto.movieNm }</a></strong>
 								<span class="txt_info">
 									<span class="info_txt openNum${i.index }">개봉
 										<!-- <span class="txt_num">개봉일</span> -->
@@ -84,9 +84,9 @@
 	</div>
 </main>
  
-
 <!-- commonList 함수를 가지고 있는 js, 무비코드를 이용하여 상세목록 조회(개봉일, 관람등급) -->
 <script type="text/javascript" src="../resources/jquery/ranking/commonList.js"></script>
+
 <!--  selectDay를 받아서 오픈API 소환, 영화 코드를 받아서 commonList함수 소환-->
 <script type="text/javascript" src="../resources/jquery/ranking/boxOffice.js"></script>
 <!-- 달력 소환, 날짜 선택시 selectDay에 담고, Date타입으로 존재함 -->  

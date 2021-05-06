@@ -100,9 +100,6 @@ public class RankingController {
 			}
 			
 		}
-		
-		
-		
 		mv.addObject("list", list);
 		mv.addObject("nav","ranking");
 		mv.addObject("ranking", "boxOffice");
@@ -130,6 +127,14 @@ public class RankingController {
 
 		String url="https://movie.daum.net/ranking/boxoffice/weekly?date="+result;
 		List<RankingDTO> list =webCrawlering.getCrawlering(url);
+		
+		for(RankingDTO rankingDTO : list) {
+			long result2 = rankingService.getCount(rankingDTO);
+			if(result2<1) {
+				rankingService.setInfo(rankingDTO);
+			}
+			
+		}
 		
 		mv.addObject("list", list);
 		mv.setViewName("/ranking/boxOfficeResult");

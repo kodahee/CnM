@@ -1,16 +1,25 @@
 package com.ed.cnm.booked;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.ed.cnm.movie.MovieDTO;
 
 @Controller
 @RequestMapping("/booked/**")
 public class BookedController {
+	@Autowired
+	private BookedService bookedService;
 	
 	@GetMapping("selectTime")
-	public void selectTime() throws Exception{
+	public void selectTime(BookedDTO bookedDTO, Model model) throws Exception{
+		MovieDTO movieDTO= bookedService.getSelect(bookedDTO);
+		model.addAttribute("dto", movieDTO);
 	}
 
 	

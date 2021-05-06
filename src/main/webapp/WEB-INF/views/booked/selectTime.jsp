@@ -22,7 +22,7 @@
 			<img class="posterItem"alt="" src="${dto.poster }">
 		</div>
 		<div class="movieNm">
-			<h3>${dto.movieNm }임시제목</h3>
+			<h3>${dto.movieNm }</h3>
 		</div>
 		
 		<div class="txt">극장</div>
