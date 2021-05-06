@@ -61,3 +61,7 @@ function li(peopleNm, nmInfo){
 	return li;
 }
 
+let i2 = $('.detail_crewinfo').offset();
+$('#i2').click(function(){
+	window.scrollTo(i2)
+});

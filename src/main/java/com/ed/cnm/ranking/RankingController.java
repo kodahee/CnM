@@ -88,13 +88,21 @@ public class RankingController {
 	public ModelAndView getBoxOffice (WebCrawlering webCrawlering, ModelAndView mv, Date date) throws Exception{
 		
 		System.out.println("--controller BOweekly");
-
-		
-		
 		String url="https://movie.daum.net/ranking/boxoffice/weekly";
 		
 		List<RankingDTO> list = webCrawlering.getCrawlering(url);
 		//포스터랑 시놉시스, 이름(pk용으로 쓸 수 있을까 해서,,)
+		
+		for(RankingDTO rankingDTO : list) {
+			long result = rankingService.getCount(rankingDTO);
+			if(result<1) {
+				rankingService.setInfo(rankingDTO);
+			}
+			
+		}
+		
+		
+		
 		mv.addObject("list", list);
 		mv.addObject("nav","ranking");
 		mv.addObject("ranking", "boxOffice");
@@ -102,6 +110,13 @@ public class RankingController {
 		
 		return mv;
 	}
+	
+	@PostMapping("boxOffice")
+	public void setMovieCds(RankingDTO rankingDTO)throws Exception{
+		int result=rankingService.setMovieCd(rankingDTO);
+		System.out.println(result);
+	}
+	
 	//===========리스트(ajax)==================
 	@GetMapping("boxOffice/list")
 	public ModelAndView getPosterInfo(WebCrawlering webCrawlering, ModelAndView mv, Date date)throws Exception{

@@ -24,7 +24,6 @@ function getDate(date){
 	}else{
 		day='0'+day;
 	}
-	console.log(year+month+day)
 	return year+month+day;
 }
 
@@ -35,10 +34,12 @@ function searchAPI(){
 	alert('select'+getDate(selectDay))*/
 	if(getDate(date)==getDate(selectDay)){
 		date = new Date(Date.parse(date));
-		date=date.getTime()-86400000;
 	}else{
 		movieCdList=[];
 		date= selectDay;		
+	}
+	if(date.getDay()!=0){
+		date=date-86400000*6;
 	}
 	
 	
@@ -62,6 +63,17 @@ $.ajax({
 			let rank = '<h3 id="rank">'+one.rank+'</h3>';
 			let movieNm = '<h3 class="movieNm">'+one.movieNm+'</h3>';
 			let movieCd = one.movieCd;
+			
+			$.ajax({//DB에 코드 저장하기 위한 용도
+					url: './boxOffice',
+					type: 'POST',
+					dataType: 'text',
+					data: {movieCd: one.movieCd, movieNm: one.movieNm},
+					success: function(result){
+						console.log(one.movieCd)
+						console.log(one.movieNm)
+					}
+				});
 			
 			$('.subInfo'+index).append(rank+movieNm);
 			

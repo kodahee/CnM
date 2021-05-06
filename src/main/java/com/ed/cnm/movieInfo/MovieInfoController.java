@@ -37,8 +37,11 @@ public class MovieInfoController {
 			infoDTO.setMovieNm(name);
 			MovieInfoDTO cd = movieInfoService.getCd(infoDTO);
 			System.out.println(cd.getMovieCd());
-			String cdCode = cd.getMovieCd();
-			infoDTO.setMovieCd(cdCode); 
+			if(cd.getMovieCd() != null) {
+				infoDTO.setMovieCd(cd.getMovieCd()); 
+			}else {
+				System.out.println("no");
+			}
 			list2.add(infoDTO);
 		}
 		

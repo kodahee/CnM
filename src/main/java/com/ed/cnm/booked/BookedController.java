@@ -8,6 +8,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/booked/**")
 public class BookedController {
+	
+	@GetMapping("selectTime")
+	public void selectTime() throws Exception{
+		System.out.println("hi");
+	}
 
 	@GetMapping("selectSeat")
 	public void selectSeat() throws Exception {

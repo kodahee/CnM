@@ -68,7 +68,7 @@
 					<div hidden="hidden" class="movieCd">${dto.movieCd }</div>
 					<div class="detail_btn">
 						<div class="group_btn">
-							<a href="#" class="btn_g">예매하기</a>
+							<a href="../booked/selectTime" class="btn_g">예매하기</a>
 						</div>
 					</div>
 				</div>
@@ -78,15 +78,15 @@
 			<!-- 탭메뉴 -->
 				<div class="tabmenu_wrap">
 					<ul class="list_tabmenu">
-						<li>주요정보</li><!-- 클릭시 class="on" -->
-						<li>출연/제작</li>
-						<li>영상/포토</li>
-						<li>평점</li>
+						<li id="i1">주요정보</li><!-- 클릭시 class="on" -->
+						<li id="i2">출연/제작</li>
+						<li id="">평점</li>
 					</ul>
 				</div>
 				<div class="contents">
 					<!-- 출연제작,영상포토,평점은 js로 새로고침 없이 보여주기 -->
 					<h4 class="screen_out">주요정보</h4>
+					<h5 class="tit_section">줄거리</h5>
 					<div class="detail_basicinfo">
 						<div class="movie_summary">
 							<div class="info_desc">
@@ -94,6 +94,7 @@
 							</div>
 						</div>
 					</div>
+					
 					<div class="detail_crewinfo">
 						<h5 class="tit_section">출연진</h5>		
 						<ul class="list_crewall">

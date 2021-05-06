@@ -195,6 +195,7 @@ h3{
 /*속성 선택자 []*/
 .box_detailinfo [class*="detail_"] {
     position: relative;
+    margin: 0 auto;
 }
 
 .detail_basicinfo .movie_summary {
@@ -220,15 +221,17 @@ h3{
 
 /*======출연진========*/
 
-
 .box_detailinfo .tit_section {
     padding: 79px 0 17px;
     border-bottom: 1px solid #ECEDF1;
     margin-bottom: 30px;
     letter-spacing: -0.06em;
+    
+   	
 }
 
 .list_crewall{
+	height: 200px;
 	margin: 0 40px;
 }
 
@@ -312,23 +315,19 @@ h3{
 .detail_crewinfo .link_more {
     top: 70px;
 }
-/**/
-.detail_vodphotoinfo .tit_section {
-    border-bottom: 0 none;
-    margin-bottom: 0;
-}
 
-.list_vod {
-    display: flex;
-    justify-content: space-between;
-    padding-bottom: 20px;
-}
 /*박스오피스 */
+
 
 .box_detailinfo .tit_section {
     padding: 79px 0 17px;
     border-bottom: 1px solid #ECEDF1;
     margin-bottom: 30px;
+    
+}
+
+.list_thumbsub{
+	height: 180px;
 }
 
 .list_thumbsub li {
