@@ -16,7 +16,7 @@
 	<div class="container">
 		<!-- 커뮤니티 카테고리 -->
 		<c:if test="${board eq 'community'}">
-		      <ul class="nav justify-content-center">
+		     <%--  <ul class="nav justify-content-center">
 		        <li class="nav-item">
 		          <a class="nav-link" href="./${board}List">All</a>
 		        </li>
@@ -27,7 +27,7 @@
 		        </li>
 		      </c:forEach>
 		      
-		      </ul>
+		      </ul> --%>
 		      <hr class="d-sm-none">
 	    </c:if>
 

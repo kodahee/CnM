@@ -7,7 +7,7 @@
 
 	<!-- 회원정보수정 -->
 	<update id="memberUpdate">
-		update member set pw=#{pw}, nickName=#{nickName}, name=#{name}, phone=#{phone}, email=#{email}, couponCheck=#{couponCheck}, point=#{point}, grade=#{grade} where id=#{id}
+		update member set nickName=#{nickName}, name=#{name}, phone=#{phone}, email=#{email} where id=#{id}
 	</update>
 	
 	<update id="setFileUpdate" parameterType="MemberFileDTO">

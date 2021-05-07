@@ -2,22 +2,24 @@
  * 
  */
 
-let count = $("#files").attr("title");
-
-
-$("#add").click(function() {
-	// alert(count);
-	
-	if(count < 5) {
-		$("#files").append($("#sample").html());
-		count++;
-	} else {
-		alert("파일은 최대 5개까지 첨부 가능합니다.");
+let count=$("#files").attr("title");
+$("#add").click(function(){
+	if(count < 5){
+		let contents = $("#sample").html();
+		$("#files").append(contents);
+		count++;//count=count+1;
+	}else {
+		alert("최대 5개만 가능");
 	}
-	
 });
 
-$("#files").on("click", ".delete", function() {
+
+$("#del").click(function(){
+	$("#files").empty();
+});
+
+//이벤트 전달(위임)
+$("#files").on("click", ".delete", function(){
 	$(this).parent().remove();
 	count--;
 });

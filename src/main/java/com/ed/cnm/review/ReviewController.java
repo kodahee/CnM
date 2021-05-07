@@ -11,13 +11,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping("/ranking/**")
+@RequestMapping("/movieDetail/**")
 public class ReviewController {
 
 	@Autowired
 	private ReviewService reviewService;
 
-	@GetMapping("review")
+	@GetMapping("reviewList")
 	public void getList(ReviewDTO reviewDTO, Model model) throws Exception {
 		reviewDTO.setMovieTitle("movie1");
 		System.out.println(reviewDTO.getMovieTitle());
