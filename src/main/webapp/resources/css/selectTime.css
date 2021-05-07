@@ -85,3 +85,63 @@ h3{
 .select{
 	background-color: #ffffff;	
 }
+
+/**/
+
+.date{
+	position: relative;
+}
+
+
+/**/
+
+.schedule{
+	height: 400px;
+}
+.schedule .detail_cont {
+    display: block;
+    display: -ms-flexbox;
+    display: flex;
+    padding: 20px 0 48px;
+    
+}
+
+.schedule .detail_cont .inner_cont {
+    display: table;
+    max-width: 60%;
+    
+}
+
+.schedule .detail_cont .list_cont {
+    display: table-row;
+    line-height: 27px;
+    letter-spacing: -0.06em;
+    word-break:break-all;
+    z-index: 1;
+}
+
+.schedule .detail_cont .list_cont dt, .info_detail .detail_cont .list_cont dd {
+    display: table-cell;
+    word-break:break-all;
+    font-size: 16px;
+}
+
+.schedule .detail_cont .list_cont dt {
+    max-width: 100px;
+    font-weight: normal;
+    color: #98989C;
+    white-space: nowrap;
+    display: block;
+}
+
+.schedule .detail_cont .list_cont dd {
+    color: #98989C;
+    word-break: break-all;
+    word-wrap: break-word;
+     display: block;
+}
+
+.schedule .detail_cont .inner_cont + .inner_cont {
+    margin-left: 60px;
+}
+

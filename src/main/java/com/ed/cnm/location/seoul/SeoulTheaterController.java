@@ -1,6 +1,9 @@
 package com.ed.cnm.location.seoul;
 
+import java.sql.Date;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,17 +23,13 @@ public class SeoulTheaterController {
 	private SeoulTheaterService Service;
 	
 	@GetMapping("seoul")
-	public ModelAndView getList(LocationTheaterDTO theaterDTO, ModelAndView mv)throws Exception{
+	public ModelAndView getList(ModelAndView mv, LocationTheaterDTO theaterDTO )throws Exception{
 		System.out.println("seoul");
+	
 		List<LocationTheaterDTO> list =Service.getList(theaterDTO);
-		List<LocationTheaterDTO> ar = new ArrayList<LocationTheaterDTO>();
-		for(LocationTheaterDTO index: list) {
-			if(index.getScheduleDate()==theaterDTO.getScheduleDate()) {
-				ar.add(theaterDTO);
-			};
-		}
 		
-		mv.addObject("list", ar);
+		
+		mv.addObject("list", list);
 		mv.setViewName("/booked/selectTimeBoard");
 		return mv;
 	}

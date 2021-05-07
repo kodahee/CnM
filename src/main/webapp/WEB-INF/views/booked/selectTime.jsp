@@ -13,16 +13,15 @@
 <body>
 <c:import url="../template/header.jsp"></c:import>
 	
-	
 <main class="content">
 	<div class="article">
-	
+	<form>
 	<div class="box_select">
 		<div class="info_poster">
 			<img class="posterItem"alt="" src="${dto.poster }">
 		</div>
 		<div class="movieNm">
-			<h3>${dto.movieNm }</h3>
+			<h3 id="movieTitle">${dto.movieNm }</h3>
 		</div>
 		
 		<div class="txt">극장</div>
@@ -54,22 +53,53 @@
 						<dt title="ulsan">울산광역시</dt>
 					</dl>
 				</div><!-- location -->
-			</div>
 			
 			<div class="date">
-				<div class="calenar"></div>
+				<div class="calenar">
+					 <div class="tableDate">   
+						 <div class="tableDate_item">  year  년   month  월   </div>  
+					 </div>  
+					 <table class = "calendarTable">  
+						 <colgroup>  
+						 <col >  
+						 <col style = "width:34px"/>  
+						 <col style = "width:34px"/>  
+						 <col style = "width:34px"/>  
+						 <col style = "width:34px"/>  
+						 <col style = "width:34px"/>  
+						 <col >  
+						 </colgroup>  
+						<!-- ==테이블 헤드== -->
+						 <thead>  
+						 <tr>  
+							 <th>일</th><th>월</th><th>화</th><th>수</th><th>목</th><th>금</th><th>토</th>  
+						 </tr>  
+						 </thead>  
+						<!-- ==테이블 바디(함수적용)== -->
+						 <tbody class="setDate">  
+						 </tbody>  
+					 </table> 
+
+				</div>
 				
 			</div>
 		
 			<div class="time">
-				<div class="schedule"><!-- selectTimeBoard --></div>
+				<div class="schedule">
+					
+				</div>
 			</div>
 		
 		</div>
-
+			</div>
+			
+			
 	</div>
 	</div>
 </main>
+
+
+
 <script type="text/javascript" src="../resources/jquery/ranking/weekCalendar.js"></script>
 <script type="text/javascript" src="../resources/jquery/selectTime.js"></script>
 </body>
