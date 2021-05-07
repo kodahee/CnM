@@ -19,7 +19,7 @@
 	<ul class="nav justify-content-end">
 		<li class="nav-item"><a class="nav-link active" href="${pageContext.request.contextPath }/">홈</a></li>
 		<li class="nav-item"><a class="nav-link active" href="${pageContext.request.contextPath }/ranking/reservation">랭킹</a></li>
-		<li class="nav-item"><a class="nav-link active" href="#">상영/예정작</a></li>		
+
 		<li class="nav-item"><a class="nav-link active" href="${pageContext.request.contextPath}/community/communityList">커뮤니티</a></li>
 		<li class="nav-item"><a class="nav-link active" href="${pageContext.request.contextPath}/notice/noticeList">고객센터</a></li>
 			
@@ -44,9 +44,6 @@
 			</div>
 		</c:when>
 		
-		<c:when test="${nav eq 'preMovie'}">
-			<div class="subNav_name">상영/예정작</div>
-		</c:when>
 		
 		<c:when test="${nav eq 'community'}">
 			<div class="subNav_name">커뮤니티</div>

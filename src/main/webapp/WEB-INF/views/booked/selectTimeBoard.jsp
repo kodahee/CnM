@@ -12,10 +12,10 @@
 		<div>${dto.scheduleDate }</div>
 		<div>${dto.room }</div>
 			<dl class="list_cont">
-				<dt>${dto.scheduleTime }</dt>
+				<dt class="scheduleTime">${dto.scheduleTime }</dt>
 				<dd>${dto.movieType }</dd>
 			</dl>
-		<div hidden="hidden">${dto.totalSeat }</div>
+		<div hidden="hidden" class="totalSeat">${dto.totalSeat }</div>
 		</div>
 	</c:when>
 	<c:when test="${dto.room eq'2관' }">

@@ -7,6 +7,7 @@ $('dt').click(function(){
 	$('.location').find('dt.select').removeClass('select')
 	$(this).addClass('select');
 	let theaterName=$(this).attr('title');
+	$('.setDate').empty();
 	makeCal(theaterName);
 	
 })
@@ -87,16 +88,20 @@ function getList(theaterName, day){
 $('.time').on('click', '.t', function(){
 	$('.time').find('div.select').removeClass('select');
 	$(this).addClass('select');
-	let check=confirm('계속 하시겠습니까?');
+	let check=confirm('얘매 하시겠습니까?');
 	let poster= $('.posterItem').attr('src');
 	let movieTitle=$('.movieTitle').text();
-	
+	let totalSeat=$('.totalSeat').text();
+	let t=$('.time').find('div.select');
+	let scheduleTime=$(t).find('dt.scheduleTime').text();
 		if(check){
 			$.ajax({
 			url:'./selectSeat',
 			type:'GET',
 			data:{
 				movieTitle:movieTitle,
+				totalSeat:totalSeat,
+				scheduleTime:scheduleTime,
 				
 			},
 			success: function(result){
