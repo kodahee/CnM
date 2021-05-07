@@ -52,9 +52,16 @@
 			<div class="subNav_name">커뮤니티</div>
 			<div>
 				<span><a class="subNav_item on" href="${pageContext.request.contextPath}/community/communityList">All</a></span>
-				<c:forEach items="${genre}" var="dto">
-		        	<span><a class="subNav_item" href="${pageContext.request.contextPath}/community/communityList?kind=Genre&search=${dto.genre}">${dto.genre}</a></span>
-		      	</c:forEach>
+	        	<span><a class="subNav_item" href="${pageContext.request.contextPath}/community/communityList?kind=Genre&search=국내">국내</a></span>
+	        	<span><a class="subNav_item" href="${pageContext.request.contextPath}/community/communityList?kind=Genre&search=해외">해외</a></span>
+	        	<span><a class="subNav_item" href="${pageContext.request.contextPath}/community/communityList?kind=Genre&search=액션">액션</a></span>
+	        	<span><a class="subNav_item" href="${pageContext.request.contextPath}/community/communityList?kind=Genre&search=SF">SF</a></span>
+	        	<span><a class="subNav_item" href="${pageContext.request.contextPath}/community/communityList?kind=Genre&search=코미디">코미디</a></span>
+	        	<span><a class="subNav_item" href="${pageContext.request.contextPath}/community/communityList?kind=Genre&search=스릴러">스릴러</a></span>
+	        	<span><a class="subNav_item" href="${pageContext.request.contextPath}/community/communityList?kind=Genre&search=멜로">멜로</a></span>
+	        	<span><a class="subNav_item" href="${pageContext.request.contextPath}/community/communityList?kind=Genre&search=판타지">판타지</a></span>
+	        	<span><a class="subNav_item" href="${pageContext.request.contextPath}/community/communityList?kind=Genre&search=스포츠">스포츠</a></span>
+	        	<span><a class="subNav_item" href="${pageContext.request.contextPath}/community/communityList?kind=Genre&search=음악">음악</a></span>
 			</div>
 		</c:when>
 		

@@ -40,9 +40,9 @@
 			</div>
 		
 			<div>
-				<div class="form-group">
+				<div class="form-group" hidden="hidden">
 				  <label for="usr">NickName:</label>
-				  <input type="text" class="form-control" id="nickName" value="${member.nickName}" readonly="readonly">
+				  <input type="text" class="form-control" id="nickName" value="${member.nickName}">
 				</div>
 				<div class="form-group">
 				  <label for="comment">Comment:</label>
