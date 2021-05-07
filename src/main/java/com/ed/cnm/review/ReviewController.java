@@ -35,6 +35,11 @@ public class ReviewController {
 		return mv;
 	}
 	
+//	@PostMapping("reviewDelete")
+//	public void setDelete(ReviewDTO reviewDTO) throws Exception {
+//		System.out.println("delete");
+//	}
+	
 	@PostMapping("reviewDelete")
 	public ModelAndView setDelete(ReviewDTO reviewDTO) throws Exception {
 		System.out.println("delete");

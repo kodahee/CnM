@@ -80,7 +80,7 @@
 					<ul class="list_tabmenu">
 						<li id="i1">주요정보</li>
 						<li id="i2">출연/제작</li>
-						<li id="reviewBtn">평점</li>
+						<li id=""><a href="../movieDetail/reviewList?movieTitle=movie1" id="review">평점</a></li>
 					</ul>
 				</div>
 				<div class="contents">
@@ -131,10 +131,6 @@
 						</ul>
 					</div>
 					
-					<div id="review" title="${dto.movieCd}">
-						<!-- 리뷰 -->
-					</div>
-					
 				</div><!-- contents -->
 			
 			</div>
@@ -147,7 +143,6 @@
 	
 	</div>
 </main>
-
 
 <script type="text/javascript" src="../resources/jquery/movieDetail.js"></script>
 <script type="text/javascript" src="../resources/jquery/review.js"></script>

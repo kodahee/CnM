@@ -13,7 +13,7 @@
 		INSERT INTO REVIEW values(review_seq.nextval, #{id}, #{nickName}, #{movieTitle}, #{star}, #{contents}, sysdate, 0, 0, 0)
 	</insert>
 	
-	<delete id="setDelete" parameterType="ReviewDTO">
-		delete * from review where reviewNum=#{movieTitle} 
-	</delete>
+	<!-- <delete id="setDelete" parameterType="ReviewDTO">
+		delete * from review where reviewNum=#{reviewNum} 
+	</delete> -->
 </mapper> 
