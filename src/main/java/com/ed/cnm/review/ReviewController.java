@@ -11,13 +11,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping("/ranking/**")
+@RequestMapping("/movieDetail/**")
 public class ReviewController {
 
 	@Autowired
 	private ReviewService reviewService;
 
-	@GetMapping("review")
+	@GetMapping("reviewList")
 	public void getList(ReviewDTO reviewDTO, Model model) throws Exception {
 		reviewDTO.setMovieTitle("movie1");
 		System.out.println(reviewDTO.getMovieTitle());
@@ -34,6 +34,11 @@ public class ReviewController {
 		mv.setViewName("common/ajaxResult");
 		return mv;
 	}
+	
+//	@PostMapping("reviewDelete")
+//	public void setDelete(ReviewDTO reviewDTO) throws Exception {
+//		System.out.println("delete");
+//	}
 	
 	@PostMapping("reviewDelete")
 	public ModelAndView setDelete(ReviewDTO reviewDTO) throws Exception {

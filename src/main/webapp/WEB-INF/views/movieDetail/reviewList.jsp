@@ -36,18 +36,11 @@
 	<c:import url="../template/header.jsp"></c:import>
 
 	<h1>Review Page</h1>
-	
+
     <div class="col-sm-4">
-      <ul class="nav nav-pills flex-column">
-        
-        <li class="nav-item">
-          <a class="nav-link" href="./review?movieTitle=movie1">movie1</a>
-        </li>
-      
-      </ul>
       <hr class="d-sm-none">
     </div>
-	
+
 	<div>
 		<div class="form-group">
 		  <input type="hidden" class="form-control" id="id" value="${member.id}">
@@ -57,16 +50,16 @@
 			<div class="star-box">
 				<span class="star star_left"></span>
 				<span class="star star_right"></span>
-				
+
 				<span class="star star_left"></span>
 				<span class="star star_right"></span>
-				
+
 				<span class="star star_left"></span>
 				<span class="star star_right"></span>
-				
+
 				<span class="star star_left"></span>
 				<span class="star star_right"></span>
-				
+
 				<span class="star star_left"></span>
 				<span class="star star_right"></span>
 			</div>
@@ -77,11 +70,11 @@
 		</div>
 		<button type="button" class="btn btn-success" id="write">Write</button>
 	</div>
-	
+
 	<table class="table table-hober">
 		<c:forEach items="${list}" var="review">
 			<tr>
-				<td class="reviewNum">${review.reviewNum}</td>
+				<td class="reviewNum" hidden="hidden">${review.reviewNum}</td>
 				<td>${review.star}</td>
 				<td>${review.nickName}</td>
 				<td>${review.contents}</td>
@@ -98,6 +91,6 @@
 	</table>
 
 	<script type="text/javascript" src="../resources/jquery/review.js"></script>
-	
+
 </body>
-</html> 
+</html>

@@ -97,13 +97,13 @@ public class MemberController {
 	public void memberJoin() throws Exception {}
 
 	@PostMapping("memberJoin")
-	public String memberJoin(MemberDTO memberDTO, MultipartFile memberPic, HttpSession session, Model model) throws Exception {
-		int result = memberService.memberJoin(memberDTO, memberPic, session);
+	public String memberJoin(MemberDTO memberDTO, MultipartFile profilePic, HttpSession session, Model model) throws Exception {
+		int result = memberService.memberJoin(memberDTO, profilePic, session);
 		
-		System.out.println(memberPic.getName());//파라미터명
-		System.out.println(memberPic.getOriginalFilename());//upload 할 때 파일명
-		System.out.println(memberPic.getSize());//파일의 크기(byte)
-		System.out.println(memberPic.isEmpty());//파일의 존재 유무
+		System.out.println(profilePic.getName());//파라미터명
+		System.out.println(profilePic.getOriginalFilename());//upload 할 때 파일명
+		System.out.println(profilePic.getSize());//파일의 크기(byte)
+		System.out.println(profilePic.isEmpty());//파일의 존재 유무
 		
 		String message = "회원가입 실패";
 		String path="./memberJoin";

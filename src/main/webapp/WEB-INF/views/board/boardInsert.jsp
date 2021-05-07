@@ -25,7 +25,6 @@
 	<c:import url="../template/header.jsp"></c:import>
 
 	<div class="container">
-		<h2>${board} Insert Page</h2>
 
 		<form id="frm" action="./${board}Insert" method="post" enctype="multipart/form-data">
 			<c:choose>
@@ -48,10 +47,17 @@
 				<c:when test="${board eq 'community'}">
 					<div class="form-group">
 						<label for="genre">Genre</label>
-						<select class="form-control myCheck" type="text" name="genre" id="genre">
-							<c:forEach items="${genre}" var="dto">
-								<option>${dto.genre}</option>
-						  	</c:forEach>
+						<select class="form-control myCheck" name="genre" id="genre">
+							<option>국내</option>
+							<option>해외</option>
+							<option>액션</option>
+							<option>SF</option>
+							<option>코미디</option>
+							<option>스릴러</option>
+							<option>멜로</option>
+							<option>판타지</option>
+							<option>스포츠</option>
+							<option>음악</option>
 						</select>
 					</div>
 				</c:when>

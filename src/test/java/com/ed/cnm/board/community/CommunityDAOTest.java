@@ -21,7 +21,7 @@ public class CommunityDAOTest extends MyAbstractTest {
 	 * communityDAO.setInsert(communityDTO); System.out.println(result);
 	 */
 //		for(int i=0;i<100;i++) {
-//			for(int j=0; j<5; j++) {
+//			for(int j=0; j<10; j++) {
 //				CommunityDTO communityDTO = new CommunityDTO();
 //				communityDTO.setNickName("testname"+i);
 //				communityDTO.setGenre("test Genre"+j);

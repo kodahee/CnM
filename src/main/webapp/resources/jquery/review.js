@@ -1,7 +1,8 @@
 /**
  * 
  */
-let movieTitle = $("#review").attr("movieTitle");
+//let movieTitle = $("#review").attr("title");
+
 getList();
 
 $(".remove2").on("click", function() {
@@ -9,7 +10,7 @@ $(".remove2").on("click", function() {
 	let reviewNum = $(this).val();
 	console.log(reviewNum);
 	
-	$.post("../ranking/reviewDelete", 
+	$.post("../movieDetail/reviewDelete", 
 		{
 			reviewNum:reviewNum
 		},
@@ -30,7 +31,7 @@ $(".remove2").on("click", function() {
 
 // review List
 function getList() {
-	$.get("../ranking/review?movieTitle=movie1", function(data) {
+	$.get("../movieDetail/reviewList?movieTitle=movie1", function(data) {
 		console.log(data);
 		$("#review").html(data.trim());
 	});
@@ -70,9 +71,9 @@ $("#write").click(function() {
 		getList();
 		
 	} else {
-		$.post("../ranking/reviewInsert", 
+		$.post("../movieDetail/reviewInsert", 
 		{
-			movieTitle:movieTitle,
+			movieTitle:movieNm,
 			id:id,
 			nickName:nickName,
 			star:star,
