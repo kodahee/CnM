@@ -73,7 +73,7 @@ public class CommunityController {
 		return "common/commonResult";
 	}
 	
-	@GetMapping("communityUpdate")
+	@GetMapping
 	public ModelAndView setUpdate(BoardDTO boardDTO) throws Exception {
 		ModelAndView mv = new ModelAndView();
 		boardDTO = communityService.getSelect(boardDTO);
@@ -85,12 +85,12 @@ public class CommunityController {
 		return mv;
 	}
 	
-	@PostMapping("communityUpdate")
+	@PostMapping
 	public ModelAndView setUpdate(CommunityDTO communityDTO, ModelAndView mv, MultipartFile [] files) throws Exception {
 		int result = communityService.setUpdate(communityDTO, files);
 		
 		if(result > 0) {
-			mv.setViewName("redirect:./communitySelect");
+			mv.setViewName("redirect:./communityList");
 		} else {
 			mv.addObject("msg", "수정 실패");
 			mv.addObject("path", "./communitySelect");

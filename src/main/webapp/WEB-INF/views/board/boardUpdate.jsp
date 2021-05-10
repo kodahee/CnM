@@ -49,8 +49,7 @@
 			
 			<c:forEach items="${dto.boardFiles}" var="file">
 				<div>
-					<span>${file.originName}</span>
-					<span class="fileDelete" title="${file.fileNum}">X</span>
+					<span>${file.originName}</span><span class="fileDelete" title="${file.fileNum}">X</span>
 				</div>
 			</c:forEach>
 			
@@ -66,12 +65,10 @@
 	<div id="sample">
 		<div class="input-group">
 			<div class="custom-file">
-				<input type="file"  id="inputGroupFile04"
-					class="form-control-file border" name="files">
+				<input type="file"  id="inputGroupFile04" class="form-control-file border" name="files">
 			</div>
 			<div class="input-group-append delete">
-				<input class="btn btn-outline-secondary" type="button"
-					id="inputGroupFileAddon04" value="Delete">
+				<input class="btn btn-outline-secondary" type="button" id="inputGroupFileAddon04" value="Delete">
 			</div>
 		</div>
 	</div>

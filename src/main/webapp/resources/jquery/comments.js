@@ -2,7 +2,7 @@
  * 
  */
 let num = $("#comments").attr("title");
-console.log(num);
+console.log("Num : " + num);
 
 getList();
 
@@ -16,6 +16,8 @@ $("#comments").on("click", "#remove", function() {
 			ar.push($(this).val());
 		}
 	});
+	
+	console.log("checked");
 	
 	$.ajax({
 		type: "POST",

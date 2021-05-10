@@ -74,7 +74,7 @@
 			<a href="./${board}Reply?num=${dto.num}" class="btn btn-primary">Reply</a>
 		</c:if>
 		
-		<form action="./${board}Delete" id="frm">
+		<form action="./${board}Delete" id="frm" method="get">
 			<input type="hidden" name="num" value="${dto.num}">
 		</form>
 		
@@ -82,14 +82,14 @@
 	
 	<script type="text/javascript" src="../resources/jquery/comments.js"></script>
 	
-	<script type="text/javascript">
+	<!-- <script type="text/javascript">
 	
-		const del = document.getElementById("del");
+		//const del = document.getElementById("del");
 		const frm = document.getElementById("frm");
 	
 		/* callback 함수 */
-		del.addEventListener("click", function del() {
-			let result = confirm("Delete");
+		$(".del").on("click", function() {
+			let result = confirm("삭제 하시겠습니까?");
 			console.log(result);
 			
 			if(result) {
@@ -98,7 +98,7 @@
 			}
 		});
 	
-	</script>
+	</script> -->
 
 
 </body>
