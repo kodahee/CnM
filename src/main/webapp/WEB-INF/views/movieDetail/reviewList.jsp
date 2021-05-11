@@ -10,12 +10,12 @@
 				<td>${review.nickName}</td>
 				<td>${review.contents}</td>
 				<td>${review.regDate}</td>
-				<td><input type="button" class="good" value="Good"></td>
+				<td><button class="good btn btn-primary">Good</button></td>
 				<td class="goodNum">${review.goodNum}</td>
-				<td><input type="button" class="bad" value="Bad"></td>
+				<td><button class="bad btn btn-primary">Bad</button></td>
 				<td>${review.badNum}</td>
 				<c:if test="${review.id eq member.id}">
-					<td><button class="remove2" value="${review.reviewNum}">Delete</button></td>
+					<td><button class="remove2 btn btn-danger" value="${review.reviewNum}">Delete</button></td>
 				</c:if>
 			</tr>
 		</c:forEach>

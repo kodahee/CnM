@@ -166,24 +166,6 @@
 									<button type="button" class="btn btn-success" id="write">Write</button>
 								</div>
 								<div id="review" title="movie1"></div>
-								<%-- <table class="table table-hober">
-									<c:forEach items="${list}" var="review">
-										<tr>
-											<td class="reviewNum" hidden="hidden">${review.reviewNum}</td>
-											<td>${review.star}</td>
-											<td>${review.nickName}</td>
-											<td>${review.contents}</td>
-											<td>${review.regDate}</td>
-											<td><input type="button" class="good" value="Good"></td>
-											<td class="goodNum">${review.goodNum}</td>
-											<td><input type="button" class="bad" value="Bad"></td>
-											<td>${review.badNum}</td>
-											<c:if test="${review.id eq member.id}">
-												<td><button class="remove2" value="${review.reviewNum}">Delete</button></td>
-											</c:if>
-										</tr>
-									</c:forEach>
-								</table> --%>
 							</li>
 						</ul>
 						
