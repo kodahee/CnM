@@ -10,6 +10,7 @@
 
 <link rel="stylesheet" type="text/css" href="../resources/css/common.css">
 <link rel="stylesheet" type="text/css" href="../resources/css/movieInfo.css">
+<link rel="stylesheet" type="text/css" href="../resources/css/review.css">
 </head>
 <body>
 <c:import url="../template/header.jsp"></c:import>
@@ -80,7 +81,7 @@
 					<ul class="list_tabmenu">
 						<li id="i1">주요정보</li>
 						<li id="i2">출연/제작</li>
-						<li id=""><a href="../movieDetail/reviewList?movieTitle=movie1" id="review">평점</a></li>
+						<li id="i3">평점</li>
 					</ul>
 				</div>
 				<div class="contents">
@@ -131,6 +132,63 @@
 						</ul>
 					</div>
 					
+					<div>
+						<h5 class="tit_section">평점</h5>
+						<ul>
+							<li>
+								<div>
+									<div class="form-group">
+									  <input type="hidden" class="form-control" id="id" value="${member.id}">
+									  <input type="hidden" class="form-control" id="nickName" value="${member.nickName}">
+									</div>
+									<div class="form-group">
+										<div class="star-box">
+											<span class="star star_left"></span>
+											<span class="star star_right"></span>
+							
+											<span class="star star_left"></span>
+											<span class="star star_right"></span>
+							
+											<span class="star star_left"></span>
+											<span class="star star_right"></span>
+							
+											<span class="star star_left"></span>
+											<span class="star star_right"></span>
+							
+											<span class="star star_left"></span>
+											<span class="star star_right"></span>
+										</div>
+									</div>
+									<div class="form-group">
+									  <label for="comment">Comment:</label>
+									  <textarea class="form-control" rows="5" id="contents"></textarea>
+									</div>
+									<button type="button" class="btn btn-success" id="write">Write</button>
+								</div>
+								<div id="review" title="movie1"></div>
+								<%-- <table class="table table-hober">
+									<c:forEach items="${list}" var="review">
+										<tr>
+											<td class="reviewNum" hidden="hidden">${review.reviewNum}</td>
+											<td>${review.star}</td>
+											<td>${review.nickName}</td>
+											<td>${review.contents}</td>
+											<td>${review.regDate}</td>
+											<td><input type="button" class="good" value="Good"></td>
+											<td class="goodNum">${review.goodNum}</td>
+											<td><input type="button" class="bad" value="Bad"></td>
+											<td>${review.badNum}</td>
+											<c:if test="${review.id eq member.id}">
+												<td><button class="remove2" value="${review.reviewNum}">Delete</button></td>
+											</c:if>
+										</tr>
+									</c:forEach>
+								</table> --%>
+							</li>
+						</ul>
+						
+					</div>
+					
 				</div><!-- contents -->
 			
 			</div>
@@ -145,6 +203,7 @@
 </main>
 
 <script type="text/javascript" src="../resources/jquery/movieDetail.js"></script>
+<script type="text/javascript" src="../resources/jquery/review.js"></script>
 <script type="text/javascript" src="../resources/jquery/review.js"></script>
 
 </body>

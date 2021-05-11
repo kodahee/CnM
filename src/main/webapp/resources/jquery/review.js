@@ -1,7 +1,7 @@
 /**
  * 
  */
-//let movieTitle = $("#review").attr("title");
+let movieTitle = $("#review").attr("title");
 
 getList();
 
@@ -73,7 +73,7 @@ $("#write").click(function() {
 	} else {
 		$.post("../movieDetail/reviewInsert", 
 		{
-			movieTitle:movieNm,
+			movieTitle:movieTitle,
 			id:id,
 			nickName:nickName,
 			star:star,
