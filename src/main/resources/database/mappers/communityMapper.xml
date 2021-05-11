@@ -79,9 +79,17 @@
 		INSERT INTO COMMUNITY values(#{num}, #{nickName}, #{genre}, #{title}, #{contents}, sysdate, 0)
 	</insert>
 	
+	<select id="getFileSelect" parameterType="BoardFileDTO" resultType="BoardFileDTO">
+		select * from communityFiles where fileNum=#{fileNum}
+	</select>
+	
 	<insert id="setFileInsert" parameterType="BoardFileDTO">
 		insert into communityFiles values(fileNum_seq.nextval, #{num}, #{fileName}, #{originName})
 	</insert>
+	
+	<delete id="setFileDelete" parameterType="BoardFileDTO">
+		delete communityFiles where fileNum=#{fileNum}
+	</delete>
 	
 	<select id="getNum" resultType="java.lang.Long">
 		select community_seq.nextval from dual
