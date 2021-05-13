@@ -25,8 +25,10 @@ public class BookedController {
 	
 //====
 	@GetMapping("selectSeat")
-	public void selectSeat() throws Exception {
-
+	public void selectSeat(Model model,String poster, String movieTitle, LocationTheaterDTO locationTheaterDTO) throws Exception {
+		model.addAttribute("poster", poster);
+		model.addAttribute("movieTitle", movieTitle);
+		model.addAttribute("dto", locationTheaterDTO);
 	}
 	
 	@PostMapping("selectSeat")
