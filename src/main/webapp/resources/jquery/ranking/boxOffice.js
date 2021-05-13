@@ -50,7 +50,7 @@ function searchAPI(){
 	
 $.ajax({
 	type:"GET",
-	url:"http://http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchWeeklyBoxOfficeList.json",
+	url:"http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchWeeklyBoxOfficeList.json",
 	data:{
 		key:"88c812405e947836cbbee3be8daa5603",
 		targetDt:getDate(date),
