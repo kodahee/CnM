@@ -7,7 +7,6 @@ $('dt').click(function(){
 	$('.location').find('dt.select').removeClass('select')
 	$(this).addClass('select');
 	let theaterName=$(this).attr('title');
-	$('.setDate').empty();
 	makeCal(theaterName);
 	
 })
@@ -18,7 +17,6 @@ function makeCal(theaterName){
 	let month = nowDate.getMonth()+1;//MM
 	setCalendar(year, month);
 	
-	//내가 여기서 착각한게 달은 0~11인데 이걸 우리가 보기 편하게 할때 +1하는거지 얘네 자체는 그냥 해도 알아먹음 
 	let thisMonth = new Date(nowDate.getFullYear(), nowDate.getMonth(), 1); //20210401 처음날
 	let thisLastDay = new Date(nowDate.getFullYear(), nowDate.getMonth()+1, 0); //20210430 마지막날
 	
@@ -86,29 +84,35 @@ function getList(theaterName, day){
 }
 
 $('.time').on('click', '.t', function(){
-	$('.time').find('div.select').removeClass('select');
-	$(this).addClass('select');
-	let check=confirm('얘매 하시겠습니까?');
+	$('.time').find('div.selectTime').removeClass('selectTime');
+	$(this).addClass('selectTime');
+	let a = $('.selectTime').html();
+	let check=confirm('계속 하시겠습니까?');
 	let poster= $('.posterItem').attr('src');
 	let movieTitle=$('.movieTitle').text();
+	let theaterNum=$('.theaterNum').text();
+	let scheduleDate=$('.scheduleDate').text();
+	let room=$('.room').text();
+	let scheduleTime=$('.scheduleTime').text();
 	let totalSeat=$('.totalSeat').text();
-	let t=$('.time').find('div.select');
-	let scheduleTime=$(t).find('dt.scheduleTime').text();
 		if(check){
 			$.ajax({
 			url:'./selectSeat',
 			type:'GET',
 			data:{
+				poster:poster,
 				movieTitle:movieTitle,
-				totalSeat:totalSeat,
+				theaterNum:theaterNum,
+				scheduleDate:scheduleDate,
+				room:room,
 				scheduleTime:scheduleTime,
-				
+				totalSeat:totalSeat
 			},
 			success: function(result){
 				$('body').html(result);
 			}
-			
 		});
 	}
-	
 })
+
+
