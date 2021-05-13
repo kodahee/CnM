@@ -56,8 +56,8 @@
 								<img alt="" id="poster" src="${poster}">
 								<h4>${movieTitle}</h4>
 								<h4>${region}점</h4>
-								<h4>상영 일자 : <span id = "final_date"></span></h4>
-								<h4>시작 시간 : <span id = "final_time"></span></h4>
+								<h4>상영 일자 : <span id = "final_date">${dto.scheduleDate }</span></h4>
+								<h4>시작 시간 : <span id = "final_time">${dto.scheduleTime }</span></h4>
 								<h4>자리 :  </h4>
 							</div>
 							
@@ -114,7 +114,7 @@
 							<input type="hidden" id="id" name="id" value="${id}">
 							<input type="hidden" id="movieTitle" name="movieTitle" value="${movieTitle}"> 
 							<input type="hidden" id="region" name="region" value="${region}">
-							<input type="hidden" id="room" name="room" value="${room}"> 
+							<input type="hidden" id="room" name="room" value="${dto.room}"> 
 							<input type="hidden" id="timeInfo_start" name="timeInfo_start" value="${timeInfo_start}"> 
 							<input type="hidden" id="timeInfo_date" name="timeInfo_date" value="${timeInfo_date}">
 							<input type="hidden" id="seatName" name="seatName"> 
