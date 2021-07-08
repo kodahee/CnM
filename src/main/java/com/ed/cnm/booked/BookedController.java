@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.ed.cnm.location.LocationTheaterDTO;
 import com.ed.cnm.movie.MovieDTO;
 
 @Controller
